@@ -4,7 +4,7 @@ description: Rewriting a DAX query that uses TOPN with INDEX to investigate ease
 author: duddy
 date: 2024-05-01 00:00:00 +0000
 categories: [DAX]
-tags: [dax, window functions, dax studio]
+tags: [dax]
 pin: false
 ---
 

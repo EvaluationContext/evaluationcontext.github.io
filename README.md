@@ -1,16 +1,9 @@
-# Local testing
+## Dev Build
 
-Open Docker
+Run Devcontainer
 
-Use WSL terminal
+Exec:
 
-#### Install dependencies *Install gemfile dependences to /tmp/vendor with bundler*
-
-```bash
-docker run -t -v $PWD:/app -v /tmp/vendor:/vendor -w /app -e BUNDLE_PATH=/vendor ruby bundle
-```
-
-### Preview website *http://localhost:4000* 
-```bash
-docker run -t -v $PWD:/app -v /tmp/vendor:/vendor -w /app -e BUNDLE_PATH=/vendor -p 4000:4000 ruby bundle exec jekyll serve --watch --drafts --force_polling -H 0.0.0.0
+```console
+bundle exec jekyll serve --watch --force_polling -H 0.0.0.0 --incremental --future
 ```

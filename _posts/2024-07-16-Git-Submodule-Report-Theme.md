@@ -3,8 +3,8 @@ title: Using Git Submodules to Distribute a Common Theme to Power BI Reports
 description: Defining a Theme in a Git Submodule that can be injected into Reports in other repos upon deployment
 author: duddy
 date: 2024-07-16 16:00:00 +0000
-categories: [Power BI, PBIR, PBIP, DevOps, Git]
-tags: [pbir, bpir, theme, git, git submodule, power bi, devops]
+categories: [PBIP, Git Submodules]
+tags: [pbir, bpir, theme, git, git submodule, devops]
 pin: false
 image:
   path: /assets/img/0007-PBIRTemplateDonation/beforeAfter.png

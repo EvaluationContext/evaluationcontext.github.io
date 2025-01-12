@@ -4,7 +4,7 @@ description: Solving the Island problem in DAX, to return a list of continuous D
 author: duddy
 date: 2024-05-09 00:00:00 +0000
 categories: [DAX]
-tags: [dax, island problem]
+tags: [dax]
 pin: false
 image:
   path: /assets/img/0004-IslandAndGaps/Solution2.png

@@ -16,20 +16,20 @@ timezone: Europe/London
 
 title: Evaluation Context # the main title
 
-tagline: A blog about the Microsoft BI stack (Microsoft Fabric, Power BI, SQL, SSAS, DAX) # it will display as the sub-title
+tagline: A blog about the Microsoft BI stack (Microsoft Fabric, Power BI, SQL, SSAS, DAX) # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A blog about the Microsoft BI stack (Microsoft Fabric, Power BI, SQL, SSAS, DAX)
+  A minimal, responsive and feature-rich Jekyll theme for technical writing.
 
 # Fill in the protocol & hostname for your site.
-# e.g. 'https://username.github.io', note that it does not end with a '/'.
+# E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://evaluationcontext.github.io"
 
 github:
-  username: EvaluationContext # change to your github username
+  username: EvaluationContext # change to your GitHub username
 
 # twitter:
-#   username: twitter_username # change to your twitter username
+#   username: twitter_username # change to your Twitter username
 
 social:
   # Change to your full name.
@@ -38,8 +38,8 @@ social:
   email: evaluationcontext@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    # - https://twitter.com/username # change to your twitter homepage
-    - https://github.com/EvaluationContext # change to your github homepage
+    # - https://twitter.com/username # change to your Twitter homepage
+    - https://github.com/EvaluationContext # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     - https://www.linkedin.com/in/jakeduddy/
@@ -62,8 +62,18 @@ analytics:
     id: # fill in your Google Analytics ID
   goatcounter:
     id: # fill in your GoatCounter ID
+  umami:
+    id: # fill in your Umami ID
+    domain: # fill in your Umami domain
+  matomo:
+    id: # fill in your Matomo ID
+    domain: # fill in your Matomo domain
+  cloudflare:
+    id: # fill in your Cloudflare Web Analytics token
+  fathom:
+    id: # fill in your Fathom Site ID
 
-# Pageviews settings
+# Page views settings
 pageviews:
   provider: # now only supports 'goatcounter'
 
@@ -75,17 +85,17 @@ pageviews:
 #
 # Available options:
 #
-#     light  - Use the light color scheme
-#     dark   - Use the dark color scheme
+#     light — Use the light color scheme
+#     dark — Use the dark color scheme
 #
 theme_mode: # [light | dark]
 
-# The CDN endpoint for images.
+# The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
-# will be added to all image (site avatar & posts' images) paths starting with '/'
+# will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn:
+cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: "/assets/img/avatar/avatar.png"
@@ -98,7 +108,7 @@ social_preview_image: # string, local or CORS resources
 toc: true
 
 comments:
-  # Global switch for the post comment system. Keeping it empty means disabled.
+  # Global switch for the post-comment system. Keeping it empty means disabled.
   provider: giscus # [disqus | utterances | giscus]
   # The provider options are as follows:
   disqus:
@@ -128,24 +138,27 @@ assets:
     env: # [development | production]
 
 pwa:
-  enabled: true # the option for PWA feature (installable)
+  enabled: true # The option for PWA feature (installable)
   cache:
-    enabled: true # the option for PWA offline cache
+    enabled: true # The option for PWA offline cache
     # Paths defined here will be excluded from the PWA cache.
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
-paginate: 10
+paginate: 20
 
 # The base URL of your site
 baseurl: ""
 
+highlight: true
+
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
-  syntax_highlighter: None # rouge
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: None #rouge
   syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
     disable: true
     # css_class: highlight
@@ -182,10 +195,6 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-  - scope:
-      path: assets/js/dist
-    values:
-      swcache: true
 
 sass:
   style: compressed
@@ -206,8 +215,9 @@ exclude:
   - tools
   - README.md
   - LICENSE
+  - purgecss.js
   - rollup.config.js
-  - package*.json
+  - "package*.json"
 
 jekyll-archives:
   enabled: [categories, tags]

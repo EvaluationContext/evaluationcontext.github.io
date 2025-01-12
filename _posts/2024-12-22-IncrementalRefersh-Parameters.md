@@ -3,7 +3,7 @@ title: Keeping Power BI Incremental Refresh Up To Date
 description: A alternate solution to a solution by Nikolaos Christoforidis for keeping local Incremental Refresh Reports up to date
 author: duddy
 date: 2024-12-22 18:00:00 +0000
-categories: [Powerquery, Incremental Refresh]
+categories: [Incremental Refresh]
 tags: [powerquery, incrementalrefresh]
 pin: false
 image:

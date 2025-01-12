@@ -3,8 +3,8 @@ title: Further Adventures in SVGs
 description: Creating a Trend SVG Visual in Power BI
 author: duddy
 date: 2024-10-01 13:00:00 +0000
-categories: [SVG, DAX]
-tags: [svg, dax]
+categories: [Data Viz, SVG]
+tags: [data viz, svg, dax]
 pin: false
 image:
   path: /assets/img//0009-SVGTrend/SVGTrendSmall.png

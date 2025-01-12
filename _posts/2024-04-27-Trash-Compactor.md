@@ -3,11 +3,11 @@ title: Considering Cardinality of Column Combinations in Junk Dimension Design
 description: Evaluating the design of Junk Dimension via calculating the Cardinality of Column Combinations
 author: duddy
 date: 2024-04-27 00:000:00 +0000
-categories: [Data Modelling, Junk Dimensions, pySpark]
-tags: [data modelling, junk dimension]
+categories: [Data Modelling]
+tags: [data modelling]
 pin: false
 image:
-  path: /assets/img/TrashCompactor/heatplot.jpg
+  path: /assets/img/0002-TrashCompactor/heatplot.jpg
   alt: Heatplot showing the cardinality of column combinations
 ---
 
@@ -63,7 +63,7 @@ sns.set(font_scale=0.5)
 sns.heatmap(data, cmap="viridis", square=True)
 ```
 
-![Column Combination Cardinality Heatmap](/assets/img/TrashCompactor/heatplot.jpg)
+![Column Combination Cardinality Heatmap](/assets/img/0002-TrashCompactor/heatplot.jpg)
 
 Combination of fields that result in high cardinality , are coloured Yellow. You should think very carefully whether a field or fields that result in a large cardinality should exist in a candidate Junk Dimension. If the junk dimension is small in relation to the fact table, probably not. But if the junk dimension is large, and there one or more highlighted fields, you should carefully consider whether these should remain in the fact table or group well together in a secondary junk table. 
 

@@ -7,7 +7,7 @@ categories: [Syntax Highlighting, DAX]
 tags: [rogue, highlight.js, github pages, dax, syntax highlighting]
 pin: false
 image:
-  path: /assets/img/syntaxHighlightDAX/daxSyntaxHighlightingRackupDemo.png
+  path: /assets/img/0001-syntaxHighlightDAX/daxSyntaxHighlightingRackupDemo.png
   alt: Example of Dax Syntax Highlighting with Rogue
 ---
 
@@ -39,7 +39,7 @@ WHERE foo = 'bar'
 
 This pattern can be described via a regex expression ```%r/--.*/```. A theme can then be applied to colour and style tokens according to their token type.
 
-![Syntax Highlighting Process](/assets/img/syntaxHighlightDAX/Process.png)
+![Syntax Highlighting Process](/assets/img/0001-syntaxHighlightDAX/Process.png)
 
 ## DAX Lexer
 Jekyll's default Syntax Highlighter is [Rogue](https://rouge.jneen.net/). Rogue doesn't have a DAX lexer, so we'll have to develop one. Rogue provides a [Lexer Development Guide](https://rouge-ruby.github.io/docs/file.LexerDevelopment.html) that we can follow. 
@@ -100,7 +100,7 @@ docker exec highlight-js node tools/build.js -n dax
 To translate our lexer we can reference the [Language Definition Guide](https://highlightjs.readthedocs.io/en/latest/language-guide.html). 
 Highlight.js gives us a great development environment. We provide sample code, and the webpage show how our text is being tokenized and styled.
 
-![HighlightJS: Testing](/assets/img/syntaxHighlightDAX/daxSyntaxHighlightingHighlightJSDemo.png)
+![HighlightJS: Testing](/assets/img/0001-syntaxHighlightDAX/daxSyntaxHighlightingHighlightJSDemo.png)
 
 Once we have finsihed developing our [Lexer](https://github.com/EvaluationContext/highlight.js-dax/blob/Feature.dax/src/languages/dax.js), there are some extra steps required to [Contribute a Language](https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md). I decided to skip this process at this time, as ideally I want to use Rogue in the longer term, but I might come back to this.
 

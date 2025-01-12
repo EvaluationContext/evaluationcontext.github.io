@@ -3,8 +3,8 @@ title: SVG Violin Plot
 description: Creating a SVG Violin to visualize distributions in Power BI
 author: duddy
 date: 2024-11-25 18:00:00 +0000
-categories: [SVG, DAX]
-tags: [svg, dax]
+categories: [Data Viz, SVG]
+tags: [data viz, svg, dax]
 pin: false
 image:
   path: /assets/img/0011-SVGViolin/SVGViolin_Small.png

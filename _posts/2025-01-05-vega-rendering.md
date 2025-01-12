@@ -3,8 +3,8 @@ title: Vega Embed on Jekyll
 description: Installing and using Vega Embed with my Jekyll Blog
 author: duddy
 date: 2025-01-05 18:00:00 +0000
-categories: [Vega, Vega-Embed]
-tags: [vega, vega-embed]
+categories: [Data Viz, Vega]
+tags: [data viz, vega, vega-embed]
 pin: false
 image:
   path: /assets/img/0017-VegaEmbed/VegaEmbed.png

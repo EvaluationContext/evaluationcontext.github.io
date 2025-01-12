@@ -3,8 +3,8 @@ title: Stealing Performance from Sparklines
 description: Using the ad hoc measures created by sparklines to optimize SVG generating measures
 author: duddy
 date: 2024-11-29 18:00:00 +0000
-categories: [SVG, DAX]
-tags: [svg, dax, sparklines]
+categories: [Data Viz, SVG]
+tags: [data viz, svg, dax, sparklines]
 pin: false
 image:
   path: /assets/img/0012-SVGsparkline/Visual.png

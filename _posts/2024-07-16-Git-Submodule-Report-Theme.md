@@ -4,7 +4,7 @@ description: Defining a Theme in a Git Submodule that can be injected into Repor
 author: duddy
 date: 2024-07-16 16:00:00 +0000
 categories: [PBIP, Git Submodules]
-tags: [pbir, bpir, theme, git, git submodule, devops]
+tags: [pbir, pbip, theme, git, git submodule, devops]
 pin: false
 image:
   path: /assets/img/0007-PBIRTemplateDonation/beforeAfter.png

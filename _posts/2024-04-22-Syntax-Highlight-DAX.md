@@ -11,7 +11,7 @@ image:
   alt: Example of Dax Syntax Highlighting with Rogue
 ---
 
-This blog is hosted on Github Pages. Github pages uses [Jekyll](https://jekyllrb.com/) to create static webpages from [Markdown](https://www.markdownguide.org/). I want to able to blog on Power BI context, and it would be nice to have Syntax Highlighting for DAX code, but this is not nativly supported. This article describes the development and implementation to make this possible.
+This blog is hosted on Github Pages. Github pages uses [Jekyll](https://jekyllrb.com/) to create static webpages from [Markdown](https://www.markdownguide.org/). I want to able to blog on Power BI context, and it would be nice to have Syntax Highlighting for DAX code, but this is not natively supported. This article describes the development and implementation to make this possible.
 
 ## Syntax Highlighting
 In markdown, Fenced Code Blocks are created by placing triple backticks ```  before and after a code snippets, causing text to render inside a box.
@@ -51,7 +51,7 @@ Rogue is a Ruby application, and therefore development and testing of the lexer 
 {: .prompt-warning }
 
 ```bash
-#Install gemfile dependences to /tmp/vendor with bundler
+#Install gemfile dependencies to /tmp/vendor with bundler
 docker run -t -v $PWD:/app -v /tmp/vendor:/vendor -w /app -e BUNDLE_PATH=/vendor ruby bundle
 ```
 
@@ -66,7 +66,7 @@ docker run -t -v $PWD:/app -v /tmp/vendor:/vendor -w /app -e BUNDLE_PATH=/vendor
 ```
 
 ### Rogue DAX Lexer Development
-Once we have the development environment setup we can start developing our DAX lexer. There are few existing DAX lexer in other framworks that I used for inspiration ([Tabuar Editor](https://github.com/TabularEditor/TabularEditor/blob/master/AntlrGrammars/DAXLexer.g4), SQLBI, and Microsoft learn), resulting in this [Rogue DAX Lexer](https://github.com/EvaluationContext/rouge/blob/feature.dax/lib/rouge/lexers/dax.rb). With the addition some code snippets ([Demo](https://github.com/EvaluationContext/rouge/blob/feature.dax/lib/rouge/demos/dax) & [Sample](https://github.com/EvaluationContext/rouge/blob/feature.dax/spec/visual/samples/dax)) we are ready to perform a visual check of the lexer.
+Once we have the development environment setup we can start developing our DAX lexer. There are few existing DAX lexer in other frameworks that I used for inspiration ([Tabular Editor](https://github.com/TabularEditor/TabularEditor/blob/master/AntlrGrammars/DAXLexer.g4), SQLBI, and Microsoft learn), resulting in this [Rogue DAX Lexer](https://github.com/EvaluationContext/rouge/blob/feature.dax/lib/rouge/lexers/dax.rb). With the addition some code snippets ([Demo](https://github.com/EvaluationContext/rouge/blob/feature.dax/lib/rouge/demos/dax) & [Sample](https://github.com/EvaluationContext/rouge/blob/feature.dax/spec/visual/samples/dax)) we are ready to perform a visual check of the lexer.
 
 > If you have the local website running on rackup. Any changes saved to your files are reflected on the web page, without having to restart the server; just refresh your browser.
 {: .prompt-tip }
@@ -78,7 +78,7 @@ At the time of publishing, this PR is still under review. So in the meantime I t
 ### Highlight.js Development Environment
 Highlight.js provides some guides on [contributing](https://github.com/highlightjs/highlight.js/blob/main/CONTRIBUTING.md) and how to setup a [Docker Development Environment](https://highlightjs.readthedocs.io/en/latest/building-testing.html#building-and-testing-with-docker). Unlike Rogue, where you mount a directory and save files to your local machine, highlight.js creates a self contained build.
 
-> An update of the base docker image from node:12-slim to node:21-bullseye-slim was required to get container to build sucessfully
+> An update of the base docker image from node:12-slim to node:21-bullseye-slim was required to get container to build successfully
 {: .prompt-info }
 
 ```bash
@@ -102,7 +102,7 @@ Highlight.js gives us a great development environment. We provide sample code, a
 
 ![HighlightJS: Testing](/assets/img/0001-syntaxHighlightDAX/daxSyntaxHighlightingHighlightJSDemo.png)
 
-Once we have finsihed developing our [Lexer](https://github.com/EvaluationContext/highlight.js-dax/blob/Feature.dax/src/languages/dax.js), there are some extra steps required to [Contribute a Language](https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md). I decided to skip this process at this time, as ideally I want to use Rogue in the longer term, but I might come back to this.
+Once we have finished developing our [Lexer](https://github.com/EvaluationContext/highlight.js-dax/blob/Feature.dax/src/languages/dax.js), there are some extra steps required to [Contribute a Language](https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md). I decided to skip this process at this time, as ideally I want to use Rogue in the longer term, but I might come back to this.
 
 In order to self host highlight.js:
 - Update _config.yml to turn off rogue
@@ -145,4 +145,4 @@ EVALUATE
     )
 ```
 
-As an end note, in addition to the more staticly defined token, DAX also has the concept of variables. To highlight these would require Semantic Highlighting, which is beyond the scope of this project.
+As an end note, in addition to the more statically defined token, DAX also has the concept of variables. To highlight these would require Semantic Highlighting, which is beyond the scope of this project.

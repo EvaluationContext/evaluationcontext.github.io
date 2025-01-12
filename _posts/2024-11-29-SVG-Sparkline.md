@@ -211,7 +211,7 @@ IF( not ISEMPTY(__Data) && not ISEMPTY( __Non_Blank_Sync_Data ), __Svg )
 
 ## Performance
 
-All that was left was to test performance, you can see my first attempt was not great, using alot of formula engine and creating large data cache.
+All that was left was to test performance, you can see my first attempt was not great, using a lot of formula engine and creating large data cache.
 
 ![Initial Measure](/assets/img/0012-SVGsparkline/First%20attempt.png)
 

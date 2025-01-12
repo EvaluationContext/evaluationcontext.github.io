@@ -21,7 +21,7 @@ Partitions can be refresh in parallel, and the amount of parallelism can be set 
 
 By looking at all the operations on the partitions of the semantic model as a gantt chart we are able to determine if there are any bottlenecks in a slow refresh, which informs any optimization work.
 
-The Craytec timelines Gannt looks like this for a refresh:
+The Craytec timelines Gantt looks like this for a refresh:
 
 ![Craytec Timelines](/assets/img/0016-DenebGantt/Craytec.png)
 

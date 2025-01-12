@@ -70,7 +70,7 @@ VAR _values =
         ,"@Val", CALCULATE( SUM( ExecutionMetrics[durationMs] ) / 1000, ExecutionMetrics[LogAnalyticsCategory]= "Command" )
     )
 VAR _numValues = COUNTAX( _values, [@Val] )
-VAR _KDE = // Kernal Density Estimatation
+VAR _KDE = // Kernal Density Estimation
     ADDCOLUMNS(
         GENERATESERIES( 0, _samples + 1, 1 )
         ,"@inputX", _rangePerSample * [Value]

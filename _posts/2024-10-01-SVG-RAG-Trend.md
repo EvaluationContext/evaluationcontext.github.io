@@ -21,19 +21,19 @@ VAR _SvgHeight =                20
 // values
 VAR _ActualValue =              [Max Value]
 VAR _ActualColour=              [Colour Hex]
-VAR _AcutalValueFormatted =     IF( MAX( Metrics[format] ) = "Percent", FORMAT( _ActualValue, "0.0%"), FORMAT( _ActualValue, "0.0") )
+VAR _ActualValueFormatted =     IF( MAX( Metrics[format] ) = "Percent", FORMAT( _ActualValue, "0.0%"), FORMAT( _ActualValue, "0.0") )
 VAR _RedValue =                 MAX( Metrics[red#] )
 VAR _GreenValue =               MAX( Metrics[green#] )
 
 // y axis
-VAR _Actuals =
+VAR _Actual =
     ADDCOLUMNS(
         CALCULATETABLE( VALUES( Periods[Reporting Period] ), ALLSELECTED( Periods ) )
         ,"@Actual", CALCULATE( [Max Value] )
     )
 
-VAR _MinActual =                MINX( _Actuals, [@Actual] )
-VAR _MaxActual =                MAXX( _Actuals, [@Actual] )
+VAR _MinActual =                MINX( _Actual, [@Actual] )
+VAR _MaxActual =                MAXX( _Actual, [@Actual] )
 VAR _SmallValue =               MIN( _RedValue, _GreenValue)
 VAR _LargeValue =               MAX( _RedValue, _GreenValue) 
 VAR _SmallestValue =            MIN( _SmallValue, _MinActual )
@@ -48,7 +48,7 @@ VAR _YOutputEnd =               0 + _YOffset                        // The large
 // x axis
 VAR _DateMin =                  CALCULATE( MINX( SUMMARIZE( 'Fact', Periods[End Date] ), Periods[End Date] ), ALLSELECTED( Periods ), ALLSELECTED( Metrics ) )
 VAR _DateMax =                  CALCULATE( MAXX( SUMMARIZE( 'Fact', Periods[End Date] ), Periods[End Date] ), ALLSELECTED( Periods ), ALLSELECTED( Metrics ) )
-VAR _MaxDateWithAcutal =        CALCULATE( MAXX( SUMMARIZE( 'Fact', Periods[End Date] ), Periods[End Date] ) )
+VAR _MaxDateWithActual =        CALCULATE( MAXX( SUMMARIZE( 'Fact', Periods[End Date] ), Periods[End Date] ) )
 
 VAR _XOffset =                   5
 VAR _XInputStart =               _DateMin                           // The lowest number of the range input
@@ -78,17 +78,17 @@ var _SmallCircleSize =          1.
 var _LargeCircleSize =          3
 var _Circles =
                                 ADDCOLUMNS(
-                                    CALCULATETABLE( SUMMARIZE( 'Fact', Periods[End Date] ) ,REMOVEFILTERS( Periods ), DATESBETWEEN( Dates[Date], _DateMin, _MaxDateWithAcutal ) )
+                                    CALCULATETABLE( SUMMARIZE( 'Fact', Periods[End Date] ) ,REMOVEFILTERS( Periods ), DATESBETWEEN( Dates[Date], _DateMin, _MaxDateWithActual ) )
                                     ,"@circles"
                                         ,var xVal = Periods[End Date]
                                         var yVal =  CALCULATE( [Max Value], REMOVEFILTERS( Periods ), TREATAS( { xVal }, Periods[End Date] ))
                                         var hex =   CALCULATE( [Colour Hex], REMOVEFILTERS( Periods ), TREATAS( { xVal }, Periods[End Date] ))
                                         var x =     _XOutputStart + ((_XOutputEnd - _XOutputStart) / (_XInputEnd - _XInputStart)) * (xVal - _XInputStart)
                                         var y =     _YOutputStart + ((_YOutputEnd - _YOutputStart) / (_YInputEnd - _YInputStart)) * (yVal  - _YInputStart)
-                                        var size =  IF( Periods[End Date] = _MaxDateWithAcutal, _LargeCircleSize, _SmallCircleSize )
+                                        var size =  IF( Periods[End Date] = _MaxDateWithActual, _LargeCircleSize, _SmallCircleSize )
                                         return
-                                        IF( not ISBLANK( xVal ), "<circle cx=""" & x &""" cy=""" & y & """ r=""" & size & """ fill=""" & IF( Periods[End Date] = _MaxDateWithAcutal, hex, hex & _Opacity ) & """ stroke= '" & IF( Periods[End Date] = _MaxDateWithAcutal, _BlackHex, _BlackHex & _Opacity )  & "'/>", "")
-                                        & IF( Periods[End Date] = _MaxDateWithAcutal  , "<text x='" & _SvgWidth - 20 & "' y='"& y + _LargeCircleSize & "' fill='" & _CallOutHex  & "' font-size='8' font-family='Segoe UI, sans-serif' >"& _AcutalValueFormatted &"</text>", "")
+                                        IF( not ISBLANK( xVal ), "<circle cx=""" & x &""" cy=""" & y & """ r=""" & size & """ fill=""" & IF( Periods[End Date] = _MaxDateWithActual, hex, hex & _Opacity ) & """ stroke= '" & IF( Periods[End Date] = _MaxDateWithActual, _BlackHex, _BlackHex & _Opacity )  & "'/>", "")
+                                        & IF( Periods[End Date] = _MaxDateWithActual  , "<text x='" & _SvgWidth - 20 & "' y='"& y + _LargeCircleSize & "' fill='" & _CallOutHex  & "' font-size='8' font-family='Segoe UI, sans-serif' >"& _ActualValueFormatted &"</text>", "")
                                 )               
 
 VAR _Svg =

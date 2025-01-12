@@ -7,7 +7,7 @@ categories: [Data Viz, SVG]
 tags: [data viz, svg, dax]
 pin: false
 image:
-  path: /assets/img/0008-SVGDumbell/SVGDumbell.png
+  path: /assets/img/0008-SVGDumbbell/SVGDumbbell.png
   alt: Example of Dumbbell SVG
 ---
 
@@ -23,7 +23,7 @@ VAR _SvgHeight =                20
 // Values
 VAR _ActualValue =              [Max Value]
 VAR _ActualColour=              MAX( 'Fact'[Colour] )
-VAR _AcutalValueFormatted =     IF( MAX( Metrics[format] ) = "Percent", FORMAT( _ActualValue, "0%"), FORMAT( _ActualValue, "0.00") )
+VAR _ActualValueFormatted =     IF( MAX( Metrics[format] ) = "Percent", FORMAT( _ActualValue, "0%"), FORMAT( _ActualValue, "0.00") )
 VAR _RedValue =                 MAX( Metrics[red#] )
 VAR _GreenValue =               MAX( Metrics[green#] )
 VAR _SmallValue =               MIN( _RedValue, _GreenValue)
@@ -44,7 +44,7 @@ VAR _LargePosition =            _OutputStart + ((_OutputEnd - _OutputStart) / (_
  
 // Colours
 VAR _Opacity =                  "80" // 50%
-VAR _AcutalHex =                MAX( 'Fact'[Colour Hex] )
+VAR _ActualHex =                MAX( 'Fact'[Colour Hex] )
 VAR _RedHex =                   "#D2222D"
 VAR _AmberHex =                 "#FFBF00"
 VAR _GreenHex =                 "#238823"
@@ -89,10 +89,10 @@ VAR _CallOutHex =
 VAR _Offset = 5
 VAR _linePosition =             _SvgHeight - (_SvgHeight / 4)
 VAR _MiddleLine =               "<line x1=""" & _SmallPosition & """" & UNICHAR(10) & "y1=""" & _linePosition & """ x2=""" & _LargePosition & """ y2=""" & _linePosition & """ stroke=""" & _GreyHex & """/>"
-VAR _ActualCircle =             "<circle cx=""" & _ActualPosition &""" cy=""" & _linePosition & """ r=""3"" fill=""" & _AcutalHex & """ stroke= '" & _BlackHex & "'/>"
+VAR _ActualCircle =             "<circle cx=""" & _ActualPosition &""" cy=""" & _linePosition & """ r=""3"" fill=""" & _ActualHex & """ stroke= '" & _BlackHex & "'/>"
 VAR _SmallCircle =              "<circle cx=""" & _SmallPosition &""" cy=""" & _linePosition & """ r=""2"" fill=""" & _SmallHex & _Opacity & """/>"
 VAR _LargeCircle =              "<circle cx=""" & _LargePosition &""" cy=""" & _linePosition & """ r=""2"" fill=""" & _LargeHex & _Opacity & """/>"
-VAR _Callout =                  "<text x='" & _ActualPosition - _Offset & "' y='"& _SvgHeight / 3 & "' fill='" & _CallOutHex  & "' font-size='8' font-family='Segoe UI, sans-serif' >"& _AcutalValueFormatted &"</text>"
+VAR _Callout =                  "<text x='" & _ActualPosition - _Offset & "' y='"& _SvgHeight / 3 & "' fill='" & _CallOutHex  & "' font-size='8' font-family='Segoe UI, sans-serif' >"& _ActualValueFormatted &"</text>"
  
 VAR _Svg =
     "data:image/svg+xml;utf8, <svg width=""" & _SvgWidth & """ height=""" & _SvgHeight &""" xmlns="http://www.w3.org/2000/svg">" &

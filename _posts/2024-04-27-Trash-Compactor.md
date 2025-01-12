@@ -21,13 +21,13 @@ I have been musing on the process of designing of Junk Dimensions for Power BI S
 [1]: https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/dimensional-modeling-techniques/junk-dimension
 
 ### Why would we want a Junk Dimension?
--  **Simplier DAX**: Easier to remove filters. Avoids hard to "incorrect" results due to Auto-exist; well covered by [SQLBI](https://www.sqlbi.com/articles/understanding-dax-auto-exist/).
--  **Simplify User Defined Aggregrations**: With a Junk Dimension, a single field can be used to define the criteria for a cache hit. Otherwise you would potenitally need a large number of single field dimension, defined by relationship. You can keep the fields in the fact table and use GROUP BY, but cross-filtering between other fact tables is not possible.
+-  **Simpler DAX**: Easier to remove filters. Avoids hard to "incorrect" results due to Auto-exist; well covered by [SQLBI](https://www.sqlbi.com/articles/understanding-dax-auto-exist/).
+-  **Simplify User Defined Aggregations**: With a Junk Dimension, a single field can be used to define the criteria for a cache hit. Otherwise you would potentially need a large number of single field dimension, defined by relationship. You can keep the fields in the fact table and use GROUP BY, but cross-filtering between other fact tables is not possible.
 
 ### Qualities of a "Good" Junk Dimension?
-Kimball's defination makes a Junk Dimension a dumping ground, consisting of a jumble of fields. If we were to improve a Junk Dimension, what qualities would we desire?
+Kimball's definition makes a Junk Dimension a dumping ground, consisting of a jumble of fields. If we were to improve a Junk Dimension, what qualities would we desire?
 1. Minimal number of fields
-2. Low cardinatlity fields
+2. Low cardinality fields
 3. Fields are all well related as to avoid the full cartesian product
 
 These point all relate to minimize the size of the relationship, and avoiding sub-optimal sort order, to maximize run-length encoding and ensuring good query performance.
@@ -44,10 +44,10 @@ from pyspark.sql import functions as F
 import pandas as pd
 import seaborn as sns
 
-# filter to potential junk dimension, excluding priamry key
+# filter to potential junk dimension, excluding primary key
 df = spark.sql("SELECT * FROM foo")
 
-# Interate all combinations of columns, calculate cardinality cominations
+# Iterate all combinations of columns, calculate cardinality combinations
 combo_dict={}
 for combo in list(it.combinations(df.columns, 2)): 
     combo_dict['__'.join(perm)] = df.select(list(combo)).distinct().count()

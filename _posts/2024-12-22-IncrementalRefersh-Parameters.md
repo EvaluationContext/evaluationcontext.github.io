@@ -4,7 +4,7 @@ description: A alternate solution to a solution by Nikolaos Christoforidis for k
 author: duddy
 date: 2024-12-22 18:00:00 +0000
 categories: [Incremental Refresh]
-tags: [powerquery, incrementalrefresh]
+tags: [powerquery, incremental refresh]
 pin: false
 image:
   path: /assets/img/0015-IncRefresh/post.png

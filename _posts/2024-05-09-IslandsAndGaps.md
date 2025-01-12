@@ -19,7 +19,7 @@ The Island problem states that we want to group ranges of continuous sequences. 
 > If we have daily the sequential sequence would need to increase by 1 for each row. If we have weekly data the sequence would need to increase by 7. 
 {: .prompt-info }
 
-We can calcualte the difference between the two sequences. If there is no gap then the difference will be constant. If there is a gap the difference will change, and denoting a new island. This is demonstrated with this example.
+We can calculate the difference between the two sequences. If there is no gap then the difference will be constant. If there is a gap the difference will change, and denoting a new island. This is demonstrated with this example.
 
 ```dax
 DEFINE 
@@ -65,7 +65,7 @@ CALCULATETABLE(
 | 11/11/2022 00:00:00 | 6          | 44870    |
 | 12/11/2022 00:00:00 | 7          | 44870    |
 
-As you can see there are 3 seperate continuous sequences, and each group gets a distinct [@Island] value. 
+As you can see there are 3 separate continuous sequences, and each group gets a distinct [@Island] value. 
 
 We can use this as a base for the final solution. 
 

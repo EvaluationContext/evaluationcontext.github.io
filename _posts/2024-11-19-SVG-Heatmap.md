@@ -66,7 +66,7 @@ in Source
 
 ## Log Analytics Query Limits
 
-Log Analytics has some [query limits](https://learn.microsoft.com/en-us/kusto/concepts/query-limits?view=microsoft-fabric) to be aware of; 64 MB and 500,000 rows. This seems to be true even with NoTruncate set. To work around this I applied [incremental refresh](https://learn.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview), and was able to hydrate daily partitions but not monthly or larger partitions.  You can incrementally collect these daily partitions, which will roll into the larger partitions over time. If your data is bigger you have the option to use the export option to move to blob or some other stoarage, and connect that to Power BI.
+Log Analytics has some [query limits](https://learn.microsoft.com/en-us/kusto/concepts/query-limits?view=microsoft-fabric) to be aware of; 64 MB and 500,000 rows. This seems to be true even with NoTruncate set. To work around this I applied [incremental refresh](https://learn.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview), and was able to hydrate daily partitions but not monthly or larger partitions.  You can incrementally collect these daily partitions, which will roll into the larger partitions over time. If your data is bigger you have the option to use the export option to move to blob or some other storage, and connect that to Power BI.
 
 ## xmlaRequestId 00000000-0000-0000-0000-000000000000
 

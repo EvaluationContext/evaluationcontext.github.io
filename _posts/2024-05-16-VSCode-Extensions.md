@@ -7,7 +7,7 @@ categories: [VS Code, Extensions]
 tags: [vscode extension]
 pin: false
 image:
-  path: /assets/img/005-VSCodeExtensions/VS%20Code.png
+  path: /assets/img/0005-VSCodeExtensions/VS%20Code.png
   alt: VS Code
 ---
 
@@ -42,16 +42,16 @@ TMDL, DAX and M are used to review and update tabular models that have been deco
 
 These extensions extend VS Code's inbuilt git version control functionality. The features I use most are Inline blame annotation on rows, and On hover pop-up to show the details of commit.
 
-![Blame](/assets/img/005-VSCodeExtensions/Blame.png)
+![Blame](/assets/img/0005-VSCodeExtensions/Blame.png)
 _GitLens: In-line Blame_
 
-![Blame Hover](/assets/img/005-VSCodeExtensions/Blame%20Hover.png)
+![Blame Hover](/assets/img/0005-VSCodeExtensions/Blame%20Hover.png)
 _GitLens: On Hover Blame Details_
 
 Commit graph and GitGraph. Commit graph, gives you a graph of commits, branches and merges over time, although I prefer Git Graph for this as it is simpler and more compact.
 
-![Commit Graph](/assets/img/005-VSCodeExtensions/Commit%20Graph.png)
+![Commit Graph](/assets/img/0005-VSCodeExtensions/Commit%20Graph.png)
 _GitLens: Commit Graph_
 
-![Commit Graph](/assets/img/005-VSCodeExtensions/Git%20Graph.png)
+![Commit Graph](/assets/img/0005-VSCodeExtensions/Git%20Graph.png)
 _Git Graph: Git Graph_

@@ -109,6 +109,6 @@ IF( not ISBLANK( _ActualValue ) &&  not ISBLANK( MAX( Metrics[RAG] )), _Svg )
 
 Resulting in the following:
 
-![SVG Dumbbell](/assets/img/0008-SVGDumbell/SVGDumbell.png)
+![SVG Dumbbell](/assets/img/0008-SVGDumbbell/SVGDumbbell.png)
 
 I am fairly happy with the results of this visual and will keep this option in mind in the future. The best part of this option is that you can mix this with fields parameters so that users can select between values and the SVG.

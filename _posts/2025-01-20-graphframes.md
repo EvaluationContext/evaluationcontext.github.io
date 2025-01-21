@@ -7,7 +7,7 @@ categories: [Power BI Administration, Scanner API]
 tags: [scanner api, graph api, graphframes, pregel, databricks, python, pyspark]
 pin: false
 image:
-  path: /assets/img/0018-GraphFrames/Graphdb.png
+  path: /assets/img/0018-GraphFrames/graphdb.png
   alt: https://subject.network/posts/graph-store/
 ---
  

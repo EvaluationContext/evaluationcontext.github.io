@@ -75,7 +75,7 @@ Graphs represent data as a set of vertices (nodes/entities) and edges (connectio
 
 ### Pregel
 
-In order to traverse the graph and disseminate Access Roles to ADD groups and users we are going to use [Pregel](https://graphframes.github.io/graphframes/docs/_site/api/python/graphframes.lib.html). Pregel was originally developed by google as a method to rank Web Pages with the [PageRank](https://en.wikipedia.org/wiki/PageRank) algorithm. In essence the graph is processed in a number of supersets. Within each superset vertices emit a message along it's edges to neighboring vertices. Destination vertices can have many incoming edges, therefore the messages are aggregated. Then other superset occurs. This occurs until a max number of defined supersets are complete or a stop condition is met.
+In order to traverse the graph and disseminate Access Roles to ADD groups and users we are going to use [Pregel](https://graphframes.github.io/graphframes/docs/_site/api/python/graphframes.lib.html). Pregel was originally developed by google as a method to rank Web Pages with the [PageRank](https://en.wikipedia.org/wiki/PageRank) algorithm. In essence the graph is processed in a number of supersets. Within each superset, vertices emit a message along it's edges to neighboring vertices. Destination vertices can have many incoming edges, therefore the messages are aggregated. Then other superset occurs. This occurs until a max number of defined supersets are complete or a stop condition is met.
 
 > Graphframes only supports a stopping based on a defined number of iterations `setMaxIter(n)`. Stop conditions are not supported.
 {: .prompt-info }
@@ -706,6 +706,7 @@ v = spark.sql(f"""
   wu.groupUserAccessRight as accessRight
   from {savePath}.workspaceusers as wu
   left join {savePath}.workspaces as w
+    on wu.workspaceId = w.id
   """)\
   .union(spark.sql(f"""
   select
@@ -716,6 +717,7 @@ v = spark.sql(f"""
   ru.reportUserAccessRight as accessRight
   from {savePath}.reportUsers as ru
   left join {savePath}.reports as r
+    on ru.reportId = r.id
   """))\
   .union(spark.sql(f"""
   select
@@ -726,6 +728,7 @@ v = spark.sql(f"""
   du.datasetUserAccessRight as accessRight
   from {savePath}.datasetsusers as du
   left join {savePath}.datasets as d
+    on du.datasetId = d.id
   """))\
   .union(spark.sql(f"select id, id as nodeId, displayName as name, 'group' as type, null as accessRight from {savePath}.aadgroups"))\
   .union(spark.sql(f"select id, id as nodeId, displayName as name, 'user' as type, null as accessRight from {savePath}.aadusers"))\

@@ -302,14 +302,14 @@ Lets now try with a locally saved spec.
 ```html
 <div id="vis5"></div>
   <script type="text/javascript">
-    var spec = "/assets/0017-VegaEmbed/vega/bar.v1.json";
+    var spec = "/assets/vega/0017-VegaEmbed/bar.v1.json";
     vegaEmbed('#vis5', spec).then(function(result) {}).catch(console.error);
   </script>
 ```
 
 <div id="vis5"></div>
   <script type="text/javascript">
-    var spec = "/assets/vega/bar.v1.json";
+    var spec = "/assets/vega/0017-VegaEmbed/bar.v1.json";
     vegaEmbed('#vis5', spec).then(function(result) {}).catch(console.error);
   </script>
 

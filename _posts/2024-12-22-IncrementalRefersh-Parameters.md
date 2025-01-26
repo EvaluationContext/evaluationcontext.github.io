@@ -11,7 +11,7 @@ image:
   alt: post
 ---
  
-I was inspired to write this blog post after seeing a linkedin [post](https://www.linkedin.com/feed/update/urn:li:activity:7276526605563252736/) from [Nikolaos Christoforidis](https://www.linkedin.com/in/nikolaos-christoforidis-2678111b4/). He was trying to address a problem when developing models with Incremental Refresh, whereby the parameter required for Incremental Refresh can be a headache when developing locally, as you have to keep redefining `RangeStart` and `RangeEnd` to get up-to-date data. He suggested using dynamic M parameters, [Pavel A.](https://www.linkedin.com/in/paveladamcr/) mentioned these may fail in some scenarios, e.g. Dataflows GEN1. This post proposes another method to solve this problem.
+I was inspired to write this blog post after seeing a linkedin [post](https://www.linkedin.com/feed/update/urn:li:activity:7276526605563252736/) from [Nikolaos Christoforidis](https://www.linkedin.com/in/nikolaos-christoforidis-2678111b4/). He was trying to address a problem when developing models with Incremental Refresh, whereby the parameter required for Incremental Refresh can be a headache when developing locally, as you have to keep redefining `RangeStart`{:.console} and `RangeEnd`{:.console} to get up-to-date data. He suggested using dynamic M parameters, [Pavel A.](https://www.linkedin.com/in/paveladamcr/) mentioned these may fail in some scenarios, e.g. Dataflows GEN1. This post proposes another method to solve this problem.
 
 ## Power BI Incremental Refresh
 
@@ -21,7 +21,7 @@ Normally with partitions you are responsible for creating and managing them. [In
 
 ## Problem/Solution
 
-When you are working on a Power BI file locally you will have static `RangeStart` and `RangeEnd` parameters filtering a table to a given data range.
+When you are working on a Power BI file locally you will have static `RangeStart`{:.console} and `RangeEnd`{:.console} parameters filtering a table to a given data range.
 
 ```
 //RangeStart
@@ -54,7 +54,7 @@ DateTime.From(Date.StartOfMonth(Date.AddMonths(DateTime.LocalNow(), -3))) meta [
 DateTime.From(Date.EndOfMonth(DateTime.LocalNow())) meta [IsParameterQuery = true, IsParameterQueryRequired = true, Type = type datetime]
 ```
 
-But this has the issues with dataflow Dataflows GEN1 mentioned before. Instead we are able keep `RangeStart` and `RangeEnd` static, and move the logic to return the most recent 3 month to the table. We can leverage the fact that the Power BI service will hijack the `RangeStart` and `RangeEnd` parameters to filter the data for a data range for each partition, and that we only want the most recent 3 months locally. Firstly we want to identify a date that precedes the window of our Incremental Refresh window. For example if we are archiving 2 years of data we could pick `01-01-2020`. In the table definition we can look out for this date and filter to the last 3 month, else enact the regular incremental refresh pattern.
+But this has the issues with dataflow Dataflows GEN1 mentioned before. Instead we are able keep `RangeStart`{:.console} and `RangeEnd`{:.console} static, and move the logic to return the most recent 3 month to the table. We can leverage the fact that the Power BI service will hijack the `RangeStart`{:.console} and `RangeEnd`{:.console} parameters to filter the data for a data range for each partition, and that we only want the most recent 3 months locally. Firstly we want to identify a date that precedes the window of our Incremental Refresh window. For example if we are archiving 2 years of data we could pick `01-01-2020`{:.console}. In the table definition we can look out for this date and filter to the last 3 month, else enact the regular incremental refresh pattern.
 
 ```
 // table
@@ -69,8 +69,8 @@ in
     selectPath
 ```
 
-Now if we set RangeStart to `01/01/2020 00:00:00`, this will mean we will return lastThreemonths. In the service based on our Refresh Policy, this value will not be injected by the service and the incrementalRefresh path will be taken instead.
+Now if we set RangeStart to `01/01/2020 00:00:00`{:.console}, this will mean we will return lastThreemonths. In the service based on our Refresh Policy, this value will not be injected by the service and the incrementalRefresh path will be taken instead.
 
 ## Conclusion
 
-This pattern of using a value in parameter to provide a behavior quite a useful pattern in the DevOps space as well. For example, we can define a `TopN` parameter, this could be set locally to 1000, this means locally locally or in a deployment to dev environment we to test the schema and connectivity without performing a large refresh. As part of the DevOps process when deploying to to a UAT or Prod environment we can use the [Update Parameters In Group](https://learn.microsoft.com/en-us/rest/api/power-bi/datasets/update-parameters-in-group) REST API, or script the update the PBIP files in the deployment to overwrite the parameters to include all the data.
+This pattern of using a value in parameter to provide a behavior quite a useful pattern in the DevOps space as well. For example, we can define a `TopN`{:.console} parameter, this could be set locally to 1000, this means locally locally or in a deployment to dev environment we to test the schema and connectivity without performing a large refresh. As part of the DevOps process when deploying to to a UAT or Prod environment we can use the [Update Parameters In Group](https://learn.microsoft.com/en-us/rest/api/power-bi/datasets/update-parameters-in-group) REST API, or script the update the PBIP files in the deployment to overwrite the parameters to include all the data.

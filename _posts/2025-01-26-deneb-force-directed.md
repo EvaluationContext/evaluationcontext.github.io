@@ -74,7 +74,7 @@ SWITCH(
 ![Force Directed](/assets/img/0019-ForceDirected/user_permissions.png)
 
 > This view still has extra nodes for groups that don't directly influence the inheritance of permissions. In order to trim the graph you'd have do the reverse of what was done for the permissions. You have to reverse the graph edges in GraphFrames and run pregel from User, Apps and Groups, rather than Workspaces, Semantic Model and Reports. We would pass the message of the User, Apps and Groups Id to the object (Workspaces, Semantic Model and Reports), which allows the generation of edges with a extra field of User, Apps and Groups Id that can be used filter the graph to generate the appropriate sub-graph.
-{: .prompt-info }
+{: .prompt-warning }
 
 ```dax
 User Selection =

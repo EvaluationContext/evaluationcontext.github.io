@@ -33,7 +33,7 @@ And this is what I managed in a afternoon with Deneb:
 
 I did run into some quirks of the framework
 1.  White space in a label is trimmed therefore I used a [NO-BREAK SPACE](https://unicode-explorer.com/c/00A0) instead of regular space to pad text
-2.  In the refresh several operations occur at the same time for the partition, to have the bars overlap you first need to set `stack = null` and in order to get the appropriate z-order, avoiding a large bar obscuring others I had to set `"order": {"aggregate": "max", "field": "startTime"}`, to bubble the hidden bars to the top
+2.  In the refresh several operations occur at the same time for the partition, to have the bars overlap you first need to set `stack = null`{:.console} and in order to get the appropriate z-order, avoiding a large bar obscuring others I had to set `"order": {"aggregate": "max", "field": "startTime"}`{:.json}, to bubble the hidden bars to the top
 
 ### Specification
 

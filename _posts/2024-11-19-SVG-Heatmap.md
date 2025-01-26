@@ -130,7 +130,7 @@ By defining and applying the following filter in our SVG definition. You can set
 
 ## Heatmap
 
-My first approach was to define the number of box, iterate each with GENERATESERIES() and count of the number of values per box, but this resulting in multiple iterations of the fact table. A much faster approach was to iterate the main table once and divide the value by the max value and truncate the decimal, to define the box. You can just group by the calculated box number to get the count per box, which can then be converted to the required hex.
+My first approach was to define the number of box, iterate each with `GENERATESERIES()`{:.dax} and count of the number of values per box, but this resulting in multiple iterations of the fact table. A much faster approach was to iterate the main table once and divide the value by the max value and truncate the decimal, to define the box. You can just group by the calculated box number to get the count per box, which can then be converted to the required hex.
 
 The visual and dax are given below. As a side note I applied a log scale to help show boxes with smaller counts.
 

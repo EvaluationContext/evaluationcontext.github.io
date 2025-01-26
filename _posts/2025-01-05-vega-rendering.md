@@ -15,7 +15,7 @@ If I want to blog about Vega I want to be able to render the visuals on the post
 
 ## Load The Vega Libraries
 
-Add the following to `head.html`.
+Add the following to `head.html`{:.console}.
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -25,7 +25,7 @@ Add the following to `head.html`.
 
 ## Render Vega on Post
 
-Add a script that calls the `vegaEmbed()` function in the post.
+Add a script that calls the `vegaEmbed()`{:.js} function in the post.
 
 ### Embedded data and spec
 
@@ -252,11 +252,11 @@ Lets quickly test one of the [examples](https://vega.github.io/vega-tooltip/vega
 
 ### Embed Options
 
-You can also specify a number of [Options](https://github.com/vega/vega-embed?ttab=readme-ov-file#options) in the `vegaEmbed()` function, such as [Themes](https://github.com/vega/vega-themes), [Vega tooltips](https://github.com/vega/vega-tooltip), renderer ['svg', 'canvas'], width,  height, etc.
+You can also specify a number of [Options](https://github.com/vega/vega-embed?ttab=readme-ov-file#options) in the `vegaEmbed()`{:.js} function, such as [Themes](https://github.com/vega/vega-themes), [Vega tooltips](https://github.com/vega/vega-tooltip), renderer ['svg', 'canvas'], width,  height, etc.
 
 #### Themes
 
-I've seen a `powerbi` theme so we have to give that a go.
+I've seen a `powerbi`{:.console} theme so we have to give that a go.
 
 ```html
 <div id="vis"></div>

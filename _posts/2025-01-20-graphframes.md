@@ -19,8 +19,8 @@ To call Scan API and Graph API you will ideally need a Service Principal, which 
 
 | Service | Scope |
 | --- | --- |
-| Power BI |`Tenant.Read.All` or `Tenant.ReadWrite.All` |
-| Graph API | `Directory.Read.All` |
+| Power BI |`Tenant.Read.All`{:.console} or `Tenant.ReadWrite.All`{:.console} |
+| Graph API | `Directory.Read.All`{:.console} |
 
 ## Scanner APIs
 
@@ -48,10 +48,10 @@ The following APIs are used return all the metadata for the Power BI service
 
 ### Schema
 
-> I have only setup the Power BI schema for entities I care about, `datasets` and `reports`, there are also structures for `dataflows`, `notebooks`, `dashboards`, `datamarts`, `DataPipelines`, `Reflex` etc. Since these are not/rarely used, these have not been built into the schema. Additional some fields like `schemaRetrievalError` have also not been considered. See [Sandeep Pawar blog](https://fabric.guru/scan-fabric-workspaces-with-scanner-api-using-semantic-link-labs) for some other items. Additionally if you use different connectors you might need to extent the connectionDetails.
+> I have only setup the Power BI schema for entities I care about, `datasets`{:.console} and `reports`{:.console}, there are also structures for `dataflows`{:.console}, `notebooks`{:.console}, `dashboards`{:.console}, `datamarts`{:.console}, `DataPipelines`{:.console}, `Reflex`{:.console} etc. Since these are not/rarely used, these have not been built into the schema. Additional some fields like `schemaRetrievalError`{:.console} have also not been considered. See [Sandeep Pawar blog](https://fabric.guru/scan-fabric-workspaces-with-scanner-api-using-semantic-link-labs) for some other items. Additionally if you use different connectors you might need to extent the connectionDetails.
 {: .prompt-info }
 
-> There is no specific Power BI object for a workspace App. When you create a App you a copy of a report is generated, named `[App] ...`. You therefore need to look at reportUserAccessRight to determine App permissions.
+> There is no specific Power BI object for a workspace App. When you create a App you a copy of a report is generated, named `[App] ...`{:.console}. You therefore need to look at reportUserAccessRight to determine App permissions.
 {: .prompt-info }
 
 ## Graph APIs
@@ -67,7 +67,7 @@ The following APIs are used return all the metadata for the Power BI service
 > 
 > -- <cite>[GraphFrames Overview](https://graphframes.github.io/graphframes/docs/_site/index.html)</cite>
 
-Graphs represent data as a set of vertices (nodes/entities) and edges (connections between nodes/entities). [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) works on top of [Spark Dataframes](https://spark.apache.org/docs/latest/sql-programming-guide.html), and therefore easily fit into a Databricks/Fabric workflow. Vertices are defined by a dataframe with a `id` field and Edges as another dataframe with `src` and `dst` fields. `src` (source) and `dst` (destination) are the directional relationship between two vertices. Graphframes supports Scala, Java, and Python. Out of the box [motif pattern matching](https://graphframes.github.io/graphframes/docs/_site/user-guide.html#motif-finding), and a range of graph algorithms are provided, plus you can write your own with [Pregel](https://graphframes.github.io/graphframes/docs/_site/api/python/graphframes.lib.html).
+Graphs represent data as a set of vertices (nodes/entities) and edges (connections between nodes/entities). [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) works on top of [Spark Dataframes](https://spark.apache.org/docs/latest/sql-programming-guide.html), and therefore easily fit into a Databricks/Fabric workflow. Vertices are defined by a dataframe with a `id`{:.console} field and Edges as another dataframe with `src`{:.console} and `dst`{:.console} fields. `src`{:.console} (source) and `dst`{:.console} (destination) are the directional relationship between two vertices. Graphframes supports Scala, Java, and Python. Out of the box we get [motif pattern matching](https://graphframes.github.io/graphframes/docs/_site/user-guide.html#motif-finding), and a range of graph algorithms are provided, plus you can write your own with [Pregel](https://graphframes.github.io/graphframes/docs/_site/api/python/graphframes.lib.html).
 
 ![Example Graph](/assets/img/0018-GraphFrames/Graph.png)
 
@@ -77,7 +77,7 @@ Graphs represent data as a set of vertices (nodes/entities) and edges (connectio
 
 In order to traverse the graph and disseminate Access Roles to ADD groups and users we are going to use [Pregel](https://graphframes.github.io/graphframes/docs/_site/api/python/graphframes.lib.html). Pregel was originally developed by google as a method to rank Web Pages with the [PageRank](https://en.wikipedia.org/wiki/PageRank) algorithm. In essence the graph is processed in a number of supersets. Within each superset, vertices emit a message along it's edges to neighboring vertices. Destination vertices can have many incoming edges, therefore the messages are aggregated. Then other superset occurs. This occurs until a max number of defined supersets are complete or a stop condition is met.
 
-> Graphframes only supports a stopping based on a defined number of iterations `setMaxIter(n)`. Stop conditions are not supported.
+> Graphframes only supports a stopping based on a defined number of iterations `setMaxIter(n)`{:.console}. Stop conditions are not supported.
 {: .prompt-info }
 
 ### Running GraphFrames

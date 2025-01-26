@@ -3,7 +3,7 @@ title: Who Actually Has Access To What In Power BI?
 description: Using Power BI Scanner and GraphFrames to figure out who can access what in Power BI tenant
 author: duddy
 date: 2025-01-20 18:00:00 +0000
-categories: [Power BI Administration, Scanner API]
+categories: [Power BI Administration, Permissions]
 tags: [scanner api, graph api, graphframes, pregel, databricks, python, pyspark]
 pin: false
 image:
@@ -496,111 +496,182 @@ datasourceInstancesdf.createOrReplaceTempView('datasourceInstance')
 #### Create views
 
 ```sql
- %sql
+%sql
 
 -- datasourceInstances
-CREATE OR REPLACE TEMPORARY VIEW connectionDetails AS
+  CREATE OR REPLACE TEMPORARY VIEW connectionDetails AS
   with x as (select *, connectionDetails.* from datasourceInstance)
   select * except(connectionDetails) from x;
 
- -- workspaces
-CREATE OR REPLACE TEMPORARY VIEW workspaces AS
+-- workspaces
+  CREATE OR REPLACE TEMPORARY VIEW workspaces AS
   SELECT * except(users, reports, datasets)
   FROM workspacesAll;
 
 -- workspaces | Users
-CREATE OR REPLACE TEMPORARY VIEW workspaceUsers AS
-  WITH explode AS (SELECT id AS workspaceId, explode(users) AS users FROM workspacesAll),
-  expand AS (SELECT *, users.* from explode)
-  SELECT * except(users) FROM expand;
+  CREATE OR REPLACE TEMPORARY VIEW workspaceUsers AS
+    WITH explode AS (SELECT id AS workspaceId, explode(users) AS users FROM workspacesAll),
+    expand AS (SELECT *, users.* from explode)
+    SELECT * except(users) FROM expand;
 
 -- workspaces | reports*
-CREATE OR REPLACE TEMPORARY VIEW reportsAll AS
-  WITH explode AS (SELECT id as workspaceId, explode(reports) AS reports FROM workspacesAll),
-  expand AS (SELECT *, reports.* FROM explode)
-  SELECT * FROM expand; 
+  CREATE OR REPLACE TEMPORARY VIEW reportsAll AS
+    WITH explode AS (SELECT id as workspaceId, explode(reports) AS reports FROM workspacesAll),
+    expand AS (SELECT *, reports.* FROM explode)
+    SELECT * FROM expand;
 
 -- workspaces | reports
-CREATE OR REPLACE TEMPORARY VIEW reports AS
-  SELECT * except(reports, users) FROM reportsAll;
+  CREATE OR REPLACE TEMPORARY VIEW reports AS
+    SELECT * except(reports, users) FROM reportsAll;
 
 -- workspaces | reports | Users
-CREATE OR REPLACE TEMPORARY VIEW ReportUsers AS
-  WITH explode AS (SELECT id AS reportId, explode(users) AS users FROM reportsAll),
-  expand AS (SELECT *, users.* FROM explode)
-  SELECT * except(users) FROM expand;
+  CREATE OR REPLACE TEMPORARY VIEW ReportUsers AS
+    WITH explode AS (SELECT id AS reportId, explode(users) AS users FROM reportsAll),
+    expand AS (SELECT *, users.* FROM explode)
+    SELECT * except(users) FROM expand;
 
 -- workspaces | datasets*
-CREATE OR REPLACE TEMPORARY VIEW DatasetsAll AS
-  WITH explode AS (select id AS workspaceId, explode(datasets) AS datasets FROM workspacesAll),
-  expand AS (SELECT *, datasets.* FROM explode)
-  SELECT * FROM expand;
+  CREATE OR REPLACE TEMPORARY VIEW DatasetsAll AS
+    WITH explode AS (select id AS workspaceId, explode(datasets) AS datasets FROM workspacesAll),
+    expand AS (SELECT *, datasets.* FROM explode)
+    SELECT * FROM expand;
 
- -- workspaces | datasets
-CREATE OR REPLACE TEMPORARY VIEW datasets AS
-  SELECT * except(datasets, expressions, tables, refreshSchedule, directQueryRefreshSchedule, upstreamDatasets, datasourceUsages, users, roles) FROM DatasetsAll;
+-- workspaces | datasets
+  CREATE OR REPLACE TEMPORARY VIEW datasets AS
+    SELECT * except(datasets, expressions, tables, refreshSchedule, directQueryRefreshSchedule, upstreamDatasets, datasourceUsages, users, roles) FROM DatasetsAll;
 
 -- workspaces | datasets | expressions
-CREATE OR REPLACE TEMPORARY VIEW datasetExpressions AS 
-  WITH explode AS (SELECT id AS datasetId, explode(expressions) AS expressions FROM DatasetsAll),
-  expand AS (SELECT *, expressions.* FROM explode)
-  SELECT * except(expressions) FROM expand;
+  CREATE OR REPLACE TEMPORARY VIEW datasetExpressions AS
+    WITH explode AS (SELECT id AS datasetId, explode(expressions) AS expressions FROM DatasetsAll),
+    expand AS (SELECT *, expressions.* FROM explode)
+    SELECT * except(expressions) FROM expand;
 
 -- workspaces | datasets | refreshSchedules
-CREATE OR REPLACE TEMPORARY VIEW datasetRefreshSchedules AS
-  WITH expandrefreshSchedule AS (SELECT id AS datasetId, refreshSchedule.* FROM DatasetsAll),
-  expandDirectQueryRefreshSchedule AS (SELECT id AS datasetId, DirectQueryRefreshSchedule.* FROM DatasetsAll)
-  SELECT
-  datasetId, 
-  "RefreshSchedule" AS refreshScheduleType, 
-  localTimeZoneId, 
-  enabled, 
-  notifyOption, 
-  null AS frequency, 
-  array_join(transform(days,x -> substring(x,0,3)), ",") AS days, 
-  array_join(times, ",") AS times 
-  FROM expandrefreshSchedule
-  WHERE enabled
-  UNION ALL
-  SELECT 
-  datasetId, 
-  "directQueryRefreshSchedule" AS refreshScheduleType, 
-  localTimeZoneId, 
-  null as enabled,
-  null as notifyOption,
-  frequency, 
-  array_join(transform(days,x -> substring(x,0,3)), ",") AS days, 
-  array_join(times, ",") AS times 
-  FROM expandDirectQueryRefreshSchedule
-  WHERE localTimeZoneId is not null;
+  CREATE OR REPLACE TEMPORARY VIEW datasetRefreshSchedules AS
+    WITH expandrefreshSchedule AS (SELECT id AS datasetId, refreshSchedule.* FROM DatasetsAll),
+    explodeRefreshSchedule AS (
+      SELECT
+      datasetId,
+      localTimeZoneId,
+      enabled,
+      notifyOption,
+      explode(days) AS days,
+      explode(times) as times
+      FROM expandrefreshSchedule
+    ),
+    expandDirectQueryRefreshSchedule AS (SELECT id AS datasetId, DirectQueryRefreshSchedule.* FROM DatasetsAll),
+    explodeDirectQueryRefreshSchedule AS (
+      SELECT
+      datasetId,
+      localTimeZoneId,
+      frequency,
+      explode(days) AS days,
+      explode(times) as times
+      FROM expandDirectQueryRefreshSchedule
+    )
+    SELECT
+    datasetId,
+    "RefreshSchedule" AS refreshScheduleType,
+    localTimeZoneId,
+    enabled,
+    notifyOption,
+    null AS frequency,
+    days,
+    times
+    FROM explodeRefreshSchedule
+    WHERE enabled
+    UNION ALL
+    SELECT
+    datasetId,
+    "directQueryRefreshSchedule" AS refreshScheduleType,
+    localTimeZoneId,
+    null as enabled,
+    null as notifyOption,
+    frequency,
+    days,
+    times
+    FROM explodeDirectQueryRefreshSchedule
+    WHERE localTimeZoneId is not null;
 
 -- workspaces | datasets | upstreamDatasets
-CREATE OR REPLACE TEMPORARY VIEW datasetUpstreamDatasets AS 
-  WITH explode AS (SELECT id AS datasetId, explode(upstreamDatasets) AS upstreamDatasets FROM DatasetsAll),
-  expand AS (SELECT *, upstreamDatasets.* FROM explode)
-  SELECT * except(upstreamDatasets) FROM expand;
+  CREATE OR REPLACE TEMPORARY VIEW datasetUpstreamDatasets AS
+    WITH explode AS (SELECT id AS datasetId, explode(upstreamDatasets) AS upstreamDatasets FROM DatasetsAll),
+    expand AS (SELECT *, upstreamDatasets.* FROM explode)
+    SELECT * except(upstreamDatasets) FROM expand;
 
 -- workspaces | datasets | datasourceUsages
-CREATE OR REPLACE TEMPORARY VIEW datasetsDatasourcesUsages AS 
-  WITH explode AS (SELECT id AS datasetId, explode(datasourceUsages) AS datasourceUsages FROM DatasetsAll),
-  expand AS (SELECT *, datasourceUsages.* FROM explode)
-  SELECT * except(datasourceUsages) FROM expand;
+  CREATE OR REPLACE TEMPORARY VIEW datasetsDatasorucesUsages AS
+    WITH explode AS (SELECT id AS datasetId, explode(datasourceUsages) AS datasourceUsages FROM DatasetsAll),
+    expand AS (SELECT *, datasourceUsages.* FROM explode)
+    SELECT * except(datasourceUsages) FROM expand;
 
 -- workspaces | datasets | users
-CREATE OR REPLACE TEMPORARY VIEW datasetsUsers AS 
-  WITH explode AS (SELECT id AS datasetId, explode(users) AS users FROM DatasetsAll),
-  expand AS (SELECT *, users.* FROM explode)
-  SELECT * except(users) FROM expand;
+  CREATE OR REPLACE TEMPORARY VIEW datasetsUsers AS
+    WITH explode AS (SELECT id AS datasetId, explode(users) AS users FROM DatasetsAll),
+    expand AS (SELECT *, users.* FROM explode)
+    SELECT * except(users) FROM expand;
 
 -- workspaces | datasets | tables *
-CREATE OR REPLACE TEMPORARY VIEW datasetsTablesAll AS 
-  WITH explode AS (SELECT id AS datasetId, explode(tables) AS tables FROM DatasetsAll),
-  expand AS (SELECT *, tables.* FROM explode)
-  SELECT concat(datasetId, name) AS datasetTableId, * FROM expand;
+  CREATE OR REPLACE TEMPORARY VIEW datasetsTablesAll AS
+    WITH explode AS (SELECT id AS datasetId, explode(tables) AS tables FROM DatasetsAll),
+    expand AS (SELECT *, tables.* FROM explode)
+    SELECT concat(datasetId, name) AS datasetTableId, * FROM expand;
 
 -- workspaces | datasets | tables
-CREATE OR REPLACE TEMPORARY VIEW datasetsTables AS 
-SELECT * except(tables, columns, measures) FROM datasetsTablesAll;
+  CREATE OR REPLACE TEMPORARY VIEW datasetsTables AS
+    SELECT * except(tables, columns, measures) FROM datasetsTablesAll;
+    
+-- workspaces | objects
+  CREATE OR REPLACE TEMPORARY VIEW objects AS
+    WITH workspace AS (
+      SELECT
+      id AS workspaceId,
+      id AS object_id,
+      null AS datasetId,
+      'Workspace' AS objectType,
+      name,
+      null AS createdDateTime
+      FROM workspaces
+    ),
+    dataset AS (
+      SELECT
+      workspaceId,
+      id AS object_id,
+      id AS datasetId,
+      'Semantic Model' AS objectType,
+      name,
+      createdDate AS createdDateTime
+      FROM datasets
+    ),
+    report AS (
+      SELECT
+      workspaceId,
+      id AS object_id,
+      datasetId,
+      'Report' AS objectType,
+      name,
+      createdDateTime
+      FROM reports
+      WHERE name NOT LIKE '[App] %'
+    ),
+    reportApp AS (
+      SELECT
+      workspaceId,
+      id AS object_id,
+      datasetId,
+      'Report App' AS objectType,
+      name,
+      createdDateTime
+      FROM reports
+      WHERE name LIKE '[App] %'
+    )
+    SELECT * FROM workspace
+    UNION ALL
+    SELECT * FROM dataset
+    UNION ALL
+    SELECT * FROM report
+    UNION ALL
+    SELECT * FROM reportApp;
 ```
 
 #### Save Tables
@@ -619,13 +690,13 @@ def getGraphAPI(entity:str='groups') -> list:
   """
   Calls List groups API [https://learn.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http] or List users API [https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http]
   parameters:
-    type:       str     groups or user (default: groups)
+    type:       str     groups, users or apps (default: groups)
   returns:      list    array of users or groups
   """
-
-  if entity not in ('groups', 'users'):
+  
+  if entity not in ('groups', 'users', 'apps'):
     raise Exception(f"Invalid type: {entity}")
-
+  
   access_token = GetAccessToken(client_id, client_secret, tenant_id, resource='https://graph.microsoft.com')
   headers = {"Authorization": f"Bearer {access_token}"}
 
@@ -633,7 +704,8 @@ def getGraphAPI(entity:str='groups') -> list:
     url = https://graph.microsoft.com/v1.0/groups?$expand=members($select=id,displayName,mail,userType)
   if entity == "users":
       url = https://graph.microsoft.com/v1.0/users
-
+  if entity == "apps":
+      url = https://graph.microsoft.com/v1.0/applications
   items = []
 
   while True:
@@ -655,6 +727,7 @@ def getGraphAPI(entity:str='groups') -> list:
 ```python
 groups = getGraphAPI("groups")
 users = getGraphAPI("users")
+apps = getGraphAPI("apps")
 ```
 
 #### Apply Schema & Create Dataframes
@@ -671,17 +744,22 @@ usersSchema = StructType([
     StructField("id", StringType(), True),
     StructField("displayName", StringType(), True)
 ])
+appsSchema = StructType([
+    StructField("appId", StringType(), True),
+    StructField("displayName", StringType(), True)
+])
 ```
 
 ```python
 aadGroups = spark.createDataFrame(groups, schema=groupsSchema)
 aadUsers = spark.createDataFrame(users, schema=usersSchema)
+aadApps = spark.createDataFrame(apps, schema=appsSchema)
 ```
 
 #### Save Tables
 
 ```python
-for tableName, df in {'aadGroups': aadGroups, 'aadUsers': aadUsers}.items():
+for tableName, df in {'aadGroups': aadGroups, 'aadUsers': aadUsers, 'aadApps': aadApps}.items():
     WriteDfToTable(df, savePath, tableName)
 ```
 
@@ -702,36 +780,61 @@ v = spark.sql(f"""
   concat(wu.workspaceId, wu.groupUserAccessRight) as id,
   wu.workspaceId as nodeId,
   w.name,
-  'workspace' as type,
+  'Workspace' as type,
   wu.groupUserAccessRight as accessRight
   from {savePath}.workspaceusers as wu
   left join {savePath}.workspaces as w
     on wu.workspaceId = w.id
   """)\
   .union(spark.sql(f"""
-  select
-  concat(ru.reportId, ru.reportUserAccessRight) as id,
-  ru.reportId as nodeId,
-  r.name,
-  'report' as type,
-  ru.reportUserAccessRight as accessRight
-  from {savePath}.reportUsers as ru
-  left join {savePath}.reports as r
-    on ru.reportId = r.id
+    select
+    concat(ru.reportId, ru.reportUserAccessRight) as id,
+    ru.reportId as nodeId,
+    r.name,
+    'Report' as type,
+    ru.reportUserAccessRight as accessRight
+    from {savePath}.reportUsers as ru
+    left join {savePath}.reports as r
+      on ru.reportId = r.id
   """))\
   .union(spark.sql(f"""
-  select
-  concat(du.datasetId, du.datasetUserAccessRight) as id,
-  du.datasetId as nodeId,
-  d.name,
-  'dataset' as type,
-  du.datasetUserAccessRight as accessRight
-  from {savePath}.datasetsusers as du
-  left join {savePath}.datasets as d
-    on du.datasetId = d.id
+    select
+    concat(du.datasetId, du.datasetUserAccessRight) as id,
+    du.datasetId as nodeId,
+    d.name,
+    'Dataset' as type,
+    du.datasetUserAccessRight as accessRight
+    from {savePath}.datasetsusers as du
+    left join {savePath}.datasets as d
+      on du.datasetId = d.id
   """))\
-  .union(spark.sql(f"select id, id as nodeId, displayName as name, 'group' as type, null as accessRight from {savePath}.aadgroups"))\
-  .union(spark.sql(f"select id, id as nodeId, displayName as name, 'user' as type, null as accessRight from {savePath}.aadusers"))\
+  .union(spark.sql(f"""
+    select
+    id,
+    id as nodeId,
+    displayName as name,
+    'Group' as type,
+    null as accessRight
+    from {savePath}.aadgroups
+  """))\
+  .union(spark.sql(f"""
+    select
+    id,
+    id as nodeId,
+    displayName as name,
+    'User' as type,
+    null as accessRight
+    from {savePath}.aadusers
+  """))\
+  .union(spark.sql(f"""
+    select
+    appId AS id,
+    appId as nodeId,
+    displayName as name,
+    'App' as type,
+    null as accessRight
+    from {savePath}.aadapps
+  """))\
   .distinct()
 
 e = spark.sql(f"""
@@ -742,18 +845,18 @@ e = spark.sql(f"""
   from {savePath}.workspaceUsers
   """)\
   .union(spark.sql(f"""
-  select
-  concat(reportId, reportUserAccessRight) as src,
-  graphId as dst,
-  reportUserAccessRight as edge_type
-  from {savePath}.reportUsers
+    select
+    concat(reportId, reportUserAccessRight) as src,
+    graphId as dst,
+    reportUserAccessRight as edge_type
+    from {savePath}.reportUsers
   """))\
   .union(spark.sql(f"""
-  select
-  concat(datasetId, datasetUserAccessRight) as src,
-  graphId as dst,
-  datasetUserAccessRight as edge_type
-  from {savePath}.datasetsusers
+    select
+    concat(datasetId, datasetUserAccessRight) as src,
+    graphId as dst,
+    datasetUserAccessRight as edge_type
+    from {savePath}.datasetsusers
   """))\
   .union(
     spark.sql(f"select id, explode(members) as member from {savePath}.aadgroups")\
@@ -762,13 +865,13 @@ e = spark.sql(f"""
    )
 
 #   vertices                                                                          
-# +----------------------------------------------------+--------------------------------------+---------------------------+
-# | id                                                 | nodeId                               | type        | accessRight |
-# +----------------------------------------------------+--------------------------------------+---------------------------+
-# | a2cc72b4-50e8-4c78-b875-6b1d6af6f04fAdmin          | a2cc72b4-50e8-4c78-b875-6b1d6af6f04f | workspace   | Admin       |
-# | c6434512-6cec-45d6-91a0-e24d6ec8ae3fContributor    | c6434512-6cec-45d6-91a0-e24d6ec8ae3f | workspace   | Contributor |
-# | 18f3f38d-d4e5-4861-9633-43c87cd6f444               | 18f3f38d-d4e5-4861-9633-43c87cd6f444 | group       |             |
-# +----------------------------------------------------+--------------------------------------+---------------------------+
+# +-------------------------------------------------------------------------------------------------------------------+
+# | id                                               | nodeId                               | type      | accessRight |
+# +-------------------------------------------------------------------------------------------------------------------+
+# | a2cc72b4-50e8-4c78-b875-6b1d6af6f04fAdmin        | a2cc72b4-50e8-4c78-b875-6b1d6af6f04f | workspace | Admin       |
+# | c6434512-6cec-45d6-91a0-e24d6ec8ae3fContributor  | c6434512-6cec-45d6-91a0-e24d6ec8ae3f | workspace | Contributor |
+# | 18f3f38d-d4e5-4861-9633-43c87cd6f444             | 18f3f38d-d4e5-4861-9633-43c87cd6f444 | group     |             |
+# +-------------------------------------------------------------------------------------------------------------------+
 
 #   edges
 # +-------------------------------------------+--------------------------------------+------------+
@@ -829,24 +932,72 @@ mappedRoles = (
 # | 94c3fe39-0ed5-4eeb-a230-2e444638930fAdmin | ["{\"type\":\"workspace\", \"id\":\"94c3fe39-0ed5-4eeb-a230-2e444638930f\",\"accessRight\":\"Member\"}"]     |  94c3fe39-0ed5-4eeb-a230-2e444638930f | workspace | Contributor  |
 # | 5de589b4-f539-468d-96c8-7fd1034faf9e      | ["{\"type\":\"workspace\", \"id\":\"31633c8d-6cac-4738-b6f3-f63ebbf29ea0\",\"accessRight\":\"Viewer\"}",.."] |  5de589b4-f539-468d-96c8-7fd1034faf9e | user      | null         |
 # +-------------------------------------------+--------------------------------------------------------------------------------------------------------------+---------------------------------------+-----------+--------------+
+```
 
+```python
 mappedRoles.createOrReplaceTempView("usersAccessRights")
-
 usersAccessRights = spark.sql(f"""
     with explode as (select id, name, explode(resolved_roots) as roots, nodeID, type, accessRight from usersAccessRights),
     defineStruct as (select id, name, type, from_json(roots, 'type string, nodeId string, accessRight string') as roots from explode)
     select
-    id,
-    name,
-    type,
-    roots.nodeId as accessRightId,
-    roots.type as accessRightType,
-    roots.accessRight as accessRight
+    defineStruct.id,
+    defineStruct.name,
+    defineStruct.type,
+    defineStruct.roots.nodeId as accessRightId,
+    defineStruct.roots.type as accessRightType,
+    defineStruct.roots.accessRight as accessRight,
+    concat(defineStruct.roots.nodeId, defineStruct.roots.accessRight) as accessRightIdRight,
+    case
+        when workspaceusers.workspaceId is not null or datasetsusers.datasetId is not null or reportusers.reportId is not null then 'Direct'
+        else 'Indirect'
+    end as accessRightDirectlyGranted
     from defineStruct
-    where type not in ('workspace', 'report', 'dataset')
+    left join {savePath}.workspaceusers as workspaceusers
+        on defineStruct.roots.nodeId = workspaceusers.workspaceId and defineStruct.roots.accessRight = workspaceusers.groupUserAccessRight -- src
+        and defineStruct.id = workspaceusers.graphId -- dst
+    left join {savePath}.datasetsusers as datasetsusers
+        on defineStruct.roots.nodeId = datasetsusers.datasetId and defineStruct.roots.accessRight = datasetsusers.datasetUserAccessRight -- src
+        and defineStruct.id = datasetsusers.graphId -- dst
+    left join {savePath}.reportusers as reportusers
+        on defineStruct.roots.nodeId = reportusers.reportId and defineStruct.roots.accessRight= reportusers.reportUserAccessRight -- src
+        and defineStruct.id = reportusers.graphId -- dst
+    where type not in ('Workspace', 'Report', 'Dataset', 'Report App')
 """)
-
 for tableName, df in {'usersAccessRights': usersAccessRights}.items():
+  WriteDfToTable(df, savePath, tableName)
+```
+
+```python
+g.triplets.createOrReplaceTempView("triplets")
+forceDirected = spark.sql(f"""
+    select
+    "edge" as type,
+    t.src.nodeId as srcId,
+    t.src.name as srcName,
+    t.dst.nodeId as dstId,
+    t.dst.name as dstName,
+    null as vertexName,
+    null as vertexId,
+    null as vertexType,
+    coalesce(r.accessRightIdRight, concat(t.src.nodeID, t.src.accessRight)) as accessRightIdRight
+    from triplets as t
+    left join {savePath}.usersAccessRights as r
+        on t.src.nodeID = r.id
+    union all
+    select
+    "vertex" as type,
+    null as srcId,
+    null as srcName,
+    null as dstId,
+    null as dstName,
+    name as vertexName,
+    nodeId as vertexId,
+    type as vertexType,
+    null as accessRightIdRight
+    from {savePath}.v
+    """
+)
+for tableName, df in {'forceDirected': forceDirected}.items():
   WriteDfToTable(df, savePath, tableName)
 ```
 

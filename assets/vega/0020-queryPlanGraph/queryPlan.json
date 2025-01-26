@@ -1,0 +1,571 @@
+{
+  "FileFormatVersion": 3,
+  "PhysicalQueryPlanRows": [
+    {
+      "Records": null,
+      "Operation": "GroupSemijoin: IterPhyOp LogOp=GroupSemiJoin IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], ''[Using_TOPN])",
+      "IndentedOperation": "GroupSemijoin: IterPhyOp LogOp=GroupSemiJoin IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], ''[Using_TOPN])",
+      "Level": 0,
+      "RowNumber": 1,
+      "NextSiblingRowNumber": 41,
+      "HighlightRow": false
+    },
+    {
+      "Records": 13413,
+      "Operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=VarScope IterCols(0, 1)('Calendar'[Date], 'States'[State]) #Records=13413 #KeyCols=2 #ValueCols=1",
+      "IndentedOperation": "    Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=VarScope IterCols(0, 1)('Calendar'[Date], 'States'[State]) #Records=13413 #KeyCols=2 #ValueCols=1",
+      "Level": 1,
+      "RowNumber": 2,
+      "NextSiblingRowNumber": 41,
+      "HighlightRow": false
+    },
+    {
+      "Records": 13413,
+      "Operation": "AggregationSpool<Count>: SpoolPhyOp #Records=13413",
+      "IndentedOperation": "        AggregationSpool<Count>: SpoolPhyOp #Records=13413",
+      "Level": 2,
+      "RowNumber": 3,
+      "NextSiblingRowNumber": 41,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Filter: IterPhyOp LogOp=Filter IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "IndentedOperation": "            Filter: IterPhyOp LogOp=Filter IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "Level": 3,
+      "RowNumber": 4,
+      "NextSiblingRowNumber": 41,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Extend_Lookup: IterPhyOp LogOp=EqualTo IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "IndentedOperation": "                Extend_Lookup: IterPhyOp LogOp=EqualTo IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "Level": 4,
+      "RowNumber": 5,
+      "NextSiblingRowNumber": 41,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "CrossApply: IterPhyOp LogOp=EqualTo IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "IndentedOperation": "                    CrossApply: IterPhyOp LogOp=EqualTo IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "Level": 5,
+      "RowNumber": 6,
+      "NextSiblingRowNumber": 16,
+      "HighlightRow": false
+    },
+    {
+      "Records": 4017,
+      "Operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(0)('Calendar'[Date]) #Records=4017 #KeyCols=16 #ValueCols=0",
+      "IndentedOperation": "                        Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(0)('Calendar'[Date]) #Records=4017 #KeyCols=16 #ValueCols=0",
+      "Level": 6,
+      "RowNumber": 7,
+      "NextSiblingRowNumber": 10,
+      "HighlightRow": false
+    },
+    {
+      "Records": 4017,
+      "Operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4017",
+      "IndentedOperation": "                            ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4017",
+      "Level": 7,
+      "RowNumber": 8,
+      "NextSiblingRowNumber": 10,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "IndentedOperation": "                                Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "Level": 8,
+      "RowNumber": 9,
+      "NextSiblingRowNumber": 9,
+      "HighlightRow": true
+    },
+    {
+      "Records": 4,
+      "Operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(1)('States'[State]) #Records=4 #KeyCols=16 #ValueCols=0",
+      "IndentedOperation": "                        Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(1)('States'[State]) #Records=4 #KeyCols=16 #ValueCols=0",
+      "Level": 6,
+      "RowNumber": 10,
+      "NextSiblingRowNumber": 13,
+      "HighlightRow": false
+    },
+    {
+      "Records": 4,
+      "Operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4",
+      "IndentedOperation": "                            ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4",
+      "Level": 7,
+      "RowNumber": 11,
+      "NextSiblingRowNumber": 13,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "IndentedOperation": "                                Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "Level": 8,
+      "RowNumber": 12,
+      "NextSiblingRowNumber": 12,
+      "HighlightRow": true
+    },
+    {
+      "Records": 6,
+      "Operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(2)('data'[TestID]) #Records=6 #KeyCols=16 #ValueCols=0",
+      "IndentedOperation": "                        Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(2)('data'[TestID]) #Records=6 #KeyCols=16 #ValueCols=0",
+      "Level": 6,
+      "RowNumber": 13,
+      "NextSiblingRowNumber": 16,
+      "HighlightRow": false
+    },
+    {
+      "Records": 6,
+      "Operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=6",
+      "IndentedOperation": "                            ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=6",
+      "Level": 7,
+      "RowNumber": 14,
+      "NextSiblingRowNumber": 16,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "IndentedOperation": "                                Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "Level": 8,
+      "RowNumber": 15,
+      "NextSiblingRowNumber": 15,
+      "HighlightRow": true
+    },
+    {
+      "Records": null,
+      "Operation": "EqualTo: LookupPhyOp LogOp=EqualTo LookupCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID]) Boolean",
+      "IndentedOperation": "                    EqualTo: LookupPhyOp LogOp=EqualTo LookupCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID]) Boolean",
+      "Level": 5,
+      "RowNumber": 16,
+      "NextSiblingRowNumber": 41,
+      "HighlightRow": false
+    },
+    {
+      "Records": 24099,
+      "Operation": "TableToScalar: LookupPhyOp LogOp=TableToScalar LookupCols(0, 2)('Calendar'[Date], 'data'[TestID]) String #Records=24099",
+      "IndentedOperation": "                        TableToScalar: LookupPhyOp LogOp=TableToScalar LookupCols(0, 2)('Calendar'[Date], 'data'[TestID]) String #Records=24099",
+      "Level": 6,
+      "RowNumber": 17,
+      "NextSiblingRowNumber": 40,
+      "HighlightRow": false
+    },
+    {
+      "Records": 24099,
+      "Operation": "AggregationSpool<TableToScalar>: SpoolPhyOp #Records=24099",
+      "IndentedOperation": "                            AggregationSpool<TableToScalar>: SpoolPhyOp #Records=24099",
+      "Level": 7,
+      "RowNumber": 18,
+      "NextSiblingRowNumber": 40,
+      "HighlightRow": false
+    },
+    {
+      "Records": 24099,
+      "Operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=SelectColumns IterCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value]) #Records=24099 #KeyCols=3 #ValueCols=0",
+      "IndentedOperation": "                                Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=SelectColumns IterCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value]) #Records=24099 #KeyCols=3 #ValueCols=0",
+      "Level": 8,
+      "RowNumber": 19,
+      "NextSiblingRowNumber": 40,
+      "HighlightRow": false
+    },
+    {
+      "Records": 24099,
+      "Operation": "AggregationSpool<GroupBy>: SpoolPhyOp #Records=24099",
+      "IndentedOperation": "                                    AggregationSpool<GroupBy>: SpoolPhyOp #Records=24099",
+      "Level": 9,
+      "RowNumber": 20,
+      "NextSiblingRowNumber": 40,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "AddColumns: IterPhyOp LogOp=SelectColumns IterCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value])",
+      "IndentedOperation": "                                        AddColumns: IterPhyOp LogOp=SelectColumns IterCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value])",
+      "Level": 10,
+      "RowNumber": 21,
+      "NextSiblingRowNumber": 40,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "PartitionIntoGroups: IterPhyOp LogOp=TopN IterCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State]) #Groups=24099 #Rows=24099",
+      "IndentedOperation": "                                            PartitionIntoGroups: IterPhyOp LogOp=TopN IterCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State]) #Groups=24099 #Rows=24099",
+      "Level": 11,
+      "RowNumber": 22,
+      "NextSiblingRowNumber": 40,
+      "HighlightRow": false
+    },
+    {
+      "Records": 24099,
+      "Operation": "AggregationSpool<Top>: SpoolPhyOp #Records=24099",
+      "IndentedOperation": "                                                AggregationSpool<Top>: SpoolPhyOp #Records=24099",
+      "Level": 12,
+      "RowNumber": 23,
+      "NextSiblingRowNumber": 40,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Filter: IterPhyOp LogOp=Filter IterCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "IndentedOperation": "                                                    Filter: IterPhyOp LogOp=Filter IterCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "Level": 13,
+      "RowNumber": 24,
+      "NextSiblingRowNumber": 38,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Extend_Lookup: IterPhyOp LogOp=LessThan IterCols(0, 4)('Calendar'[Date], 'data'[DateTime])",
+      "IndentedOperation": "                                                        Extend_Lookup: IterPhyOp LogOp=LessThan IterCols(0, 4)('Calendar'[Date], 'data'[DateTime])",
+      "Level": 14,
+      "RowNumber": 25,
+      "NextSiblingRowNumber": 38,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "CrossApply: IterPhyOp LogOp=LessThan IterCols(0, 4)('Calendar'[Date], 'data'[DateTime])",
+      "IndentedOperation": "                                                            CrossApply: IterPhyOp LogOp=LessThan IterCols(0, 4)('Calendar'[Date], 'data'[DateTime])",
+      "Level": 15,
+      "RowNumber": 26,
+      "NextSiblingRowNumber": 33,
+      "HighlightRow": false
+    },
+    {
+      "Records": 4017,
+      "Operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(0)('Calendar'[Date]) #Records=4017 #KeyCols=16 #ValueCols=0",
+      "IndentedOperation": "                                                                Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(0)('Calendar'[Date]) #Records=4017 #KeyCols=16 #ValueCols=0",
+      "Level": 16,
+      "RowNumber": 27,
+      "NextSiblingRowNumber": 30,
+      "HighlightRow": false
+    },
+    {
+      "Records": 4017,
+      "Operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4017",
+      "IndentedOperation": "                                                                    ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4017",
+      "Level": 17,
+      "RowNumber": 28,
+      "NextSiblingRowNumber": 30,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "IndentedOperation": "                                                                        Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "Level": 18,
+      "RowNumber": 29,
+      "NextSiblingRowNumber": 29,
+      "HighlightRow": true
+    },
+    {
+      "Records": 19137,
+      "Operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(2, 3, 4, 6)('data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State]) #Records=19137 #KeyCols=16 #ValueCols=0",
+      "IndentedOperation": "                                                                Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(2, 3, 4, 6)('data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State]) #Records=19137 #KeyCols=16 #ValueCols=0",
+      "Level": 16,
+      "RowNumber": 30,
+      "NextSiblingRowNumber": 33,
+      "HighlightRow": false
+    },
+    {
+      "Records": 19137,
+      "Operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=19137",
+      "IndentedOperation": "                                                                    ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=19137",
+      "Level": 17,
+      "RowNumber": 31,
+      "NextSiblingRowNumber": 33,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Cache: IterPhyOp #FieldCols=4 #ValueCols=0",
+      "IndentedOperation": "                                                                        Cache: IterPhyOp #FieldCols=4 #ValueCols=0",
+      "Level": 18,
+      "RowNumber": 32,
+      "NextSiblingRowNumber": 32,
+      "HighlightRow": true
+    },
+    {
+      "Records": null,
+      "Operation": "LessThan: LookupPhyOp LogOp=LessThan LookupCols(0, 4)('Calendar'[Date], 'data'[DateTime]) Boolean",
+      "IndentedOperation": "                                                            LessThan: LookupPhyOp LogOp=LessThan LookupCols(0, 4)('Calendar'[Date], 'data'[DateTime]) Boolean",
+      "Level": 15,
+      "RowNumber": 33,
+      "NextSiblingRowNumber": 38,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "ColValue<'data'[DateTime]>: LookupPhyOp LogOp=ColValue<'data'[DateTime]>'data'[DateTime] LookupCols(4)('data'[DateTime]) DateTime",
+      "IndentedOperation": "                                                                ColValue<'data'[DateTime]>: LookupPhyOp LogOp=ColValue<'data'[DateTime]>'data'[DateTime] LookupCols(4)('data'[DateTime]) DateTime",
+      "Level": 16,
+      "RowNumber": 34,
+      "NextSiblingRowNumber": 34,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Add: LookupPhyOp LogOp=Add LookupCols(0)('Calendar'[Date]) DateTime",
+      "IndentedOperation": "                                                                Add: LookupPhyOp LogOp=Add LookupCols(0)('Calendar'[Date]) DateTime",
+      "Level": 16,
+      "RowNumber": 35,
+      "NextSiblingRowNumber": 38,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "ColValue<'Calendar'[Date]>: LookupPhyOp LogOp=ColValue<'Calendar'[Date]>'Calendar'[Date] LookupCols(0)('Calendar'[Date]) DateTime",
+      "IndentedOperation": "                                                                    ColValue<'Calendar'[Date]>: LookupPhyOp LogOp=ColValue<'Calendar'[Date]>'Calendar'[Date] LookupCols(0)('Calendar'[Date]) DateTime",
+      "Level": 17,
+      "RowNumber": 36,
+      "NextSiblingRowNumber": 36,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Constant: LookupPhyOp LogOp=Constant Integer 1",
+      "IndentedOperation": "                                                                    Constant: LookupPhyOp LogOp=Constant Integer 1",
+      "Level": 17,
+      "RowNumber": 37,
+      "NextSiblingRowNumber": 37,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "ColValue<'data'[DateTime]>: LookupPhyOp LogOp=ColValue<'data'[DateTime]>'data'[DateTime] LookupCols(4)('data'[DateTime]) DateTime",
+      "IndentedOperation": "                                                    ColValue<'data'[DateTime]>: LookupPhyOp LogOp=ColValue<'data'[DateTime]>'data'[DateTime] LookupCols(4)('data'[DateTime]) DateTime",
+      "Level": 13,
+      "RowNumber": 38,
+      "NextSiblingRowNumber": 38,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "Constant: LookupPhyOp LogOp=Constant Integer 1",
+      "IndentedOperation": "                                                    Constant: LookupPhyOp LogOp=Constant Integer 1",
+      "Level": 13,
+      "RowNumber": 39,
+      "NextSiblingRowNumber": 39,
+      "HighlightRow": false
+    },
+    {
+      "Records": null,
+      "Operation": "ColValue<'States'[State]>: LookupPhyOp LogOp=ColValue<'States'[State]>'States'[State] LookupCols(1)('States'[State]) String",
+      "IndentedOperation": "                        ColValue<'States'[State]>: LookupPhyOp LogOp=ColValue<'States'[State]>'States'[State] LookupCols(1)('States'[State]) String",
+      "Level": 6,
+      "RowNumber": 40,
+      "NextSiblingRowNumber": 41,
+      "HighlightRow": false
+    }
+  ],
+  "LogicalQueryPlanRows": [
+    {
+      "Operation": "GroupSemiJoin: RelLogOp DependOnCols()() 0-2 RequiredCols(0, 1, 2)('Calendar'[Date], 'States'[State], ''[Using_TOPN])",
+      "IndentedOperation": "GroupSemiJoin: RelLogOp DependOnCols()() 0-2 RequiredCols(0, 1, 2)('Calendar'[Date], 'States'[State], ''[Using_TOPN])",
+      "Level": 0,
+      "RowNumber": 1,
+      "NextSiblingRowNumber": 26,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Scan_Vertipaq: RelLogOp DependOnCols()() 0-0 RequiredCols(0)('Calendar'[Date])",
+      "IndentedOperation": "    Scan_Vertipaq: RelLogOp DependOnCols()() 0-0 RequiredCols(0)('Calendar'[Date])",
+      "Level": 1,
+      "RowNumber": 2,
+      "NextSiblingRowNumber": 2,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Scan_Vertipaq: RelLogOp DependOnCols()() 1-1 RequiredCols(1)('States'[State])",
+      "IndentedOperation": "    Scan_Vertipaq: RelLogOp DependOnCols()() 1-1 RequiredCols(1)('States'[State])",
+      "Level": 1,
+      "RowNumber": 3,
+      "NextSiblingRowNumber": 3,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "VarScope: ScaLogOp MeasureRef=[Using TopN] DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) Integer DominantValue=BLANK",
+      "IndentedOperation": "    VarScope: ScaLogOp MeasureRef=[Using TopN] DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) Integer DominantValue=BLANK",
+      "Level": 1,
+      "RowNumber": 4,
+      "NextSiblingRowNumber": 26,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "'States'[State]: ScaLogOp VarName=currentState DependOnCols(1)('States'[State]) String DominantValue=NONE",
+      "IndentedOperation": "        'States'[State]: ScaLogOp VarName=currentState DependOnCols(1)('States'[State]) String DominantValue=NONE",
+      "Level": 2,
+      "RowNumber": 5,
+      "NextSiblingRowNumber": 5,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Add: ScaLogOp VarName=currentDate DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE",
+      "IndentedOperation": "        Add: ScaLogOp VarName=currentDate DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE",
+      "Level": 2,
+      "RowNumber": 6,
+      "NextSiblingRowNumber": 9,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "'Calendar'[Date]: ScaLogOp DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE",
+      "IndentedOperation": "            'Calendar'[Date]: ScaLogOp DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE",
+      "Level": 3,
+      "RowNumber": 7,
+      "NextSiblingRowNumber": 7,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Constant: ScaLogOp DependOnCols()() Integer DominantValue=1",
+      "IndentedOperation": "            Constant: ScaLogOp DependOnCols()() Integer DominantValue=1",
+      "Level": 3,
+      "RowNumber": 8,
+      "NextSiblingRowNumber": 8,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "CountRows: ScaLogOp DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) Integer DominantValue=BLANK",
+      "IndentedOperation": "        CountRows: ScaLogOp DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) Integer DominantValue=BLANK",
+      "Level": 2,
+      "RowNumber": 9,
+      "NextSiblingRowNumber": 26,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Filter: RelLogOp DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) 2-2 RequiredCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "IndentedOperation": "            Filter: RelLogOp DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) 2-2 RequiredCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "Level": 3,
+      "RowNumber": 10,
+      "NextSiblingRowNumber": 26,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Scan_Vertipaq: RelLogOp DependOnCols()() 2-2 RequiredCols(2)('data'[TestID])",
+      "IndentedOperation": "                Scan_Vertipaq: RelLogOp DependOnCols()() 2-2 RequiredCols(2)('data'[TestID])",
+      "Level": 4,
+      "RowNumber": 11,
+      "NextSiblingRowNumber": 11,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "EqualTo: ScaLogOp DependOnCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID]) Boolean DominantValue=NONE",
+      "IndentedOperation": "                EqualTo: ScaLogOp DependOnCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID]) Boolean DominantValue=NONE",
+      "Level": 4,
+      "RowNumber": 12,
+      "NextSiblingRowNumber": 26,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "TableToScalar: ScaLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) String DominantValue=BLANK",
+      "IndentedOperation": "                    TableToScalar: ScaLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) String DominantValue=BLANK",
+      "Level": 5,
+      "RowNumber": 13,
+      "NextSiblingRowNumber": 25,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "SelectColumns: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-4 RequiredCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value])",
+      "IndentedOperation": "                        SelectColumns: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-4 RequiredCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value])",
+      "Level": 6,
+      "RowNumber": 14,
+      "NextSiblingRowNumber": 25,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "TopN: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "IndentedOperation": "                            TopN: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "Level": 7,
+      "RowNumber": 15,
+      "NextSiblingRowNumber": 24,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "CalculateTable: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "IndentedOperation": "                                CalculateTable: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "Level": 8,
+      "RowNumber": 16,
+      "NextSiblingRowNumber": 22,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Filter: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "IndentedOperation": "                                    Filter: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "Level": 9,
+      "RowNumber": 17,
+      "NextSiblingRowNumber": 22,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Scan_Vertipaq: RelLogOp DependOnCols(2)('data'[TestID]) 3-13 RequiredCols(2, 3, 4, 6)('data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "IndentedOperation": "                                        Scan_Vertipaq: RelLogOp DependOnCols(2)('data'[TestID]) 3-13 RequiredCols(2, 3, 4, 6)('data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "Level": 10,
+      "RowNumber": 18,
+      "NextSiblingRowNumber": 18,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "LessThan: ScaLogOp DependOnCols(0, 4)('Calendar'[Date], 'data'[DateTime]) Boolean DominantValue=NONE",
+      "IndentedOperation": "                                        LessThan: ScaLogOp DependOnCols(0, 4)('Calendar'[Date], 'data'[DateTime]) Boolean DominantValue=NONE",
+      "Level": 10,
+      "RowNumber": 19,
+      "NextSiblingRowNumber": 22,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "'data'[DateTime]: ScaLogOp DependOnCols(4)('data'[DateTime]) DateTime DominantValue=NONE",
+      "IndentedOperation": "                                            'data'[DateTime]: ScaLogOp DependOnCols(4)('data'[DateTime]) DateTime DominantValue=NONE",
+      "Level": 11,
+      "RowNumber": 20,
+      "NextSiblingRowNumber": 20,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "ScalarVarProxy: ScaLogOp DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE RefVarName=currentDate",
+      "IndentedOperation": "                                            ScalarVarProxy: ScaLogOp DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE RefVarName=currentDate",
+      "Level": 11,
+      "RowNumber": 21,
+      "NextSiblingRowNumber": 21,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "Constant: ScaLogOp DependOnCols()() Integer DominantValue=1",
+      "IndentedOperation": "                                Constant: ScaLogOp DependOnCols()() Integer DominantValue=1",
+      "Level": 8,
+      "RowNumber": 22,
+      "NextSiblingRowNumber": 22,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "'data'[DateTime]: ScaLogOp DependOnCols(4)('data'[DateTime]) DateTime DominantValue=NONE",
+      "IndentedOperation": "                                'data'[DateTime]: ScaLogOp DependOnCols(4)('data'[DateTime]) DateTime DominantValue=NONE",
+      "Level": 8,
+      "RowNumber": 23,
+      "NextSiblingRowNumber": 23,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "'data'[State]: ScaLogOp DependOnCols(6)('data'[State]) String DominantValue=NONE",
+      "IndentedOperation": "                            'data'[State]: ScaLogOp DependOnCols(6)('data'[State]) String DominantValue=NONE",
+      "Level": 7,
+      "RowNumber": 24,
+      "NextSiblingRowNumber": 24,
+      "HighlightRow": false
+    },
+    {
+      "Operation": "'States'[State]: ScaLogOp DependOnCols(1)('States'[State]) String DominantValue=NONE",
+      "IndentedOperation": "                    'States'[State]: ScaLogOp DependOnCols(1)('States'[State]) String DominantValue=NONE",
+      "Level": 5,
+      "RowNumber": 25,
+      "NextSiblingRowNumber": 26,
+      "HighlightRow": false
+    }
+  ],
+  "ActivityID": "3199362B-C2E8-4760-B67B-741BA7B37735",
+  "CommandText": "EVALUATE\nSUMMARIZECOLUMNS(\n    'Calendar'[Date],\n    'States'[State],\n    \"Using_TOPN\", [Using TopN]\n//    \"Using_INDEX\", [Using INDEX]\n)",
+  "Parameters": null,
+  "StartDatetime": "2025-01-26T20:52:55.353333+00:00"
+}

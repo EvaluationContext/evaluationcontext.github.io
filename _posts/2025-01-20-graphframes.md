@@ -283,7 +283,7 @@ def GetScanStatus(access_token: str, scan:dict, delay:int = 2, max_retries:int =
     """
 
     headers = {"Authorization": f"Bearer {access_token}"}
-    url = fhttps://api.powerbi.com/v1.0/myorg/admin/workspaces/scanStatus/{scan['id']}
+    url = f"https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanStatus/{scan['id']"}
 
     for retry in range(max_retries):
         r = Request(method="get", url=url, headers=headers)
@@ -314,7 +314,7 @@ def GetScanResult(access_token: str, scan:dict) -> dict:
     """
 
     headers = {"Authorization": f"Bearer {access_token}"}
-    url = fhttps://api.powerbi.com/v1.0/myorg/admin/workspaces/scanResult/{scan['id']}
+    url = f"https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanResult/{scan['id']}"}
 
     r = Request(method="get", url=url, headers=headers)
 

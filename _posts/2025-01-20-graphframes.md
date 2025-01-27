@@ -60,6 +60,7 @@ The following APIs are used return all the metadata for the Power BI service
 | --- | --- |
 | [ListGroups](https://learn.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http) | Return AAD groups |
 | [ListUsers](https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http) | Return AAD Users |
+| [ListApps](https://learn.microsoft.com/en-us/graph/api/application-list?view=graph-rest-1.0&tabs=http) | Return AAD Apps |
 
 ## GraphFrames
 
@@ -688,7 +689,7 @@ for view in ['connectionDetails', 'workspaces', 'workspaceUsers', 'reports', 'da
 ```python
 def getGraphAPI(entity:str='groups') -> list:
   """
-  Calls List groups API [https://learn.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http] or List users API [https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http]
+  Calls List groups API [https://learn.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http], List users API [https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http] or List application API [https://learn.microsoft.com/en-us/graph/api/application-list?view=graph-rest-1.0&tabs=http]
   parameters:
     type:       str     groups, users or apps (default: groups)
   returns:      list    array of users or groups
@@ -964,40 +965,6 @@ usersAccessRights = spark.sql(f"""
     where type not in ('Workspace', 'Report', 'Dataset', 'Report App')
 """)
 for tableName, df in {'usersAccessRights': usersAccessRights}.items():
-  WriteDfToTable(df, savePath, tableName)
-```
-
-```python
-g.triplets.createOrReplaceTempView("triplets")
-forceDirected = spark.sql(f"""
-    select
-    "edge" as type,
-    t.src.nodeId as srcId,
-    t.src.name as srcName,
-    t.dst.nodeId as dstId,
-    t.dst.name as dstName,
-    null as vertexName,
-    null as vertexId,
-    null as vertexType,
-    coalesce(r.accessRightIdRight, concat(t.src.nodeID, t.src.accessRight)) as accessRightIdRight
-    from triplets as t
-    left join {savePath}.usersAccessRights as r
-        on t.src.nodeID = r.id
-    union all
-    select
-    "vertex" as type,
-    null as srcId,
-    null as srcName,
-    null as dstId,
-    null as dstName,
-    name as vertexName,
-    nodeId as vertexId,
-    type as vertexType,
-    null as accessRightIdRight
-    from {savePath}.v
-    """
-)
-for tableName, df in {'forceDirected': forceDirected}.items():
   WriteDfToTable(df, savePath, tableName)
 ```
 

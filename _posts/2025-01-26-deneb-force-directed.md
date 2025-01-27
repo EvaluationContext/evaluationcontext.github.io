@@ -16,13 +16,51 @@ In my previous [post](https://evaluationcontext.github.io/posts/graphframes/) I 
 > I updated some code in my previous post to align with the data model in this post
 {: .prompt-info }
 
+## GraphFrame
+
+We need to add a extra table to the previous code from the previous post to power the visual, which is a union of vertices and edges. In the model we will rename `srcId`{:.console} to `source`{:.console}  and `dstId`{:.console} to `target`{:.console} since [Vega's link force transformation](https://vega.github.io/vega/docs/transforms/force/#link) required this. `accessRightIdRight`{:.console} will be used to label all nodes that inherits permission from a objects (Workspace, Report, Semantic Model) role so we can trim unnecessary nodes from subgraphs.
+
+```python
+g.triplets.createOrReplaceTempView("triplets")
+forceDirected = spark.sql(f"""
+    select
+    "edge" as type,
+    t.src.nodeId as srcId,
+    t.src.name as srcName,
+    t.dst.nodeId as dstId,
+    t.dst.name as dstName,
+    null as vertexName,
+    null as vertexId,
+    null as vertexType,
+    coalesce(r.accessRightIdRight, concat(t.src.nodeID, t.src.accessRight)) as accessRightIdRight
+    from triplets as t
+    left join {savePath}.usersAccessRights as r
+        on t.src.nodeID = r.id
+    union all
+    select
+    "vertex" as type,
+    null as srcId,
+    null as srcName,
+    null as dstId,
+    null as dstName,
+    name as vertexName,
+    nodeId as vertexId,
+    type as vertexType,
+    null as accessRightIdRight
+    from {savePath}.v
+    """
+)
+for tableName, df in {'forceDirected': forceDirected}.items():
+  WriteDfToTable(df, savePath, tableName)
+```
+
 ## Power BI Data Model
 
-The point of running the Scanner API was to create a report that catalogues everything in Power BI. After playing around for a bit I ended with up a similar model to [Rui Romano's](https://www.linkedin.com/in/ruiromano/) [BPI Scanner](https://github.com/RuiRomano/pbiscanner) solution. To reduce the complexity of measures, all of the main items (Workspaces, Report, Semantic Models) are considered as objects in a single object table.
+The point of running the Scanner API was to create a report that catalogues everything in Power BI. After playing around for a bit I ended with up a similar model to [Rui Romano's](https://www.linkedin.com/in/ruiromano/) [PBI Scanner](https://github.com/RuiRomano/pbiscanner) solution. To reduce the complexity of measures, all of the main artifacts (Workspaces, Report, Semantic Models) are considered as objects in a object table.
 
 ![Data Model](/assets/img/0019-ForceDirected/DataModel.png)
 
-Rather than just listing permission in a table a visualization helps make the data more understandable, so lets implement that.
+Rather than just listing permission in a table, lets create a visualization to help make the data more understandable.
 
 ## Deneb
 
@@ -32,11 +70,11 @@ The visual only needs to consider subset of the model.
 
 ![Data Model View](/assets/img/0019-ForceDirected/DataModel_view.png)
 
-The Graph data is present in the "Force Directed" table, which is a union of nodes and edges. This table is disconnected from the model so that we can use DAX measures to filter the graphs to give specific sub-graphs, from the perspective of specific objects or users.
+The Graph data is present in the `Force Directed`{:.console} table define above. It is disconnected from the model so that we can use DAX measures to filter the graphs to give specific sub-graphs, from the perspective of specific objects or users.
 
 ### Object Permissions
 
-We create a page with the Deneb visual, and create the measure below. We add the [Object Selection] measure to the filter well of the Deneb visual and filter to where the measure = 1.
+We create a page with the Deneb visual, and create the measure below. We add the `[Object Selection]`{:.console} measure to the filter well of the Deneb visual and filter to where the measure = 1.
 
 ![Force Directed gif](/assets/img/0019-ForceDirected/force%20directed.gif)
 
@@ -120,7 +158,7 @@ SWITCH(
 
 ### Vega Spec
 
-I want to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/) to pin objects to the left and user/apps to the right and groups in the middle. But I am still quite new to Vega and I couldn't quite get the syntax right to achieve this. If anyone can get to this work for this spec I would be very interested in seeing it. 
+I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/) to pin objects to the left and user/apps to the right and groups in the middle. But I am still quite new to Vega and I couldn't quite get the syntax right to achieve this. If anyone can get to this work for this spec I would be very interested in seeing it.
 
 ```json
 {

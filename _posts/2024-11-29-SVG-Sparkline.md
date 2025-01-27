@@ -19,7 +19,7 @@ I was expanding on the [Fabric Log Analytics for Analysis Services Engine report
 
 ![Matrix](/assets/img/0012-SVGsparkline/Visual.png)
 
-The measure was working fine locally so I pushed it to the service to a fully hydrated model, and the performance was terrible. So fired up DAX studio to perform some optimization, and ran the visual's DAX query (see below). By chance the visual had a couple of sparklines. I was surprised to see that the sparklines were measures defined in the query, and produced a output similar to that of a SVG, with list x,y coordinates. I investigated further and found that SQL BIs Alberto has a [video](https://www.sqlbi.com/tv/performance-of-sparklines-dax-in-power-bi-unplugged/) exploring sparkline measures and they seem close to optimal, so I decided to steal and adjust the code for my purposes.
+The measure was working fine locally so I pushed it to the service to a fully hydrated model, and the performance was terrible. So fired up DAX studio to perform some optimization, and ran the visual's DAX query (see below). By chance the visual had a couple of sparklines. I was surprised to see that the sparklines were measures defined in the query, and produced a output similar to that of a SVG, with list x,y coordinates. I investigated further and found that SQLBI's Alberto has a [video](https://www.sqlbi.com/tv/performance-of-sparklines-dax-in-power-bi-unplugged/) exploring sparkline measures and they seem close to optimal, so I decided to steal and adjust the code for my purposes.
 
 ```dax
 DEFINE MEASURE 'Progress Report'[Sparkline] =
@@ -142,7 +142,7 @@ ORDER BY
 
 ## Creating the measure
 
-There seem to be a couple of forms of the sparkline measures, the one above that uses ScalarKey and CROSSJOIN, and another that uses a GroupIndex and SUBSTITUTEWITHINDEX. The latter is used when more than one value is used for the categories on the Y axis if the sort order of a field depends on another field. I used this second one, resulting in the following:
+There seem to be a couple of forms of the sparkline measures, the one above that uses ScalarKey and `CROSSJOIN()`{.:dax}, and another that uses a GroupIndex and `SUBSTITUTEWITHINDEX`{.:dax}. The latter is used when more than one value is used for the categories on the Y axis if the sort order of a field depends on another field. I used the latter one, resulting in the following:
 
 ```dax
 Refresh SVG Barcode =

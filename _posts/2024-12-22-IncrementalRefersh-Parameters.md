@@ -69,7 +69,7 @@ in
     selectPath
 ```
 
-Now if we set RangeStart to `01/01/2020 00:00:00`{:.console}, this will mean we will return lastThreemonths. In the service based on our Refresh Policy, this value will not be injected by the service and the incrementalRefresh path will be taken instead.
+Now if we set `RangeStart`{:.console} to `01/01/2020 00:00:00`{:.console}, this will mean we will return lastThreemonths. In the service based on our Refresh Policy, this value will not be injected by the service and the incrementalRefresh path will be taken instead.
 
 ## Conclusion
 

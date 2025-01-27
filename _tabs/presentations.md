@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-icon: fas fa-presentation
+icon: fas fa-video
 order: 4
 ---
 

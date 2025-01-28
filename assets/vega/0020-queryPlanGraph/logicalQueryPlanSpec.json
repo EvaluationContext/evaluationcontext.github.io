@@ -1,0 +1,232 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A force-directed graph for a DAX Query Plan",
+  "width": 700,
+  "height": 500,
+  "padding": 5,
+  "autosize": "none",
+  "signals": [
+    {"name": "cx", "update": "width / 2"},
+    {"name": "cy", "update": "height / 2"},
+    {"name": "nodeRadius", "value": 8},
+    {"name": "nodeCharge", "value": -30},
+    {"name": "linkDistance", "value": 30},
+    {"name": "static", "value": false},
+    {"name": "gravityX", "value": 0.2},
+    {"name": "gravityY", "value": 0.9},
+    {
+      "description": "State variable for active node fix status.",
+      "name": "fix",
+      "value": false,
+      "on": [
+        {
+          "events": "symbol:pointerout[!event.buttons], window:pointerup",
+          "update": "false"
+        },
+        {"events": "symbol:pointerover", "update": "fix || true"},
+        {
+          "events": "[symbol:pointerdown, window:pointerup] > window:pointermove!",
+          "update": "xy()",
+          "force": true
+        }
+      ]
+    },
+    {
+      "description": "Graph node most recently interacted with.",
+      "name": "node",
+      "value": null,
+      "on": [
+        {
+          "events": "symbol:pointerover",
+          "update": "fix === true ? item() : node"
+        }
+      ]
+    },
+    {
+      "description": "Flag to restart Force simulation upon data changes.",
+      "name": "restart",
+      "value": false,
+      "on": [{"events": {"signal": "fix"}, "update": "fix && fix.length"}]
+    }
+  ],
+  "data": [
+    {
+      "name": "node-data",
+      "url": "https://raw.githubusercontent.com/EvaluationContext/evaluationcontext.github.io/refs/heads/master/assets/vega/0020-queryPlanGraph/queryPlan.json",
+      "format": {"type": "json", "property": "logical"},
+      "transform": [
+        {
+          "type": "project",
+          "fields": ["dstid", "operation", "level", "records", "operationType", "operationShort"],
+          "as": ["index", "Operation", "Level", "Records"]
+        },
+        {
+              "type": "formula",
+              "expr": "length(datum.operationShort) * (width / 160)",
+              "as": "operationShortLen"
+        }
+      ]
+    },
+    {
+      "name": "link-data",
+      "url": "https://raw.githubusercontent.com/EvaluationContext/evaluationcontext.github.io/refs/heads/master/assets/vega/0020-queryPlanGraph/queryPlan.json",
+      "format": {"type": "json", "property": "logical"},
+      "transform": [
+        {"type": "filter", "expr": "datum.srcid != null"},
+        {
+          "type": "project",
+          "fields": ["srcid", "dstid"],
+          "as": ["source", "target"]
+        }
+      ]
+    }
+  ],
+
+	"legends": [
+		{
+			"direction": "vertical",
+			"legendX": 1050,
+			"legendY": 0,
+			"orient": "none",
+			"stroke": "color",
+			"fill": "color",
+			"titleColor": "#b6bcdd",
+			"padding": 10,
+			"encode": {
+				"title": { "update": { "fontSize": { "value": 14 } } },
+				"symbols": { "update": { "fillOpacity": { "value": 0.4 } } },
+				"labels": {
+					"update": {
+						"fontSize": { "value": 12 },
+						"fill": { "value": "#b6bcdd" }
+					}
+				}
+			}
+		}
+	],
+
+  "scales": [
+    {
+      "name": "xscale",
+      "type": "band",
+      "domain": {"data": "node-data", "field": "Level", "sort": true},
+      "paddingOuter": 1,
+      "range": "width"
+    },
+    {
+      "name": "yscale",
+      "type": "band",
+      "domain": {"data": "node-data", "field": "index", "sort": true},
+      "range": "height"
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "node-data", "field": "operationType"},
+      "range": {"scheme": "tableau10"}
+    },
+    {
+      "name": "size",
+      "domain": {"data": "node-data", "field": "Records"},
+      "range": [300, 2000]
+    }
+  ],
+
+  "marks": [
+    {
+      "name": "nodes",
+      "type": "symbol",
+      "zindex": 1,
+      "from": {"data": "node-data"},
+      "on": [
+        {
+          "trigger": "fix",
+          "modify": "node",
+          "values": "fix === true ? {fx: node.x, fy: node.y} : {fx: fix[0], fy: fix[1]}"
+        },
+        {"trigger": "!fix", "modify": "node", "values": "{fx: null, fy: null}"}
+      ],
+      "encode": {
+        "enter": {
+          "size": {"scale": "size", "field": "Records"},
+          "stroke": {"scale": "color", "field": "operationType"},
+          "fill": {"scale": "color", "field": "operationType"},
+          "fillOpacity": {"value": 0.1}, 
+          "xfocus": {"scale": "xscale", "field": "Level", "band": 0.5},
+          "yfocus": {"scale": "yscale", "field": "index", "band": 0.5},
+          "tooltip": {
+            "signal": "{OperationType: datum.operationType, Operation: datum.Operation, Records: datum.Records}"
+          }
+        },
+        "update": {
+          "cursor": {"value": "pointer"}
+        }
+      },
+      "transform": [
+        {
+          "type": "force",
+          "iterations": 300,
+          "restart": {"signal": "restart"},
+          "static": {"signal": "static"},
+          "signal": "force",
+          "forces": [
+            {"force": "center", "x": {"signal": "cx"}, "y": {"signal": "cy"}},
+            {"force": "collide", "radius": {"signal": "nodeRadius"}},
+            {"force": "nbody", "strength": {"signal": "nodeCharge"}},
+            {
+              "force": "link",
+              "links": "link-data",
+              "distance": {"signal": "linkDistance"},
+              "id": "index"
+            },
+            {"force": "x", "x": "xfocus", "strength": {"signal": "gravityX"}},
+            {"force": "y", "y": "yfocus", "strength": {"signal": "gravityY"}}
+          ]
+        }
+      ]
+    },
+    {
+      "type": "path",
+      "from": {"data": "link-data"},
+      "interactive": false,
+      "encode": {
+        "update": {"stroke": {"value": "#ccc"}, "strokeWidth": {"value": 0.5}}
+      },
+      "transform": [
+        {
+          "type": "linkpath",
+          "require": {"signal": "force"},
+          "shape": "line",
+          "sourceX": "datum.source.x",
+          "sourceY": "datum.source.y",
+          "targetX": "datum.target.x",
+          "targetY": "datum.target.y"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "labels",
+      "from": {"data": "nodes"},
+      
+      "zindex": 2,
+      "interactive": false,
+      "enter": {},
+      "encode": {
+        "update": {
+          "fill": {"signal": "'white'"},
+          "y": {"field": "y"},
+          "x": {"field": "x"},
+          "text": {"field": "datum.operationShort"},
+          "align": {"value": "left"},
+          "fontSize": {"value": 10},
+          "baseline": {"value": "top"},
+          "limit": {
+            "signal": "clamp(60, 1, 1000)"
+          },
+          "ellipsis": {"value": " "}
+        }
+      }
+    }
+  ]
+}

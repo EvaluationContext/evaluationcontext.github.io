@@ -4,6 +4,9 @@
       "srcid": null,
       "dstid": 0,
       "operation": "GroupSemiJoin: RelLogOp DependOnCols()() 0-2 RequiredCols(0, 1, 2)('Calendar'[Date], 'States'[State], ''[Using_TOPN])",
+      "operationShort": "GroupSemiJoin",
+      "operationType": "RelLogOp DependOnCols()() 0-2 RequiredCols(0, 1, 2)('Calendar'[Date], 'States'[State], ''[Using_TOPN])",
+      "isCache": false,
       "level": 0,
       "records": null
     },
@@ -11,6 +14,9 @@
       "srcid": 0,
       "dstid": 1,
       "operation": "Scan_Vertipaq: RelLogOp DependOnCols()() 0-0 RequiredCols(0)('Calendar'[Date])",
+      "operationShort": "Scan_Vertipaq",
+      "operationType": "RelLogOp DependOnCols()() 0-0 RequiredCols(0)('Calendar'[Date])",
+      "isCache": false,
       "level": 1,
       "records": null
     },
@@ -18,6 +24,9 @@
       "srcid": 0,
       "dstid": 2,
       "operation": "Scan_Vertipaq: RelLogOp DependOnCols()() 1-1 RequiredCols(1)('States'[State])",
+      "operationShort": "Scan_Vertipaq",
+      "operationType": "RelLogOp DependOnCols()() 1-1 RequiredCols(1)('States'[State])",
+      "isCache": false,
       "level": 1,
       "records": null
     },
@@ -25,6 +34,9 @@
       "srcid": 0,
       "dstid": 3,
       "operation": "VarScope: ScaLogOp MeasureRef=[Using TopN] DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) Integer DominantValue=BLANK",
+      "operationShort": "VarScope",
+      "operationType": "ScaLogOp MeasureRef=[Using TopN] DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) Integer DominantValue=BLANK",
+      "isCache": false,
       "level": 1,
       "records": null
     },
@@ -32,6 +44,9 @@
       "srcid": 3,
       "dstid": 4,
       "operation": "'States'[State]: ScaLogOp VarName=currentState DependOnCols(1)('States'[State]) String DominantValue=NONE",
+      "operationShort": "'States'[State]",
+      "operationType": "ScaLogOp VarName=currentState DependOnCols(1)('States'[State]) String DominantValue=NONE",
+      "isCache": false,
       "level": 2,
       "records": null
     },
@@ -39,6 +54,9 @@
       "srcid": 3,
       "dstid": 5,
       "operation": "Add: ScaLogOp VarName=currentDate DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE",
+      "operationShort": "Add",
+      "operationType": "ScaLogOp VarName=currentDate DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE",
+      "isCache": false,
       "level": 2,
       "records": null
     },
@@ -46,6 +64,9 @@
       "srcid": 5,
       "dstid": 6,
       "operation": "'Calendar'[Date]: ScaLogOp DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE",
+      "operationShort": "'Calendar'[Date]",
+      "operationType": "ScaLogOp DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE",
+      "isCache": false,
       "level": 3,
       "records": null
     },
@@ -53,6 +74,9 @@
       "srcid": 5,
       "dstid": 7,
       "operation": "Constant: ScaLogOp DependOnCols()() Integer DominantValue=1",
+      "operationShort": "Constant",
+      "operationType": "ScaLogOp DependOnCols()() Integer DominantValue=1",
+      "isCache": false,
       "level": 3,
       "records": null
     },
@@ -60,6 +84,9 @@
       "srcid": 3,
       "dstid": 8,
       "operation": "CountRows: ScaLogOp DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) Integer DominantValue=BLANK",
+      "operationShort": "CountRows",
+      "operationType": "ScaLogOp DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) Integer DominantValue=BLANK",
+      "isCache": false,
       "level": 2,
       "records": null
     },
@@ -67,6 +94,9 @@
       "srcid": 8,
       "dstid": 9,
       "operation": "Filter: RelLogOp DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) 2-2 RequiredCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "operationShort": "Filter",
+      "operationType": "RelLogOp DependOnCols(0, 1)('Calendar'[Date], 'States'[State]) 2-2 RequiredCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "isCache": false,
       "level": 3,
       "records": null
     },
@@ -74,6 +104,9 @@
       "srcid": 9,
       "dstid": 10,
       "operation": "Scan_Vertipaq: RelLogOp DependOnCols()() 2-2 RequiredCols(2)('data'[TestID])",
+      "operationShort": "Scan_Vertipaq",
+      "operationType": "RelLogOp DependOnCols()() 2-2 RequiredCols(2)('data'[TestID])",
+      "isCache": false,
       "level": 4,
       "records": null
     },
@@ -81,6 +114,9 @@
       "srcid": 9,
       "dstid": 11,
       "operation": "EqualTo: ScaLogOp DependOnCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID]) Boolean DominantValue=NONE",
+      "operationShort": "EqualTo",
+      "operationType": "ScaLogOp DependOnCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID]) Boolean DominantValue=NONE",
+      "isCache": false,
       "level": 4,
       "records": null
     },
@@ -88,6 +124,9 @@
       "srcid": 11,
       "dstid": 12,
       "operation": "TableToScalar: ScaLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) String DominantValue=BLANK",
+      "operationShort": "TableToScalar",
+      "operationType": "ScaLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) String DominantValue=BLANK",
+      "isCache": false,
       "level": 5,
       "records": null
     },
@@ -95,6 +134,9 @@
       "srcid": 12,
       "dstid": 13,
       "operation": "SelectColumns: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-4 RequiredCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value])",
+      "operationShort": "SelectColumns",
+      "operationType": "RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-4 RequiredCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value])",
+      "isCache": false,
       "level": 6,
       "records": null
     },
@@ -102,6 +144,9 @@
       "srcid": 13,
       "dstid": 14,
       "operation": "TopN: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "operationShort": "TopN",
+      "operationType": "RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "isCache": false,
       "level": 7,
       "records": null
     },
@@ -109,6 +154,9 @@
       "srcid": 14,
       "dstid": 15,
       "operation": "CalculateTable: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "operationShort": "CalculateTable",
+      "operationType": "RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "isCache": false,
       "level": 8,
       "records": null
     },
@@ -116,6 +164,9 @@
       "srcid": 15,
       "dstid": 16,
       "operation": "Filter: RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "operationShort": "Filter",
+      "operationType": "RelLogOp DependOnCols(0, 2)('Calendar'[Date], 'data'[TestID]) 3-13 RequiredCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "isCache": false,
       "level": 9,
       "records": null
     },
@@ -123,6 +174,9 @@
       "srcid": 16,
       "dstid": 17,
       "operation": "Scan_Vertipaq: RelLogOp DependOnCols(2)('data'[TestID]) 3-13 RequiredCols(2, 3, 4, 6)('data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "operationShort": "Scan_Vertipaq",
+      "operationType": "RelLogOp DependOnCols(2)('data'[TestID]) 3-13 RequiredCols(2, 3, 4, 6)('data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "isCache": false,
       "level": 10,
       "records": null
     },
@@ -130,6 +184,9 @@
       "srcid": 16,
       "dstid": 18,
       "operation": "LessThan: ScaLogOp DependOnCols(0, 4)('Calendar'[Date], 'data'[DateTime]) Boolean DominantValue=NONE",
+      "operationShort": "LessThan",
+      "operationType": "ScaLogOp DependOnCols(0, 4)('Calendar'[Date], 'data'[DateTime]) Boolean DominantValue=NONE",
+      "isCache": false,
       "level": 10,
       "records": null
     },
@@ -137,6 +194,9 @@
       "srcid": 18,
       "dstid": 19,
       "operation": "'data'[DateTime]: ScaLogOp DependOnCols(4)('data'[DateTime]) DateTime DominantValue=NONE",
+      "operationShort": "'data'[DateTime]",
+      "operationType": "ScaLogOp DependOnCols(4)('data'[DateTime]) DateTime DominantValue=NONE",
+      "isCache": false,
       "level": 11,
       "records": null
     },
@@ -144,6 +204,9 @@
       "srcid": 18,
       "dstid": 20,
       "operation": "ScalarVarProxy: ScaLogOp DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE RefVarName=currentDate",
+      "operationShort": "ScalarVarProxy",
+      "operationType": "ScaLogOp DependOnCols(0)('Calendar'[Date]) DateTime DominantValue=NONE RefVarName=currentDate",
+      "isCache": false,
       "level": 11,
       "records": null
     },
@@ -151,6 +214,9 @@
       "srcid": 14,
       "dstid": 21,
       "operation": "Constant: ScaLogOp DependOnCols()() Integer DominantValue=1",
+      "operationShort": "Constant",
+      "operationType": "ScaLogOp DependOnCols()() Integer DominantValue=1",
+      "isCache": false,
       "level": 8,
       "records": null
     },
@@ -158,6 +224,9 @@
       "srcid": 14,
       "dstid": 22,
       "operation": "'data'[DateTime]: ScaLogOp DependOnCols(4)('data'[DateTime]) DateTime DominantValue=NONE",
+      "operationShort": "'data'[DateTime]",
+      "operationType": "ScaLogOp DependOnCols(4)('data'[DateTime]) DateTime DominantValue=NONE",
+      "isCache": false,
       "level": 8,
       "records": null
     },
@@ -165,6 +234,9 @@
       "srcid": 13,
       "dstid": 23,
       "operation": "'data'[State]: ScaLogOp DependOnCols(6)('data'[State]) String DominantValue=NONE",
+      "operationShort": "'data'[State]",
+      "operationType": "ScaLogOp DependOnCols(6)('data'[State]) String DominantValue=NONE",
+      "isCache": false,
       "level": 7,
       "records": null
     },
@@ -172,6 +244,9 @@
       "srcid": 11,
       "dstid": 24,
       "operation": "'States'[State]: ScaLogOp DependOnCols(1)('States'[State]) String DominantValue=NONE",
+      "operationShort": "'States'[State]",
+      "operationType": "ScaLogOp DependOnCols(1)('States'[State]) String DominantValue=NONE",
+      "isCache": false,
       "level": 5,
       "records": null
     }
@@ -181,6 +256,9 @@
       "srcid": null,
       "dstid": 0,
       "operation": "GroupSemijoin: IterPhyOp LogOp=GroupSemiJoin IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], ''[Using_TOPN])",
+      "operationShort": "GroupSemijoin",
+      "operationType": "IterPhyOp LogOp=GroupSemiJoin IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], ''[Using_TOPN])",
+      "isCache": false,
       "level": 0,
       "records": null
     },
@@ -188,6 +266,9 @@
       "srcid": 0,
       "dstid": 1,
       "operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=VarScope IterCols(0, 1)('Calendar'[Date], 'States'[State]) #Records=13413 #KeyCols=2 #ValueCols=1",
+      "operationShort": "Spool_Iterator<SpoolIterator>",
+      "operationType": "IterPhyOp LogOp=VarScope IterCols(0, 1)('Calendar'[Date], 'States'[State]) #Records=13413 #KeyCols=2 #ValueCols=1",
+      "isCache": false,
       "level": 1,
       "records": 13413
     },
@@ -195,6 +276,9 @@
       "srcid": 1,
       "dstid": 2,
       "operation": "AggregationSpool<Count>: SpoolPhyOp #Records=13413",
+      "operationShort": "AggregationSpool<Count>",
+      "operationType": "SpoolPhyOp #Records=13413",
+      "isCache": false,
       "level": 2,
       "records": 13413
     },
@@ -202,6 +286,9 @@
       "srcid": 2,
       "dstid": 3,
       "operation": "Filter: IterPhyOp LogOp=Filter IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "operationShort": "Filter",
+      "operationType": "IterPhyOp LogOp=Filter IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "isCache": false,
       "level": 3,
       "records": null
     },
@@ -209,6 +296,9 @@
       "srcid": 3,
       "dstid": 4,
       "operation": "Extend_Lookup: IterPhyOp LogOp=EqualTo IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "operationShort": "Extend_Lookup",
+      "operationType": "IterPhyOp LogOp=EqualTo IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "isCache": false,
       "level": 4,
       "records": null
     },
@@ -216,6 +306,9 @@
       "srcid": 4,
       "dstid": 5,
       "operation": "CrossApply: IterPhyOp LogOp=EqualTo IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "operationShort": "CrossApply",
+      "operationType": "IterPhyOp LogOp=EqualTo IterCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID])",
+      "isCache": false,
       "level": 5,
       "records": null
     },
@@ -223,6 +316,9 @@
       "srcid": 5,
       "dstid": 6,
       "operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(0)('Calendar'[Date]) #Records=4017 #KeyCols=16 #ValueCols=0",
+      "operationShort": "Spool_Iterator<SpoolIterator>",
+      "operationType": "IterPhyOp LogOp=Scan_Vertipaq IterCols(0)('Calendar'[Date]) #Records=4017 #KeyCols=16 #ValueCols=0",
+      "isCache": false,
       "level": 6,
       "records": 4017
     },
@@ -230,6 +326,9 @@
       "srcid": 6,
       "dstid": 7,
       "operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4017",
+      "operationShort": "ProjectionSpool<ProjectFusion<>>",
+      "operationType": "SpoolPhyOp #Records=4017",
+      "isCache": false,
       "level": 7,
       "records": 4017
     },
@@ -237,6 +336,9 @@
       "srcid": 7,
       "dstid": 8,
       "operation": "Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "operationShort": "Cache",
+      "operationType": "IterPhyOp #FieldCols=1 #ValueCols=0",
+      "isCache": true,
       "level": 8,
       "records": null
     },
@@ -244,6 +346,9 @@
       "srcid": 5,
       "dstid": 9,
       "operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(1)('States'[State]) #Records=4 #KeyCols=16 #ValueCols=0",
+      "operationShort": "Spool_Iterator<SpoolIterator>",
+      "operationType": "IterPhyOp LogOp=Scan_Vertipaq IterCols(1)('States'[State]) #Records=4 #KeyCols=16 #ValueCols=0",
+      "isCache": false,
       "level": 6,
       "records": 4
     },
@@ -251,6 +356,9 @@
       "srcid": 9,
       "dstid": 10,
       "operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4",
+      "operationShort": "ProjectionSpool<ProjectFusion<>>",
+      "operationType": "SpoolPhyOp #Records=4",
+      "isCache": false,
       "level": 7,
       "records": 4
     },
@@ -258,6 +366,9 @@
       "srcid": 10,
       "dstid": 11,
       "operation": "Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "operationShort": "Cache",
+      "operationType": "IterPhyOp #FieldCols=1 #ValueCols=0",
+      "isCache": true,
       "level": 8,
       "records": null
     },
@@ -265,6 +376,9 @@
       "srcid": 5,
       "dstid": 12,
       "operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(2)('data'[TestID]) #Records=6 #KeyCols=16 #ValueCols=0",
+      "operationShort": "Spool_Iterator<SpoolIterator>",
+      "operationType": "IterPhyOp LogOp=Scan_Vertipaq IterCols(2)('data'[TestID]) #Records=6 #KeyCols=16 #ValueCols=0",
+      "isCache": false,
       "level": 6,
       "records": 6
     },
@@ -272,6 +386,9 @@
       "srcid": 12,
       "dstid": 13,
       "operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=6",
+      "operationShort": "ProjectionSpool<ProjectFusion<>>",
+      "operationType": "SpoolPhyOp #Records=6",
+      "isCache": false,
       "level": 7,
       "records": 6
     },
@@ -279,6 +396,9 @@
       "srcid": 13,
       "dstid": 14,
       "operation": "Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "operationShort": "Cache",
+      "operationType": "IterPhyOp #FieldCols=1 #ValueCols=0",
+      "isCache": true,
       "level": 8,
       "records": null
     },
@@ -286,6 +406,9 @@
       "srcid": 4,
       "dstid": 15,
       "operation": "EqualTo: LookupPhyOp LogOp=EqualTo LookupCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID]) Boolean",
+      "operationShort": "EqualTo",
+      "operationType": "LookupPhyOp LogOp=EqualTo LookupCols(0, 1, 2)('Calendar'[Date], 'States'[State], 'data'[TestID]) Boolean",
+      "isCache": false,
       "level": 5,
       "records": null
     },
@@ -293,6 +416,9 @@
       "srcid": 15,
       "dstid": 16,
       "operation": "TableToScalar: LookupPhyOp LogOp=TableToScalar LookupCols(0, 2)('Calendar'[Date], 'data'[TestID]) String #Records=24099",
+      "operationShort": "TableToScalar",
+      "operationType": "LookupPhyOp LogOp=TableToScalar LookupCols(0, 2)('Calendar'[Date], 'data'[TestID]) String #Records=24099",
+      "isCache": false,
       "level": 6,
       "records": 24099
     },
@@ -300,6 +426,9 @@
       "srcid": 16,
       "dstid": 17,
       "operation": "AggregationSpool<TableToScalar>: SpoolPhyOp #Records=24099",
+      "operationShort": "AggregationSpool<TableToScalar>",
+      "operationType": "SpoolPhyOp #Records=24099",
+      "isCache": false,
       "level": 7,
       "records": 24099
     },
@@ -307,6 +436,9 @@
       "srcid": 17,
       "dstid": 18,
       "operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=SelectColumns IterCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value]) #Records=24099 #KeyCols=3 #ValueCols=0",
+      "operationShort": "Spool_Iterator<SpoolIterator>",
+      "operationType": "IterPhyOp LogOp=SelectColumns IterCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value]) #Records=24099 #KeyCols=3 #ValueCols=0",
+      "isCache": false,
       "level": 8,
       "records": 24099
     },
@@ -314,6 +446,9 @@
       "srcid": 18,
       "dstid": 19,
       "operation": "AggregationSpool<GroupBy>: SpoolPhyOp #Records=24099",
+      "operationShort": "AggregationSpool<GroupBy>",
+      "operationType": "SpoolPhyOp #Records=24099",
+      "isCache": false,
       "level": 9,
       "records": 24099
     },
@@ -321,6 +456,9 @@
       "srcid": 19,
       "dstid": 20,
       "operation": "AddColumns: IterPhyOp LogOp=SelectColumns IterCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value])",
+      "operationShort": "AddColumns",
+      "operationType": "IterPhyOp LogOp=SelectColumns IterCols(0, 2, 3)('Calendar'[Date], 'data'[TestID], ''[Last Value])",
+      "isCache": false,
       "level": 10,
       "records": null
     },
@@ -328,6 +466,9 @@
       "srcid": 20,
       "dstid": 21,
       "operation": "PartitionIntoGroups: IterPhyOp LogOp=TopN IterCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State]) #Groups=24099 #Rows=24099",
+      "operationShort": "PartitionIntoGroups",
+      "operationType": "IterPhyOp LogOp=TopN IterCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State]) #Groups=24099 #Rows=24099",
+      "isCache": false,
       "level": 11,
       "records": null
     },
@@ -335,6 +476,9 @@
       "srcid": 21,
       "dstid": 22,
       "operation": "AggregationSpool<Top>: SpoolPhyOp #Records=24099",
+      "operationShort": "AggregationSpool<Top>",
+      "operationType": "SpoolPhyOp #Records=24099",
+      "isCache": false,
       "level": 12,
       "records": 24099
     },
@@ -342,6 +486,9 @@
       "srcid": 22,
       "dstid": 23,
       "operation": "Filter: IterPhyOp LogOp=Filter IterCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "operationShort": "Filter",
+      "operationType": "IterPhyOp LogOp=Filter IterCols(0, 2, 3, 4, 6)('Calendar'[Date], 'data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State])",
+      "isCache": false,
       "level": 13,
       "records": null
     },
@@ -349,6 +496,9 @@
       "srcid": 23,
       "dstid": 24,
       "operation": "Extend_Lookup: IterPhyOp LogOp=LessThan IterCols(0, 4)('Calendar'[Date], 'data'[DateTime])",
+      "operationShort": "Extend_Lookup",
+      "operationType": "IterPhyOp LogOp=LessThan IterCols(0, 4)('Calendar'[Date], 'data'[DateTime])",
+      "isCache": false,
       "level": 14,
       "records": null
     },
@@ -356,6 +506,9 @@
       "srcid": 24,
       "dstid": 25,
       "operation": "CrossApply: IterPhyOp LogOp=LessThan IterCols(0, 4)('Calendar'[Date], 'data'[DateTime])",
+      "operationShort": "CrossApply",
+      "operationType": "IterPhyOp LogOp=LessThan IterCols(0, 4)('Calendar'[Date], 'data'[DateTime])",
+      "isCache": false,
       "level": 15,
       "records": null
     },
@@ -363,6 +516,9 @@
       "srcid": 25,
       "dstid": 26,
       "operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(0)('Calendar'[Date]) #Records=4017 #KeyCols=16 #ValueCols=0",
+      "operationShort": "Spool_Iterator<SpoolIterator>",
+      "operationType": "IterPhyOp LogOp=Scan_Vertipaq IterCols(0)('Calendar'[Date]) #Records=4017 #KeyCols=16 #ValueCols=0",
+      "isCache": false,
       "level": 16,
       "records": 4017
     },
@@ -370,6 +526,9 @@
       "srcid": 26,
       "dstid": 27,
       "operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=4017",
+      "operationShort": "ProjectionSpool<ProjectFusion<>>",
+      "operationType": "SpoolPhyOp #Records=4017",
+      "isCache": false,
       "level": 17,
       "records": 4017
     },
@@ -377,6 +536,9 @@
       "srcid": 27,
       "dstid": 28,
       "operation": "Cache: IterPhyOp #FieldCols=1 #ValueCols=0",
+      "operationShort": "Cache",
+      "operationType": "IterPhyOp #FieldCols=1 #ValueCols=0",
+      "isCache": true,
       "level": 18,
       "records": null
     },
@@ -384,6 +546,9 @@
       "srcid": 25,
       "dstid": 29,
       "operation": "Spool_Iterator<SpoolIterator>: IterPhyOp LogOp=Scan_Vertipaq IterCols(2, 3, 4, 6)('data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State]) #Records=19137 #KeyCols=16 #ValueCols=0",
+      "operationShort": "Spool_Iterator<SpoolIterator>",
+      "operationType": "IterPhyOp LogOp=Scan_Vertipaq IterCols(2, 3, 4, 6)('data'[TestID], 'data'[RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61], 'data'[DateTime], 'data'[State]) #Records=19137 #KeyCols=16 #ValueCols=0",
+      "isCache": false,
       "level": 16,
       "records": 19137
     },
@@ -391,6 +556,9 @@
       "srcid": 29,
       "dstid": 30,
       "operation": "ProjectionSpool<ProjectFusion<>>: SpoolPhyOp #Records=19137",
+      "operationShort": "ProjectionSpool<ProjectFusion<>>",
+      "operationType": "SpoolPhyOp #Records=19137",
+      "isCache": false,
       "level": 17,
       "records": 19137
     },
@@ -398,6 +566,9 @@
       "srcid": 30,
       "dstid": 31,
       "operation": "Cache: IterPhyOp #FieldCols=4 #ValueCols=0",
+      "operationShort": "Cache",
+      "operationType": "IterPhyOp #FieldCols=4 #ValueCols=0",
+      "isCache": true,
       "level": 18,
       "records": null
     },
@@ -405,6 +576,9 @@
       "srcid": 24,
       "dstid": 32,
       "operation": "LessThan: LookupPhyOp LogOp=LessThan LookupCols(0, 4)('Calendar'[Date], 'data'[DateTime]) Boolean",
+      "operationShort": "LessThan",
+      "operationType": "LookupPhyOp LogOp=LessThan LookupCols(0, 4)('Calendar'[Date], 'data'[DateTime]) Boolean",
+      "isCache": false,
       "level": 15,
       "records": null
     },
@@ -412,6 +586,9 @@
       "srcid": 32,
       "dstid": 33,
       "operation": "ColValue<'data'[DateTime]>: LookupPhyOp LogOp=ColValue<'data'[DateTime]>'data'[DateTime] LookupCols(4)('data'[DateTime]) DateTime",
+      "operationShort": "ColValue<'data'[DateTime]>",
+      "operationType": "LookupPhyOp LogOp=ColValue<'data'[DateTime]>'data'[DateTime] LookupCols(4)('data'[DateTime]) DateTime",
+      "isCache": false,
       "level": 16,
       "records": null
     },
@@ -419,6 +596,9 @@
       "srcid": 32,
       "dstid": 34,
       "operation": "Add: LookupPhyOp LogOp=Add LookupCols(0)('Calendar'[Date]) DateTime",
+      "operationShort": "Add",
+      "operationType": "LookupPhyOp LogOp=Add LookupCols(0)('Calendar'[Date]) DateTime",
+      "isCache": false,
       "level": 16,
       "records": null
     },
@@ -426,6 +606,9 @@
       "srcid": 34,
       "dstid": 35,
       "operation": "ColValue<'Calendar'[Date]>: LookupPhyOp LogOp=ColValue<'Calendar'[Date]>'Calendar'[Date] LookupCols(0)('Calendar'[Date]) DateTime",
+      "operationShort": "ColValue<'Calendar'[Date]>",
+      "operationType": "LookupPhyOp LogOp=ColValue<'Calendar'[Date]>'Calendar'[Date] LookupCols(0)('Calendar'[Date]) DateTime",
+      "isCache": false,
       "level": 17,
       "records": null
     },
@@ -433,6 +616,9 @@
       "srcid": 34,
       "dstid": 36,
       "operation": "Constant: LookupPhyOp LogOp=Constant Integer 1",
+      "operationShort": "Constant",
+      "operationType": "LookupPhyOp LogOp=Constant Integer 1",
+      "isCache": false,
       "level": 17,
       "records": null
     },
@@ -440,6 +626,9 @@
       "srcid": 22,
       "dstid": 37,
       "operation": "ColValue<'data'[DateTime]>: LookupPhyOp LogOp=ColValue<'data'[DateTime]>'data'[DateTime] LookupCols(4)('data'[DateTime]) DateTime",
+      "operationShort": "ColValue<'data'[DateTime]>",
+      "operationType": "LookupPhyOp LogOp=ColValue<'data'[DateTime]>'data'[DateTime] LookupCols(4)('data'[DateTime]) DateTime",
+      "isCache": false,
       "level": 13,
       "records": null
     },
@@ -447,6 +636,9 @@
       "srcid": 22,
       "dstid": 38,
       "operation": "Constant: LookupPhyOp LogOp=Constant Integer 1",
+      "operationShort": "Constant",
+      "operationType": "LookupPhyOp LogOp=Constant Integer 1",
+      "isCache": false,
       "level": 13,
       "records": null
     },
@@ -454,6 +646,9 @@
       "srcid": 15,
       "dstid": 39,
       "operation": "ColValue<'States'[State]>: LookupPhyOp LogOp=ColValue<'States'[State]>'States'[State] LookupCols(1)('States'[State]) String",
+      "operationShort": "ColValue<'States'[State]>",
+      "operationType": "LookupPhyOp LogOp=ColValue<'States'[State]>'States'[State] LookupCols(1)('States'[State]) String",
+      "isCache": false,
       "level": 6,
       "records": null
     }

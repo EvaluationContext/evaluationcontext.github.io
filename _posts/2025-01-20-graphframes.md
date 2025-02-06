@@ -92,17 +92,13 @@ GraphFrames is package for Apache Spark. To use it you need to install the [.jar
 #### Dependencies
 
 ```python
-from datetime import datetime
-import time
 import json
 from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 import requests
 import pyspark.sql.functions as f
 import logging
-```
 
-```python
 logger = logging.getLogger("logger")
 logger.setLevel(logging.INFO) # DEBUG, INFO, WARNING, ERROR, CRITICAL
 logging.basicConfig(
@@ -110,9 +106,7 @@ logging.basicConfig(
   style="{",
   datefmt="%Y-%m-%d %H:%M",
 )
-```
 
-```python
 client_id = dbutils.secrets.get(scope="scopeabc", key="abc-pbi-readonly-clientid")
 client_secret = dbutils.secrets.get(scope="scopeabc", key="abc-pbi-readonly-secret")
 tenant_id = "00000000-0000-0000-0000-000000000000"
@@ -132,7 +126,6 @@ def GetAccessToken(client_id:str, client_secret:str, tenant_id:str, resource:str
         resource:       str     the resource for the application registered in Azure AD
     returns:            str     the access token
     """
-
     url = f"https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token"
     scope = f"{resource}/.default"
     data = {
@@ -148,9 +141,7 @@ def GetAccessToken(client_id:str, client_secret:str, tenant_id:str, resource:str
     logger.info(f"{'GetAccessToken':25} Token Generated, {scope} expires in {token_data.get('expires_in')} seconds")
 
     return token_data.get("access_token")
-```
 
-```python
 def Request(method:str, url:str, headers:dict=None, data:dict=None, proxies:dict=None):
     """
     Make a request to the specified URL. Deals with error handling.
@@ -165,6 +156,7 @@ def Request(method:str, url:str, headers:dict=None, data:dict=None, proxies:dict
 
     if method not in ["get", "post", "put", "delete"]:
         return f"Invalid method {method}, must be one of get, post, put, delete"
+
     try:
         r = requests.request(method=method, url=url, headers=headers, data=data, proxies=proxies)
         invalid_request_reason = r.text
@@ -175,10 +167,9 @@ def Request(method:str, url:str, headers:dict=None, data:dict=None, proxies:dict
             raise Exception(f"{'Request' :25} Your request has failed with status code {r.status_code}")
     except requests.exceptions.ConnectionError as err:
         raise SystemExit(err)
-    return r
-```
 
-```python
+    return r
+
 def WriteViewToTable(viewName:str, savePath:str, tableName:str=None, mode:str = "Overwrite") -> None:
     """
     Writes a View to a table in the specified database.
@@ -191,15 +182,14 @@ def WriteViewToTable(viewName:str, savePath:str, tableName:str=None, mode:str = 
 
     if mode not in ("Overwrite", "Append", "Merge"):
         raise Exception(f"{'WriteToTable' :25} Invalid mode {mode}, must be one of Overwrite, Append, Merge")
- 
+
     if tableName is None:
         tableName = viewName
+
     spark.sql(f"select * from {viewName}").write.mode(mode).option("overwriteSchema", "true").saveAsTable(f"{savePath}.{tableName}")
+    
+    logger.info(f"{'WriteToTable' :25} {viewName} to {savePath}.{tableName} ({mode})")
 
-    logger.info(f"{'WriteToTable' :25} {mode} {viewName} to {savePath}.{tableName}")
-```
-
-```python
 def WriteDfToTable(df, savePath:str, tableName:str, mode:str = "Overwrite") -> None:
     """
     Writes a View to a table in the specified database.
@@ -237,54 +227,50 @@ def GetModifiedWorkspaces(access_token: str) -> list:
 
     r = Request(method="get", url=url, headers=headers)
     workspaces = [workspace['id'] for workspace in r.json()]
-
+    
     logger.info(f"{'GetModifiedWorkspaces':25} {len(workspaces)} workspaces returned")
-
+    
     return workspaces
-```
 
-```python
 def PostWorkspaceInfo(access_token: str, workspaceIds: list) -> dict:
     """
     Calls PostWorkspaceInfo API [https://learn.microsoft.com/en-us/rest/api/power-bi/admin/workspace-info-post-workspace-info]
-    Calls for all available data {datasetExpressions=true, datasourceDetails=true, datasetSchema=true, getArtifactUsers=true, lineage=true}
+    Calls for all avilaible data {datasetExpressions=true, datasourceDetails=true, datasetSchema=true, getArtifactUsers=true, lineage=true}
     parameters:
         access_token:       str     access token
         workspaceIds:       list    list of 1-100 workspacesIds
     returns:                dict    {'scanid', 'createdDateTime', 'status'}
     """
-
+    
     headers = {"Authorization": f"Bearer {access_token}"}
     url = 'https://api.powerbi.com/v1.0/myorg/admin/workspaces/getInfo?lineage=True&datasourceDetails=True&datasetSchema=True&datasetExpressions=True&getArtifactUsers=True'
-
+    
     if len(workspaceIds) > 100:
         raise Exception(f"{'PostWorkspaceInfo':25} PostWorkspaceInfo API only accepts 100 workspaces at a time")
         return
-
+    
     data = { 'workspaces': workspaceIds }
     scan = Request(method="post", url=url, headers=headers, data=data).json()
-
+    
     logger.info(f"{'PostWorkspaceInfo':25} scanId {scan['id']} [{scan['status']}]")
-
+    
     return scan
-```
 
-```python
 def GetScanStatus(access_token: str, scan:dict, delay:int = 2, max_retries:int = 5) -> dict:
     """
     Calls GetScanStatus API [https://learn.microsoft.com/en-us/rest/api/power-bi/admin/workspace-info-get-scan-status]
     Calls until scan status is 'Succeeded' or max_retries (default: 5) exceeded
-    parameters:
+    parmeters:
         access_token:       str     access token
         scan:               dict    {'scanid', 'createdDateTime', 'status'}
         delay:              int     seconds to wait between retries (default: 2)
         max_retries:        int     max number of retries (default: 5)
     returns                 dict    {'scanid', 'createdDateTime', 'status'}
     """
-
+    
     headers = {"Authorization": f"Bearer {access_token}"}
-    url = f"https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanStatus/{scan['id']"}
-
+    url = f"https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanStatus/{scan['id']}"
+    
     for retry in range(max_retries):
         r = Request(method="get", url=url, headers=headers)
         scan = r.json()
@@ -297,13 +283,11 @@ def GetScanStatus(access_token: str, scan:dict, delay:int = 2, max_retries:int =
                 logger.info(f"{f'GetScanStatus({retry})':25} scanId {scan['id']} [{scan['status']}] Retrying in {delay} seconds...")
                 time.sleep(delay)
                 delay *= 2  # incremental backoff
-
-    logger.info(f"{'GetScanStatus':25} scanId {scan['id']} [{scan['status']}]")
-
-    return scan
-```
     
-``` python
+    logger.info(f"{'GetScanStatus':25} scanId {scan['id']} [{scan['status']}]")
+    
+    return scan
+
 def GetScanResult(access_token: str, scan:dict) -> dict:
     """
     Calls GetScanResult API [https://learn.microsoft.com/en-us/rest/api/power-bi/admin/workspace-info-get-scan-result]
@@ -312,15 +296,33 @@ def GetScanResult(access_token: str, scan:dict) -> dict:
         scan:               dict    {'scanid', 'createdDateTime', 'status'}
     returns:                dict    {'scanid', 'createdDateTime', 'status'}
     """
-
+    
     headers = {"Authorization": f"Bearer {access_token}"}
-    url = f"https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanResult/{scan['id']}"}
-
+    url = f"https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanResult/{scan['id']}"
+    
     r = Request(method="get", url=url, headers=headers)
-
+    
     logger.info(f"{'GetScanResult':25} scanId {scan['id']} complete")
-
+    
     return r.json()
+
+def GetApps(access_token: str):
+    """
+    Calls GetAppsAsAdmin API [https://learn.microsoft.com/en-us/rest/api/power-bi/admin/apps-get-apps-as-admin]
+    parameters:
+        access_token:       str     access token
+    Returns:                dict    {'id', 'description', 'name', 'publishedBy, 'lastUpdate', 'workspaceId', 'users'}
+    """
+    
+    headers = {"Authorization": f"Bearer {access_token}"}
+    url = 'https://api.powerbi.com/v1.0/myorg/admin/apps?$top=5000'
+    
+    r = Request(method="get", url=url, headers=headers)
+    
+    logger.info(f"{'GetAppsAsAdmin':25}")
+    
+    return r.json()
+
 ```
 
 #### Run
@@ -331,13 +333,17 @@ access_token = GetAccessToken(client_id, client_secret, tenant_id, resource='htt
 workspaces = GetModifiedWorkspaces(access_token)
 
 scan_results = []
-
 chunk_size = 100 ## PostWorkspaceInfo accepts 100 workspaces at a time
+
 for chunk in [workspaces[i:i+chunk_size] for i in range(0, len(workspaces), chunk_size)]:
     scan = PostWorkspaceInfo(access_token, chunk)
-    if scan['status'] != 'Succeeded': 
+
+    if scan['status'] != 'Succeeded':
         GetScanStatus(access_token, scan)
+
     scan_results.append(GetScanResult(access_token, scan))
+
+apps = GetApps(access_token)
 ```
 
 #### Apply Schema & Create Dataframes
@@ -367,6 +373,7 @@ workspaceSchema = StructType([
         StructField('createdDateTime', StringType(), True),
         StructField('datasetId', StringType(), True),
         StructField('id', StringType(), True),
+        StructField('description', StringType(), True),
         StructField('modifiedBy', StringType(), True),
         StructField('modifiedById', StringType(), True),
         StructField('modifiedDateTime', StringType(), True),
@@ -464,7 +471,7 @@ workspaceSchema = StructType([
             ])), True)
         ])), True)
     ])
-
+   
 datasourceInstancesSchema = StructType([
     StructField('connectionDetails', StructType([
         StructField('extensionDataSourceKind', StringType()),
@@ -472,11 +479,20 @@ datasourceInstancesSchema = StructType([
         StructField('path', StringType()),
         StructField('url', StringType()),
         StructField('sharePointSiteUrl', StringType()),
-        StructField('server', StringType())   
+        StructField('server', StringType())  
         ]), True),
     StructField('datasourceId', StringType(), True),
     StructField('datasourceType', StringType(), True),
     StructField('gatewayId', StringType(), True)
+    ])
+ 
+appsSchema = StructType([
+    StructField('id', StringType(), True),
+    StructField('description', StringType(), True),
+    StructField('name', StringType(), True),
+    StructField('workspaceId', StringType(), True),
+    StructField('publishedBy', StringType(), True),
+    StructField('lastUpdate', StringType(), True)
     ])
 ```
 
@@ -490,85 +506,107 @@ for chunk in scan_results:
     df2 = spark.createDataFrame(chunk['datasourceInstances'], schema = datasourceInstancesSchema)
     datasourceInstancesdf = datasourceInstancesdf.union(df2)
 
+appsdf = spark.createDataFrame(apps['value'], schema = appsSchema)
+
 workspacesdf.createOrReplaceTempView('workspacesAll')
 datasourceInstancesdf.createOrReplaceTempView('datasourceInstance')
+appsdf.createOrReplaceTempView('apps')
 ```
 
 #### Create views
 
 ```sql
 %sql
-
 -- datasourceInstances
   CREATE OR REPLACE TEMPORARY VIEW connectionDetails AS
   with x as (select *, connectionDetails.* from datasourceInstance)
   select * except(connectionDetails) from x;
-
+ 
 -- workspaces
   CREATE OR REPLACE TEMPORARY VIEW workspaces AS
-  SELECT * except(users, reports, datasets)
-  FROM workspacesAll;
-
+    SELECT * except (users, reports, datasets)
+    FROM workspacesAll
+  ;
+ 
 -- workspaces | Users
   CREATE OR REPLACE TEMPORARY VIEW workspaceUsers AS
     WITH explode AS (SELECT id AS workspaceId, explode(users) AS users FROM workspacesAll),
     expand AS (SELECT *, users.* from explode)
     SELECT * except(users) FROM expand;
-
+ 
 -- workspaces | reports*
   CREATE OR REPLACE TEMPORARY VIEW reportsAll AS
     WITH explode AS (SELECT id as workspaceId, explode(reports) AS reports FROM workspacesAll),
     expand AS (SELECT *, reports.* FROM explode)
     SELECT * FROM expand;
-
+   
 -- workspaces | reports
   CREATE OR REPLACE TEMPORARY VIEW reports AS
     SELECT * except(reports, users) FROM reportsAll;
-
+ 
 -- workspaces | reports | Users
   CREATE OR REPLACE TEMPORARY VIEW ReportUsers AS
     WITH explode AS (SELECT id AS reportId, explode(users) AS users FROM reportsAll),
     expand AS (SELECT *, users.* FROM explode)
     SELECT * except(users) FROM expand;
-
+ 
 -- workspaces | datasets*
   CREATE OR REPLACE TEMPORARY VIEW DatasetsAll AS
     WITH explode AS (select id AS workspaceId, explode(datasets) AS datasets FROM workspacesAll),
     expand AS (SELECT *, datasets.* FROM explode)
     SELECT * FROM expand;
-
+ 
 -- workspaces | datasets
   CREATE OR REPLACE TEMPORARY VIEW datasets AS
     SELECT * except(datasets, expressions, tables, refreshSchedule, directQueryRefreshSchedule, upstreamDatasets, datasourceUsages, users, roles) FROM DatasetsAll;
-
+ 
 -- workspaces | datasets | expressions
   CREATE OR REPLACE TEMPORARY VIEW datasetExpressions AS
     WITH explode AS (SELECT id AS datasetId, explode(expressions) AS expressions FROM DatasetsAll),
     expand AS (SELECT *, expressions.* FROM explode)
     SELECT * except(expressions) FROM expand;
-
+ 
 -- workspaces | datasets | refreshSchedules
   CREATE OR REPLACE TEMPORARY VIEW datasetRefreshSchedules AS
     WITH expandrefreshSchedule AS (SELECT id AS datasetId, refreshSchedule.* FROM DatasetsAll),
-    explodeRefreshSchedule AS (
+    explodeRefreshSchedule1 AS (
       SELECT
       datasetId,
       localTimeZoneId,
       enabled,
       notifyOption,
-      explode(days) AS days,
-      explode(times) as times
+      explode_outer(days) AS days,
+      times
       FROM expandrefreshSchedule
     ),
+    explodeRefreshSchedule2 AS (
+      SELECT
+      datasetId,
+      localTimeZoneId,
+      enabled,
+      notifyOption,
+      days,
+      explode_outer(times) as times
+      FROM explodeRefreshSchedule1
+    ),
     expandDirectQueryRefreshSchedule AS (SELECT id AS datasetId, DirectQueryRefreshSchedule.* FROM DatasetsAll),
-    explodeDirectQueryRefreshSchedule AS (
+    explodeDirectQueryRefreshSchedule1 AS (
       SELECT
       datasetId,
       localTimeZoneId,
       frequency,
-      explode(days) AS days,
-      explode(times) as times
+      explode_outer(days) AS days,
+      times
       FROM expandDirectQueryRefreshSchedule
+    ),
+    explodeDirectQueryRefreshSchedule2 AS (
+      SELECT
+      datasetId,
+      localTimeZoneId,
+      frequency,
+      days,
+      explode_outer(times) as times
+      FROM explodeDirectQueryRefreshSchedule1
     )
     SELECT
     datasetId,
@@ -579,7 +617,7 @@ datasourceInstancesdf.createOrReplaceTempView('datasourceInstance')
     null AS frequency,
     days,
     times
-    FROM explodeRefreshSchedule
+    FROM explodeRefreshSchedule2
     WHERE enabled
     UNION ALL
     SELECT
@@ -591,37 +629,37 @@ datasourceInstancesdf.createOrReplaceTempView('datasourceInstance')
     frequency,
     days,
     times
-    FROM explodeDirectQueryRefreshSchedule
+    FROM explodeDirectQueryRefreshSchedule2
     WHERE localTimeZoneId is not null;
-
+ 
 -- workspaces | datasets | upstreamDatasets
   CREATE OR REPLACE TEMPORARY VIEW datasetUpstreamDatasets AS
     WITH explode AS (SELECT id AS datasetId, explode(upstreamDatasets) AS upstreamDatasets FROM DatasetsAll),
     expand AS (SELECT *, upstreamDatasets.* FROM explode)
     SELECT * except(upstreamDatasets) FROM expand;
-
+ 
 -- workspaces | datasets | datasourceUsages
   CREATE OR REPLACE TEMPORARY VIEW datasetsDatasorucesUsages AS
     WITH explode AS (SELECT id AS datasetId, explode(datasourceUsages) AS datasourceUsages FROM DatasetsAll),
     expand AS (SELECT *, datasourceUsages.* FROM explode)
     SELECT * except(datasourceUsages) FROM expand;
-
+ 
 -- workspaces | datasets | users
   CREATE OR REPLACE TEMPORARY VIEW datasetsUsers AS
     WITH explode AS (SELECT id AS datasetId, explode(users) AS users FROM DatasetsAll),
     expand AS (SELECT *, users.* FROM explode)
     SELECT * except(users) FROM expand;
-
+ 
 -- workspaces | datasets | tables *
   CREATE OR REPLACE TEMPORARY VIEW datasetsTablesAll AS
     WITH explode AS (SELECT id AS datasetId, explode(tables) AS tables FROM DatasetsAll),
     expand AS (SELECT *, tables.* FROM explode)
     SELECT concat(datasetId, name) AS datasetTableId, * FROM expand;
-
+ 
 -- workspaces | datasets | tables
   CREATE OR REPLACE TEMPORARY VIEW datasetsTables AS
     SELECT * except(tables, columns, measures) FROM datasetsTablesAll;
-    
+ 
 -- workspaces | objects
   CREATE OR REPLACE TEMPORARY VIEW objects AS
     WITH workspace AS (
@@ -678,8 +716,10 @@ datasourceInstancesdf.createOrReplaceTempView('datasourceInstance')
 #### Save Tables
 
 ```python
-for view in ['connectionDetails', 'workspaces', 'workspaceUsers', 'reports', 'datasets', 'datasetsTables', 'datasetExpressions', 'datasetRefreshSchedules', 'ReportUsers','datasetUpstreamDatasets', 'datasetsDatasourcesUsages', 'datasetsUsers']:
-    WriteViewToTable(view, savePath)
+for view in ['connectionDetails', 'workspaces', 'reports', 'datasets', 'datasetsTables', 'datasetExpressions', 'datasetRefreshSchedules'
+              ,'datasetUpstreamDatasets', 'datasetsDatasorucesUsages', 'objects', 'workspaceUsers', 'reportUsers', 'datasetsUsers', 'apps', 'tenantSettings']:
+
+  WriteViewToTable(view, savePath)
 ```
 
 ### Graph API
@@ -689,16 +729,17 @@ for view in ['connectionDetails', 'workspaces', 'workspaceUsers', 'reports', 'da
 ```python
 def getGraphAPI(entity:str='groups') -> list:
   """
-  Calls List groups API [https://learn.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http], List users API [https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http] or List application API [https://learn.microsoft.com/en-us/graph/api/application-list?view=graph-rest-1.0&tabs=http]
+  Calls List groups API [https://learn.microsoft.com/en-us/graph/api/group-list?view=graph-rest-1.0&tabs=http], List users API [https://learn.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=http] or App list API [https://learn.microsoft.com/en-us/graph/api/application-list?view=graph-rest-1.0&tabs=http]
   parameters:
     type:       str     groups, users or apps (default: groups)
-  returns:      list    array of users or groups
+  returns:      list    array of users, groups or apps
   """
-  
+ 
   if entity not in ('groups', 'users', 'apps'):
     raise Exception(f"Invalid type: {entity}")
-  
+ 
   access_token = GetAccessToken(client_id, client_secret, tenant_id, resource='https://graph.microsoft.com')
+ 
   headers = {"Authorization": f"Bearer {access_token}"}
 
   if entity == "groups":
@@ -707,8 +748,9 @@ def getGraphAPI(entity:str='groups') -> list:
       url = https://graph.microsoft.com/v1.0/users
   if entity == "apps":
       url = https://graph.microsoft.com/v1.0/applications
+ 
   items = []
-
+ 
   while True:
     r = Request(method="get", url=url, headers=headers).json()
     newItems = [item for item in r['value'] if item not in items]
@@ -717,7 +759,7 @@ def getGraphAPI(entity:str='groups') -> list:
     if '@odata.nextLink' not in r:
       break
     url = r['@odata.nextLink']
-
+ 
   logger.info(f"{'getGroupsGraphAPI':25} {len(items)} {entity} returned")
 
   return items
@@ -735,23 +777,23 @@ apps = getGraphAPI("apps")
 
 ```python
 groupsSchema = StructType([
-    StructField("id", StringType(), True),
-    StructField("displayName", StringType(), True),
-    StructField("description", StringType(), True),
-    StructField("members", ArrayType(MapType(StringType(), StringType())), True)
-])
-
+  StructField("id", StringType(), True),
+  StructField("displayName", StringType(), True),
+  StructField("description", StringType(), True),
+  StructField("members", ArrayType(MapType(StringType(), StringType())), True)
+  ])
+ 
 usersSchema = StructType([
-    StructField("id", StringType(), True),
-    StructField("displayName", StringType(), True)
-])
+  StructField("id", StringType(), True),
+  StructField("displayName", StringType(), True),
+  StructField("userPrincipalName", StringType(), True)
+  ])
+ 
 appsSchema = StructType([
-    StructField("appId", StringType(), True),
-    StructField("displayName", StringType(), True)
-])
-```
-
-```python
+  StructField("appId", StringType(), True),
+  StructField("displayName", StringType(), True)
+  ])
+ 
 aadGroups = spark.createDataFrame(groups, schema=groupsSchema)
 aadUsers = spark.createDataFrame(users, schema=usersSchema)
 aadApps = spark.createDataFrame(apps, schema=appsSchema)
@@ -792,7 +834,10 @@ v = spark.sql(f"""
     concat(ru.reportId, ru.reportUserAccessRight) as id,
     ru.reportId as nodeId,
     r.name,
-    'Report' as type,
+    case
+      when left(r.name, 5) = '[App]' then 'Report App'
+      else 'Report'
+    end as type,
     ru.reportUserAccessRight as accessRight
     from {savePath}.reportUsers as ru
     left join {savePath}.reports as r
@@ -803,7 +848,7 @@ v = spark.sql(f"""
     concat(du.datasetId, du.datasetUserAccessRight) as id,
     du.datasetId as nodeId,
     d.name,
-    'Dataset' as type,
+    'Dataset' type,
     du.datasetUserAccessRight as accessRight
     from {savePath}.datasetsusers as du
     left join {savePath}.datasets as d
@@ -837,7 +882,7 @@ v = spark.sql(f"""
     from {savePath}.aadapps
   """))\
   .distinct()
-
+ 
 e = spark.sql(f"""
   select
   concat(workspaceId, groupUserAccessRight) as src,
@@ -936,35 +981,40 @@ mappedRoles = (
 ```
 
 ```python
-mappedRoles.createOrReplaceTempView("usersAccessRights")
-usersAccessRights = spark.sql(f"""
-    with explode as (select id, name, explode(resolved_roots) as roots, nodeID, type, accessRight from usersAccessRights),
-    defineStruct as (select id, name, type, from_json(roots, 'type string, nodeId string, accessRight string') as roots from explode)
-    select
-    defineStruct.id,
-    defineStruct.name,
-    defineStruct.type,
-    defineStruct.roots.nodeId as accessRightId,
-    defineStruct.roots.type as accessRightType,
-    defineStruct.roots.accessRight as accessRight,
-    concat(defineStruct.roots.nodeId, defineStruct.roots.accessRight) as accessRightIdRight,
-    case
-        when workspaceusers.workspaceId is not null or datasetsusers.datasetId is not null or reportusers.reportId is not null then 'Direct'
-        else 'Indirect'
-    end as accessRightDirectlyGranted
-    from defineStruct
-    left join {savePath}.workspaceusers as workspaceusers
-        on defineStruct.roots.nodeId = workspaceusers.workspaceId and defineStruct.roots.accessRight = workspaceusers.groupUserAccessRight -- src
-        and defineStruct.id = workspaceusers.graphId -- dst
-    left join {savePath}.datasetsusers as datasetsusers
-        on defineStruct.roots.nodeId = datasetsusers.datasetId and defineStruct.roots.accessRight = datasetsusers.datasetUserAccessRight -- src
-        and defineStruct.id = datasetsusers.graphId -- dst
-    left join {savePath}.reportusers as reportusers
-        on defineStruct.roots.nodeId = reportusers.reportId and defineStruct.roots.accessRight= reportusers.reportUserAccessRight -- src
-        and defineStruct.id = reportusers.graphId -- dst
-    where type not in ('Workspace', 'Report', 'Dataset', 'Report App')
+mappedRoles.createOrReplaceTempView("accessToObject")
+ 
+accessToObject = spark.sql(f"""
+  with explode as (select id, name, explode(resolved_roots) as roots, nodeID, type, accessRight from accessToObject),
+  defineStruct as (select id, name, type, from_json(roots, 'type string, nodeId string, accessRight string') as roots from explode)
+  select
+  defineStruct.id,
+  aadusers.userPrincipalName,
+  defineStruct.name,
+  defineStruct.type,
+  defineStruct.roots.nodeId as accessToObjectId,
+  defineStruct.roots.type as accessToObjectType,
+  defineStruct.roots.accessRight as accessToObjectPermission,
+  concat(defineStruct.roots.nodeId, defineStruct.roots.accessRight) as accessToObjectGroupId,
+  case
+      when workspaceusers.workspaceId is not null or datasetsusers.datasetId is not null or reportusers.reportId is not null then 'Direct'
+      else 'Indirect'
+  end as accessToObjectDirectlyGranted
+  from defineStruct
+  left join {savePath}.workspaceusers
+      on defineStruct.roots.nodeId = workspaceusers.workspaceId and defineStruct.roots.accessRight = workspaceusers.groupUserAccessRight -- src
+      and defineStruct.id = workspaceusers.graphId -- dst
+  left join {savePath}.datasetsusers
+      on defineStruct.roots.nodeId = datasetsusers.datasetId and defineStruct.roots.accessRight = datasetsusers.datasetUserAccessRight -- src
+      and defineStruct.id = datasetsusers.graphId -- dst
+  left join {savePath}.reportusers
+      on defineStruct.roots.nodeId = reportusers.reportId and defineStruct.roots.accessRight= reportusers.reportUserAccessRight -- src
+      and defineStruct.id = reportusers.graphId -- dst
+  left join {savePath}.aadusers
+      on aadusers.id = defineStruct.id
+  where defineStruct.type not in ('Workspace', 'Report', 'Dataset', 'Report App')
 """)
-for tableName, df in {'usersAccessRights': usersAccessRights}.items():
+ 
+for tableName, df in {'accessToObject': accessToObject}.items():
   WriteDfToTable(df, savePath, tableName)
 ```
 
@@ -973,10 +1023,12 @@ for tableName, df in {'usersAccessRights': usersAccessRights}.items():
 Now we are able to filter out any AAD Group or user and we will get back a list of all the Workspace, Report and Semantic Model roles they have inherited.
 
 ```python
-usersAccessRights = spark.sql(f"select * from {savePath}.usersAccessRights")
+usersAccessRights = spark.sql(f"select * from {savePath}.accessToObjectEdges")
 display(usersAccessRights.filter("name = 'someAADGroup'"))
 ```
 
 # Conclusion
 
-Now we have a dataset that we can query and figure out what groups and users have which permissions. This all would be possible with a recursive CTE in SQL, but that is not supported by pyspark. Additionally now that we have a graph we are able to run graph algorithm such as [Label Propagation Algorithm](https://graphframes.github.io/graphframes/docs/_site/user-guide.html#label-propagation-algorithm-lpa) to find clusters in AAD groups and potentially consolidate and simplify. If anyone knows the syntax to include a edge attribute, I would love to know in the comments. 
+Now we have a dataset that we can query and figure out what groups and users have which permissions. This all would be possible with a recursive CTE in SQL, but that is not supported by pyspark. Additionally now that we have a graph we are able to run graph algorithm such as [Label Propagation Algorithm](https://graphframes.github.io/graphframes/docs/_site/user-guide.html#label-propagation-algorithm-lpa) to find clusters in AAD groups and potentially consolidate and simplify. 
+
+PS. If anyone knows the syntax use a edge attribute in a pregel message, I would love to know. 

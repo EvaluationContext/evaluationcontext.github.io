@@ -7,7 +7,7 @@ categories: [Data Viz, SVG]
 tags: [data viz, svg, dax]
 pin: false
 image:
-  path: /assets/img/0014-VisualHeatmap/Heatmap-small.png
+  path: /assets/img/0014-VisualHeatmap/page%20svg.gif
   alt: SVG Heatmap
 ---
  

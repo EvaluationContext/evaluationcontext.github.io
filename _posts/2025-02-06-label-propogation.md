@@ -1,99 +1,217 @@
 ---
-title: Visualizing Power BI Permission Inheritance
-description: Using Deneb Force Directed Graph to visualizing the inheritance of Power BI permission 
+title: Label Propagation To Identify End User Persona?
+description: Using Label Propagation to attempt to obtain cluster of users that can used to define personas, to simplify granting of permissions
 author: duddy
-date: 2025-01-26 10:00:00 +0000
+date: 2025-02-06 20:00:00 +0000
 categories: [Power BI Administration, Permissions]
 tags: [deneb, vega, force directed, graphframes, pyspark]
 pin: false
 image:
-  path: /assets/img/0019-ForceDirected/force%20directed.gif
-  alt: force directed deneb
+  path: /assets/img/0021-LabelProp/GraphAll.png
+  alt: Label Propagation
 ---
- 
-In my previous [post](https://evaluationcontext.github.io/posts/graphframes/) I used the [Power BI Scanner APIs](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview), [Graph APIs](https://learn.microsoft.com/en-us/graph/overview?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) and [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) to generate a graph to disseminate Access Roles from Workspaces, Reports and Semantic Models directly granted to AAD groups, to all downstream members. Now we are going to create some visualizations to make this data more accessible.
 
-> I updated some code in my previous post to align with the data model in this post. Plus updated this post to use triplet form instead of union of vertices and edges as it makes working with the graph simpler in Power BI
+Lets start with a quick recap, from the last few blog post. 
+- [Visualizing Power BI Permission Inheritance](https://evaluationcontext.github.io/posts/deneb-force-directed/) 
+  - I pulled data from [Power BI Scanner APIs](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview) and [Graph APIs](https://learn.microsoft.com/en-us/graph/overview?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) and used [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) and [Pregel](https://graphframes.github.io/graphframes/docs/_site/api/python/graphframes.lib.html) to disseminate Access Roles from Workspaces, Reports and Semantic Models directly granted to AAD groups, to all downstream members.
+-  [Visualizing Power BI Permission Inheritance](https://evaluationcontext.github.io/posts/deneb-force-directed/):
+   - I this data and [Deneb](https://deneb-viz.github.io/) to draw a Force Directed Graph. 
+
+At the end of the first post I mentioned [Label Propagation](https://graphframes.github.io/graphframes/docs/_site/user-guide.html#label-propagation-algorithm-lpa) as a potential method to group users into communities that represent personas of report consumers. So lets give that a try.
+
+> I have updated the previous posts based on some pain points. Originally I was using a union of vertices and edges, but this made juggling the filtering of vertices and edges tricky. I am now using the triplet form, where a single row represents a edge, with srcId and dstId, but also feature vertices and edge attributes.
 {: .prompt-info }
 
-## GraphFrame
+## Label Propagation
 
-We need to add a extra table `accessToObjectEdges`{:.console} to the previous code from the previous post to power the visual, which is a triplet form of the graph. `accessToObjectEdges.accessToObjectGroupId`{:.console} will be used to label all nodes that inherits permission from a objects (Workspace, Report, Semantic Model) role so we can trim unnecessary nodes from subgraphs.
+[Label Propagation](https://en.wikipedia.org/wiki/Label_propagation_algorithm) works by assigning a distinct label to every vertex in the graph. We perform a number of supersteps. During each superstep each vertex sends it's label to all of it's neighbors (regardless of edge direction). When a destination vertex receives messages, it performs as aggregation, by accepting the highest frequency label, or if there a number of equal frequent labels, pick from those at random. At the end of all supersets all highly connected will likely share a common label and can be considered as a community.
+
+GraphFrames has a built-in [Label Propagation Algorithm (LPA)](https://graphframes.github.io/graphframes/docs/_site/user-guide.html#label-propagation-algorithm-lpa).
 
 ```python
-g.triplets.createOrReplaceTempView("triplets")
- 
-accessToObjectEdges = spark.sql(f"""
+from graphframes.examples import Graphs
+g = Graphs.friends()  # Get example graph
+
+result = g.labelPropagation(maxIter=5)
+result.select("id", "label").show()
+```
+
+In this test I want to only consider users that access Power BI Apps, that means we need to filter the vertices and edges prior to running Label Propagation. Then I'll save the triplet form so we can pull into Power BI.
+
+> The code below uses functions and modules defined in [previous post](https://evaluationcontext.github.io/posts/graphframes/)
+{: .prompt-info }
+
+> I started by working with 10 iterations but ramped up to 100 to allow time for convergence to a static state
+{: .prompt-info }
+
+```python
+## Filter the graph to remove workspace, Report and Dataset to focus on Report Apps
+gReportApp = g.filterVertices("type = 'Group' or type = 'User' or type = 'App' or type = 'Report App'")
+
+vlabelProp = gReportApp.labelPropagation(maxIter=100)
+
+## create new graph with the added labels, to get the triplet representation
+g2 = GraphFrame(vlabelProp, gReportApp.edges)
+g2.triplets.createOrReplaceTempView("tripletsLabelProp")
+
+accessToObjectEdgesLabelProp = spark.sql(f"""
   select
   t.src.nodeId as srcId,
   t.src.name as srcName,
   t.src.type as srcType,
+  t.src.label as srcLabel,
   t.dst.nodeId as dstId,
   t.dst.name as dstName,
   t.dst.type as dstType,
+  t.dst.label as dstLabel,
   coalesce(r.accessToObjectGroupId, concat(t.src.nodeID, t.src.accessRight)) as accessToObjectGroupId
-  from triplets as t
+  ,r.accessToObjectType
+  from tripletsLabelProp as t
   left join {savePath}.accessToObject as r
       on t.src.nodeID = r.id
+      and r.accessToObjectType = 'Report App' -- Only consider access to Report Apps
   """
 )
- 
-for tableName, df in {'accessToObjectEdges': accessToObjectEdges}.items():
-  WriteDfToTable(df, savePath, tableName)
+
+WriteDfToTable(accessToObjectEdgesLabelProp, savePath, 'accessToObjectEdgesLabelProp')
 ```
 
-## Power BI Data Model
+## Power BI
 
-The point of running the Scanner API was to create a report that catalogues everything in Power BI. After playing around for a bit I ended with up a similar model to [Rui Romano's](https://www.linkedin.com/in/ruiromano/) [PBI Scanner](https://github.com/RuiRomano/pbiscanner) solution. To reduce the complexity of measures, all of the main artifacts (Workspaces, Report, Semantic Models) are considered as objects in a object table. As a side note this model integrates perfectly with the [Fabric Log Analytics for Analysis Services Engine report template](https://github.com/microsoft/PowerBI-LogAnalytics-Template-Reports/blob/main/FabricASEngineAnalytics/README.md), giving all tenant metadata and alongside refresh and query performance (Artifacts == Objects).
+## All Labels
 
-I imported the table above and called it `accessToObject Edges`{:.console}. It is disconnected from the model so that we can use DAX measures to filter the graphs to give specific sub-graphs, from the perspective of specific objects or users. Additional I added a `Vertex Type`{:.console} dimension to filter nodes to clear the graph up when required.
+For fun I wanted to look at the entire Graph, with vertices coloured by label. Besides being interesting to look at it brings no insights, so lets look at each label one at a time.
 
-Rather than just listing permission in a table, lets create a visualization to help make the data more understandable.
+![Graph All](/assets/img/0021-LabelProp/GraphAll.png)
 
-## Deneb
+## Per Label
 
-I tried using the [Power BI Force-Directed Graph visual](https://appsource.microsoft.com/en-cy/product/power-bi-visuals/WA104380764?tab=Overview) but the results were not what I was looking for, so I turned to Deneb. I found [Davide Bacci's](https://www.linkedin.com/in/davbacci/) [Force Directed Graph example](https://github.com/PBI-David/Deneb-Showcase/tree/main/Force%20Directed%20Graph) to be a good starting point.
+Now we have the data we can move over to Power BI and add a new table `accessToObjects Edges Label Prop`{:.console} to the existing Semantic Model. Plus a disconnected  `Label`{:.console} dimension to support filtering, and a table `Vertices Label Prop`{:.console} to help with the analysis.
 
-### Object Permissions
-
-We create a page with the Deneb visual, and create the measure below. We add the `[Edge Selection]`{:.console} measure to the filter well of the Deneb visual and filter to where the measure = 1.
-
-![Force Directed gif](/assets/img/0019-ForceDirected/force%20directed.gif)
+![Data Model](/assets/img/0021-LabelProp/Semantic%20Model.png)
 
 ```dax
-Edge Selection =
-var singleUser = HASONEFILTER( accessToObject[name] )
-var FilteredUsers =
-    FILTER(
-        'accessToObject Edges'
-        ,var user = SELECTEDVALUE( accessToObject[name] )
-        RETURN
-        ('accessToObject Edges'[srcType] <> "User" &&  'accessToObject Edges'[dstType] <> "User")
-        || ('accessToObject Edges'[srcType] = "User" && 'accessToObject Edges'[srcName] = user)
-        || ('accessToObject Edges'[dstType] = "User" && 'accessToObject Edges'[dstName] = user)
+Vertices Label Prop =
+var src =
+  SELECTCOLUMNS(
+    SUMMARIZE(
+      'accessToObject Edges Label Propogation'
+      ,'accessToObject Edges Label Propogation'[srcId]
+      ,'accessToObject Edges Label Propogation'[srcLabel]
+      ,'accessToObject Edges Label Propogation'[srcType]
+      ,'accessToObject Edges Label Propogation'[accessToObjectGroupId]
     )
- 
+    ,"id", 'accessToObject Edges Label Propogation'[srcId]
+    ,"Label", 'accessToObject Edges Label Propogation'[srcLabel]
+    ,"Type", 'accessToObject Edges Label Propogation'[srcType]
+    ,"accessToObjectGroupId", 'accessToObject Edges Label Propogation'[accessToObjectGroupId]
+  )
+var dst =
+  SELECTCOLUMNS(
+    SUMMARIZE(
+      'accessToObject Edges Label Propogation'
+      ,'accessToObject Edges Label Propogation'[dstId]
+      ,'accessToObject Edges Label Propogation'[dstLabel]
+      ,'accessToObject Edges Label Propogation'[dstType]
+      ,'accessToObject Edges Label Propogation'[accessToObjectGroupId]
+    )
+    ,"id", 'accessToObject Edges Label Propogation'[dstId]
+    ,"Label", 'accessToObject Edges Label Propogation'[dstLabel]
+    ,"Type", 'accessToObject Edges Label Propogation'[dstType]
+    ,"accessToObjectGroupId", 'accessToObject Edges Label Propogation'[accessToObjectGroupId]
+  )
+var vertices =
+  DISTINCT(
+    FILTER(
+      UNION( src, dst )
+      ,not ISBLANK( [accessToObjectGroupId] )
+      && [Type] <> "Report App"
+    )
+  )
 RETURN
-SWITCH(
-    true
-    ,not ISCROSSFILTERED( accessToObject )
-        ,0
-    ,COUNTROWS( DISTINCT( INTERSECT( VALUES( accessToObject[accessToObjectGroupId] ), VALUES( 'accessToObject Edges'[accessToObjectGroupId] ) ) ) ) > 0
-    && COUNTROWS( DISTINCT( INTERSECT( VALUES( 'Vertex Type'[Type] ), VALUES( 'accessToObject Edges'[srcType] ) ) ) ) > 0
-    && COUNTROWS( DISTINCT( INTERSECT( VALUES( 'Vertex Type'[Type] ), VALUES( 'accessToObject Edges'[dstType] ) ) ) ) > 0
-    && IF( singleUser, COUNTROWS( FilteredUsers ) > 0, true )
-        ,1
+
+vertices
+```
+
+In order to use the new new `srcLabel` and `dstLable` fields we need to update the [Vega spec](#vega-spec) and the measure used to filter the edges table (below). *This measure is added to the filter well of the visual and set to where value = 1*
+ 
+```dax
+Edge Selection w/ Label =
+var FilteredEdges =
+  FILTER(
+    'accessToObject Edges Label Propogation'
+    ,'accessToObject Edges Label Propogation'[srcLabel] in VALUES( labels[Label] )
+    || 'accessToObject Edges Label Propogation'[dstLabel] in VALUES( labels[Label] )
+  )
+RETURN
+
+IF( COUNTROWS( FilteredEdges ) > 0, 1 )
+```
+
+The question I'm looking to answer is do the labels partition users/group into segments that have access to similar Report Apps?
+
+I'll use `Vertices Label Prop`{:.console} table to create a Sankey chart as a quick and dirty way to check this.
+
+In this example, the user/groups have access to the same Report Apps.
+
+![Graph 1](/assets/img/0021-LabelProp/graph1.png)
+
+But not in this cases.
+
+![Graph 5](/assets/img/0021-LabelProp/Graph5.png)
+
+When you get to a large number of Report Apps it becomes hard to interpret.
+
+![Graph 3](/assets/img/0021-LabelProp/Graph3.png)
+
+We really want to quantify how many users/groups in the partition have access to the same Report App. We can create a measure to do this. If we calculate the number of edges vs the number of users/group, per Report App, and then take an average, we can get a linkage strength.
+
+```dax
+User/Group -> Report App Linkage Strength =
+var PossibleInDegree = COUNTROWS( DISTINCT( 'Vertices Label Prop'[id] ) )
+var tbl =
+  ADDCOLUMNS(
+    VALUES( 'Vertices Label Prop'[accessToObjectGroupId] )
+    ,"@Strength",
+        var InDegree = CALCULATE( COUNTROWS( 'Vertices Label Prop' ) )
+        return
+        DIVIDE( InDegree, PossibleInDegree)
+  )
+return
+
+AVERAGEX( tbl, [@Strength] )
+```
+
+```dax
+# Distinct Vertices Label Prop = 
+CALCULATE( 
+  COUNTROWS( DISTINCT( 'Vertices Label Prop'[id] ) )
+  , 'Vertices Label Prop'[Type] in {"User", "Group"} 
 )
 ```
 
-### Vega Spec
+The largest group has low correlation. This is not to say that users can't access all of the same subset of Report App, but there are large number of Report Apps that some User/Groups within the partition can access that the other can't.
 
-I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/) to pin objects to the left and user/apps to the right and groups in the middle. But I am still quite new to Vega and I couldn't quite get the syntax right to achieve this. If anyone can get to this work for this spec I would be very interested in seeing it.
+![Graph 6](/assets/img/0021-LabelProp/Graph6.png)
+
+But there are some with high correlation.
+
+![Graph 8](/assets/img/0021-LabelProp/Graph8.png)
+
+In partitions with strong correlation It would be sensible to check the users in these partitions to see if they are in the same department or share some other characteristic that could be used to further define and validate the persona. These could then be represented by a single AAD group to simplify the assignment of future permissions.
+
+## Conclusion
+
+Realistically I’m not completely sold by this approach but with the graph already setup, Label Propagation was a quick one liner that was worth investigating.
+
+Perhaps some kind dimensional reduction approach might work better.
+
+## Vega Spec
 
 ```json
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Based off Force Directed example by David Bacci:https://github.com/PBI-David/Deneb-Showcase/blob/main/Force%20Directed%20Graph/Spec.json",
+  "description": "By Jake Duddy: https://evaluationcontext.github.io/post/label-propogation/ based off Force Directed example by David Bacci:https://github.com/PBI-David/Deneb-Showcase/blob/main/Force%20Directed%20Graph/Spec.json",
   "padding": {
     "left": 0,
     "right": 0,
@@ -322,7 +440,7 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
     },
     {
       "name": "nodeRadius",
-      "value": 17,
+      "value": 15,
       "on": [
         {
           "events": {
@@ -332,7 +450,7 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
         }
       ]
     },
-    {"name": "nodeCharge","value": -0},
+    {"name": "nodeCharge","value": 0},
     {"name": "linkDistance","value": 5
     },
     {
@@ -403,6 +521,10 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
       "source": "dataset",
       "transform": [
         {
+          "type": "filter",
+          "expr": "datum.srcLabel == datum.SelectedLabel && datum.dstLabel == datum.SelectedLabel"
+        },
+        {
           "type": "project",
           "fields": ["srcId", "srcName", "srcType", "dstId", "dstName", "dstType"],
           "as": ["source", "srcName", "srcType", "target", "dstName", "dstType"]
@@ -435,7 +557,7 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
           "type": "aggregate",
           "groupby": ["target"],
           "ops": ["values"],
-          "fields": ["source"],///
+          "fields": ["source"],
           "as": ["connections"]
         },
         {
@@ -450,6 +572,10 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
       "source": "dataset",
       "transform": [
         {
+          "type": "filter",
+          "expr": "datum.srcLabel == datum.SelectedLabel"
+        },
+        {
           "type": "project",
           "fields": ["srcId", "srcName", "srcType"],
           "as": ["id", "Name", "Type"]
@@ -460,6 +586,10 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
       "name": "dst",
       "source": "dataset",
       "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.dstLabel == datum.SelectedLabel"
+        },
         {
           "type": "project",
           "fields": ["dstId", "dstName", "dstType"],
@@ -579,13 +709,13 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
       "encode": {
         "title": {
           "update": {
-            "fontSize": {"value": 10}
+            "fontSize": {"value": 8}
           }
         },
         "labels": {
           "interactive": true,
           "update": {
-            "fontSize": {"value": 10},
+            "fontSize": {"value": 8},
             "fill": {"value": "black"}
           }
         },
@@ -603,8 +733,8 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
       }
     }
   ],
+
   "marks": [
-   
     {
       "type": "path",
       "name": "links",
@@ -711,7 +841,6 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
             "signal": "nodeHover.id===datum.index || indexof(nodeHover.connections, datum.id)>-1 ?scale('color', datum.Type):merge(hsl(scale('color', datum.Type)), {l:0.84})"
           },
           "strokeWidth": {"value": 0.5},
-          // "strokeOpacity": {"value": 1},
           "size": {"signal": "4 * nodeRadius * nodeRadius"},
           "cursor": {"value": "pointer"},
           "x": {"signal": "fix[0]!=null && node===datum.index ?fix[0]:scale('xscale', datum.x)"},
@@ -740,7 +869,7 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
             "field": "datum.Name"
           },
           "align": {"value": "center"},
-          "fontSize": {"value": 10},
+          "fontSize": {"value": 8},
           "baseline": {
             "value": "middle"
           },

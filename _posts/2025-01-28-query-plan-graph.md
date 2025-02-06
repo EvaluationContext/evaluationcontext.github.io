@@ -44,7 +44,7 @@ The Query Plan can be obtained from running SQL Server Profiler and grabbing the
 >```
 {: .prompt-tip }
 
- When we run our query we see two events, the Logical query plan and the Physical query plan. The SQLBI guys go into detail on DAX query plans in their [Optimizing DAX course](https://www.sqlbi.com/p/optimizing-dax-video-course/), plus they also have a [white paper](https://www.sqlbi.com/whitepapers/understanding-dax-query-plans/) on the subject. The Logical Query Plan is created first, and resembles the DAX query. This is then converted the Physical Plan for execution. We can see a number of rows with increasing indent. Each increase in indent represents a nested operation. So we need to read the plan from the leaf to the node to understand how data stored in SSAS Tabular is being processed to return the output of the query.
+ When we run our query we see two events, the Logical query plan and the Physical query plan. The SQLBI guys go into detail on DAX query plans in their [Optimizing DAX course](https://www.sqlbi.com/p/optimizing-dax-video-course/), plus they also have a [white paper](https://www.sqlbi.com/whitepapers/understanding-dax-query-plans/) on the subject. The Logical Query Plan is created first, and resembles the DAX query. This is then converted the Physical Plan for execution. We can see a number of rows with increasing indent. Each increase in indent represents a nested operation. So we need to read the plan from the leaf to the root to understand how data stored in SSAS Tabular is being processed to return the output of the query.
 
 ![SQL Server Profiler Results](/assets/img/0020-queryPlanGraph/SQLProfilerLog.png)
 

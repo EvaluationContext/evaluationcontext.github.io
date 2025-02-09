@@ -11,7 +11,7 @@ image:
   alt: Tenant Settings
 ---
  
-With Power BI APIs scattered between Power BI and Fabric APIs sometimes I manage to not notice the addition of a few useful ones, like [List Tenant Settings](https://learn.microsoft.com/en-us/rest/api/fabric/admin/tenants/list-tenant-settings?tabs=HTTP). Before this existed there were some solution for exporting Tenant setting that scraped the Admin Portal WebPage like in [Kurt Buhler](https://www.linkedin.com/in/kurtbuhler/) [post](https://data-goblins.com/power-bi/export-power-bi-tenant-settings). The addition of this API is very welcome, firstly as in my case, it saves a Privileged Access request just to check a config. It allows non Fabric Admins to check tenant settings themselves, reducing administrative burden. Additionally, if you incrementally append this data you track how your settings have changed over time.
+With Power BI APIs spread across Power BI and Fabric APIs, it's easy to overlook the introduction of valuable ones like [List Tenant Settings](https://learn.microsoft.com/en-us/rest/api/fabric/admin/tenants/list-tenant-settings?tabs=HTTP). Previously, solutions for exporting Tenant settings involved scraping the Admin Portal WebPage, as highlighted in a [post](https://data-goblins.com/power-bi/export-power-bi-tenant-settings) by [Kurt Buhler](https://www.linkedin.com/in/kurtbuhler/). The inclusion of this API is a significant improvement. It eliminates the need for a Privileged Access request solely to verify a configuration, making it more accessible for non-Fabric Admins to review tenant settings independently, thus reducing administrative workload. Moreover, by continuously updating this data, you can monitor the evolution of your settings over time.
 
 ## List Tenant Settings
 

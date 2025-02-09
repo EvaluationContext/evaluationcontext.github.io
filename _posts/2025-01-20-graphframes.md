@@ -4,7 +4,7 @@ description: Using Power BI Scanner and GraphFrames to figure out who can access
 author: duddy
 date: 2025-01-20 18:00:00 +0000
 categories: [Power BI Administration, Permissions]
-tags: [scanner api, graph api, graphframes, pregel, databricks, python, pyspark]
+tags: [graph api, graphframes, pregel, databricks, python, pyspark, fabric api, power bi api]
 pin: false
 image:
   path: /assets/img/0018-GraphFrames/graphdb.png

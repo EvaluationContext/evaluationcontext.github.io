@@ -2,7 +2,7 @@
 title: Exporting Power BI Tenant Settings
 description: Exporting Power BI Tenant Settings with the Fabric List Tenant Settings API
 author: duddy
-date: 2024-02-09 20:00:00 +0000
+date: 2025-02-09 20:00:00 +0000
 categories: [Power BI Administration, Tenant Settings]
 tags: [fabric api, power bi api, python, pyspark]
 pin: false

@@ -90,6 +90,10 @@ SWITCH(
 
 I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/) to pin objects to the left and user/apps to the right and groups in the middle. But I am still quite new to Vega and I couldn't quite get the syntax right to achieve this. If anyone can get to this work for this spec I would be very interested in seeing it.
 
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span"><b>Reveal Vega Spec</b></summary>
+
 ```json
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
@@ -754,3 +758,7 @@ I wanted to use [Bee Swarm](https://vega.github.io/vega/examples/beeswarm-plot/)
   ]
 }
 ```
+
+</details>
+
+{::options parse_block_html="false" /}

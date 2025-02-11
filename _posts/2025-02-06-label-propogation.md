@@ -86,7 +86,7 @@ For fun I wanted to look at the entire Graph, with vertices coloured by label. B
 
 ## Per Label
 
-Now we have the data we can move over to Power BI and add a new table `accessToObjects Edges Label Prop`{:.console} to the existing Semantic Model. Plus a disconnected  `Label`{:.console} dimension to support filtering, and a table `Vertices Label Prop`{:.console} to help with the analysis.
+Now we have the data we can move over to Power BI and add a new table `accessToObjects Edges Label Prop`{:.console} to the existing Semantic Model. Plus a disconnected `Label`{:.console} dimension to support filtering, and a table `Vertices Label Prop`{:.console} to help with the analysis.
 
 ![Data Model](/assets/img/0021-LabelProp/Semantic%20Model.png)
 
@@ -133,80 +133,11 @@ RETURN
 vertices
 ```
 
-In order to use the new new `srcLabel` and `dstLable` fields we need to update the [Vega spec](#vega-spec) and the measure used to filter the edges table (below). *This measure is added to the filter well of the visual and set to where value = 1*
- 
-```dax
-Edge Selection w/ Label =
-var FilteredEdges =
-  FILTER(
-    'accessToObject Edges Label Propogation'
-    ,'accessToObject Edges Label Propogation'[srcLabel] in VALUES( labels[Label] )
-    || 'accessToObject Edges Label Propogation'[dstLabel] in VALUES( labels[Label] )
-  )
-RETURN
+In order to use the new new `srcLabel` and `dstLable` fields we need to update the Vega spec and the measure used to filter the edges table (below). *This measure is added to the filter well of the visual and set to where value = 1*
 
-IF( COUNTROWS( FilteredEdges ) > 0, 1 )
-```
+{::options parse_block_html="true" /}
 
-The question I'm looking to answer is do the labels partition users/group into segments that have access to similar Report Apps?
-
-I'll use `Vertices Label Prop`{:.console} table to create a Sankey chart as a quick and dirty way to check this.
-
-In this example, the user/groups have access to the same Report Apps.
-
-![Graph 1](/assets/img/0021-LabelProp/graph1.png)
-
-But not in this cases.
-
-![Graph 5](/assets/img/0021-LabelProp/Graph5.png)
-
-When you get to a large number of Report Apps it becomes hard to interpret.
-
-![Graph 3](/assets/img/0021-LabelProp/Graph3.png)
-
-We really want to quantify how many users/groups in the partition have access to the same Report App. We can create a measure to do this. If we calculate the number of edges vs the number of users/group, per Report App, and then take an average, we can get a linkage strength.
-
-```dax
-User/Group -> Report App Linkage Strength =
-var PossibleInDegree = COUNTROWS( DISTINCT( 'Vertices Label Prop'[id] ) )
-var tbl =
-  ADDCOLUMNS(
-    VALUES( 'Vertices Label Prop'[accessToObjectGroupId] )
-    ,"@Strength",
-        var InDegree = CALCULATE( COUNTROWS( 'Vertices Label Prop' ) )
-        return
-        DIVIDE( InDegree, PossibleInDegree)
-  )
-return
-
-AVERAGEX( tbl, [@Strength] )
-```
-
-```dax
-# Distinct Vertices Label Prop = 
-CALCULATE( 
-  COUNTROWS( DISTINCT( 'Vertices Label Prop'[id] ) )
-  , 'Vertices Label Prop'[Type] in {"User", "Group"} 
-)
-```
-
-The largest group has low correlation. This is not to say that users can't access all of the same subset of Report App, but there are large number of Report Apps that some User/Groups within the partition can access that the other can't.
-
-![Graph 6](/assets/img/0021-LabelProp/Graph6.png)
-
-But there are some with high correlation.
-
-![Graph 8](/assets/img/0021-LabelProp/Graph8.png)
-
-In partitions with strong correlation It would be sensible to check the users in these partitions to see if they are in the same department or share some other characteristic that could be used to further define and validate the persona. These could then be represented by a single AAD group to simplify the assignment of future permissions.
-
-## Conclusion
-
-Realistically I’m not completely sold by this approach but with the graph already setup, Label Propagation was a quick one liner that was worth investigating.
-
-Perhaps some kind dimensional reduction approach might work better.
-
-## Vega Spec
+<details><summary markdown="span"><b>Reveal Vega Spec</b></summary>
 
 ```json
 {
@@ -883,3 +814,80 @@ Perhaps some kind dimensional reduction approach might work better.
   ]
 }
 ```
+
+</details>
+
+{::options parse_block_html="false" /}
+ 
+<br /> 
+
+```dax
+Edge Selection w/ Label =
+var FilteredEdges =
+  FILTER(
+    'accessToObject Edges Label Propogation'
+    ,'accessToObject Edges Label Propogation'[srcLabel] in VALUES( labels[Label] )
+    || 'accessToObject Edges Label Propogation'[dstLabel] in VALUES( labels[Label] )
+  )
+RETURN
+
+IF( COUNTROWS( FilteredEdges ) > 0, 1 )
+```
+
+The question I'm looking to answer is do the labels partition users/group into segments that have access to similar Report Apps?
+
+I'll use `Vertices Label Prop`{:.console} table to create a Sankey chart as a quick and dirty way to check this.
+
+In this example, the user/groups have access to the same Report Apps.
+
+![Graph 1](/assets/img/0021-LabelProp/graph1.png)
+
+But not in this cases.
+
+![Graph 5](/assets/img/0021-LabelProp/Graph5.png)
+
+When you get to a large number of Report Apps it becomes hard to interpret.
+
+![Graph 3](/assets/img/0021-LabelProp/Graph3.png)
+
+We really want to quantify how many users/groups in the partition have access to the same Report App. We can create a measure to do this. If we calculate the number of edges vs the number of users/group, per Report App, and then take an average, we can get a linkage strength.
+
+```dax
+User/Group -> Report App Linkage Strength =
+var PossibleInDegree = COUNTROWS( DISTINCT( 'Vertices Label Prop'[id] ) )
+var tbl =
+  ADDCOLUMNS(
+    VALUES( 'Vertices Label Prop'[accessToObjectGroupId] )
+    ,"@Strength",
+        var InDegree = CALCULATE( COUNTROWS( 'Vertices Label Prop' ) )
+        return
+        DIVIDE( InDegree, PossibleInDegree)
+  )
+return
+
+AVERAGEX( tbl, [@Strength] )
+```
+
+```dax
+# Distinct Vertices Label Prop = 
+CALCULATE( 
+  COUNTROWS( DISTINCT( 'Vertices Label Prop'[id] ) )
+  , 'Vertices Label Prop'[Type] in {"User", "Group"} 
+)
+```
+
+The largest group has low correlation. This is not to say that users can't access all of the same subset of Report App, but there are large number of Report Apps that some User/Groups within the partition can access that the other can't.
+
+![Graph 6](/assets/img/0021-LabelProp/Graph6.png)
+
+But there are some with high correlation.
+
+![Graph 8](/assets/img/0021-LabelProp/Graph8.png)
+
+In partitions with strong correlation It would be sensible to check the users in these partitions to see if they are in the same department or share some other characteristic that could be used to further define and validate the persona. These could then be represented by a single AAD group to simplify the assignment of future permissions.
+
+## Conclusion
+
+Realistically I’m not completely sold by this approach but with the graph already setup, Label Propagation was a quick one liner that was worth investigating.
+
+Perhaps some kind dimensional reduction approach might work better.

@@ -1,3 +1,4 @@
+(function(){
 var hljsGrammar = (function () {
   /*
   Language: DAX
@@ -574,4 +575,6 @@ var hljsGrammar = (function () {
 
   return dax;
 })();
-export default hljsGrammar;
+
+hljs.registerLanguage('dax', hljsGrammar);
+})();

@@ -135,10 +135,6 @@ vertices
 
 In order to use the new new `srcLabel` and `dstLable` fields we need to update the Vega spec and the measure used to filter the edges table (below). *This measure is added to the filter well of the visual and set to where value = 1*
 
-{::options parse_block_html="true" /}
-
-<details><summary markdown="span"><b>Reveal Vega Spec</b></summary>
-
 ```json
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
@@ -814,12 +810,6 @@ In order to use the new new `srcLabel` and `dstLable` fields we need to update t
   ]
 }
 ```
-
-</details>
-
-{::options parse_block_html="false" /}
- 
-<br /> 
 
 ```dax
 Edge Selection w/ Label =

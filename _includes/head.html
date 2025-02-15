@@ -124,13 +124,44 @@
 
   {% include metadata-hook.html %}
 
+
+  
   <!-- highlight.js -->
   <link rel="stylesheet" href="/assets/js/highlight/styles/base16/material.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/fsharp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/fsharp.min.js" integrity="sha512-S3tgSOL0xKKsqOdbPP7AZKtb/L0bXVG/PW7RNRVXOqCWEiBRzIq9oTIinLoY11MB58l1/f++IHM+mp1Nfk2ETA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/plaintext.min.js" integrity="sha512-8G3A7cgC22yWtFGqrwXjmznP+IcB9wYQRgsOVO4pQDpJ0HWgpD8lMMShOXdU225S4qww0bEUwsz+foINFWbwwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="/assets/js/highlight/languages/dax.js"></script>
-  <script>hljs.configure({ cssSelector: 'code' }); </script>
-  <script>hljs.highlightAll();</script>
+  <!-- copy and language badge -->
+  <script src="/assets/js/highlightjs-badge/highlightjs-badge.js"></script>
+
+  <!-- highlight pre code blocks add badges -->
+  <script>
+    setTimeout(function () {
+      var pres = document.querySelectorAll("pre>code");
+      for (var i = 0; i < pres.length; i++) {
+          hljs.highlightElement(pres[i]);
+      }
+      // hljs.highlightAll();
+      var options = {
+          contentSelector: "body",
+
+          // CSS class(es) used to render the copy icon.
+          copyIconClass: "fa fa-copy",
+          // CSS class(es) used to render the done icon.
+          checkIconClass: "fa fa-check text-success"
+      };
+      // if (window.highlightJsBadge)
+          window.highlightJsBadge(options);
+    },5);
+  </script>
+
+  <!-- highlight inline code blocks -->
+  <script>
+    hljs.configure({ cssSelector: 'code' });
+    hljs.highlightAll();
+  </script>
 
   <!-- vega -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>

@@ -49,11 +49,11 @@ When including higher order SCDs in your model you have to consider how you want
 
 I only just said Type 1 SCD are not suitable for incremental refresh. But polling expressions could be helpful to reduce the import of unnecessary data, and they are only available with Incremental Refresh.
 
-For the polling expression to work we need to have some scalar value that we would expect to change if the data updates. If we consider higher order case above, we have a modified date we can leverage. We can create the SCD type 1 table by filtering the higher order table to return the most recent record for each natural key, keeping the `modified date`{:. console}.
+For the polling expression to work we need to have some scalar value that we would expect to change if the data updates. If we consider higher order case above, we have a modified date we can leverage. We can create the SCD type 1 table by filtering the higher order table to return the most recent record for each natural key, keeping the `modified date`{:.txt}.
 
-If we want to setup Incremental Refresh we would only want a Incremental Window, with no Archive Window, otherwise we risk having duplicates of the same natural key. The problem is we cannot set a Archive Window of 0. We can overcome this limitation by adding a additional `Date`{:. console} field to the table, with today's date.
+If we want to setup Incremental Refresh we would only want a Incremental Window, with no Archive Window, otherwise we risk having duplicates of the same natural key. The problem is we cannot set a Archive Window of 0. We can overcome this limitation by adding a additional `Date`{:.txt} field to the table, with today's date.
 
-We can now setup Incremental Refresh. First we define our `RangeStart`{:. console} and `RangeEnd`{:. console} and use this to filter on `Date`{:. console}.
+We can now setup Incremental Refresh. First we define our `RangeStart`{:.txt} and `RangeEnd`{:.txt} and use this to filter on `Date`{:.txt}.
 
 ```fsharp
 let
@@ -64,7 +64,7 @@ in
     IncrementalRefresh
 ```
 
-I'll set Incremental Window period to 2 year and the Archive Window to 1 year. Additionally we'll add `modifiedDate`{:. console} for the polling Expression.
+I'll set Incremental Window period to 2 year and the Archive Window to 1 year. Additionally we'll add `modifiedDate`{:.txt} for the polling Expression.
 
 ![Incremental Refresh Power BI](/assets/img/0023-SlowChangingDimensions/RefreshPolicyPowerBI.png)
 
@@ -75,4 +75,4 @@ We can open Tabular Editor and apply the Refresh Policy.
 
 ![Incremental Refresh Tabular Editor Original](/assets/img/0023-SlowChangingDimensions/RefreshPolicy.png)
 
-We get 3 partitions, one for each year. Since we have set the `Date`{:.text} to today's date, only this year's partition will ever get data. We added an additional year so that we will only ever have a empty partition in the Incremental Window as a buffer to roll into the archive window. This effectively gives us one active partition like we had before applying Incremental Refresh but we get the benefit of a polling expression checking to see if there is a more recent `modified date`{:. console}.
+We get 3 partitions, one for each year. Since we have set the `Date`{:.txt} to today's date, only this year's partition will ever get data. We added an additional year so that we will only ever have a empty partition in the Incremental Window as a buffer to roll into the archive window. This effectively gives us one active partition like we had before applying Incremental Refresh but we get the benefit of a polling expression checking to see if there is a more recent `modified date`{:.txt}.

@@ -18,7 +18,7 @@ In my previous [post](https://evaluationcontext.github.io/posts/graphframes/) I 
 
 ## GraphFrame
 
-We need to add a extra table `accessToObjectEdges`{:.console} to the previous code from the previous post to power the visual, which is a triplet form of the graph. `accessToObjectEdges.accessToObjectGroupId`{:.console} will be used to label all nodes that inherits permission from a objects (Workspace, Report, Semantic Model) role so we can trim unnecessary nodes from subgraphs.
+We need to add a extra table `accessToObjectEdges`{:.txt} to the previous code from the previous post to power the visual, which is a triplet form of the graph. `accessToObjectEdges.accessToObjectGroupId`{:.txt} will be used to label all nodes that inherits permission from a objects (Workspace, Report, Semantic Model) role so we can trim unnecessary nodes from subgraphs.
 
 ```python
 g.triplets.createOrReplaceTempView("triplets")
@@ -46,7 +46,7 @@ for tableName, df in {'accessToObjectEdges': accessToObjectEdges}.items():
 
 The point of running the Scanner API was to create a report that catalogues everything in Power BI. After playing around for a bit I ended with up a similar model to [Rui Romano's](https://www.linkedin.com/in/ruiromano/) [PBI Scanner](https://github.com/RuiRomano/pbiscanner) solution. To reduce the complexity of measures, all of the main artifacts (Workspaces, Report, Semantic Models) are considered as objects in a object table. As a side note this model integrates perfectly with the [Fabric Log Analytics for Analysis Services Engine report template](https://github.com/microsoft/PowerBI-LogAnalytics-Template-Reports/blob/main/FabricASEngineAnalytics/README.md), giving all tenant metadata and alongside refresh and query performance (Artifacts == Objects).
 
-I imported the table above and called it `accessToObject Edges`{:.console}. It is disconnected from the model so that we can use DAX measures to filter the graphs to give specific sub-graphs, from the perspective of specific objects or users. Additional I added a `Vertex Type`{:.console} dimension to filter nodes to clear the graph up when required.
+I imported the table above and called it `accessToObject Edges`{:.txt}. It is disconnected from the model so that we can use DAX measures to filter the graphs to give specific sub-graphs, from the perspective of specific objects or users. Additional I added a `Vertex Type`{:.txt} dimension to filter nodes to clear the graph up when required.
 
 Rather than just listing permission in a table, lets create a visualization to help make the data more understandable.
 
@@ -56,7 +56,7 @@ I tried using the [Power BI Force-Directed Graph visual](https://appsource.micro
 
 ### Object Permissions
 
-We create a page with the Deneb visual, and create the measure below. We add the `[Edge Selection]`{:.console} measure to the filter well of the Deneb visual and filter to where the measure = 1.
+We create a page with the Deneb visual, and create the measure below. We add the `[Edge Selection]`{:.txt} measure to the filter well of the Deneb visual and filter to where the measure = 1.
 
 ![Force Directed gif](/assets/img/0019-ForceDirected/force%20directed.gif)
 

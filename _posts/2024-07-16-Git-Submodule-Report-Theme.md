@@ -107,7 +107,7 @@ We now need to add and update files in the Recipient Report, so that the Donor t
 
 ### Required Changes
 In order for the theme to be applied we need to:
-- Copy `Donor/Recipient/recipient.Report/StaticResources/RegisteredResources/donorTheme.json`{:.console} to `Donor/donor.Report/StaticResources/RegisteredResources/`{:.console}
+- Copy `Donor/Recipient/recipient.Report/StaticResources/RegisteredResources/donorTheme.json`{:.txt} to `Donor/donor.Report/StaticResources/RegisteredResources/`{:.txt}
 
 ``` json
 {
@@ -130,7 +130,7 @@ In order for the theme to be applied we need to:
 }
 ```
 
-- Register the custom theme in `Donor/donor.Report/definition/report.json`{:.console}
+- Register the custom theme in `Donor/donor.Report/definition/report.json`{:.txt}
 
 ```diff
 {
@@ -165,7 +165,7 @@ In order for the theme to be applied we need to:
 ```
 
 ### Manifest
-We have hosted the entire Donor Report, and we might want to define the donation of other visuals assets in the Recipient repo. Therefore we want to create a file to specifies what assets we want to donate. I have a manifest file (`Recipient/.deploymentManifest.json`{:.console}) that I am using for deployments, I extended it to add allow configuration of the required operation.
+We have hosted the entire Donor Report, and we might want to define the donation of other visuals assets in the Recipient repo. Therefore we want to create a file to specifies what assets we want to donate. I have a manifest file (`Recipient/.deploymentManifest.json`{:.txt}) that I am using for deployments, I extended it to add allow configuration of the required operation.
 
 ```json
 {
@@ -200,7 +200,7 @@ We can save this to the repo.
 ```
 
 ### Script
-We now need to read `.deploymentManifest.json`{:.console} detect if a custom theme is specified and update the definition of the Recipient Report. As a proof of concept I'll assume there is no custom theme currently applied in the Recipient Report.
+We now need to read `.deploymentManifest.json`{:.txt} detect if a custom theme is specified and update the definition of the Recipient Report. As a proof of concept I'll assume there is no custom theme currently applied in the Recipient Report.
 
 > I apologize in advance for this Powershell script, I'm sure there is a nicer way of writing this
 {: .prompt-warning }

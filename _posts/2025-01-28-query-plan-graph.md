@@ -28,7 +28,7 @@ SUMMARIZECOLUMNS(
 
 ## SQL Server Profiler
 
-The Query Plan can be obtained from running SQL Server Profiler and grabbing the `DAX Query Plan`{:.console} event.
+The Query Plan can be obtained from running SQL Server Profiler and grabbing the `DAX Query Plan`{:.txt} event.
 
 ![SQL Server Profiler Setup](/assets/img/0020-queryPlanGraph/SQLProfilerSetup.png)
 
@@ -53,7 +53,7 @@ My main bugbear with this is that if you have several groups of operations that 
 ![SQL Server Query Plan](/assets/img/0020-queryPlanGraph/SQLServerQueryPlan.png)
 [*SQL Server Query Plan*](https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-an-actual-execution-plan?view=sql-server-ver16)
 
-Lets save this trace: File > Save As > Trace XML File... > `trace.xml`{:.console}
+Lets save this trace: File > Save As > Trace XML File... > `trace.xml`{:.txt}
 
 ## Processing XML Trace
 

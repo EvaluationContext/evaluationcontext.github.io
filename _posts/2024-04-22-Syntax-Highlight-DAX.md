@@ -125,7 +125,7 @@ kramdown:
 
 - To host a custom language, copy the lexer code into the highlight.js file
 
-And NOW we are finally able to apply DAX highlighting with ```` ```dax ````{:.console}!
+And NOW we are finally able to apply DAX highlighting with ```` ```dax ````{:.txt}!
 
 ```dax
 DEFINE MEASURE 'foo'[measure1] = 

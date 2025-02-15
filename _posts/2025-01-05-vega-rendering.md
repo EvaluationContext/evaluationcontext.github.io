@@ -15,7 +15,7 @@ If I want to blog about Vega I want to be able to render the visuals on the post
 
 ## Load The Vega Libraries
 
-Add the following to `head.html`{:.console}.
+Add the following to `head.html`{:.txt}.
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -256,7 +256,7 @@ You can also specify a number of [Options](https://github.com/vega/vega-embed?tt
 
 #### Themes
 
-I've seen a `powerbi`{:.console} theme so we have to give that a go.
+I've seen a `powerbi`{:.txt} theme so we have to give that a go.
 
 ```html
 <div id="vis"></div>

@@ -86,7 +86,7 @@ For fun I wanted to look at the entire Graph, with vertices coloured by label. B
 
 ## Per Label
 
-Now we have the data we can move over to Power BI and add a new table `accessToObjects Edges Label Prop`{:.console} to the existing Semantic Model. Plus a disconnected `Label`{:.console} dimension to support filtering, and a table `Vertices Label Prop`{:.console} to help with the analysis.
+Now we have the data we can move over to Power BI and add a new table `accessToObjects Edges Label Prop`{:.txt} to the existing Semantic Model. Plus a disconnected `Label`{:.txt} dimension to support filtering, and a table `Vertices Label Prop`{:.txt} to help with the analysis.
 
 ![Data Model](/assets/img/0021-LabelProp/Semantic%20Model.png)
 
@@ -826,7 +826,7 @@ IF( COUNTROWS( FilteredEdges ) > 0, 1 )
 
 The question I'm looking to answer is do the labels partition users/group into segments that have access to similar Report Apps?
 
-I'll use `Vertices Label Prop`{:.console} table to create a Sankey chart as a quick and dirty way to check this.
+I'll use `Vertices Label Prop`{:.txt} table to create a Sankey chart as a quick and dirty way to check this.
 
 In this example, the user/groups have access to the same Report Apps.
 

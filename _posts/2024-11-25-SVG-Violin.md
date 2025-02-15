@@ -34,7 +34,7 @@ Once we have calculated our KDE, we need to plot the curves. This is done using 
 ![Bézier Curves](/assets/img/0011-SVGViolin/Bezier_All_anim.gif)
 *[Link](https://upload.wikimedia.org/wikipedia/commons/1/15/Bezier_All_anim.gif)*
 
-In SVG paths the cubic curve is specified by C `C x1 y1, x2 y2, x y`{:.console} or a short-hand S `S x2 y2, x y`{:.console} which assumes the first control point is a reflection of the one used previously in the path.
+In SVG paths the cubic curve is specified by `C x1 y1, x2 y2, x y`{:.txt} or a short-hand `S x2 y2, x y`{:.txt} which assumes the first control point is a reflection of the one used previously in the path.
 
 ## End Result
 

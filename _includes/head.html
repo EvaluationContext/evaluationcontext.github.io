@@ -138,27 +138,10 @@
 
   <!-- highlight pre code blocks add badges -->
   <script>
-    setTimeout(function () {
-      var pres = document.querySelectorAll("pre>code");
-      for (var i = 0; i < pres.length; i++) {
-          hljs.highlightElement(pres[i]);
-      }
-      // hljs.highlightAll();
-      var options = {
-          contentSelector: "body",
-
-          // CSS class(es) used to render the copy icon.
-          copyIconClass: "fa fa-copy",
-          // CSS class(es) used to render the done icon.
-          checkIconClass: "fa fa-check text-success"
-      };
-      // if (window.highlightJsBadge)
-          window.highlightJsBadge(options);
-    },100);
-  </script>
-
-  <!-- highlight inline code blocks -->
-  <script>
+    hljs.highlightAll();
+    // timeout to wait for highlight.js to finish before generating badges
+    setTimeout(function () {window.highlightJsBadge()},500);
+    // highlight inline code blocks
     hljs.configure({ cssSelector: 'code' });
     hljs.highlightAll();
   </script>

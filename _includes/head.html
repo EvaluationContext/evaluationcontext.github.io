@@ -139,9 +139,7 @@
   <!-- highlight pre code blocks add badges -->
   <script>
     hljs.highlightAll();
-    // timeout to wait for highlight.js to finish before generating badges
-    setTimeout(function () {window.highlightJsBadge()},500);
-    // highlight inline code blocks
+    setTimeout(function () {window.highlightJsBadge()},100);
     hljs.configure({ cssSelector: 'code' });
     hljs.highlightAll();
   </script>

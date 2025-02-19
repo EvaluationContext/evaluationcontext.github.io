@@ -90,7 +90,7 @@ IF( not ISEMPTY(__Data) , __Svg )
 
 From the error, it looks like the length of the string for the SVG is exceeding Power BI's memory limits. To resolve this error we could reduce the data, by Filtering or Sampling. As you can see, I am already using `TOPN()`{:.dax} to filter to 400 most recent refreshes. Sampling is the approach used Power BI's built in sparklines. Another approach, to avoid reducing data would be to reduce the size of strings required to represent the data marks, this is the approach I'll be looking at in this post.
 
-The bulk of this SVG is the large number of `<line>`{:.xml} element being calculated in `__Lines`{:.dax}. Which when resolved, end up looking like this:
+The bulk of this SVG is the large number of `<line>`{:.xml} elements being calculated in `__Lines`{:.dax}. Which when resolved, end up looking like this:
 
 ```xml
 <line x1='1' y1='2.5' x2='1' y2='7.5' stroke='#37A794"' stroke-width='2'/>
@@ -185,7 +185,7 @@ VAR __Svg =
         "<path id='L1' d='M1," & __svgHeight * 1    & " L1," & __svgHeight - (__svgHeight * 1)    & "' stroke='#FFB900' stroke-width='2'/>" & // Started Orange
         "<path id='L2' d='M1," & __svgHeight * 0.85 & " L1," & __svgHeight - (__svgHeight * 0.85) & "' stroke='#DD6B7F' stroke-width='2'/>" & // Failed Red
         "<path id='L3' d='M1," & __svgHeight * 0.7  & " L1," & __svgHeight - (__svgHeight * 0.7)  & "' stroke='#37A794' stroke-width='2'/>" & // Succeeded Green
-    </defs>" &
+    "</defs>" &
     __Lines &
     "</svg>"
 RETURN

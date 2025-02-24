@@ -1,14 +1,14 @@
 ---
 title: DAX Highlighting in Github Pages
-description: DAX Syntax Highlighting on GitHub Pages with Rogue and highlight.js
+description: DAX Syntax Highlighting on GitHub Pages with Rouge and highlight.js
 author: duddy
 date: 2024-04-22 23:00:00 +0000
 categories: [Syntax Highlighting, DAX]
-tags: [rogue, highlight.js, github pages, dax, syntax highlighting]
+tags: [Rouge, highlight.js, github pages, dax, syntax highlighting]
 pin: false
 image:
   path: /assets/img/0001-syntaxHighlightDAX/daxSyntaxHighlightingRackupDemo.png
-  alt: Example of Dax Syntax Highlighting with Rogue
+  alt: Example of Dax Syntax Highlighting with Rouge
 ---
 
 This blog is hosted on Github Pages. Github pages uses [Jekyll](https://jekyllrb.com/) to create static webpages from [Markdown](https://www.markdownguide.org/). I want to able to blog on Power BI context, and it would be nice to have Syntax Highlighting for DAX code, but this is not natively supported. This article describes the development and implementation to make this possible.
@@ -42,10 +42,10 @@ This pattern can be described via a regex expression ```%r/--.*/```. A theme can
 ![Syntax Highlighting Process](/assets/img/0001-syntaxHighlightDAX/Process.png)
 
 ## DAX Lexer
-Jekyll's default Syntax Highlighter is [Rogue](https://rouge.jneen.net/). Rogue doesn't have a DAX lexer, so we'll have to develop one. Rogue provides a [Lexer Development Guide](https://rouge-ruby.github.io/docs/file.LexerDevelopment.html) that we can follow. 
+Jekyll's default Syntax Highlighter is [Rouge](https://rouge.jneen.net/). Rouge doesn't have a DAX lexer, so we'll have to develop one. Rouge provides a [Lexer Development Guide](https://rouge-ruby.github.io/docs/file.LexerDevelopment.html) that we can follow. 
 
-### Rogue Development Environment
-Rogue is a Ruby application, and therefore development and testing of the lexer requires a Linux [Development Environment](https://rouge-ruby.github.io/docs/file.DevEnvironment.html) running Ruby with the required gems. To keep the development environment self-contained, Rogue suggests using a [Docker Development Environment](https://rouge-ruby.github.io/docs/file.Docker.html). Rogue offers a automated tested suite (rake) and a visual testing website (rackup), to test and validate your lexer.
+### Rouge Development Environment
+Rouge is a Ruby application, and therefore development and testing of the lexer requires a Linux [Development Environment](https://rouge-ruby.github.io/docs/file.DevEnvironment.html) running Ruby with the required gems. To keep the development environment self-contained, Rouge suggests using a [Docker Development Environment](https://rouge-ruby.github.io/docs/file.Docker.html). Rouge offers a automated tested suite (rake) and a visual testing website (rackup), to test and validate your lexer.
 
 > You can run Ruby locally on [WSL](https://learn.microsoft.com/en-us/windows/wsl/about) but I would advise against it. I ran into issues with the mapping of folder/file permission between Windows and Linux when installing gems.
 {: .prompt-warning }
@@ -65,18 +65,18 @@ docker run -t -v $PWD:/app -v /tmp/vendor:/vendor -w /app -e BUNDLE_PATH=/vendor
 docker run -t -v $PWD:/app -v /tmp/vendor:/vendor -w /app -e BUNDLE_PATH=/vendor -p 9292:9292 ruby bundle exec rackup --host 0.0.0.0
 ```
 
-### Rogue DAX Lexer Development
-Once we have the development environment setup we can start developing our DAX lexer. There are few existing DAX lexer in other frameworks that I used for inspiration ([Tabular Editor](https://github.com/TabularEditor/TabularEditor/blob/master/AntlrGrammars/DAXLexer.g4), SQLBI, and Microsoft learn), resulting in this [Rogue DAX Lexer](https://github.com/EvaluationContext/rouge/blob/feature.dax/lib/rouge/lexers/dax.rb). With the addition some code snippets ([Demo](https://github.com/EvaluationContext/rouge/blob/feature.dax/lib/rouge/demos/dax) & [Sample](https://github.com/EvaluationContext/rouge/blob/feature.dax/spec/visual/samples/dax)) we are ready to perform a visual check of the lexer.
+### Rouge DAX Lexer Development
+Once we have the development environment setup we can start developing our DAX lexer. There are few existing DAX lexer in other frameworks that I used for inspiration ([Tabular Editor](https://github.com/TabularEditor/TabularEditor/blob/master/AntlrGrammars/DAXLexer.g4), SQLBI, and Microsoft learn), resulting in this [Rouge DAX Lexer](https://github.com/EvaluationContext/rouge/blob/feature.dax/lib/rouge/lexers/dax.rb). With the addition some code snippets ([Demo](https://github.com/EvaluationContext/rouge/blob/feature.dax/lib/rouge/demos/dax) & [Sample](https://github.com/EvaluationContext/rouge/blob/feature.dax/spec/visual/samples/dax)) we are ready to perform a visual check of the lexer.
 
 > If you have the local website running on rackup. Any changes saved to your files are reflected on the web page, without having to restart the server; just refresh your browser.
 {: .prompt-tip }
 
-Following validation via visual inspection we can perform automated testing with rake. Once this passes we are ready to push to our fork and submit a Pull Request (PR) to get our files added to the main Rogue repo. 
+Following validation via visual inspection we can perform automated testing with rake. Once this passes we are ready to push to our fork and submit a Pull Request (PR) to get our files added to the main Rouge repo. 
 
 At the time of publishing, this PR is still under review. So in the meantime I turned to [highlight.js](https://highlightjs.org/) which allows you selfhost a lexer, but you need to jump through a few extra hoops. 
 
 ### Highlight.js Development Environment
-Highlight.js provides some guides on [contributing](https://github.com/highlightjs/highlight.js/blob/main/CONTRIBUTING.md) and how to setup a [Docker Development Environment](https://highlightjs.readthedocs.io/en/latest/building-testing.html#building-and-testing-with-docker). Unlike Rogue, where you mount a directory and save files to your local machine, highlight.js creates a self contained build.
+Highlight.js provides some guides on [contributing](https://github.com/highlightjs/highlight.js/blob/main/CONTRIBUTING.md) and how to setup a [Docker Development Environment](https://highlightjs.readthedocs.io/en/latest/building-testing.html#building-and-testing-with-docker). Unlike Rouge, where you mount a directory and save files to your local machine, highlight.js creates a self contained build.
 
 > An update of the base docker image from node:12-slim to node:21-bullseye-slim was required to get container to build successfully
 {: .prompt-info }
@@ -102,10 +102,10 @@ Highlight.js gives us a great development environment. We provide sample code, a
 
 ![HighlightJS: Testing](/assets/img/0001-syntaxHighlightDAX/daxSyntaxHighlightingHighlightJSDemo.png)
 
-Once we have finished developing our [Lexer](https://github.com/EvaluationContext/highlight.js-dax/blob/Feature.dax/src/languages/dax.js), there are some extra steps required to [Contribute a Language](https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md). I decided to skip this process at this time, as ideally I want to use Rogue in the longer term, but I might come back to this.
+Once we have finished developing our [Lexer](https://github.com/EvaluationContext/highlight.js-dax/blob/Feature.dax/src/languages/dax.js), there are some extra steps required to [Contribute a Language](https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md). I decided to skip this process at this time, as ideally I want to use Rouge in the longer term, but I might come back to this.
 
 In order to self host highlight.js:
-- Update _config.yml to turn off rogue
+- Update _config.yml to turn off Rouge
 
 ```yaml
 kramdown:

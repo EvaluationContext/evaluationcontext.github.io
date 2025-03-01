@@ -1,6 +1,6 @@
 ---
-title: DMVs and Vertipaq Analyzer
-description: Exploring how Sematic Link Labs and SQLBI's Vertipaq Analyzers work
+title: Vertipaq Analyzer, Deep Dive
+description: Exploring how Semantic Link Labs and SQLBI's Vertipaq Analyzers work
 author: duddy
 date: 2025-03-01 19:00:00 +0000
 categories: [Vertipaq Analyzer]
@@ -18,7 +18,7 @@ Vertipaq Analyzer, a powerful tool widely utilized in DAX Studio for enhancing P
 Vertipaq Analyzer is a [C# package](https://github.com/sql-bi/VertiPaq-Analyzer/releases/tag/v1.2.5-preview1) created by [Marco Russo](https://www.linkedin.com/in/sqlbi/). It is included in [DAX studio](https://daxstudio.org/docs/features/model-metrics/) and has been used for years as the basis for Tabular Model optimization. 
 
 ![DAX Studio Vertipaq Analyzer](/assets/img/0025-VertipaqAnalyzer/DAX%20Studio.png)
-<cite> [DAX Studio](https://daxstudio.org/docs/features/model-metrics/)</cite>
+<cite>[DAX Studio](https://daxstudio.org/docs/features/model-metrics/)</cite>
 
 More recently Semantic Link Labs released a [vertipaq_analyzer()](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.vertipaq_analyzer) function. 
 

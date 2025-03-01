@@ -15,7 +15,7 @@ Vertipaq Analyzer, a powerful tool widely utilized in DAX Studio for enhancing P
 
 ## Vertipaq Analyzer
 
-Vertipaq Analyzer is a [C# package](https://github.com/sql-bi/VertiPaq-Analyzer/releases/tag/v1.2.5-preview1) created by [Marco Russo](https://www.linkedin.com/in/sqlbi/). It is included in [DAX studio](https://daxstudio.org/docs/features/model-metrics/) and has been used for years as the basis for Tabular Model optimization. 
+Vertipaq Analyzer is a [C# package](https://github.com/sql-bi/VertiPaq-Analyzer/releases/tag/v1.2.5-preview1), which connects to a Power BI Semantic Model and extracts the models schema and metrics. It is included in [DAX studio](https://daxstudio.org/docs/features/model-metrics/) and has been the cornerstone of Tabular Model optimization for years. 
 
 ![DAX Studio Vertipaq Analyzer](/assets/img/0025-VertipaqAnalyzer/DAX%20Studio.png)
 <cite>[DAX Studio](https://daxstudio.org/docs/features/model-metrics/)</cite>

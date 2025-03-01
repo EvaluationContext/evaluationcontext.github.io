@@ -8,7 +8,7 @@ tags: [vertipaq analyzer]
 pin: false
 image:
   path: /assets/img/0025-VertipaqAnalyzer/VertipaqAnalyzer.svg
-  alt: Vertipaq Analyzer -- <cite>[SQLBI](https://www.sqlbi.com/tools/vertipaq-analyzer/)</cite>
+  alt: Vertipaq Analyzer [SQLBI]
 ---
 
 Vertipaq Analyzer, a powerful tool widely utilized in DAX Studio for enhancing Power BI Semantic Models. Recently, Semantic Link Labs has introduced their own version of [Vertipaq Analyzer](). But how does each version work, and how similar are they?

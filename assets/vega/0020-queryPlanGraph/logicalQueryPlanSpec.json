@@ -5,6 +5,7 @@
   "height": 500,
   "padding": 5,
   "autosize": "none",
+  "background": "#263238",
   "signals": [
     {"name": "cx", "update": "width / 2"},
     {"name": "cy", "update": "height / 2"},

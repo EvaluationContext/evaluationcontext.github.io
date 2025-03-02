@@ -114,6 +114,11 @@ If you call `vertipaq_analyzer()`{:.python} in a notebook it will display the re
 
 If you set `export`{:.txt} to 'zip' or 'table' you can instead save the result as a zip folder or delta table, to a connected lakehouse.
 
+If we set `read_stats_from_data`{:.txt} to `True`{:.python} additional fields for column cardinality and missing rows are returned. This is achieved by a DAX query `COUNT(DISTINCT(table[column]))`{:.dax}. If the model is Direct Lake then a spark queries are used instead.
+
+> [Michael Kovalsky](https://www.linkedin.com/in/michaelkovalsky/) informed me that in the Direct Lake case, Semantic Links Labs implementation is preferable to SQLBIs. When a DAX query runs on Direct Lake model, columns have to be paged into memory. Since we are querying every column to perform a distinct count, pulling every column sequentially into memory, this can be a very intensive operation,  and can and has crashed customer's capacities. Using spark queries, the semantic model is bypassed, and the lakehouse is queries directly, avoiding this issue.
+{:.prompt-info}
+
 If we go to [GitHub](https://github.com/microsoft/semantic-link-labs/blob/main/src/sempy_labs/_vertipaq.py) we can see how this is implemented, for simplicity I'm going to skip the DirectLake parts.
 
 It first connects to TOM to get some model attributes.
@@ -137,7 +142,7 @@ hierarchies =       sempy.fabric.list_hierarchies(dataset=dataset_id, extended=T
 partitions =        sempy.fabric.list_partitions(dataset=dataset_id, extended=True, workspace=workspace_id)
 ```
 
-Tables and relationships use sempy to get a list of items, which are enriched with metrics from the DMVs and DAX `INFO`{:.dax} functions. Lets look at these in more detaail.
+Tables and relationships use sempy to get a list of items, which are enriched with metrics from the DMVs and DAX `INFO`{:.dax} functions. Lets look at these in more detail.
 
 ### Tables
 
@@ -219,7 +224,7 @@ Within `Dax.Model.Extractor`{:.c#} there are three files of interest `TomExtract
 
 - `TomExtractor.cs`{:.txt} uses `Microsoft.AnalysisServices.Tabular`{:.c#} to extract model metadata to populate `Dax.Metadata`{:.c#}
 - `DmvExtractor.cs`{:.txt} calls DMVs to add additional metrics to `Dax.Metadata`{:.c#}. This is called from `TomExtractor.cs`{:.txt}
-- `StatExtractor.cs`{:.txt} call DAX queries to get additional metrics, like Cardinality, MissingKeys etc. This is called from `TomExtractor.cs`{:.txt}
+- `StatExtractor.cs`{:.txt} calls DAX queries to get additional metrics, like Cardinality, MissingKeys etc. This is called from `TomExtractor.cs`{:.txt}
 
 We can see `StatExtractor.cs`{:.txt} in action if we take `LoadColumnStatistics()`{:.c#} as an example. We can see a DAX query is constructed to perform a `DISTINCTCOUNT()`{:.dax} on each column to determine cardinality.
 
@@ -271,4 +276,4 @@ private void LoadColumnStatistics(bool analyzeDirectQuery, DirectLakeExtractionM
 
 ## Conclusion
 
-Both flavours of Vertipaq Analyzer leverage Analysis Services DMVs to get the Semantic Models metrics. SQLBI's goes beyond the DMVs making it more feature rich, and is the backbone behind a number of external tools. Semantic Link Labs avoids the use of external tools, and is convenient for Fabric users. With the recent addition of the VertiPaq Analyzer CLI, both options can now be used to script the analysis of a large number of models. Great thanks goes to the creators and maintainers, it looks like alot of time and effort has gone into initial development and continued support.
+Both flavours of Vertipaq Analyzer leverage Analysis Services DMVs to get the Semantic Models metrics. SQLBI's version is battle warn, and been the gold standard for many years. It is also convenient as it part of DAX Studio. Semantic Link Labs avoids the use of external tools, and is convenient for Fabric users. Plus it better handles the cardinality checks on Direct Lake models. With the recent addition of the VertiPaq Analyzer CLI, both options can now be used to script the analysis of a large number of models. Great thanks goes to the creators and maintainers, it looks like alot of time and effort has gone into initial development and continued support.

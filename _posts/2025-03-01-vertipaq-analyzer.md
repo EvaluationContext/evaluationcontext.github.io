@@ -114,9 +114,9 @@ If you call `vertipaq_analyzer()`{:.python} in a notebook it will display the re
 
 If you set `export`{:.txt} to 'zip' or 'table' you can instead save the result as a zip folder or delta table, to a connected lakehouse.
 
-If we set `read_stats_from_data`{:.txt} to `True`{:.python} additional fields for column cardinality and missing rows are returned. This is achieved by a DAX query `COUNT(DISTINCT(table[column]))`{:.dax}. If the model is Direct Lake then a spark queries are used instead.
+If we set `read_stats_from_data`{:.txt} to `True`{:.python} additional fields for column cardinality and missing rows are returned. This is achieved by a DAX query `COUNT(DISTINCT(table[column]))`{:.dax}. If the model is Direct Lake mode, spark queries are used instead.
 
-> [Michael Kovalsky](https://www.linkedin.com/in/michaelkovalsky/) informed me that in the Direct Lake case, Semantic Links Labs implementation is preferable to SQLBIs. When a DAX query runs on Direct Lake model, columns have to be paged into memory. Since we are querying every column to perform a distinct count, pulling every column sequentially into memory, this can be a very intensive operation,  and can and has crashed customer's capacities. Using spark queries, the semantic model is bypassed, and the lakehouse is queries directly, avoiding this issue.
+> [Michael Kovalsky](https://www.linkedin.com/in/michaelkovalsky/) informed me that in the Direct Lake case, Semantic Links Labs implementation is preferable to SQLBIs. When a DAX query runs on Direct Lake model, columns have to be paged into memory. Since we are querying every column to perform a distinct count, pulling every column sequentially into memory, this can be a very intensive operation,  and can and has crashed customer's capacities. Using spark queries, the semantic model is bypassed, and the lakehouse is queried directly, avoiding this issue.
 {:.prompt-info}
 
 If we go to [GitHub](https://github.com/microsoft/semantic-link-labs/blob/main/src/sempy_labs/_vertipaq.py) we can see how this is implemented, for simplicity I'm going to skip the DirectLake parts.

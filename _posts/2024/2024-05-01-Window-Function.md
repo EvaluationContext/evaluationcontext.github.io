@@ -5,7 +5,8 @@ author: duddy
 date: 2024-05-01 00:00:00 +0000
 categories: [DAX]
 tags: [dax]
-pin: falseimage:
+pin: false
+image:
   path: /assets/img/0003-WindowFunction/Hero.jpg
   alt: INDEX vs TOPN
 ---

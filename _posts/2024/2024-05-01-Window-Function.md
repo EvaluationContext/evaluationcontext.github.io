@@ -5,7 +5,9 @@ author: duddy
 date: 2024-05-01 00:00:00 +0000
 categories: [DAX]
 tags: [dax]
-pin: false
+pin: falseimage:
+  path: /assets/img/0003-WindowFunction/Hero.jpg
+  alt: INDEX vs TOPN
 ---
 
 Now I have [DAX Syntax Highlighting](https://evaluationcontext.github.io/posts/Syntax-Highlight-DAX/) working on my blog I wanted to revisit some exploration I did with window function when they first came out. This was based on some DAX written by [Phil Seamark](https://www.linkedin.com/in/seamark/) that [Counts numbers of last known state](https://dax.tips/2021/05/17/dax-count-number-of-last-known-state/). The measure counts, for each day, the most recent State for each TestID.

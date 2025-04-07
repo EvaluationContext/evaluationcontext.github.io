@@ -7,7 +7,7 @@ categories: [Lakehouse, File Format]
 tags: [lakehouse, delta lake, parquet]
 pin: false
 image:
-  path: /assets/img/0006-DeltaLake/deltalake.png
+  path: /assets/img/0006-DeltaLake/hero.png
   alt: The Delta Between a Lake and Lakehouse
 ---
 

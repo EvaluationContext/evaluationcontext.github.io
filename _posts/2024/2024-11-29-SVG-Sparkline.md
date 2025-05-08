@@ -142,7 +142,7 @@ ORDER BY
 
 ## Creating the measure
 
-There seem to be a couple of forms of the sparkline measures, the one above that uses ScalarKey and `CROSSJOIN()`{.:dax}, and another that uses a GroupIndex and `SUBSTITUTEWITHINDEX`{.:dax}. The latter is used when more than one value is used for the categories on the Y axis if the sort order of a field depends on another field. I used the latter one, resulting in the following:
+There seem to be a couple of forms of the sparkline measures, the one above that uses ScalarKey and `CROSSJOIN()`{:. dax}, and another that uses a GroupIndex and `SUBSTITUTEWITHINDEX`{:.dax}. The latter is used when more than one value is used for the categories on the Y axis if the sort order of a field depends on another field. I used the latter one, resulting in the following:
 
 ```dax
 Refresh SVG Barcode =

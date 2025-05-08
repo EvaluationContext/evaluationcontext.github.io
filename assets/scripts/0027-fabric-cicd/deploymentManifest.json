@@ -1,0 +1,9 @@
+{
+    "repo": {
+      "environment": {
+        "dev": {"workspace": "fabric-cicd", "workspaceId": "c01092c3-7f18-4488-840b-34b5764ecfcb"},
+        "uat": {"workspace": "fabric-cicd", "workspaceId": "c01092c3-7f18-4488-840b-34b5764ecfcb"},
+        "prod": {"workspace": "fabric-cicd", "workspaceId": "c01092c3-7f18-4488-840b-34b5764ecfcb"}
+      }
+    }
+}

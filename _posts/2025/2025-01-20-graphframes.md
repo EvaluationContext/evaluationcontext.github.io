@@ -8,7 +8,6 @@ tags: [graph api, graphframes, pregel, databricks, python, pyspark, fabric api, 
 pin: false
 image:
   path: /assets/img/0018-GraphFrames/graphdb.png
-  alt: https://subject.network/posts/graph-store/
 ---
  
 Giving permissions to users to Power BI content should be easy right? What about when you have a bunch of nested AAD groups? If I add a user to a group, what permissions will they actually be granted? In this solution I am using the [Power BI Scanner APIs](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview), [Graph APIs](https://learn.microsoft.com/en-us/graph/overview?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) and [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) to generate a graph to disseminate Access Roles from Workspaces, Reports and Semantic Models directly granted to AAD groups, to all downstream members.

@@ -2,7 +2,7 @@
 title: Fabric-cicd, Kicking the tyres
 description: Open Source Python Library for Fabric Deployments
 author: duddy
-date: 2025-05-08 18:00:00 +0000
+date: 2025-05-08 18:30:00 +0000
 categories: [PBIP, deployment]
 tags: [pbip, fabric-cicd, deployment]
 pin: false

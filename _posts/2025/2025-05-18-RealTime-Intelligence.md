@@ -11,7 +11,7 @@ image:
   alt: Excalidraw Architecture Diagram
 ---
 
-I was recently inspired by the real-time data capabilities showcased in a Guy In a Cube video ([Harvesting Insights, Block by Block (Minecraft + Microsoft Fabric](https://www.youtube.com/watch?v=ZjZlmrykpc0)). In it, [Simon Nuss](https://www.linkedin.com/in/simon-nuss/)) demonstrated how to stream telemetry, in real-time, from Minecraft directly into Microsoft Fabric. Looking around at my desk I saw my Garmin watch. I decided I wanted to try streaming my heart rate into Microsoft Fabric, and visualize it dynamically within Power BI.
+I was recently inspired by the real-time data capabilities showcased in a Guy In a Cube video ([Harvesting Insights, Block by Block (Minecraft + Microsoft Fabric](https://www.youtube.com/watch?v=ZjZlmrykpc0)). In it, [Simon Nuss](https://www.linkedin.com/in/simon-nuss/) demonstrated how to stream telemetry, in real-time, from Minecraft directly into Microsoft Fabric. Looking around at my desk I saw my Garmin watch. I decided I wanted to try streaming my heart rate into Microsoft Fabric, and visualize it dynamically within Power BI.
 
 ## Architecture
 

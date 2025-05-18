@@ -10,11 +10,11 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBIDesktopVersion = 2.142.1277.0 (25.04)+014fde450f93691fc9537f0758d73d1c5df153ef
 
-annotation PBI_QueryOrder = ["Table"]
+annotation PBI_QueryOrder = ["HeartRate"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
-ref table Table
+ref table HeartRate
 
 ref cultureInfo en-GB
 

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "HeartRate"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9c439886-b632-463c-9d81-18c6f86b70c3"
+  }
+}

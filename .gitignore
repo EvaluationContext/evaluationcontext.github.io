@@ -25,3 +25,7 @@ package-lock.json
 # Misc
 _sass/vendors
 assets/js/dist
+
+# pbip
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

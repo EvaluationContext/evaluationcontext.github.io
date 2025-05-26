@@ -24,7 +24,7 @@ The Fabric Capacity Metrics App shows your usage of the CUs over time. This allo
 ![CUs over Time](/assets/img/0026-Tenant%20Monitoring/fabric-cross-filter.gif)
 <cite>[Microsoft Docs](https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app-compute-page#utilization)</cite>
 
-You are able to build custom Reports from the Semantic Model. I found the following view to provide the most value to me, helping pinpoint problematic Semantic Models. This visual uses `Dates[Date]`{:. txt}, `Items[WorkspaceName]`{:. txt}, `Items[ItemName]`{:. txt}, `MetricByItemandOperationandDay[Operation Name]`{:. txt} and `MetricByItemandOperationandDay[sum_CU]`{:. txt}.
+You are able to build custom Reports from the Semantic Model. I found the following view to provide the most value to me, helping pinpoint problematic Semantic Models. This visual uses `Dates[Date]`{:.txt}, `Items[WorkspaceName]`{:.txt}, `Items[ItemName]`{:.txt}, `MetricByItemandOperationandDay[Operation Name]`{:.txt} and `MetricByItemandOperationandDay[sum_CU]`{:.txt}.
 
 ![Custom View](/assets/img/0026-Tenant%20Monitoring/Capacity%20App%20Custom%20View.png)
 
@@ -67,17 +67,17 @@ I have a [previous post](https://evaluationcontext.github.io/posts/graphframes/)
 
 ## Log Analytics Integration and Scanner APIs BFFs
 
-The real power comes from combining the Log Analytics and Scanner APIs. Lets first look at the Scanner. We can define a `Objects`{:. txt} table, which is a union of Workspaces, Semantic Models and Reports, whose IDs are all captured in a single field `objectId`{:. txt}. Additionally it worth having `datasetId`{:. txt} against both Semantic Models and Reports, meaning for Reports, you can determine the upstream Semantic Model, and for Semantic Model, all the downstream Reports.
+The real power comes from combining the Log Analytics and Scanner APIs. Lets first look at the Scanner. We can define a `Objects`{:.txt} table, which is a union of Workspaces, Semantic Models and Reports, whose IDs are all captured in a single field `objectId`{:.txt}. Additionally it worth having `datasetId`{:.txt} against both Semantic Models and Reports, meaning for Reports, you can determine the upstream Semantic Model, and for Semantic Model, all the downstream Reports.
 
 ![Scanner API ER Diagram](/assets/img/0026-Tenant%20Monitoring/Scanner%20ER.png)
 
-Log Analytics records Semantic Model server traces, so we can easily appended the data model from the Fabric Log Analytics for Analysis Services Engine report template. We connect it to the `Objects`{:. txt} table rather than to the `Semantic Models`{:. txt} dimension so it respects the filters from the other dimensions.
+Log Analytics records Semantic Model server traces, so we can easily appended the data model from the Fabric Log Analytics for Analysis Services Engine report template. We connect it to the `Objects`{:.txt} table rather than to the `Semantic Models`{:.txt} dimension so it respects the filters from the other dimensions.
 
 ![Server Traces ER Diagram](/assets/img/0026-Tenant%20Monitoring/Log%20ER.png)
 
-Now the Server Traces have been enriched you get some benefits. Firstly you can see items that have no traces, which means you can identify unused artifact that can be decommissioned. Secondly, the logs have `reportId`{:. txt}, with a report dimension you can provide the report name making the data more understandable.
+Now the Server Traces have been enriched you get some benefits. Firstly you can see items that have no traces, which means you can identify unused artifact that can be decommissioned. Secondly, the logs have `reportId`{:.txt}, with a report dimension you can provide the report name making the data more understandable.
 
-You can see in the Scanner ER diagram I have the `accessToObjects`{:. txt} and `accessToObject Edges`{:. txt} tables. These are from my previous posts on [GraphFrames](https://evaluationcontext.github.io/posts/graphframes/), and are used in a [Deneb Force Direct graph](https://evaluationcontext.github.io/posts/deneb-force-directed/). These allow you to know the exact permissions a specific user has on Workspace, Semantic Models etc, even if they inherit the permission through a long chain of User Groups. Additionally you can filter to a specific object and visually see what permissions are granted and by what path.
+You can see in the Scanner ER diagram I have the `accessToObjects`{:.txt} and `accessToObject Edges`{:.txt} tables. These are from my previous posts on [GraphFrames](https://evaluationcontext.github.io/posts/graphframes/), and are used in a [Deneb Force Direct graph](https://evaluationcontext.github.io/posts/deneb-force-directed/). These allow you to know the exact permissions a specific user has on Workspace, Semantic Models etc, even if they inherit the permission through a long chain of User Groups. Additionally you can filter to a specific object and visually see what permissions are granted and by what path.
 
 ![Force Directed Graph](/assets/img/0019-ForceDirected/object_permissions.png)
 

@@ -48,9 +48,9 @@ The following folder structure below is expected.
 └── 📄 .gitignore
 ```
 
-Firstly we'll add a test Power BI Project file to the `fabricItems`{:. txt} folder.
+Firstly we'll add a test Power BI Project file to the `fabricItems`{:.txt} folder.
 
-`parameter.yml`{:. txt} can be use to find and replace any value in your files. If you provide a `environment`{:. txt} variable in your `FabricWorkspace()`{:. txt} definition you can replace specific values for test vs prod. This provides alot of flexibility, but it feels like for general variables you want to change by default, you might want a more well defined and concise structure that improves the readability of the repo. I like pbitools use of a json file to adjust properties, but yaml might also be a good option. I am going to add a `deploymentManifest.json`{:. txt} to define the Workspace name to deploy to, based on a Environment name.
+`parameter.yml`{:.txt} can be use to find and replace any value in your files. If you provide a `environment`{:.txt} variable in your `FabricWorkspace()`{:.python} definition you can replace specific values for test vs prod. This provides alot of flexibility, but it feels like for general variables you want to change by default, you might want a more well defined and concise structure that improves the readability of the repo. I like pbitools use of a json file to adjust properties, but yaml might also be a good option. I am going to add a `deploymentManifest.json`{:.txt} to define the Workspace name to deploy to, based on a Environment name.
 
 ```diff
  ├── 📁 fabricItems
@@ -76,7 +76,7 @@ For now I'll just set all environments to deploy to the same workspace.
 }
 ```
 
-We can now define our deployment script in `deployment.py`{:. txt}.
+We can now define our deployment script in `deployment.py`{:.txt}.
 
 ```python
 from azure.identity import InteractiveBrowserCredential
@@ -108,7 +108,7 @@ publish_all_items(target_workspace)
 
 ### Deployment
 
-We can run `deployment.py`{:. txt} to deploy our fabric items.
+We can run `deployment.py`{:.txt} to deploy our fabric items.
 
 ![Deployment](/assets/img/0027-fabric-cicd/deployment.png)
 

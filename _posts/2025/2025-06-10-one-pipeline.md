@@ -2,7 +2,7 @@
 title: One Pipeline to Rule Them All
 description: Consolidating Fabric Deployment Pipelines in Azure DevOps
 author: duddy
-date: 2025-06-11 22:30:00 +0000
+date: 2025-06-10 22:30:00 +0000
 categories: [PBIP, deployment]
 tags: [devops, power bi, pbip, deployment]
 pin: false

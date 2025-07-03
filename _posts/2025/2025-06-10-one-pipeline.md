@@ -274,7 +274,7 @@ Once this is all setup we then need to:
 ## And in the Darkness Bind Them: Why This Method Rules Them All
 
 - **Ultimate Consolidation:** Your deployment logic lives in one central pipeline, eliminating redundant YAML across dozens of repos.
-- **Effortless Scalability:** Adding a new Fabric project simply involves setting Build Validation Policies on `dev`, `release` and `main` – no new pipelines needed!
+- **Effortless Scalability:** Adding a new Fabric project simply involves setting Build Validation Policies on `dev`{:.txt}, `release`{:.txt} and `main`{:.txt} - no new pipelines needed!
 - **Targeted Deployments:** Deployments are scoped to the items within a single repo, be that a workspace or a set of related Fabric Items, saving build minutes and minimizing deployment risk.
 - **Robust Auditing:** Injecting commit SHA and timestamp directly into the semantic model provides clear, in-model lineage, invaluable for troubleshooting and governance.
   

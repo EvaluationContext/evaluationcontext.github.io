@@ -1,0 +1,7 @@
+role User
+	modelPermission: read
+
+	tablePermission GameState = GameState[GameName] = USERPRINCIPALNAME()
+
+	annotation PBI_Id = 36b6169daa0f4675b70aeb89d0076d94
+

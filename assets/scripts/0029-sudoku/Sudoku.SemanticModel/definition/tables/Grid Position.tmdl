@@ -1,0 +1,25 @@
+table 'Grid Position'
+	lineageTag: de82ed14-fc91-493d-a918-82b0d38a605c
+
+	column Position
+		formatString: 0
+		lineageTag: c503f48e-3f8d-442c-876a-444bbde78a53
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Position]
+
+		annotation SummarizationSetBy = User
+
+	partition 'Grid Position' = calculated
+		mode: import
+		source =
+				
+				var tbl = GENERATESERIES( 1, 81, 1 )
+				return
+				SELECTCOLUMNS(
+				    tbl,
+				    "Position", [Value]
+				)
+
+	annotation PBI_Id = 832b74d8ab3c4ecaac062e76533bb56a
+

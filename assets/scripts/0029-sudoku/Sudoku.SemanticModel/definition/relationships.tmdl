@@ -1,0 +1,5 @@
+relationship 2119135f-8ede-aa6b-c2b9-13ab6d811ebf
+	relyOnReferentialIntegrity
+	fromColumn: GameState.PuzzleId
+	toColumn: PuzzleTemplates.PuzzleId
+

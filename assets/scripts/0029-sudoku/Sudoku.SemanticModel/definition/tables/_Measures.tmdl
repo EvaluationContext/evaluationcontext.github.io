@@ -1,0 +1,81 @@
+table _Measures
+	lineageTag: 6797116d-500c-4ea3-a7f2-1925cd8e09df
+
+	measure 'Puzzle Difficulty' = "Difficulty: " & SELECTEDVALUE( PuzzleTemplates[Difficulty], "" )
+		lineageTag: e3fbd4dd-0c83-46cc-8b48-4f589162a128
+
+	measure 'Selected GameId' = SELECTEDVALUE( GameState[GameId] )
+		formatString: 0
+		displayFolder: Selected
+		lineageTag: 0e83e581-669f-49fb-8aec-2d5f27749f6e
+
+	measure Cell = ```
+			
+			var width = 40
+			var height = 40
+			var mainFontSize = 16
+			var pencilFontSize = 8
+			var isInitial = 
+			    IF(
+			        CALCULATE(
+			            MAXX( GameState, INT( GameState[IsInitialValue] ) )
+			            ,TREATAS( VALUES( 'Grid Position'[Position] ), GameState[Position] )
+			        ),
+			        " font-weight='bold'"
+			    )
+			var val = 
+			    CALCULATE(
+			        MAX( GameState[CurrentValue] )
+			        ,TREATAS( VALUES( 'Grid Position'[Position] ), GameState[Position] )
+			    )
+			var pencil = 
+			    CALCULATE(
+			        MAX( GameState[PencilMarks] )
+			        ,TREATAS( VALUES( 'Grid Position'[Position] ), GameState[Position] )
+			    )
+			return
+			
+			"data:image/svg+xml;charset=utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='"& width & "' height='"& height & "'>
+			    <text x='"& width / 2 & "' y='"& height /2 & "' font-size='" & mainFontSize & "' font-family='Segoe UI' dominant-baseline='middle' text-anchor='middle' fill='#333'" & isInitial & ">" & val & "</text>
+			    <text x='"& width / 2 & "' y='5' font-size='" & pencilFontSize & "' font-family='Segoe UI' dominant-baseline='middle' text-anchor='right' fill='#575555'>" & pencil & "</text>
+			</svg>"
+			```
+		displayFolder: Grid
+		lineageTag: 8a99d84d-92b5-4a4a-bad9-0b54e450c2e9
+
+	measure User = USERPRINCIPALNAME()
+		lineageTag: 4cf964a2-3516-48a1-97b1-0c3ae57b45ed
+
+	measure 'Selected GameName' = [User]
+		displayFolder: Selected
+		lineageTag: 9153cf54-8db2-4af2-aa3b-3a3c07ecd1d3
+
+	measure 'Selected PuzzleId' = SELECTEDVALUE( PuzzleTemplates[PuzzleId] )
+		formatString: 0
+		displayFolder: Selected
+		lineageTag: f4f768b4-5825-44be-94a6-2e67b7f79bc5
+
+	column Measures
+		dataType: string
+		isHidden
+		lineageTag: 0daa4118-3cfe-4058-a9a4-dcdee1af59ba
+		summarizeBy: none
+		sourceColumn: Measures
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table({"Measures"}, {{""}})
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

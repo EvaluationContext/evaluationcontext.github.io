@@ -1,0 +1,85 @@
+table GameState
+	lineageTag: c856a977-3097-4e92-bf07-cf2596614567
+
+	column GameId
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 105e7ff0-f111-44e6-b185-354ff9002a86
+		summarizeBy: none
+		sourceColumn: GameId
+
+		annotation SummarizationSetBy = User
+
+	column GameName
+		dataType: string
+		sourceProviderType: nvarchar(100)
+		lineageTag: e33a6a0e-d2ef-4b50-ad72-a520a4986419
+		summarizeBy: none
+		sourceColumn: GameName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CurrentValue
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 90f51eae-a487-4051-8e5d-eac214338267
+		summarizeBy: none
+		sourceColumn: CurrentValue
+
+		annotation SummarizationSetBy = User
+
+	column IsInitialValue
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 93fbccc4-ae31-4891-ab04-13ffa2e75603
+		summarizeBy: none
+		sourceColumn: IsInitialValue
+
+		annotation SummarizationSetBy = Automatic
+
+	column PencilMarks
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 58e93a51-b246-48c5-86f5-afb9ce8bce1b
+		summarizeBy: none
+		sourceColumn: PencilMarks
+
+		annotation SummarizationSetBy = Automatic
+
+	column PuzzleId
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 705edc86-723e-4219-b8da-600ff005cac2
+		summarizeBy: none
+		sourceColumn: PuzzleId
+
+		annotation SummarizationSetBy = User
+
+	column Position
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 26b0e486-db2c-4553-bf3f-362fc21b0fd1
+		summarizeBy: none
+		sourceColumn: Position
+
+		annotation SummarizationSetBy = User
+
+	partition GameState = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("fazr2kwaq6cu7eggbo3jwhcjpa-27kzcajoc5uudixr3rzuxvydpi.database.fabric.microsoft.com", "Game-d7858c46-52ff-4c1b-96e6-17cb95d718d2"),
+				    dbo_vw_CompleteGameState = Source{[Schema="dbo",Item="vw_GameState"]}[Data]
+				in
+				    dbo_vw_CompleteGameState
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

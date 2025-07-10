@@ -1,0 +1,26 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.144.1378.0 (25.06)+cba1e61f16ea36d44901f06fa446299040122394
+
+annotation PBI_QueryOrder = ["GameState","PuzzleTemplates","_Measures"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table SelectValue
+ref table GameState
+ref table PuzzleTemplates
+ref table _Measures
+ref table 'Grid Position'
+
+ref role User
+
+ref cultureInfo en-GB
+

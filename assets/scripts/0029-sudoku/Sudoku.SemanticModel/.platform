@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Sudoku"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0bd0359b-7790-4cf4-8910-13d896e14d0f"
+  }
+}

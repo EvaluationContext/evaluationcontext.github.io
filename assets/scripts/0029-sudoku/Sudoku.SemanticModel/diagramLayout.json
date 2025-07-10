@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 308.36163941535983,
+            "y": 164
+          },
+          "nodeIndex": "SelectValue",
+          "nodeLineageTag": "04498672-998b-49bb-bb6d-5b05ff337988",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "PuzzleTemplates",
+          "nodeLineageTag": "07965d69-49a0-4603-9bbc-c1d387b3c107",
+          "size": {
+            "height": 182,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 559.36163941535983,
+            "y": 0
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "6797116d-500c-4ea3-a7f2-1925cd8e09df",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 308.3616394153596,
+            "y": 0
+          },
+          "nodeIndex": "Grid Position",
+          "nodeLineageTag": "de82ed14-fc91-493d-a918-82b0d38a605c",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 255
+          },
+          "nodeIndex": "GameState",
+          "nodeLineageTag": "c856a977-3097-4e92-bf07-cf2596614567",
+          "size": {
+            "height": 254,
+            "width": 239
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

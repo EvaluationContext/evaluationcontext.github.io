@@ -1,0 +1,56 @@
+table PuzzleTemplates
+	lineageTag: 07965d69-49a0-4603-9bbc-c1d387b3c107
+
+	column PuzzleId
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 484829a1-48cd-4896-8382-bb82e06eb273
+		summarizeBy: none
+		sourceColumn: PuzzleId
+
+		annotation SummarizationSetBy = User
+
+	column PuzzleName
+		dataType: string
+		sourceProviderType: nvarchar(100)
+		lineageTag: 8c53f9b6-6401-4336-a098-08d89c1c2a79
+		summarizeBy: none
+		sourceColumn: PuzzleName
+		sortByColumn: PuzzleId
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Difficulty
+		dataType: string
+		sourceProviderType: nvarchar(20)
+		lineageTag: 1ea14c41-4c5c-4b8e-9775-4d2f300bc366
+		summarizeBy: none
+		sourceColumn: Difficulty
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f836b518-4fb7-44a1-a2f6-f92e419c56ce
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PuzzleTemplates = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database("fazr2kwaq6cu7eggbo3jwhcjpa-27kzcajoc5uudixr3rzuxvydpi.database.fabric.microsoft.com", "Game-d7858c46-52ff-4c1b-96e6-17cb95d718d2"),
+				    dbo_PuzzleTemplates = Source{[Schema="dbo",Item="PuzzleTemplates"]}[Data]
+				in
+				    dbo_PuzzleTemplates
+
+	annotation PBI_ResultType = Table
+

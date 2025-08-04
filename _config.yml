@@ -16,10 +16,9 @@ timezone: Europe/London
 
 title: Evaluation Context # the main title
 
-tagline: A blog about the Microsoft BI stack (Microsoft Fabric, Power BI, SQL, SSAS, DAX) # it will display as the subtitle
+tagline: Jake Duddy, Data Platform MVP. Blog about the Microsoft BI stack # it will display as the subtitle
 
-description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+description: Jake Duddy, Data Platform MVP. Blog about the Microsoft BI stack
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.

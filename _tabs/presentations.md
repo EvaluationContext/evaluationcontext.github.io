@@ -4,6 +4,8 @@ icon: fas fa-video
 order: 4
 ---
 
+[Session Resources](https://github.com/EvaluationContext/Sessions)
+
 <details style="margin-bottom: 15px;">
     <summary style="font-weight: bold;">
         <span style="font-size: 1.4em;">Git Branching Strategies and Power BI</span> <br>

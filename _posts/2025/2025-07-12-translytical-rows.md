@@ -4,7 +4,7 @@ description: Using DAX's TOJSON() function to pass multiple selected rows to UDF
 author: duddy
 date: 2025-07-12 18:30:00 +0000
 categories: [Fabric, Translytical Task Flow]
-tags: [fabric, power bi, translytical task flow, user defined functions]
+tags: [fabric, power bi, translytical task flow, user data functions]
 pin: false
 image:
   path: /assets/img/0033-translytical-rows/Solution.gif

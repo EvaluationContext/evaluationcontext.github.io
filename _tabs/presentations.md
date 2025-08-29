@@ -48,3 +48,11 @@ order: 4
     </summary>
     <a href="https://github.com/EvaluationContext/Sessions/tree/main/25-07-Bristol">Resources</a>
 </details>
+
+<details style="margin-bottom: 15px;">
+    <summary style="font-weight: bold;">
+        <span style="font-size: 1.4em;">Visualize Your Connections: A Practical Guide to Power BI Graphs</span> <br>
+        Power BI and Fabric Manchester User Group | Jul-25 
+    </summary>
+    <a href="https://github.com/EvaluationContext/Sessions/tree/main/25-08-Manchester">Resources</a>
+</details>

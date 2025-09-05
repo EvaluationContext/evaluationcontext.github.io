@@ -54,5 +54,6 @@ order: 4
         <span style="font-size: 1.4em;">Visualize Your Connections: A Practical Guide to Power BI Graphs</span> <br>
         Power BI and Fabric Manchester User Group | Jul-25 
     </summary>
+    {% include embed/youtube.html id='N9x9J00lyA0' %}
     <a href="https://github.com/EvaluationContext/Sessions/tree/main/25-08-Manchester">Resources</a>
 </details>

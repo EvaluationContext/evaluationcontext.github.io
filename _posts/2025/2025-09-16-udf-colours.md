@@ -7,7 +7,7 @@ categories: [UDF, DAX]
 tags: [power bi, udf, dax]
 pin: false
 image:
-  path: /assets/img/0037-UDF-colour/icon.png)
+  path: /assets/img/0037-UDF-colour/icon.png
   alt: EvaluationContext.Colour
 ---
 

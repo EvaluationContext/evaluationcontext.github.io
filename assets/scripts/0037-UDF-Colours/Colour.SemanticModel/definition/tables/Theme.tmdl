@@ -1,0 +1,64 @@
+table Theme
+	lineageTag: ed2fbcb8-ebd5-4bd9-930f-ad08f9c3a513
+
+	measure Theme =
+			
+			evaluationcontext.colour.Hex.Theme(
+				SELECTEDVALUE( Theme[ThemeName] ),
+			    SELECTEDVALUE( 'Theme Variant'[Variant] )
+			)
+		lineageTag: 90bbc1d8-4ca8-4ee9-b266-ba57e8a1e3ff
+
+	measure LinearTheme =
+			
+			EvaluationContext.Colour.HEX.LinearTheme(
+			    "#118DFF",
+			    SELECTEDVALUE( 'Theme Variant'[Variant] ),
+			    7,
+			    0.5
+			)
+		lineageTag: ca763af0-9fe1-492e-8942-15308c6e5f18
+
+	column Index
+		formatString: 0
+		lineageTag: ac161d42-e813-46f7-bd4b-141d12d7a0d3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Index]
+
+		annotation SummarizationSetBy = User
+
+	column ThemeName
+		lineageTag: 680ce348-d4c9-4900-bd5b-8579a4b013a6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ThemeName]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Theme = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE(
+				    "Index", INTEGER,
+				    "ThemeName", STRING,
+				    {
+				        {1, "Modern Corporate"},
+				        {2, "Ocean Breeze"},
+				        {3, "Sunset Vibes"},
+				        {4, "Forest Green"},
+				        {5, "Pastel Dreams"},
+				        {6, "Monochrome"},
+				        {7, "Vibrant Tech"},
+				        {8, "Earth Tones"},
+				        {9, "Midnight Blue"},
+				        {10, "Purple Rain"},
+				        {11, "Power BI"}
+				    }
+				)
+				
+				```
+
+	annotation PBI_Id = e4435c0b78b1485e8c37a1dab5db504a
+

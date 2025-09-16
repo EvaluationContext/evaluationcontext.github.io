@@ -1,0 +1,179 @@
+table Colours
+	lineageTag: bf496ad2-dd20-4a8d-8a7a-d05659c1d87b
+
+	measure RGBToHex = ```
+			
+			    EvaluationContext.Colour.RGB.ToHex(
+			        SELECTEDVALUE( Colours[R] ),
+			        SELECTEDVALUE( Colours[G] ),
+			        SELECTEDVALUE( Colours[B] ),
+			        SELECTEDVALUE( Colours[A] )
+			    )
+			```
+		displayFolder: Convert
+		lineageTag: 95308480-8265-4b44-b102-26e516c78a89
+
+	measure Hue = EvaluationContext.Colour.HEX.Hue( SELECTEDVALUE( Colours[Hex] ) )
+		formatString: 0
+		displayFolder: Extract
+		lineageTag: c313a692-7c06-4b61-940e-deafa67f7124
+
+	measure Luminance = EvaluationContext.Colour.HEX.Luminance( SELECTEDVALUE( Colours[Hex] ) )
+		formatString: 0%;-0%;0%
+		displayFolder: Extract
+		lineageTag: ef5a6e36-8759-474d-abea-2ea3489affb1
+
+	measure Saturation = EvaluationContext.Colour.HEX.Saturation( SELECTEDVALUE( Colours[Hex] ) )
+		formatString: 0%;-0%;0%
+		displayFolder: Extract
+		lineageTag: 796029a2-5b43-49f5-9709-eb6e3116e581
+
+	measure HSLToHex =
+			
+			EvaluationContext.Colour.HSL.ToHex(
+			    [Hue],
+			    [Saturation],
+			    [Luminance],
+			    [Alpha]
+			)
+		displayFolder: Convert
+		lineageTag: a9b426d5-2348-4f61-a9a3-ba8f0371d7a7
+
+	measure AdjustLuminance =
+			
+			EvaluationContext.Colour.HEX.AdjustLuminance(
+			    SELECTEDVALUE( Colours[Hex] ),
+			    SELECTEDVALUE( 'Adjust Luminance'[Luminance] )
+			)
+		displayFolder: Adjust
+		lineageTag: 78a6b931-7afa-4e26-a484-99595b600ffc
+
+	measure Alpha = EvaluationContext.Colour.HEX.Alpha( SELECTEDVALUE( Colours[Hex] ) )
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Extract
+		lineageTag: a45a2755-962a-4b3b-9804-21967e8b7803
+
+	measure AdjustHue = ```
+			
+			EvaluationContext.Colour.HEX.AdjustHue(
+			    SELECTEDVALUE( Colours[Hex] ),
+			    SELECTEDVALUE( 'Adjust Hue'[Hue] ) 
+			)
+			```
+		displayFolder: Adjust
+		lineageTag: 6bb3d374-46ef-4af6-89a3-faa254165fc5
+
+	measure AdjustSaturation =
+			
+			EvaluationContext.Colour.HEX.AdjustSaturation(
+			    SELECTEDVALUE( Colours[Hex] ),
+			    SELECTEDVALUE( 'Adjust Saturation'[Saturation] )
+			)
+		displayFolder: Adjust
+		lineageTag: c86458e5-66d6-4379-8502-fa605a52d3e8
+
+	measure AdjustAlpha =
+			
+			EvaluationContext.Colour.HEX.AdjustAlpha(
+			    SELECTEDVALUE( Colours[Hex] ),
+			    SELECTEDVALUE( 'Adjust Alpha'[Alpha] )
+			)
+		displayFolder: Adjust
+		lineageTag: 372bcace-f2a1-4fa5-ac8e-d563ac2e2215
+
+	measure TextColour = EvaluationContext.Colour.HEX.TextColour( SELECTEDVALUE( Colours[Hex] ) )
+		lineageTag: fac5859a-51f6-4607-8da9-13bc88c8ff0b
+
+	measure HEXADJUSTCOLOR =
+			
+			EvaluationContext.Colour.HEX.AdjustColour(
+			    SELECTEDVALUE( Colours[Hex] ),
+			    SELECTEDVALUE( 'Adjust Hue'[Hue] ),
+			    SELECTEDVALUE( 'Adjust Saturation'[Saturation] ),
+			    SELECTEDVALUE( 'Adjust Luminance'[Luminance] ),
+			    SELECTEDVALUE( 'Adjust Alpha'[Alpha] )
+			)
+		displayFolder: Adjust
+		lineageTag: 36efdb6e-b9f0-44e9-9fff-b998f803c08f
+
+	column R
+		formatString: 0
+		lineageTag: 7959cc0d-4a43-4318-b2ea-8e87449eeeff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [R]
+
+		annotation SummarizationSetBy = User
+
+	column G
+		formatString: 0
+		lineageTag: 58ab8c85-1706-490f-b3d6-8c1645e07dba
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [G]
+
+		annotation SummarizationSetBy = User
+
+	column B
+		formatString: 0
+		lineageTag: dbebe02c-b5ec-4aba-b94d-53aa1b255f2e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [B]
+
+		annotation SummarizationSetBy = User
+
+	column Index
+		formatString: 0
+		lineageTag: 5c3451bb-af05-4d32-a0d8-44d3809aef32
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Index]
+
+		annotation SummarizationSetBy = User
+
+	column Hex
+		lineageTag: 623bc555-e286-49ea-9747-2be5a6dc0b1b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Hex]
+
+		annotation SummarizationSetBy = Automatic
+
+	column A
+		lineageTag: 5b2cfece-3827-4ffa-812c-6c865010dde5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [A]
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Colours = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Index", INTEGER,
+				    "Hex", STRING,
+				    "R", INTEGER,
+				    "G", INTEGER,
+				    "B", INTEGER,
+				    "A", DOUBLE,
+				    {
+				        { 1, "#2E3440FF", 46, 52, 64, },       // Deep Charcoal
+				        { 2, "#3B4252E6", 59, 66, 82, 1 },       // Slate Gray
+				        { 3, "#434C5ECC", 67, 76, 94, 0.8 },       // Storm Gray
+				        { 4, "#4C566AB3", 76, 86, 106, 0.7 },      // Muted Blue Gray
+				        { 5, "#5E81AC99", 94, 129, 172, 0.6 },     // Ocean Blue
+				        { 6, "#81A1C180", 129, 161, 193, 0.5 },    // Sky Blue
+				        { 7, "#88C0D066", 136, 192, 208, 0.4 },    // Glacier Blue
+				        { 8, "#8FBCBB4D", 143, 188, 187, 0.3 },    // Frost Teal
+				        { 9, "#D0877033", 208, 135, 112, 0.2 },    // Sunset Orange
+				        { 10, "#BF616A1A", 191, 97, 106, 0.1 }     // Aurora Red
+				    }
+				)
+
+	annotation PBI_Id = 643f65399c914657b3a478aa4b762702
+

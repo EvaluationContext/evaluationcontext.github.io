@@ -1,0 +1,23 @@
+table 'Adjust Hue'
+	lineageTag: 76c41ea1-2753-4992-aa5e-d9a3878ee2c4
+
+	column Hue
+		formatString: 0
+		lineageTag: e8ca4a9e-fc94-46c8-b7b6-6e3d212c9a2c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Hue]
+
+		annotation SummarizationSetBy = User
+
+	partition 'Adjust Hue' = calculated
+		mode: import
+		source =
+				
+				SELECTCOLUMNS(
+				    GENERATESERIES( -360, 360, 20 ),
+				    "Hue", [Value]
+				)
+
+	annotation PBI_Id = 91e3754348d348a589b17e4603a9fb2f
+

@@ -63,6 +63,6 @@ order: 4
         <span style="font-size: 1.4em;">Playing With Translytical Task Flows</span> <br>
         Devon and Cornwall User Group | Sep-25 
     </summary>
-    {% include embed/youtube.html id='e6MAaeVsgQU&t' %}
+    {% include embed/youtube.html id='e6MAaeVsgQU' %}
     <a href="https://github.com/EvaluationContext/Sessions/tree/main/25-09-Devon">Resources</a>
 </details>

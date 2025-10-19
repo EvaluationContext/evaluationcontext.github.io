@@ -1,0 +1,345 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "563357991e22da3e637f",
+  "position": {
+    "x": 835.01261551321147,
+    "y": 623.88186307137437,
+    "z": 4000,
+    "height": 443.18437224277511,
+    "width": 1068.9683141649768,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "ForceGraph1449359463895",
+    "query": {
+      "queryState": {
+        "Source": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "srcName"
+                }
+              },
+              "queryRef": "Access To Items Edges.srcName",
+              "nativeQueryRef": "srcName",
+              "active": true
+            }
+          ]
+        },
+        "SourceType": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "srcType"
+                }
+              },
+              "queryRef": "Access To Items Edges.srcType",
+              "nativeQueryRef": "srcType"
+            }
+          ]
+        },
+        "Target": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "dstName"
+                }
+              },
+              "queryRef": "Access To Items Edges.dstName",
+              "nativeQueryRef": "dstName",
+              "active": true
+            }
+          ]
+        },
+        "TargetType": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "dstType"
+                }
+              },
+              "queryRef": "Access To Items Edges.dstType",
+              "nativeQueryRef": "dstType"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "size": [
+        {
+          "properties": {
+            "charge": {
+              "expr": {
+                "Literal": {
+                  "Value": "-13D"
+                }
+              }
+            },
+            "boundedByBox": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "links": [
+        {
+          "properties": {
+            "showArrow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "showLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "colorLink": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Interactive'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Force Directed Graph'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f9db4bff13a8916c0475",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "Edge Selection"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "Permission Triplets",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 2,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "a"
+                        }
+                      },
+                      "Property": "Edge Selection"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "edbb7971b5c7bb306c68",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "srcName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "cf2e48767a4d09e99030",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "srcType"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7e265de719bc782b0bea",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "dstName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4a738b8a5b85aa19eda2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "dstType"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  },
+  "isHidden": true
+}

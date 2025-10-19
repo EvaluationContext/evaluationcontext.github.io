@@ -1,0 +1,565 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "2a1e36b601d5a79aab9e",
+  "position": {
+    "x": 116.71362988760488,
+    "y": 595.45564877842855,
+    "z": 8000,
+    "height": 448.48292966070392,
+    "width": 724.05677800643764,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "srcid"
+                }
+              },
+              "queryRef": "Logical Query Plan.srcid",
+              "nativeQueryRef": "srcid"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "dstid"
+                }
+              },
+              "queryRef": "Logical Query Plan.dstid",
+              "nativeQueryRef": "dstid"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "level"
+                }
+              },
+              "queryRef": "Logical Query Plan.level",
+              "nativeQueryRef": "level"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "isCache"
+                }
+              },
+              "queryRef": "Logical Query Plan.isCache",
+              "nativeQueryRef": "isCache"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "operationType"
+                }
+              },
+              "queryRef": "Logical Query Plan.operationType",
+              "nativeQueryRef": "operationType"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "operationShort"
+                }
+              },
+              "queryRef": "Logical Query Plan.operationShort",
+              "nativeQueryRef": "operationShort"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "operation"
+                }
+              },
+              "queryRef": "Logical Query Plan.operation",
+              "nativeQueryRef": "operation"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "records"
+                }
+              },
+              "queryRef": "Logical Query Plan.records",
+              "nativeQueryRef": "records"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "41.67047016993378D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Item Icon"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "206.01103117789458D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Workspaces.workspaceName"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.# Users"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.15245138528613D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Access To Items.permission"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "245.71898160675156D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Logical Query Plan.operation"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "17D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Data'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "divider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualTooltip": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "600af4fdc4073977f7bc",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "srcid"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fa2a29be478577fed3d0",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "dstid"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fbf46f248dfcee9f2445",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "isCache"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "39abdc16036e0db88784",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "level"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "45fc38456769c542eb92",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "operation"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "deaa0c5b85fc9509f5f7",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "operationType"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7baad311614b4313d895",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "records"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9a420761d80420c41e49",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "operationShort"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

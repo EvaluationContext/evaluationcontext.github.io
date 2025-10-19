@@ -1,31 +1,33 @@
 {
-  "name": "Jekyll",
-  "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
-  "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
-  "postCreateCommand": "bash .devcontainer/post-create.sh",
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "zsh"
-      },
-      "extensions": [
-        // Liquid tags auto-complete
-        // "killalau.vscode-liquid-snippets",
-        // Liquid syntax highlighting and formatting
-        // "Shopify.theme-check-vscode",
-        // Shell
-        // "timonwong.shellcheck",
-        // "mkhl.shfmt",
-        // Common formatter
-        // "EditorConfig.EditorConfig",
-        // "esbenp.prettier-vscode",
-        // "stylelint.vscode-stylelint",
-        // "yzhang.markdown-all-in-one",
-        // Git
-        "mhutchie.git-graph",
-        // Spell checker
-        "streetsidesoftware.code-spell-checker"
-      ]
+    "name": "mkdocs",
+    "image": "mcr.microsoft.com/devcontainers/python",
+    "forwardPorts": [8000],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "customizations": {
+        "vscode": {
+                "extensions": [
+                    // Git
+                    "mhutchie.git-graph",
+                    // Spell checker
+                    "streetsidesoftware.code-spell-checker",
+                    // YAML support
+                    "redhat.vscode-yaml"
+                ],
+                "settings": {
+                    "terminal.integrated.defaultProfile.linux": "zsh",
+                    "yaml.schemas": {
+                        "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+                    },
+                    "yaml.customTags": [
+                        "!ENV scalar",
+                        "!ENV sequence",
+                        "!relative scalar",
+                        "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+                        "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+                        "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
+                        "tag:yaml.org,2002:python/object/apply:pymdownx.slugs.slugify mapping"
+                    ]
+                }
+        }
     }
-  }
 }

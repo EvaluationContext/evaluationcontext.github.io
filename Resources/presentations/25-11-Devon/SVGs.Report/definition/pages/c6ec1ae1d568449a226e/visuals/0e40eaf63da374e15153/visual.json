@@ -1,0 +1,490 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "0e40eaf63da374e15153",
+  "position": {
+    "x": 59.399454049135578,
+    "y": 144.42220200181984,
+    "z": 0,
+    "height": 553.23020928116466,
+    "width": 1179.8362147406733,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workspaces"
+                    }
+                  },
+                  "Property": "WorkspaceName"
+                }
+              },
+              "queryRef": "Workspaces.WorkspaceName",
+              "nativeQueryRef": "WorkspaceName",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Semantic  Models"
+                    }
+                  },
+                  "Property": "SemanticModelName"
+                }
+              },
+              "queryRef": "Semantic  Models.SemanticModelName",
+              "nativeQueryRef": "SemanticModelName",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Refreshes"
+                    }
+                  },
+                  "Property": "xmlaRequestId"
+                }
+              },
+              "queryRef": "Execution Metrics.xmlaRequestId",
+              "nativeQueryRef": "xmlaRequestId",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "StartDateTime"
+                }
+              },
+              "queryRef": "_Measures.StartDateTime",
+              "nativeQueryRef": "StartDateTime1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Most Recent Status"
+                }
+              },
+              "queryRef": "_Measures.Most Recent Status",
+              "nativeQueryRef": "Most Recent Status"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Duration"
+                }
+              },
+              "queryRef": "_Measures.Duration",
+              "nativeQueryRef": "Avg Duration"
+            },
+            {
+              "field": {
+                "SparklineData": {
+                  "Measure": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Avg Duration"
+                    }
+                  },
+                  "Groupings": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dates"
+                          }
+                        },
+                        "Property": "Date"
+                      }
+                    }
+                  ]
+                }
+              },
+              "queryRef": "SparklineData(_Measures.Duration_[Dates.Date])",
+              "nativeQueryRef": "Sparkline",
+              "displayName": "Sparkline"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "StartDateTime"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "expansionStates": [
+      {
+        "roles": [
+          "Rows"
+        ],
+        "levels": [
+          {
+            "queryRefs": [
+              "Workspaces.WorkspaceName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Workspaces"
+                    }
+                  },
+                  "Property": "WorkspaceName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Semantic  Models.SemanticModelName"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Semantic  Models"
+                    }
+                  },
+                  "Property": "SemanticModelName"
+                }
+              }
+            ],
+            "isPinned": true
+          },
+          {
+            "queryRefs": [
+              "Execution Metrics.xmlaRequestId"
+            ],
+            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Refreshes"
+                    }
+                  },
+                  "Property": "xmlaRequestId"
+                }
+              }
+            ],
+            "isPinned": true
+          }
+        ],
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Workspace 1'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Model 3'"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "26L"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    },
+                    {
+                      "identityValues": [
+                        {
+                          "Literal": {
+                            "Value": "30L"
+                          }
+                        }
+                      ],
+                      "isToggled": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Workspace 4'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Model 12'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            },
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "'Workspace 9'"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "identityValues": [
+                    {
+                      "Literal": {
+                        "Value": "'Model 27'"
+                      }
+                    }
+                  ],
+                  "isToggled": true
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "imageWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "150D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.4751883136633D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SparklineData(_Measures.Duration_[Dates.Date])"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "108.79608634850274D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Duration"
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {}
+        }
+      ],
+      "sparklines": [
+        {
+          "properties": {
+            "chartType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'column'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "SparklineData(_Measures.Duration_[Dates.Date])"
+          }
+        }
+      ],
+      "subTotals": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "columnSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#b3b3b3'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'foreground'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "totalMatchingOption": {
+                "expr": {
+                  "Literal": {
+                    "Value": "1L"
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Duration"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

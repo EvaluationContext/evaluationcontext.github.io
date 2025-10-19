@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <!-- Preload hero/featured images for faster loading -->
+  {% if page.meta and page.meta.image and page.meta.image.path %}
+    <link rel="preload" as="image" href="{{ page.meta.image.path }}">
+  {% endif %}
+  
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{% if page.meta and page.meta.date %}article{% else %}website{% endif %}" />
+  <meta property="og:url" content="{{ page.canonical_url }}" />
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}" />
+  <meta property="og:description" content="{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}" />
+  <meta property="og:site_name" content="{{ config.site_name }}" />
+  {% if page.meta and page.meta.image %}
+    {% if page.meta.image.path %}
+  <meta property="og:image" content="{{ config.site_url }}{{ page.meta.image.path }}" />
+    {% else %}
+  <meta property="og:image" content="{{ config.site_url }}{{ page.meta.image }}" />
+    {% endif %}
+  {% else %}
+  <meta property="og:image" content="{{ config.site_url }}assets/images/avatar.png" />
+  {% endif %}
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="{{ page.canonical_url }}" />
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}" />
+  <meta name="twitter:description" content="{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}" />
+  {% if page.meta and page.meta.image %}
+    {% if page.meta.image.path %}
+  <meta name="twitter:image" content="{{ config.site_url }}{{ page.meta.image.path }}" />
+  <meta name="twitter:image:alt" content="{{ page.meta.image.alt }}" />
+    {% else %}
+  <meta name="twitter:image" content="{{ config.site_url }}{{ page.meta.image }}" />
+    {% endif %}
+  {% else %}
+  <meta name="twitter:image" content="{{ config.site_url }}assets/images/avatar.png" />
+  {% endif %}
+  
+  <!-- Article specific meta tags -->
+  {% if page.meta and page.meta.date %}
+  <meta property="article:published_time" content="{{ page.meta.date.isoformat() }}" />
+  <meta property="article:author" content="{{ config.site_author }}" />
+  {% if page.meta.categories %}
+  {% for category in page.meta.categories %}
+  <meta property="article:tag" content="{{ category }}" />
+  {% endfor %}
+  {% endif %}
+  {% endif %}
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.canonical_url }}" />
+{% endblock %}

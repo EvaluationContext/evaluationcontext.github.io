@@ -1,0 +1,682 @@
+accessToItemGroupId,srcId,srcType,srcName,dstId,dstType,dstName
+ATG-WKS-5b6962ef-Contributor,WKS-5b6962ef,Workspace,USS-Odyssey,UG-D5CE28,Group,Medical Officer
+ATG-WKS-5b6962ef-Contributor,WKS-5b6962ef,Workspace,USS-Odyssey,UG-2C73C1,Group,Commander
+ATG-WKS-5b6962ef-Admin,WKS-5b6962ef,Workspace,USS-Odyssey,UG-5A5753,Group,Security Officer
+ATG-WKS-5b6962ef-Viewer,WKS-5b6962ef,Workspace,USS-Odyssey,SF-4E1026,User,Aaron Gonzalez
+ATG-WKS-5b6962ef-Viewer,WKS-5b6962ef,Workspace,USS-Odyssey,SF-6FD6FF,User,Kylie Coleman
+ATG-WKS-5b6962ef-Member,WKS-5b6962ef,Workspace,USS-Odyssey,SF-6D835A,User,Tyler Miles
+ATG-WKS-d6a39ae5-Viewer,WKS-d6a39ae5,Workspace,Starbase-Intrepid,UG-756300,Group,Engineering Officer
+ATG-WKS-d6a39ae5-Admin,WKS-d6a39ae5,Workspace,Starbase-Intrepid,SF-500B65,User,Robin Jones
+ATG-WKS-a8083ba1-Contributor,WKS-a8083ba1,Workspace,USS-Odyssey,UG-5A5753,Group,Security Officer
+ATG-WKS-a8083ba1-Viewer,WKS-a8083ba1,Workspace,USS-Odyssey,SF-FEE711,User,Amanda Reynolds
+ATG-WKS-bf7914a3-Viewer,WKS-bf7914a3,Workspace,NCC-Yorktown,UG-756300,Group,Engineering Officer
+ATG-WKS-bf7914a3-Viewer,WKS-bf7914a3,Workspace,NCC-Yorktown,UG-D5CE28,Group,Medical Officer
+ATG-WKS-bf7914a3-Contributor,WKS-bf7914a3,Workspace,NCC-Yorktown,SF-924A68,User,Gabriel Jacobs
+ATG-WKS-bf7914a3-Viewer,WKS-bf7914a3,Workspace,NCC-Yorktown,SF-FD292A,User,Gina Webster
+ATG-WKS-179874b1-Viewer,WKS-179874b1,Workspace,NCC-Discovery,UG-690010,Group,Lieutenant
+ATG-WKS-179874b1-Admin,WKS-179874b1,Workspace,NCC-Discovery,UG-DEFFB3,Group,Ensign
+ATG-WKS-179874b1-Contributor,WKS-179874b1,Workspace,NCC-Discovery,SF-B5EA77,User,Nancy Moss
+ATG-WKS-179874b1-Member,WKS-179874b1,Workspace,NCC-Discovery,SF-94F330,User,Peter Williams
+ATG-SEM-1821cc6c-Read,SEM-1821cc6c,Semantic Model,Phoenix Beta,UG-3CC272,Group,Captain
+ATG-SEM-1821cc6c-ReadReshare,SEM-1821cc6c,Semantic Model,Phoenix Beta,SF-52E89D,User,Tanner Jensen
+ATG-SEM-18ba0dae-ReadWriteExplore,SEM-18ba0dae,Semantic Model,Reliant Gamma,UG-756300,Group,Engineering Officer
+ATG-SEM-18ba0dae-ReadWriteExplore,SEM-18ba0dae,Semantic Model,Reliant Gamma,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-9bc1467b-Read,SEM-9bc1467b,Semantic Model,Odyssey Epsilon,UG-661ACD,Group,Away Team
+ATG-SEM-9bc1467b-Read,SEM-9bc1467b,Semantic Model,Odyssey Epsilon,UG-224BFB,Group,Science Officer
+ATG-SEM-9bc1467b-Read,SEM-9bc1467b,Semantic Model,Odyssey Epsilon,SF-52E89D,User,Tanner Jensen
+ATG-SEM-9bc1467b-ReadWriteReshareExplore,SEM-9bc1467b,Semantic Model,Odyssey Epsilon,SF-500B65,User,Robin Jones
+ATG-SEM-e72cdcc2-ReadWriteReshareExplore,SEM-e72cdcc2,Semantic Model,Intrepid Prime,UG-DEFFB3,Group,Ensign
+ATG-SEM-e72cdcc2-ReadReshare,SEM-e72cdcc2,Semantic Model,Intrepid Prime,UG-5A5753,Group,Security Officer
+ATG-SEM-e72cdcc2-ReadWriteExplore,SEM-e72cdcc2,Semantic Model,Intrepid Prime,UG-756300,Group,Engineering Officer
+ATG-SEM-e72cdcc2-Read,SEM-e72cdcc2,Semantic Model,Intrepid Prime,SF-94F330,User,Peter Williams
+ATG-SEM-e72cdcc2-ReadWriteReshareExplore,SEM-e72cdcc2,Semantic Model,Intrepid Prime,SF-E12219,User,Sean Hendricks
+ATG-SEM-e72cdcc2-ReadWriteReshareExplore,SEM-e72cdcc2,Semantic Model,Intrepid Prime,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-1de02fa3-ReadWriteExplore,SEM-1de02fa3,Semantic Model,Reliant Gamma,UG-43BC55,Group,Bridge Crew
+ATG-SEM-1de02fa3-Read,SEM-1de02fa3,Semantic Model,Reliant Gamma,UG-690010,Group,Lieutenant
+ATG-SEM-1de02fa3-ReadReshare,SEM-1de02fa3,Semantic Model,Reliant Gamma,UG-3CC272,Group,Captain
+ATG-SEM-1de02fa3-ReadReshare,SEM-1de02fa3,Semantic Model,Reliant Gamma,SF-FEE711,User,Amanda Reynolds
+ATG-SEM-1de02fa3-ReadWriteExplore,SEM-1de02fa3,Semantic Model,Reliant Gamma,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-1de02fa3-ReadWriteReshareExplore,SEM-1de02fa3,Semantic Model,Reliant Gamma,SF-FD292A,User,Gina Webster
+ATG-SEM-5231095a-Read,SEM-5231095a,Semantic Model,Enterprise Prime,UG-D5CE28,Group,Medical Officer
+ATG-SEM-5231095a-Read,SEM-5231095a,Semantic Model,Enterprise Prime,SF-D2B541,User,Sarah Harris
+ATG-SEM-90557bc9-ReadReshare,SEM-90557bc9,Semantic Model,Excelsior Zeta,UG-D5CE28,Group,Medical Officer
+ATG-SEM-90557bc9-ReadWriteReshareExplore,SEM-90557bc9,Semantic Model,Excelsior Zeta,SF-94F330,User,Peter Williams
+ATG-SEM-a92061c8-ReadReshare,SEM-a92061c8,Semantic Model,Excelsior Prime,UG-690010,Group,Lieutenant
+ATG-SEM-a92061c8-ReadWriteExplore,SEM-a92061c8,Semantic Model,Excelsior Prime,SF-6FD6FF,User,Kylie Coleman
+ATG-SEM-35e88b64-ReadReshare,SEM-35e88b64,Semantic Model,Reliant Prime,UG-756300,Group,Engineering Officer
+ATG-SEM-35e88b64-ReadReshare,SEM-35e88b64,Semantic Model,Reliant Prime,SF-85B4C5,User,Kimberly Williams
+ATG-SEM-cdb96f07-ReadWriteReshareExplore,SEM-cdb96f07,Semantic Model,Excelsior Epsilon,UG-D5CE28,Group,Medical Officer
+ATG-SEM-cdb96f07-Read,SEM-cdb96f07,Semantic Model,Excelsior Epsilon,UG-661ACD,Group,Away Team
+ATG-SEM-cdb96f07-Read,SEM-cdb96f07,Semantic Model,Excelsior Epsilon,SF-D2B541,User,Sarah Harris
+ATG-SEM-cdb96f07-Read,SEM-cdb96f07,Semantic Model,Excelsior Epsilon,SF-94F330,User,Peter Williams
+ATG-SEM-b2d58a8d-ReadWriteExplore,SEM-b2d58a8d,Semantic Model,Phoenix Prime,UG-CFB98C,Group,Lieutenant Commander
+ATG-SEM-b2d58a8d-Read,SEM-b2d58a8d,Semantic Model,Phoenix Prime,UG-756300,Group,Engineering Officer
+ATG-SEM-b2d58a8d-ReadReshare,SEM-b2d58a8d,Semantic Model,Phoenix Prime,UG-661ACD,Group,Away Team
+ATG-SEM-b2d58a8d-ReadWriteReshareExplore,SEM-b2d58a8d,Semantic Model,Phoenix Prime,SF-B5EA77,User,Nancy Moss
+ATG-SEM-b2d58a8d-ReadWriteExplore,SEM-b2d58a8d,Semantic Model,Phoenix Prime,SF-500B65,User,Robin Jones
+ATG-SEM-b2d58a8d-ReadWriteReshareExplore,SEM-b2d58a8d,Semantic Model,Phoenix Prime,SF-4BE42E,User,Sabrina Martin
+ATG-SEM-fc3e5467-ReadWriteExplore,SEM-fc3e5467,Semantic Model,Voyager Beta,UG-DEFFB3,Group,Ensign
+ATG-SEM-fc3e5467-Read,SEM-fc3e5467,Semantic Model,Voyager Beta,UG-CFB98C,Group,Lieutenant Commander
+ATG-SEM-fc3e5467-ReadReshare,SEM-fc3e5467,Semantic Model,Voyager Beta,SF-FF9C69,User,Ariel Brooks
+ATG-SEM-fc3e5467-ReadWriteReshareExplore,SEM-fc3e5467,Semantic Model,Voyager Beta,SF-D1D5EF,User,Vincent Bates
+ATG-SEM-400adc1e-ReadWriteReshareExplore,SEM-400adc1e,Semantic Model,Voyager Zeta,UG-661ACD,Group,Away Team
+ATG-SEM-400adc1e-ReadReshare,SEM-400adc1e,Semantic Model,Voyager Zeta,UG-D5CE28,Group,Medical Officer
+ATG-SEM-400adc1e-Read,SEM-400adc1e,Semantic Model,Voyager Zeta,SF-FEE711,User,Amanda Reynolds
+ATG-SEM-400adc1e-Read,SEM-400adc1e,Semantic Model,Voyager Zeta,SF-9DE5A9,User,Sandra Sanchez
+ATG-SEM-f61ae4f9-ReadWriteReshareExplore,SEM-f61ae4f9,Semantic Model,Phoenix Auxiliary,UG-5A5753,Group,Security Officer
+ATG-SEM-f61ae4f9-Read,SEM-f61ae4f9,Semantic Model,Phoenix Auxiliary,UG-CFB98C,Group,Lieutenant Commander
+ATG-SEM-f61ae4f9-ReadWriteReshareExplore,SEM-f61ae4f9,Semantic Model,Phoenix Auxiliary,SF-D1D5EF,User,Vincent Bates
+ATG-SEM-f61ae4f9-Read,SEM-f61ae4f9,Semantic Model,Phoenix Auxiliary,SF-B5EA77,User,Nancy Moss
+ATG-SEM-ff0c559f-ReadReshare,SEM-ff0c559f,Semantic Model,Voyager Beta,UG-5A5753,Group,Security Officer
+ATG-SEM-ff0c559f-ReadWriteExplore,SEM-ff0c559f,Semantic Model,Voyager Beta,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-18770829-ReadWriteReshareExplore,SEM-18770829,Semantic Model,Reliant Prime,UG-756300,Group,Engineering Officer
+ATG-SEM-18770829-Read,SEM-18770829,Semantic Model,Reliant Prime,UG-5A5753,Group,Security Officer
+ATG-SEM-18770829-Read,SEM-18770829,Semantic Model,Reliant Prime,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-18770829-ReadWriteReshareExplore,SEM-18770829,Semantic Model,Reliant Prime,SF-B5EA77,User,Nancy Moss
+ATG-REP-a63a7063-Owner,REP-a63a7063,Report,Phoenix BetaYorktown 1,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-a63a7063-ReadWrite,REP-a63a7063,Report,Phoenix BetaYorktown 1,SF-00276C,User,Lori Taylor
+ATG-REP-10bd7fab-ReadWrite,REP-10bd7fab,Report,Phoenix BetaEnterprise 5,UG-DEFFB3,Group,Ensign
+ATG-REP-10bd7fab-ReadWrite,REP-10bd7fab,Report,Phoenix BetaEnterprise 5,SF-FF9C69,User,Ariel Brooks
+ATG-REP-68f2b0a1-Owner,REP-68f2b0a1,Report,Phoenix BetaOdyssey 6,UG-5A5753,Group,Security Officer
+ATG-REP-68f2b0a1-Read,REP-68f2b0a1,Report,Phoenix BetaOdyssey 6,UG-3CC272,Group,Captain
+ATG-REP-68f2b0a1-Read,REP-68f2b0a1,Report,Phoenix BetaOdyssey 6,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-68f2b0a1-Read,REP-68f2b0a1,Report,Phoenix BetaOdyssey 6,SF-6224C6,User,Danielle Perez
+ATG-REP-0fe5c64f-Owner,REP-0fe5c64f,Report,Phoenix BetaDiscovery 2,UG-661ACD,Group,Away Team
+ATG-REP-0fe5c64f-Owner,REP-0fe5c64f,Report,Phoenix BetaDiscovery 2,SF-D2B541,User,Sarah Harris
+ATG-REP-e2e2649f-Read,REP-e2e2649f,Report,Reliant GammaDiscovery 4,UG-2C73C1,Group,Commander
+ATG-REP-e2e2649f-ReadWrite,REP-e2e2649f,Report,Reliant GammaDiscovery 4,SF-94F330,User,Peter Williams
+ATG-REP-bcc5c7ee-Read,REP-bcc5c7ee,Report,Reliant GammaPhoenix 4,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-bcc5c7ee-Owner,REP-bcc5c7ee,Report,Reliant GammaPhoenix 4,UG-5A5753,Group,Security Officer
+ATG-REP-bcc5c7ee-ReadWrite,REP-bcc5c7ee,Report,Reliant GammaPhoenix 4,SF-500B65,User,Robin Jones
+ATG-REP-bcc5c7ee-Owner,REP-bcc5c7ee,Report,Reliant GammaPhoenix 4,SF-E12219,User,Sean Hendricks
+ATG-REP-640d2234-Read,REP-640d2234,Report,Odyssey EpsilonPhoenix 6,UG-2C73C1,Group,Commander
+ATG-REP-640d2234-ReadWrite,REP-640d2234,Report,Odyssey EpsilonPhoenix 6,UG-690010,Group,Lieutenant
+ATG-REP-640d2234-Read,REP-640d2234,Report,Odyssey EpsilonPhoenix 6,SF-FD292A,User,Gina Webster
+ATG-REP-640d2234-ReadWrite,REP-640d2234,Report,Odyssey EpsilonPhoenix 6,SF-94F330,User,Peter Williams
+ATG-REP-1720d3a1-Read,REP-1720d3a1,Report,Odyssey EpsilonDefiant 9,UG-2C73C1,Group,Commander
+ATG-REP-1720d3a1-Owner,REP-1720d3a1,Report,Odyssey EpsilonDefiant 9,SF-94F330,User,Peter Williams
+ATG-REP-26d555aa-Read,REP-26d555aa,Report,Intrepid PrimeReliant 9,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-26d555aa-Read,REP-26d555aa,Report,Intrepid PrimeReliant 9,UG-224BFB,Group,Science Officer
+ATG-REP-26d555aa-Owner,REP-26d555aa,Report,Intrepid PrimeReliant 9,UG-D5CE28,Group,Medical Officer
+ATG-REP-26d555aa-Read,REP-26d555aa,Report,Intrepid PrimeReliant 9,SF-FF9C69,User,Ariel Brooks
+ATG-REP-26d555aa-Read,REP-26d555aa,Report,Intrepid PrimeReliant 9,SF-52E89D,User,Tanner Jensen
+ATG-REP-26d555aa-ReadWrite,REP-26d555aa,Report,Intrepid PrimeReliant 9,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-50b3a470-Read,REP-50b3a470,Report,Intrepid PrimeDiscovery 3,UG-756300,Group,Engineering Officer
+ATG-REP-50b3a470-ReadWrite,REP-50b3a470,Report,Intrepid PrimeDiscovery 3,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-50b3a470-ReadWrite,REP-50b3a470,Report,Intrepid PrimeDiscovery 3,UG-690010,Group,Lieutenant
+ATG-REP-50b3a470-ReadWrite,REP-50b3a470,Report,Intrepid PrimeDiscovery 3,SF-6224C6,User,Danielle Perez
+ATG-REP-50b3a470-ReadWrite,REP-50b3a470,Report,Intrepid PrimeDiscovery 3,SF-FF9C69,User,Ariel Brooks
+ATG-REP-50b3a470-ReadWrite,REP-50b3a470,Report,Intrepid PrimeDiscovery 3,SF-52E89D,User,Tanner Jensen
+ATG-REP-c0d25e7c-ReadWrite,REP-c0d25e7c,Report,Intrepid PrimeIntrepid 8,UG-224BFB,Group,Science Officer
+ATG-REP-c0d25e7c-ReadWrite,REP-c0d25e7c,Report,Intrepid PrimeIntrepid 8,UG-D5CE28,Group,Medical Officer
+ATG-REP-c0d25e7c-Read,REP-c0d25e7c,Report,Intrepid PrimeIntrepid 8,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-c0d25e7c-ReadWrite,REP-c0d25e7c,Report,Intrepid PrimeIntrepid 8,SF-FD292A,User,Gina Webster
+ATG-REP-c0d25e7c-ReadWrite,REP-c0d25e7c,Report,Intrepid PrimeIntrepid 8,SF-D2B541,User,Sarah Harris
+ATG-REP-c0d25e7c-ReadWrite,REP-c0d25e7c,Report,Intrepid PrimeIntrepid 8,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-aa9f7044-Owner,REP-aa9f7044,Report,Intrepid PrimeDefiant 9,UG-5A5753,Group,Security Officer
+ATG-REP-aa9f7044-ReadWrite,REP-aa9f7044,Report,Intrepid PrimeDefiant 9,UG-43BC55,Group,Bridge Crew
+ATG-REP-aa9f7044-Read,REP-aa9f7044,Report,Intrepid PrimeDefiant 9,SF-FEE711,User,Amanda Reynolds
+ATG-REP-aa9f7044-Owner,REP-aa9f7044,Report,Intrepid PrimeDefiant 9,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-80f99fa4-Owner,REP-80f99fa4,Report,Reliant GammaPhoenix 8,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-80f99fa4-ReadWrite,REP-80f99fa4,Report,Reliant GammaPhoenix 8,SF-D2B541,User,Sarah Harris
+ATG-REP-41223b4c-Read,REP-41223b4c,Report,Reliant GammaReliant 2,UG-5A5753,Group,Security Officer
+ATG-REP-41223b4c-ReadWrite,REP-41223b4c,Report,Reliant GammaReliant 2,UG-224BFB,Group,Science Officer
+ATG-REP-41223b4c-Owner,REP-41223b4c,Report,Reliant GammaReliant 2,SF-6224C6,User,Danielle Perez
+ATG-REP-41223b4c-Owner,REP-41223b4c,Report,Reliant GammaReliant 2,SF-D1D5EF,User,Vincent Bates
+ATG-REP-f2b1a7b8-Owner,REP-f2b1a7b8,Report,Reliant GammaIntrepid 3,UG-690010,Group,Lieutenant
+ATG-REP-f2b1a7b8-Owner,REP-f2b1a7b8,Report,Reliant GammaIntrepid 3,UG-224BFB,Group,Science Officer
+ATG-REP-f2b1a7b8-Owner,REP-f2b1a7b8,Report,Reliant GammaIntrepid 3,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-f2b1a7b8-ReadWrite,REP-f2b1a7b8,Report,Reliant GammaIntrepid 3,SF-00276C,User,Lori Taylor
+ATG-REP-79d0981b-Owner,REP-79d0981b,Report,Reliant GammaIntrepid 3,UG-DEFFB3,Group,Ensign
+ATG-REP-79d0981b-ReadWrite,REP-79d0981b,Report,Reliant GammaIntrepid 3,SF-FD292A,User,Gina Webster
+ATG-REP-27a95880-ReadWrite,REP-27a95880,Report,Enterprise PrimeOdyssey 10,UG-690010,Group,Lieutenant
+ATG-REP-27a95880-Owner,REP-27a95880,Report,Enterprise PrimeOdyssey 10,UG-661ACD,Group,Away Team
+ATG-REP-27a95880-ReadWrite,REP-27a95880,Report,Enterprise PrimeOdyssey 10,UG-DEFFB3,Group,Ensign
+ATG-REP-27a95880-ReadWrite,REP-27a95880,Report,Enterprise PrimeOdyssey 10,SF-D2B541,User,Sarah Harris
+ATG-REP-27a95880-ReadWrite,REP-27a95880,Report,Enterprise PrimeOdyssey 10,SF-924A68,User,Gabriel Jacobs
+ATG-REP-27a95880-ReadWrite,REP-27a95880,Report,Enterprise PrimeOdyssey 10,SF-4BE42E,User,Sabrina Martin
+ATG-REP-aa42ddc2-Owner,REP-aa42ddc2,Report,Enterprise PrimeExcelsior 5,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-aa42ddc2-Read,REP-aa42ddc2,Report,Enterprise PrimeExcelsior 5,SF-94F330,User,Peter Williams
+ATG-REP-e8882d9d-Owner,REP-e8882d9d,Report,Enterprise PrimeDefiant 8,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-e8882d9d-Read,REP-e8882d9d,Report,Enterprise PrimeDefiant 8,UG-43BC55,Group,Bridge Crew
+ATG-REP-e8882d9d-Read,REP-e8882d9d,Report,Enterprise PrimeDefiant 8,UG-756300,Group,Engineering Officer
+ATG-REP-e8882d9d-ReadWrite,REP-e8882d9d,Report,Enterprise PrimeDefiant 8,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-e8882d9d-Read,REP-e8882d9d,Report,Enterprise PrimeDefiant 8,SF-4BE42E,User,Sabrina Martin
+ATG-REP-e8882d9d-ReadWrite,REP-e8882d9d,Report,Enterprise PrimeDefiant 8,SF-924A68,User,Gabriel Jacobs
+ATG-REP-24a32ba9-Read,REP-24a32ba9,Report,Excelsior ZetaDiscovery 2,UG-756300,Group,Engineering Officer
+ATG-REP-24a32ba9-ReadWrite,REP-24a32ba9,Report,Excelsior ZetaDiscovery 2,UG-DEFFB3,Group,Ensign
+ATG-REP-24a32ba9-ReadWrite,REP-24a32ba9,Report,Excelsior ZetaDiscovery 2,UG-5A5753,Group,Security Officer
+ATG-REP-24a32ba9-Read,REP-24a32ba9,Report,Excelsior ZetaDiscovery 2,SF-924A68,User,Gabriel Jacobs
+ATG-REP-24a32ba9-Owner,REP-24a32ba9,Report,Excelsior ZetaDiscovery 2,SF-4BE42E,User,Sabrina Martin
+ATG-REP-24a32ba9-Read,REP-24a32ba9,Report,Excelsior ZetaDiscovery 2,SF-D1D5EF,User,Vincent Bates
+ATG-REP-d3dbd2d3-ReadWrite,REP-d3dbd2d3,Report,Excelsior ZetaExcelsior 1,UG-2C73C1,Group,Commander
+ATG-REP-d3dbd2d3-ReadWrite,REP-d3dbd2d3,Report,Excelsior ZetaExcelsior 1,UG-661ACD,Group,Away Team
+ATG-REP-d3dbd2d3-Read,REP-d3dbd2d3,Report,Excelsior ZetaExcelsior 1,SF-D1D5EF,User,Vincent Bates
+ATG-REP-d3dbd2d3-ReadWrite,REP-d3dbd2d3,Report,Excelsior ZetaExcelsior 1,SF-6D835A,User,Tyler Miles
+ATG-REP-03b89720-Owner,REP-03b89720,Report,Excelsior ZetaDiscovery 3,UG-D5CE28,Group,Medical Officer
+ATG-REP-03b89720-Owner,REP-03b89720,Report,Excelsior ZetaDiscovery 3,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-03b89720-Owner,REP-03b89720,Report,Excelsior ZetaDiscovery 3,UG-690010,Group,Lieutenant
+ATG-REP-03b89720-Read,REP-03b89720,Report,Excelsior ZetaDiscovery 3,SF-BF4214,User,Melissa Lee
+ATG-REP-03b89720-ReadWrite,REP-03b89720,Report,Excelsior ZetaDiscovery 3,SF-924A68,User,Gabriel Jacobs
+ATG-REP-03b89720-Owner,REP-03b89720,Report,Excelsior ZetaDiscovery 3,SF-00276C,User,Lori Taylor
+ATG-REP-ef57909f-Read,REP-ef57909f,Report,Excelsior ZetaEnterprise 10,UG-2C73C1,Group,Commander
+ATG-REP-ef57909f-Owner,REP-ef57909f,Report,Excelsior ZetaEnterprise 10,UG-690010,Group,Lieutenant
+ATG-REP-ef57909f-ReadWrite,REP-ef57909f,Report,Excelsior ZetaEnterprise 10,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-ef57909f-ReadWrite,REP-ef57909f,Report,Excelsior ZetaEnterprise 10,SF-BF4214,User,Melissa Lee
+ATG-REP-68832dc3-Read,REP-68832dc3,Report,Excelsior ZetaExcelsior 6,UG-756300,Group,Engineering Officer
+ATG-REP-68832dc3-ReadWrite,REP-68832dc3,Report,Excelsior ZetaExcelsior 6,SF-FEE711,User,Amanda Reynolds
+ATG-REP-bfb7ba0d-Read,REP-bfb7ba0d,Report,Excelsior PrimeYorktown 8,UG-224BFB,Group,Science Officer
+ATG-REP-bfb7ba0d-ReadWrite,REP-bfb7ba0d,Report,Excelsior PrimeYorktown 8,UG-5A5753,Group,Security Officer
+ATG-REP-bfb7ba0d-Read,REP-bfb7ba0d,Report,Excelsior PrimeYorktown 8,SF-00276C,User,Lori Taylor
+ATG-REP-bfb7ba0d-Owner,REP-bfb7ba0d,Report,Excelsior PrimeYorktown 8,SF-E12219,User,Sean Hendricks
+ATG-REP-53c94305-Read,REP-53c94305,Report,Excelsior PrimeDefiant 8,UG-43BC55,Group,Bridge Crew
+ATG-REP-53c94305-Owner,REP-53c94305,Report,Excelsior PrimeDefiant 8,SF-E12219,User,Sean Hendricks
+ATG-REP-699507f1-Read,REP-699507f1,Report,Excelsior PrimeIntrepid 8,UG-DEFFB3,Group,Ensign
+ATG-REP-699507f1-Read,REP-699507f1,Report,Excelsior PrimeIntrepid 8,UG-224BFB,Group,Science Officer
+ATG-REP-699507f1-Read,REP-699507f1,Report,Excelsior PrimeIntrepid 8,SF-500B65,User,Robin Jones
+ATG-REP-699507f1-ReadWrite,REP-699507f1,Report,Excelsior PrimeIntrepid 8,SF-BF4214,User,Melissa Lee
+ATG-REP-7643de2b-Read,REP-7643de2b,Report,Excelsior PrimeEnterprise 8,UG-690010,Group,Lieutenant
+ATG-REP-7643de2b-ReadWrite,REP-7643de2b,Report,Excelsior PrimeEnterprise 8,UG-661ACD,Group,Away Team
+ATG-REP-7643de2b-ReadWrite,REP-7643de2b,Report,Excelsior PrimeEnterprise 8,UG-224BFB,Group,Science Officer
+ATG-REP-7643de2b-Owner,REP-7643de2b,Report,Excelsior PrimeEnterprise 8,SF-BF4214,User,Melissa Lee
+ATG-REP-7643de2b-Read,REP-7643de2b,Report,Excelsior PrimeEnterprise 8,SF-00276C,User,Lori Taylor
+ATG-REP-7643de2b-ReadWrite,REP-7643de2b,Report,Excelsior PrimeEnterprise 8,SF-6224C6,User,Danielle Perez
+ATG-REP-6d89d295-Owner,REP-6d89d295,Report,Excelsior PrimeDiscovery 6,UG-43BC55,Group,Bridge Crew
+ATG-REP-6d89d295-Owner,REP-6d89d295,Report,Excelsior PrimeDiscovery 6,UG-690010,Group,Lieutenant
+ATG-REP-6d89d295-Read,REP-6d89d295,Report,Excelsior PrimeDiscovery 6,UG-2C73C1,Group,Commander
+ATG-REP-6d89d295-Owner,REP-6d89d295,Report,Excelsior PrimeDiscovery 6,SF-924A68,User,Gabriel Jacobs
+ATG-REP-6d89d295-Owner,REP-6d89d295,Report,Excelsior PrimeDiscovery 6,SF-D1D5EF,User,Vincent Bates
+ATG-REP-6d89d295-Owner,REP-6d89d295,Report,Excelsior PrimeDiscovery 6,SF-FEE711,User,Amanda Reynolds
+ATG-REP-1214a2d6-Owner,REP-1214a2d6,Report,Reliant PrimeYorktown 3,UG-3CC272,Group,Captain
+ATG-REP-1214a2d6-Read,REP-1214a2d6,Report,Reliant PrimeYorktown 3,UG-661ACD,Group,Away Team
+ATG-REP-1214a2d6-ReadWrite,REP-1214a2d6,Report,Reliant PrimeYorktown 3,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-1214a2d6-Owner,REP-1214a2d6,Report,Reliant PrimeYorktown 3,SF-B5EA77,User,Nancy Moss
+ATG-REP-1214a2d6-Owner,REP-1214a2d6,Report,Reliant PrimeYorktown 3,SF-94F330,User,Peter Williams
+ATG-REP-1214a2d6-Read,REP-1214a2d6,Report,Reliant PrimeYorktown 3,SF-E12219,User,Sean Hendricks
+ATG-REP-8e2edb70-Read,REP-8e2edb70,Report,Reliant PrimeOdyssey 1,UG-D5CE28,Group,Medical Officer
+ATG-REP-8e2edb70-Read,REP-8e2edb70,Report,Reliant PrimeOdyssey 1,UG-5A5753,Group,Security Officer
+ATG-REP-8e2edb70-Owner,REP-8e2edb70,Report,Reliant PrimeOdyssey 1,SF-FD292A,User,Gina Webster
+ATG-REP-8e2edb70-ReadWrite,REP-8e2edb70,Report,Reliant PrimeOdyssey 1,SF-924A68,User,Gabriel Jacobs
+ATG-REP-b8cdbd95-Read,REP-b8cdbd95,Report,Excelsior EpsilonPhoenix 8,UG-2C73C1,Group,Commander
+ATG-REP-b8cdbd95-Owner,REP-b8cdbd95,Report,Excelsior EpsilonPhoenix 8,SF-D2B541,User,Sarah Harris
+ATG-REP-0ef1f7f3-ReadWrite,REP-0ef1f7f3,Report,Excelsior EpsilonDefiant 5,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-0ef1f7f3-Read,REP-0ef1f7f3,Report,Excelsior EpsilonDefiant 5,SF-4BE42E,User,Sabrina Martin
+ATG-REP-c9d5560a-Owner,REP-c9d5560a,Report,Phoenix PrimeExcelsior 9,UG-224BFB,Group,Science Officer
+ATG-REP-c9d5560a-Owner,REP-c9d5560a,Report,Phoenix PrimeExcelsior 9,SF-00276C,User,Lori Taylor
+ATG-REP-61eadd67-Read,REP-61eadd67,Report,Voyager BetaOdyssey 6,UG-2C73C1,Group,Commander
+ATG-REP-61eadd67-ReadWrite,REP-61eadd67,Report,Voyager BetaOdyssey 6,UG-43BC55,Group,Bridge Crew
+ATG-REP-61eadd67-Owner,REP-61eadd67,Report,Voyager BetaOdyssey 6,UG-5A5753,Group,Security Officer
+ATG-REP-61eadd67-Read,REP-61eadd67,Report,Voyager BetaOdyssey 6,SF-D1D5EF,User,Vincent Bates
+ATG-REP-61eadd67-Owner,REP-61eadd67,Report,Voyager BetaOdyssey 6,SF-E12219,User,Sean Hendricks
+ATG-REP-61eadd67-Read,REP-61eadd67,Report,Voyager BetaOdyssey 6,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-0a35809c-ReadWrite,REP-0a35809c,Report,Voyager BetaIntrepid 4,UG-D5CE28,Group,Medical Officer
+ATG-REP-0a35809c-Owner,REP-0a35809c,Report,Voyager BetaIntrepid 4,UG-690010,Group,Lieutenant
+ATG-REP-0a35809c-Read,REP-0a35809c,Report,Voyager BetaIntrepid 4,UG-756300,Group,Engineering Officer
+ATG-REP-0a35809c-ReadWrite,REP-0a35809c,Report,Voyager BetaIntrepid 4,SF-D2B541,User,Sarah Harris
+ATG-REP-0a35809c-Read,REP-0a35809c,Report,Voyager BetaIntrepid 4,SF-85B4C5,User,Kimberly Williams
+ATG-REP-0a35809c-Owner,REP-0a35809c,Report,Voyager BetaIntrepid 4,SF-500B65,User,Robin Jones
+ATG-REP-9e496bc5-ReadWrite,REP-9e496bc5,Report,Voyager BetaDefiant 4,UG-5A5753,Group,Security Officer
+ATG-REP-9e496bc5-ReadWrite,REP-9e496bc5,Report,Voyager BetaDefiant 4,UG-DEFFB3,Group,Ensign
+ATG-REP-9e496bc5-ReadWrite,REP-9e496bc5,Report,Voyager BetaDefiant 4,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-9e496bc5-Owner,REP-9e496bc5,Report,Voyager BetaDefiant 4,SF-94F330,User,Peter Williams
+ATG-REP-9e496bc5-Read,REP-9e496bc5,Report,Voyager BetaDefiant 4,SF-00276C,User,Lori Taylor
+ATG-REP-9e496bc5-ReadWrite,REP-9e496bc5,Report,Voyager BetaDefiant 4,SF-D2B541,User,Sarah Harris
+ATG-REP-ed0ab0d9-Read,REP-ed0ab0d9,Report,Voyager BetaIntrepid 4,UG-5A5753,Group,Security Officer
+ATG-REP-ed0ab0d9-Read,REP-ed0ab0d9,Report,Voyager BetaIntrepid 4,UG-756300,Group,Engineering Officer
+ATG-REP-ed0ab0d9-Read,REP-ed0ab0d9,Report,Voyager BetaIntrepid 4,SF-500B65,User,Robin Jones
+ATG-REP-ed0ab0d9-Owner,REP-ed0ab0d9,Report,Voyager BetaIntrepid 4,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-951dfdb8-ReadWrite,REP-951dfdb8,Report,Voyager BetaExcelsior 6,UG-D5CE28,Group,Medical Officer
+ATG-REP-951dfdb8-Owner,REP-951dfdb8,Report,Voyager BetaExcelsior 6,SF-FD292A,User,Gina Webster
+ATG-REP-303f2ec0-ReadWrite,REP-303f2ec0,Report,Voyager ZetaVoyager 9,UG-224BFB,Group,Science Officer
+ATG-REP-303f2ec0-Read,REP-303f2ec0,Report,Voyager ZetaVoyager 9,UG-43BC55,Group,Bridge Crew
+ATG-REP-303f2ec0-Read,REP-303f2ec0,Report,Voyager ZetaVoyager 9,SF-00276C,User,Lori Taylor
+ATG-REP-303f2ec0-ReadWrite,REP-303f2ec0,Report,Voyager ZetaVoyager 9,SF-FF9C69,User,Ariel Brooks
+ATG-REP-177e9253-ReadWrite,REP-177e9253,Report,Voyager ZetaExcelsior 10,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-177e9253-Read,REP-177e9253,Report,Voyager ZetaExcelsior 10,UG-661ACD,Group,Away Team
+ATG-REP-177e9253-Read,REP-177e9253,Report,Voyager ZetaExcelsior 10,SF-D1D5EF,User,Vincent Bates
+ATG-REP-177e9253-Owner,REP-177e9253,Report,Voyager ZetaExcelsior 10,SF-85B4C5,User,Kimberly Williams
+ATG-REP-dcddd287-ReadWrite,REP-dcddd287,Report,Voyager ZetaVoyager 7,UG-43BC55,Group,Bridge Crew
+ATG-REP-dcddd287-Owner,REP-dcddd287,Report,Voyager ZetaVoyager 7,SF-FD292A,User,Gina Webster
+ATG-REP-d4f27b45-Owner,REP-d4f27b45,Report,Voyager ZetaDiscovery 7,UG-43BC55,Group,Bridge Crew
+ATG-REP-d4f27b45-ReadWrite,REP-d4f27b45,Report,Voyager ZetaDiscovery 7,SF-00276C,User,Lori Taylor
+ATG-REP-22ddde72-ReadWrite,REP-22ddde72,Report,Voyager ZetaReliant 2,UG-D5CE28,Group,Medical Officer
+ATG-REP-22ddde72-ReadWrite,REP-22ddde72,Report,Voyager ZetaReliant 2,SF-FD292A,User,Gina Webster
+ATG-REP-7a063dae-ReadWrite,REP-7a063dae,Report,Phoenix AuxiliaryPhoenix 4,UG-224BFB,Group,Science Officer
+ATG-REP-7a063dae-Read,REP-7a063dae,Report,Phoenix AuxiliaryPhoenix 4,UG-5A5753,Group,Security Officer
+ATG-REP-7a063dae-ReadWrite,REP-7a063dae,Report,Phoenix AuxiliaryPhoenix 4,SF-4BE42E,User,Sabrina Martin
+ATG-REP-7a063dae-Owner,REP-7a063dae,Report,Phoenix AuxiliaryPhoenix 4,SF-D1D5EF,User,Vincent Bates
+ATG-REP-211df42d-ReadWrite,REP-211df42d,Report,Phoenix AuxiliaryDiscovery 9,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-211df42d-Owner,REP-211df42d,Report,Phoenix AuxiliaryDiscovery 9,UG-43BC55,Group,Bridge Crew
+ATG-REP-211df42d-Owner,REP-211df42d,Report,Phoenix AuxiliaryDiscovery 9,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-211df42d-Owner,REP-211df42d,Report,Phoenix AuxiliaryDiscovery 9,SF-E12219,User,Sean Hendricks
+ATG-REP-2c91b609-Owner,REP-2c91b609,Report,Voyager BetaIntrepid 1,UG-690010,Group,Lieutenant
+ATG-REP-2c91b609-Read,REP-2c91b609,Report,Voyager BetaIntrepid 1,UG-756300,Group,Engineering Officer
+ATG-REP-2c91b609-ReadWrite,REP-2c91b609,Report,Voyager BetaIntrepid 1,UG-D5CE28,Group,Medical Officer
+ATG-REP-2c91b609-Read,REP-2c91b609,Report,Voyager BetaIntrepid 1,SF-4BE42E,User,Sabrina Martin
+ATG-REP-2c91b609-Read,REP-2c91b609,Report,Voyager BetaIntrepid 1,SF-E12219,User,Sean Hendricks
+ATG-REP-2c91b609-Owner,REP-2c91b609,Report,Voyager BetaIntrepid 1,SF-D2B541,User,Sarah Harris
+ATG-REP-99733d93-ReadWrite,REP-99733d93,Report,Voyager BetaDefiant 10,UG-756300,Group,Engineering Officer
+ATG-REP-99733d93-Read,REP-99733d93,Report,Voyager BetaDefiant 10,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-674b98e9-Owner,REP-674b98e9,Report,Voyager BetaDefiant 1,UG-756300,Group,Engineering Officer
+ATG-REP-674b98e9-ReadWrite,REP-674b98e9,Report,Voyager BetaDefiant 1,SF-FEE711,User,Amanda Reynolds
+ATG-REP-fa00d97f-Owner,REP-fa00d97f,Report,Reliant PrimePhoenix 5,UG-661ACD,Group,Away Team
+ATG-REP-fa00d97f-ReadWrite,REP-fa00d97f,Report,Reliant PrimePhoenix 5,UG-756300,Group,Engineering Officer
+ATG-REP-fa00d97f-Read,REP-fa00d97f,Report,Reliant PrimePhoenix 5,UG-CFB98C,Group,Lieutenant Commander
+ATG-REP-fa00d97f-Read,REP-fa00d97f,Report,Reliant PrimePhoenix 5,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-fa00d97f-Owner,REP-fa00d97f,Report,Reliant PrimePhoenix 5,SF-4BE42E,User,Sabrina Martin
+ATG-REP-fa00d97f-ReadWrite,REP-fa00d97f,Report,Reliant PrimePhoenix 5,SF-6D835A,User,Tyler Miles
+ATG-WKS-5b6962ef-Contributor,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-WKS-5b6962ef-Contributor,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-WKS-5b6962ef-Contributor,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-WKS-5b6962ef-Contributor,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-WKS-5b6962ef-Contributor,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-WKS-5b6962ef-Contributor,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-WKS-5b6962ef-Admin,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-WKS-5b6962ef-Admin,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-WKS-5b6962ef-Admin,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-WKS-5b6962ef-Admin,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-WKS-d6a39ae5-Viewer,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-WKS-d6a39ae5-Viewer,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-WKS-d6a39ae5-Viewer,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-WKS-a8083ba1-Contributor,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-WKS-a8083ba1-Contributor,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-WKS-a8083ba1-Contributor,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-WKS-a8083ba1-Contributor,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-WKS-bf7914a3-Viewer,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-WKS-bf7914a3-Viewer,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-WKS-bf7914a3-Viewer,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-WKS-bf7914a3-Viewer,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-WKS-bf7914a3-Viewer,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-WKS-179874b1-Viewer,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-WKS-179874b1-Viewer,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-WKS-179874b1-Admin,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-WKS-179874b1-Admin,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-1821cc6c-Read,UG-3CC272,Group,Captain,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-1821cc6c-Read,UG-3CC272,Group,Captain,SF-FD292A,User,Gina Webster
+ATG-SEM-1821cc6c-Read,UG-3CC272,Group,Captain,SF-6D835A,User,Tyler Miles
+ATG-SEM-18ba0dae-ReadWriteExplore,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-SEM-18ba0dae-ReadWriteExplore,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-SEM-18ba0dae-ReadWriteExplore,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-9bc1467b-Read,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-SEM-9bc1467b-Read,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-SEM-9bc1467b-Read,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-SEM-9bc1467b-Read,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-9bc1467b-Read,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-SEM-9bc1467b-Read,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-SEM-9bc1467b-Read,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-SEM-9bc1467b-Read,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-SEM-9bc1467b-Read,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-SEM-9bc1467b-Read,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-SEM-e72cdcc2-ReadWriteReshareExplore,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-e72cdcc2-ReadWriteReshareExplore,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-e72cdcc2-ReadReshare,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-SEM-e72cdcc2-ReadReshare,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-SEM-e72cdcc2-ReadReshare,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-SEM-e72cdcc2-ReadReshare,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-SEM-e72cdcc2-ReadWriteExplore,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-SEM-e72cdcc2-ReadWriteExplore,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-SEM-e72cdcc2-ReadWriteExplore,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-1de02fa3-ReadWriteExplore,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-SEM-1de02fa3-ReadWriteExplore,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-1de02fa3-ReadWriteExplore,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-SEM-1de02fa3-Read,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-SEM-1de02fa3-Read,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-1de02fa3-ReadReshare,UG-3CC272,Group,Captain,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-1de02fa3-ReadReshare,UG-3CC272,Group,Captain,SF-FD292A,User,Gina Webster
+ATG-SEM-1de02fa3-ReadReshare,UG-3CC272,Group,Captain,SF-6D835A,User,Tyler Miles
+ATG-SEM-5231095a-Read,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-SEM-5231095a-Read,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-SEM-90557bc9-ReadReshare,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-SEM-90557bc9-ReadReshare,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-SEM-a92061c8-ReadReshare,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-SEM-a92061c8-ReadReshare,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-35e88b64-ReadReshare,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-SEM-35e88b64-ReadReshare,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-SEM-35e88b64-ReadReshare,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-cdb96f07-ReadWriteReshareExplore,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-SEM-cdb96f07-ReadWriteReshareExplore,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-SEM-cdb96f07-Read,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-SEM-cdb96f07-Read,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-SEM-cdb96f07-Read,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-SEM-cdb96f07-Read,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-cdb96f07-Read,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-SEM-b2d58a8d-ReadWriteExplore,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-SEM-b2d58a8d-ReadWriteExplore,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-SEM-b2d58a8d-Read,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-SEM-b2d58a8d-Read,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-SEM-b2d58a8d-Read,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-b2d58a8d-ReadReshare,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-SEM-b2d58a8d-ReadReshare,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-SEM-b2d58a8d-ReadReshare,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-SEM-b2d58a8d-ReadReshare,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-b2d58a8d-ReadReshare,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-SEM-fc3e5467-ReadWriteExplore,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-SEM-fc3e5467-ReadWriteExplore,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-fc3e5467-Read,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-SEM-fc3e5467-Read,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-SEM-400adc1e-ReadWriteReshareExplore,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-SEM-400adc1e-ReadWriteReshareExplore,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-SEM-400adc1e-ReadWriteReshareExplore,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-SEM-400adc1e-ReadWriteReshareExplore,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-400adc1e-ReadWriteReshareExplore,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-SEM-400adc1e-ReadReshare,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-SEM-400adc1e-ReadReshare,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-SEM-f61ae4f9-ReadWriteReshareExplore,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-SEM-f61ae4f9-ReadWriteReshareExplore,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-SEM-f61ae4f9-ReadWriteReshareExplore,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-SEM-f61ae4f9-ReadWriteReshareExplore,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-SEM-f61ae4f9-Read,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-SEM-f61ae4f9-Read,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-SEM-ff0c559f-ReadReshare,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-SEM-ff0c559f-ReadReshare,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-SEM-ff0c559f-ReadReshare,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-SEM-ff0c559f-ReadReshare,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-SEM-18770829-ReadWriteReshareExplore,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-SEM-18770829-ReadWriteReshareExplore,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-SEM-18770829-ReadWriteReshareExplore,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-SEM-18770829-Read,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-SEM-18770829-Read,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-SEM-18770829-Read,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-SEM-18770829-Read,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-a63a7063-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-a63a7063-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-10bd7fab-ReadWrite,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-10bd7fab-ReadWrite,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-REP-68f2b0a1-Owner,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-68f2b0a1-Owner,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-68f2b0a1-Owner,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-68f2b0a1-Owner,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-68f2b0a1-Read,UG-3CC272,Group,Captain,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-68f2b0a1-Read,UG-3CC272,Group,Captain,SF-FD292A,User,Gina Webster
+ATG-REP-68f2b0a1-Read,UG-3CC272,Group,Captain,SF-6D835A,User,Tyler Miles
+ATG-REP-0fe5c64f-Owner,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-0fe5c64f-Owner,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-REP-0fe5c64f-Owner,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-REP-0fe5c64f-Owner,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-REP-0fe5c64f-Owner,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-REP-e2e2649f-Read,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-REP-e2e2649f-Read,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-e2e2649f-Read,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-REP-e2e2649f-Read,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-REP-bcc5c7ee-Read,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-bcc5c7ee-Read,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-bcc5c7ee-Owner,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-bcc5c7ee-Owner,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-bcc5c7ee-Owner,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-bcc5c7ee-Owner,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-640d2234-Read,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-REP-640d2234-Read,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-640d2234-Read,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-REP-640d2234-Read,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-REP-640d2234-ReadWrite,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-640d2234-ReadWrite,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-1720d3a1-Read,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-REP-1720d3a1-Read,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-1720d3a1-Read,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-REP-1720d3a1-Read,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-REP-26d555aa-Read,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-26d555aa-Read,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-26d555aa-Read,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-26d555aa-Read,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-26d555aa-Read,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-26d555aa-Read,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-26d555aa-Read,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-26d555aa-Owner,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-26d555aa-Owner,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-REP-50b3a470-Read,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-50b3a470-Read,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-50b3a470-Read,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-50b3a470-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-50b3a470-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-50b3a470-ReadWrite,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-50b3a470-ReadWrite,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-c0d25e7c-ReadWrite,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-c0d25e7c-ReadWrite,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-c0d25e7c-ReadWrite,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-c0d25e7c-ReadWrite,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-c0d25e7c-ReadWrite,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-c0d25e7c-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-c0d25e7c-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-REP-c0d25e7c-Read,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-c0d25e7c-Read,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-aa9f7044-Owner,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-aa9f7044-Owner,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-aa9f7044-Owner,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-aa9f7044-Owner,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-aa9f7044-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-aa9f7044-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-aa9f7044-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-80f99fa4-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-80f99fa4-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-41223b4c-Read,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-41223b4c-Read,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-41223b4c-Read,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-41223b4c-Read,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-41223b4c-ReadWrite,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-41223b4c-ReadWrite,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-41223b4c-ReadWrite,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-41223b4c-ReadWrite,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-41223b4c-ReadWrite,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-f2b1a7b8-Owner,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-f2b1a7b8-Owner,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-f2b1a7b8-Owner,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-f2b1a7b8-Owner,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-f2b1a7b8-Owner,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-f2b1a7b8-Owner,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-f2b1a7b8-Owner,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-79d0981b-Owner,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-79d0981b-Owner,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-REP-27a95880-ReadWrite,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-27a95880-ReadWrite,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-27a95880-Owner,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-27a95880-Owner,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-REP-27a95880-Owner,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-REP-27a95880-Owner,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-REP-27a95880-Owner,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-REP-27a95880-ReadWrite,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-27a95880-ReadWrite,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-REP-aa42ddc2-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-aa42ddc2-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-e8882d9d-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-e8882d9d-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-e8882d9d-Read,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-e8882d9d-Read,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-e8882d9d-Read,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-e8882d9d-Read,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-e8882d9d-Read,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-e8882d9d-Read,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-24a32ba9-Read,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-24a32ba9-Read,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-24a32ba9-Read,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-24a32ba9-ReadWrite,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-24a32ba9-ReadWrite,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-REP-24a32ba9-ReadWrite,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-24a32ba9-ReadWrite,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-24a32ba9-ReadWrite,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-24a32ba9-ReadWrite,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-d3dbd2d3-ReadWrite,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-REP-d3dbd2d3-ReadWrite,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-d3dbd2d3-ReadWrite,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-REP-d3dbd2d3-ReadWrite,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-REP-d3dbd2d3-ReadWrite,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-d3dbd2d3-ReadWrite,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-REP-d3dbd2d3-ReadWrite,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-REP-d3dbd2d3-ReadWrite,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-REP-d3dbd2d3-ReadWrite,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-REP-03b89720-Owner,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-03b89720-Owner,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-REP-03b89720-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-03b89720-Owner,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-03b89720-Owner,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-03b89720-Owner,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-ef57909f-Read,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-REP-ef57909f-Read,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-ef57909f-Read,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-REP-ef57909f-Read,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-REP-ef57909f-Owner,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-ef57909f-Owner,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-68832dc3-Read,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-68832dc3-Read,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-68832dc3-Read,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-bfb7ba0d-Read,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-bfb7ba0d-Read,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-bfb7ba0d-Read,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-bfb7ba0d-Read,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-bfb7ba0d-Read,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-bfb7ba0d-ReadWrite,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-bfb7ba0d-ReadWrite,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-bfb7ba0d-ReadWrite,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-bfb7ba0d-ReadWrite,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-53c94305-Read,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-53c94305-Read,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-53c94305-Read,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-699507f1-Read,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-699507f1-Read,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-REP-699507f1-Read,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-699507f1-Read,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-699507f1-Read,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-699507f1-Read,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-699507f1-Read,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-7643de2b-Read,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-7643de2b-Read,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-7643de2b-ReadWrite,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-7643de2b-ReadWrite,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-REP-7643de2b-ReadWrite,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-REP-7643de2b-ReadWrite,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-REP-7643de2b-ReadWrite,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-REP-7643de2b-ReadWrite,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-7643de2b-ReadWrite,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-7643de2b-ReadWrite,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-7643de2b-ReadWrite,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-7643de2b-ReadWrite,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-6d89d295-Owner,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-6d89d295-Owner,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-6d89d295-Owner,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-6d89d295-Owner,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-6d89d295-Owner,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-6d89d295-Read,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-REP-6d89d295-Read,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-6d89d295-Read,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-REP-6d89d295-Read,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-REP-1214a2d6-Owner,UG-3CC272,Group,Captain,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-1214a2d6-Owner,UG-3CC272,Group,Captain,SF-FD292A,User,Gina Webster
+ATG-REP-1214a2d6-Owner,UG-3CC272,Group,Captain,SF-6D835A,User,Tyler Miles
+ATG-REP-1214a2d6-Read,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-1214a2d6-Read,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-REP-1214a2d6-Read,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-REP-1214a2d6-Read,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-REP-1214a2d6-Read,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-REP-1214a2d6-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-1214a2d6-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-8e2edb70-Read,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-8e2edb70-Read,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-REP-8e2edb70-Read,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-8e2edb70-Read,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-8e2edb70-Read,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-8e2edb70-Read,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-b8cdbd95-Read,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-REP-b8cdbd95-Read,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-b8cdbd95-Read,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-REP-b8cdbd95-Read,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-REP-0ef1f7f3-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-0ef1f7f3-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-c9d5560a-Owner,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-c9d5560a-Owner,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-c9d5560a-Owner,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-c9d5560a-Owner,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-c9d5560a-Owner,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-61eadd67-Read,UG-2C73C1,Group,Commander,SF-94F330,User,Peter Williams
+ATG-REP-61eadd67-Read,UG-2C73C1,Group,Commander,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-61eadd67-Read,UG-2C73C1,Group,Commander,SF-D1D5EF,User,Vincent Bates
+ATG-REP-61eadd67-Read,UG-2C73C1,Group,Commander,SF-85B4C5,User,Kimberly Williams
+ATG-REP-61eadd67-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-61eadd67-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-61eadd67-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-61eadd67-Owner,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-61eadd67-Owner,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-61eadd67-Owner,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-61eadd67-Owner,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-0a35809c-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-0a35809c-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-REP-0a35809c-Owner,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-0a35809c-Owner,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-0a35809c-Read,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-0a35809c-Read,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-0a35809c-Read,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-9e496bc5-ReadWrite,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-9e496bc5-ReadWrite,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-9e496bc5-ReadWrite,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-9e496bc5-ReadWrite,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-9e496bc5-ReadWrite,UG-DEFFB3,Group,Ensign,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-9e496bc5-ReadWrite,UG-DEFFB3,Group,Ensign,SF-924A68,User,Gabriel Jacobs
+ATG-REP-9e496bc5-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-9e496bc5-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-ed0ab0d9-Read,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-ed0ab0d9-Read,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-ed0ab0d9-Read,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-ed0ab0d9-Read,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-ed0ab0d9-Read,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-ed0ab0d9-Read,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-ed0ab0d9-Read,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-951dfdb8-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-951dfdb8-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-REP-303f2ec0-ReadWrite,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-303f2ec0-ReadWrite,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-303f2ec0-ReadWrite,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-303f2ec0-ReadWrite,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-303f2ec0-ReadWrite,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-303f2ec0-Read,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-303f2ec0-Read,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-303f2ec0-Read,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-177e9253-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-177e9253-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-177e9253-Read,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-177e9253-Read,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-REP-177e9253-Read,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-REP-177e9253-Read,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-REP-177e9253-Read,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-REP-dcddd287-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-dcddd287-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-dcddd287-ReadWrite,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-d4f27b45-Owner,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-d4f27b45-Owner,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-d4f27b45-Owner,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-22ddde72-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-22ddde72-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-REP-7a063dae-ReadWrite,UG-224BFB,Group,Science Officer,SF-9DE5A9,User,Sandra Sanchez
+ATG-REP-7a063dae-ReadWrite,UG-224BFB,Group,Science Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-7a063dae-ReadWrite,UG-224BFB,Group,Science Officer,SF-BF4214,User,Melissa Lee
+ATG-REP-7a063dae-ReadWrite,UG-224BFB,Group,Science Officer,SF-4BE42E,User,Sabrina Martin
+ATG-REP-7a063dae-ReadWrite,UG-224BFB,Group,Science Officer,SF-FD292A,User,Gina Webster
+ATG-REP-7a063dae-Read,UG-5A5753,Group,Security Officer,SF-E12219,User,Sean Hendricks
+ATG-REP-7a063dae-Read,UG-5A5753,Group,Security Officer,SF-D1D5EF,User,Vincent Bates
+ATG-REP-7a063dae-Read,UG-5A5753,Group,Security Officer,SF-500B65,User,Robin Jones
+ATG-REP-7a063dae-Read,UG-5A5753,Group,Security Officer,SF-52E89D,User,Tanner Jensen
+ATG-REP-211df42d-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-211df42d-ReadWrite,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles
+ATG-REP-211df42d-Owner,UG-43BC55,Group,Bridge Crew,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-211df42d-Owner,UG-43BC55,Group,Bridge Crew,SF-4E1026,User,Aaron Gonzalez
+ATG-REP-211df42d-Owner,UG-43BC55,Group,Bridge Crew,SF-500B65,User,Robin Jones
+ATG-REP-2c91b609-Owner,UG-690010,Group,Lieutenant,SF-94F330,User,Peter Williams
+ATG-REP-2c91b609-Owner,UG-690010,Group,Lieutenant,SF-924A68,User,Gabriel Jacobs
+ATG-REP-2c91b609-Read,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-2c91b609-Read,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-2c91b609-Read,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-2c91b609-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-D2B541,User,Sarah Harris
+ATG-REP-2c91b609-ReadWrite,UG-D5CE28,Group,Medical Officer,SF-00276C,User,Lori Taylor
+ATG-REP-99733d93-ReadWrite,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-99733d93-ReadWrite,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-99733d93-ReadWrite,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-674b98e9-Owner,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-674b98e9-Owner,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-674b98e9-Owner,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-fa00d97f-Owner,UG-661ACD,Group,Away Team,SF-6FD6FF,User,Kylie Coleman
+ATG-REP-fa00d97f-Owner,UG-661ACD,Group,Away Team,SF-00276C,User,Lori Taylor
+ATG-REP-fa00d97f-Owner,UG-661ACD,Group,Away Team,SF-FD292A,User,Gina Webster
+ATG-REP-fa00d97f-Owner,UG-661ACD,Group,Away Team,SF-924A68,User,Gabriel Jacobs
+ATG-REP-fa00d97f-Owner,UG-661ACD,Group,Away Team,SF-BF4214,User,Melissa Lee
+ATG-REP-fa00d97f-ReadWrite,UG-756300,Group,Engineering Officer,SF-6D835A,User,Tyler Miles
+ATG-REP-fa00d97f-ReadWrite,UG-756300,Group,Engineering Officer,SF-85B4C5,User,Kimberly Williams
+ATG-REP-fa00d97f-ReadWrite,UG-756300,Group,Engineering Officer,SF-924A68,User,Gabriel Jacobs
+ATG-REP-fa00d97f-Read,UG-CFB98C,Group,Lieutenant Commander,SF-BF4214,User,Melissa Lee
+ATG-REP-fa00d97f-Read,UG-CFB98C,Group,Lieutenant Commander,SF-6D835A,User,Tyler Miles

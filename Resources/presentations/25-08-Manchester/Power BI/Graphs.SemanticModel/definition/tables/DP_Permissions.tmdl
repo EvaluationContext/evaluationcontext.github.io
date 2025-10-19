@@ -1,0 +1,38 @@
+table DP_Permissions
+	lineageTag: 1b5551d0-e0d2-4502-961d-95a8fa10e46d
+
+	column permission
+		dataType: string
+		lineageTag: bfe2c7d4-ce5e-473b-8072-05c98146a1d0
+		summarizeBy: none
+		sourceColumn: permission
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 2,
+				  "kind": 1,
+				  "supportsMultipleValues": true,
+				  "selectAllValue": "__SelectAll__"
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DP_Permissions = m
+		mode: import
+		queryGroup: 'Dynamic Parameters'
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\permissions\access_to_item.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Inserted Text Before Delimiter" = Table.AddColumn(#"Promoted Headers", "Text Before Delimiter", each Text.BeforeDelimiter([accessType], " "), type text),
+				    #"Removed Columns" = Table.RemoveColumns(#"Inserted Text Before Delimiter",{"accessType"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Text Before Delimiter", "accessType"}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"permission"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

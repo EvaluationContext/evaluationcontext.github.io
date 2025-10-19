@@ -1,0 +1,288 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "734bf896aa035d0e903c",
+  "position": {
+    "x": 907.9532629083202,
+    "y": 611.95384752795212,
+    "z": 2000,
+    "height": 40.575200760005522,
+    "width": 39.910033534431655,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "actionButton",
+    "objects": {
+      "icon": [
+        {
+          "properties": {
+            "shapeType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'blank'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "lineTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "disabled"
+          }
+        }
+      ],
+      "text": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "topMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "leftMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "bottomMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "rightMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'🖊️'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'❌'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "disabled"
+          }
+        }
+      ],
+      "shape": [
+        {
+          "properties": {
+            "tileShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'rectangleRounded'"
+                }
+              }
+            },
+            "rectangleRoundedCurve": {
+              "expr": {
+                "Literal": {
+                  "Value": "15L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "fill": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'DataFunction'"
+                }
+              }
+            },
+            "dataFunction": {
+              "kind": "ItemLocation",
+              "byReference": {
+                "itemId": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'67d90437-e316-4abd-8c1d-1b7b17bba1af'"
+                    }
+                  }
+                },
+                "workspaceId": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'0191d5d7-172e-4169-a2f1-dc734bd7037a'"
+                    }
+                  }
+                }
+              },
+              "metadata": {
+                "dataFunction": {
+                  "name": "set_cell_value",
+                  "autoRefresh": true,
+                  "parameters": [
+                    {
+                      "name": "gameId",
+                      "dataType": "number",
+                      "isOptional": false,
+                      "type": "ValueParameter",
+                      "value": {
+                        "expr": {
+                          "Measure": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "_Measures"
+                              }
+                            },
+                            "Property": "Selected GameId"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "name": "position",
+                      "dataType": "number",
+                      "isOptional": false,
+                      "type": "SlicerParameter",
+                      "slicer": "a8708b7f916120b40131",
+                      "autoClear": false
+                    },
+                    {
+                      "name": "value",
+                      "dataType": "number",
+                      "isOptional": false,
+                      "type": "SlicerParameter",
+                      "slicer": "0949734bc2634b112c76",
+                      "autoClear": false
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "howCreated": "InsertVisualButton"
+}

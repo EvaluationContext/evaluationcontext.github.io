@@ -1,0 +1,33 @@
+relationship AutoDetected_7c6a484c-d14d-44dd-8644-da9fc496ec0a
+	fromColumn: 'Access To Items'.itemId
+	toColumn: Items.itemId
+
+relationship AutoDetected_2e1cae2f-4c16-4666-9350-606f85318030
+	fromColumn: Items.workspaceId
+	toColumn: Workspaces.workspaceId
+
+relationship 15c634c4-3db1-7b56-18e5-07d4245512b8
+	fromColumn: Items.itemId
+	toColumn: 'Semantic Models'.semanticModelId
+
+relationship ddaaeafa-1d4c-d132-f37f-e0b92f67f381
+	fromColumn: Items.itemId
+	toColumn: Reports.reportId
+
+relationship AutoDetected_cd9b4515-3d1d-43fa-9427-87fc062465d9
+	isActive: false
+	fromColumn: Reports.semanticModelId
+	toColumn: 'Semantic Models'.semanticModelId
+
+relationship AutoDetected_120bd647-f4fb-4df3-bf98-51d29d18346e
+	fromColumn: 'Access To Items'.principalId
+	toColumn: DP_Users.principalId
+
+relationship AutoDetected_806f55ab-0db9-4361-8c44-723ac492f12b
+	fromColumn: 'Access To Items'.permission
+	toColumn: DP_Permissions.permission
+
+relationship d35a6e4e-fe10-4c73-1823-894094216a51
+	fromColumn: Items.itemId
+	toColumn: DP_Items.itemId
+

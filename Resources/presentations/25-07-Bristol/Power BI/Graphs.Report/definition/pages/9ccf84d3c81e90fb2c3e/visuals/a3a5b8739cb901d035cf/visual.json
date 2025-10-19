@@ -1,0 +1,180 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "a3a5b8739cb901d035cf",
+  "position": {
+    "x": 1122.6216628096417,
+    "y": 627.40061472807179,
+    "z": 2000,
+    "height": 413.0647496634237,
+    "width": 769.94436964970669
+  },
+  "visual": {
+    "visualType": "socialNetworkGraph99E9F31DDFD7429BACA50118466E4D11",
+    "query": {
+      "queryState": {
+        "SourceColor": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "srcColour"
+                }
+              },
+              "queryRef": "Access To Items Edges.srcColour",
+              "nativeQueryRef": "srcColour"
+            }
+          ]
+        },
+        "SourceName": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "srcName"
+                }
+              },
+              "queryRef": "Access To Items Edges.srcName",
+              "nativeQueryRef": "srcName"
+            }
+          ]
+        },
+        "TargetName": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "dstName"
+                }
+              },
+              "queryRef": "Access To Items Edges.dstName",
+              "nativeQueryRef": "dstName"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "nodes": [
+        {
+          "properties": {
+            "nodeBorderWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Social Network Graph'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2feb96446ec9f4883260",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "Edge Selection"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "Permission Triplets",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "a"
+                        }
+                      },
+                      "Property": "Edge Selection"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "0L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "isHidden": true
+}

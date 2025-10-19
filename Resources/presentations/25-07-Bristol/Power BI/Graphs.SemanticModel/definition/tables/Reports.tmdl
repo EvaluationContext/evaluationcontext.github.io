@@ -1,0 +1,47 @@
+table Reports
+	lineageTag: ff8c6996-5633-4a90-9d42-0eddb19353ce
+
+	column reportId
+		dataType: string
+		isHidden
+		lineageTag: 61ee6deb-1e2b-4e84-b3bf-45118eb03c39
+		summarizeBy: none
+		sourceColumn: reportId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Report Name'
+		dataType: string
+		lineageTag: 472b47b8-584f-492a-b892-61a7394845c6
+		summarizeBy: none
+		sourceColumn: Report Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column semanticModelId
+		dataType: string
+		lineageTag: 7e4d5e91-c025-470a-b7a5-1d14a922df7e
+		summarizeBy: none
+		sourceColumn: semanticModelId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Reports = m
+		mode: import
+		queryGroup: permissions
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\permissions\reports.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"reportId", type text}, {"workspaceId", type text}, {"reportName", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"workspaceId"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"reportName", "Report Name"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

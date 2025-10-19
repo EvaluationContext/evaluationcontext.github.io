@@ -1,0 +1,91 @@
+table 'Physical Query Plan'
+	lineageTag: 155f9042-9d16-4d83-957d-2ccb7865e3d9
+
+	column srcid
+		dataType: int64
+		formatString: 0
+		lineageTag: 29eec045-12e9-42ca-8caf-c2e1e10b4b87
+		summarizeBy: none
+		sourceColumn: srcid
+
+		annotation SummarizationSetBy = User
+
+	column dstid
+		dataType: int64
+		formatString: 0
+		lineageTag: fab029bb-d21d-451e-a330-001d08e73306
+		summarizeBy: none
+		sourceColumn: dstid
+
+		annotation SummarizationSetBy = User
+
+	column operation
+		dataType: string
+		lineageTag: f05878b2-2143-485c-9154-a281f99dca21
+		summarizeBy: none
+		sourceColumn: operation
+
+		annotation SummarizationSetBy = Automatic
+
+	column operationShort
+		dataType: string
+		lineageTag: 5ee342f3-2fbd-4b95-a4f1-97cf15a8e386
+		summarizeBy: none
+		sourceColumn: operationShort
+
+		annotation SummarizationSetBy = Automatic
+
+	column operationType
+		dataType: string
+		lineageTag: aad17180-691c-4384-a14a-b9fad0314800
+		summarizeBy: none
+		sourceColumn: operationType
+
+		annotation SummarizationSetBy = Automatic
+
+	column isCache
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 657c5eee-b906-400c-8456-c0c4d45904ec
+		summarizeBy: none
+		sourceColumn: isCache
+
+		annotation SummarizationSetBy = Automatic
+
+	column level
+		dataType: int64
+		formatString: 0
+		lineageTag: 80d5f04a-f17c-4618-8f17-84185cb2112f
+		summarizeBy: none
+		sourceColumn: level
+
+		annotation SummarizationSetBy = User
+
+	column records
+		dataType: int64
+		formatString: 0
+		lineageTag: 63d90503-8cab-470f-b776-94388183b153
+		summarizeBy: none
+		sourceColumn: records
+
+		annotation SummarizationSetBy = User
+
+	partition 'Physical Query Plan' = m
+		mode: import
+		queryGroup: QueryPlan
+		source =
+				let
+				    Source = Json.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\queryPlan\queryPlan.json")),
+				    #"Converted to Table" = Table.FromRecords({Source}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table",{{"logical", type any}, {"physical", type any}}),
+				    #"Expanded physical" = Table.ExpandListColumn(#"Changed Type", "physical"),
+				    #"Removed Columns" = Table.RemoveColumns(#"Expanded physical",{"logical"}),
+				    #"Expanded physical1" = Table.ExpandRecordColumn(#"Removed Columns", "physical", {"srcid", "dstid", "operation", "operationShort", "operationType", "isCache", "level", "records"}, {"srcid", "dstid", "operation", "operationShort", "operationType", "isCache", "level", "records"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Expanded physical1",{{"srcid", Int64.Type}, {"dstid", Int64.Type}, {"records", Int64.Type}, {"level", Int64.Type}, {"isCache", type logical}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

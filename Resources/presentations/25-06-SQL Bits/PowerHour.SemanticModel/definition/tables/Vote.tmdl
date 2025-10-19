@@ -1,0 +1,49 @@
+table Vote
+	lineageTag: a713ea05-8435-459a-895b-771b4580be7f
+
+	column User
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 4ac5fd0e-8691-4f2f-847b-2c987fbb1c95
+		summarizeBy: none
+		sourceColumn: User
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeStart
+		dataType: dateTime
+		isNullable: false
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 283c314a-529a-4575-8d1c-d2e5f29dc85d
+		summarizeBy: none
+		sourceColumn: TimeStart
+
+		annotation SummarizationSetBy = Automatic
+
+	column TimeEnd
+		dataType: dateTime
+		isNullable: false
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f2134673-6c6b-49a5-84e4-f8cdbac2194a
+		summarizeBy: none
+		sourceColumn: TimeEnd
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Vote = m
+		mode: directQuery
+		queryGroup: 'SQL Server'
+		source =
+				let
+				    Source = Sql.Database("fazr2kwaq6cu7eggbo3jwhcjpa-6wgwvnar5tgedmvodxjrkxmcga.database.fabric.microsoft.com", "DB-Exercise-03365616-e5cd-496d-adf8-18e60a7fbd56"),
+				    dbo_Vote = Source{[Schema="dbo",Item="Vote"]}[Data]
+				in
+				    dbo_Vote
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

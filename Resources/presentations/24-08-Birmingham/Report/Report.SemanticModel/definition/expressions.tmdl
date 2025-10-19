@@ -1,0 +1,7 @@
+expression Parameter1 = "Local" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 7657334d-5f8d-4257-b03e-4e6ace39ec2b
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

@@ -1,0 +1,3 @@
+relationship AutoDetected_e7560448-b3c9-40b3-bc08-217b67a52333
+	fromColumn: Fact.C1
+	toColumn: Dimension.C1

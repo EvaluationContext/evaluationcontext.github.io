@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Sudoku"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "27d5d047-9169-4ac1-be2f-5fffa8d6da49"
+  }
+}

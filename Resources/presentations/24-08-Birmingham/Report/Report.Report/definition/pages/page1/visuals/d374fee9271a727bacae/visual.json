@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "d374fee9271a727bacae",
+  "position": {
+    "x": 44.137931034482754,
+    "y": 106.66666666666666,
+    "z": 0,
+    "width": 158.16091954022988,
+    "height": 356.78160919540227,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dimension"
+                    }
+                  },
+                  "Property": "C1"
+                }
+              },
+              "queryRef": "Dimension.C1",
+              "nativeQueryRef": "C1"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measures"
+                    }
+                  },
+                  "Property": "Sum C2"
+                }
+              },
+              "queryRef": "_measures.Sum C2",
+              "nativeQueryRef": "Sum C2"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

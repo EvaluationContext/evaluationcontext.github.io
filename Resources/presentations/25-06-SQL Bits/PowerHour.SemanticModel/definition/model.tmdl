@@ -1,0 +1,33 @@
+model Model
+	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup RealTime
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'SQL Server'
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.144.679.0 (25.06)+ef40146207b86a826d1c72a7727a743ee37450e9
+
+annotation PBI_QueryOrder = ["_Measures","Audio","HeartRate","Selector","Vote"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Audio
+ref table HeartRate
+ref table _Measures
+ref table Selector
+ref table Vote
+
+ref cultureInfo en-GB
+

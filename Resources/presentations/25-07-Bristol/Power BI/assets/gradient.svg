@@ -1,0 +1,63 @@
+<svg width="1920" height="1080" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="starTrekGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#141824;stop-opacity:1" /> 
+      <stop offset="50%" style="stop-color:#141824;stop-opacity:1" /> 
+      <stop offset="100%" style="stop-color:#443039;stop-opacity:1" /> 
+    </linearGradient>
+
+    <path id="tinyStar" d="M0.5,0 L0.618,0.382 L1,0.382 L0.691,0.618 L0.809,1 L0.5,0.764 L0.191,1 L0.309,0.618 L0,0.382 L0.382,0.382 Z" fill="white" />
+  </defs>
+  <rect x="0" y="0" width="100" height="100" fill="url(#starTrekGradient)"/>
+
+  <use href="#tinyStar" transform="translate(68.21, 62.77) scale(0.12)" opacity="0.67"/>
+  <use href="#tinyStar" transform="translate(48.29, 64.91) scale(0.11)" opacity="0.59"/>
+  <use href="#tinyStar" transform="translate(19.26, 30.69) scale(0.12)" opacity="0.61"/>
+  <use href="#tinyStar" transform="translate(73.57, 10.98) scale(0.08)" opacity="0.62"/>
+  <use href="#tinyStar" transform="translate(8.40, 96.06) scale(0.14)" opacity="0.94"/>
+  <use href="#tinyStar" transform="translate(93.97, 61.35) scale(0.12)" opacity="0.87"/>
+  <use href="#tinyStar" transform="translate(24.77, 85.34) scale(0.14)" opacity="0.91"/>
+  <use href="#tinyStar" transform="translate(85.80, 29.89) scale(0.09)" opacity="0.90"/>
+  <use href="#tinyStar" transform="translate(98.39, 11.53) scale(0.10)" opacity="0.60"/>
+  <use href="#tinyStar" transform="translate(21.43, 62.59) scale(0.08)" opacity="0.64"/>
+  <use href="#tinyStar" transform="translate(42.34, 50.84) scale(0.07)" opacity="0.45"/>
+  <use href="#tinyStar" transform="translate(77.58, 26.68) scale(0.12)" opacity="0.75"/>
+  <use href="#tinyStar" transform="translate(44.34, 18.23) scale(0.11)" opacity="0.82"/>
+  <use href="#tinyStar" transform="translate(14.07, 7.82) scale(0.08)" opacity="0.55"/>
+  <use href="#tinyStar" transform="translate(62.83, 39.46) scale(0.09)" opacity="0.69"/>
+  <use href="#tinyStar" transform="translate(56.77, 91.22) scale(0.14)" opacity="0.91"/>
+  <use href="#tinyStar" transform="translate(78.53, 56.55) scale(0.06)" opacity="0.30"/>
+  <use href="#tinyStar" transform="translate(32.84, 43.08) scale(0.11)" opacity="0.81"/>
+  <use href="#tinyStar" transform="translate(9.34, 46.54) scale(0.11)" opacity="0.55"/>
+  <use href="#tinyStar" transform="translate(35.59, 78.43) scale(0.09)" opacity="0.72"/>
+  <use href="#tinyStar" transform="translate(1.04, 25.10) scale(0.14)" opacity="0.84"/>
+  <use href="#tinyStar" transform="translate(89.70, 75.31) scale(0.08)" opacity="0.59"/>
+  <use href="#tinyStar" transform="translate(53.22, 5.09) scale(0.13)" opacity="0.86"/>
+  <use href="#tinyStar" transform="translate(71.05, 93.99) scale(0.09)" opacity="0.65"/>
+  <use href="#tinyStar" transform="translate(4.88, 59.83) scale(0.12)" opacity="0.85"/>
+  <use href="#tinyStar" transform="translate(66.52, 17.65) scale(0.08)" opacity="0.51"/>
+  <use href="#tinyStar" transform="translate(29.17, 9.77) scale(0.13)" opacity="0.73"/>
+  <use href="#tinyStar" transform="translate(16.71, 72.82) scale(0.09)" opacity="0.53"/>
+  <use href="#tinyStar" transform="translate(95.66, 40.51) scale(0.10)" opacity="0.80"/>
+  <use href="#tinyStar" transform="translate(40.06, 98.71) scale(0.09)" opacity="0.58"/>
+  <use href="#tinyStar" transform="translate(0.97, 79.52) scale(0.13)" opacity="0.78"/>
+  <use href="#tinyStar" transform="translate(58.33, 34.34) scale(0.11)" opacity="0.83"/>
+  <use href="#tinyStar" transform="translate(82.68, 88.08) scale(0.10)" opacity="0.70"/>
+  <use href="#tinyStar" transform="translate(37.49, 21.01) scale(0.12)" opacity="0.66"/>
+  <use href="#tinyStar" transform="translate(70.18, 49.33) scale(0.10)" opacity="0.71"/>
+  <use href="#tinyStar" transform="translate(51.90, 81.67) scale(0.07)" opacity="0.48"/>
+  <use href="#tinyStar" transform="translate(2.13, 2.76) scale(0.15)" opacity="0.96"/>
+  <use href="#tinyStar" transform="translate(91.73, 9.45) scale(0.09)" opacity="0.63"/>
+  <use href="#tinyStar" transform="translate(27.88, 54.21) scale(0.12)" opacity="0.89"/>
+  <use href="#tinyStar" transform="translate(75.12, 3.16) scale(0.11)" opacity="0.74"/>
+  <use href="#tinyStar" transform="translate(46.04, 37.07) scale(0.08)" opacity="0.52"/>
+  <use href="#tinyStar" transform="translate(12.56, 33.15) scale(0.10)" opacity="0.68"/>
+  <use href="#tinyStar" transform="translate(80.20, 44.75) scale(0.13)" opacity="0.92"/>
+  <use href="#tinyStar" transform="translate(60.10, 71.03) scale(0.07)" opacity="0.42"/>
+  <use href="#tinyStar" transform="translate(3.72, 86.89) scale(0.12)" opacity="0.76"/>
+  <use href="#tinyStar" transform="translate(20.00, 91.00) scale(0.10)" opacity="0.77"/>
+  <use href="#tinyStar" transform="translate(97.00, 30.00) scale(0.11)" opacity="0.88"/>
+  <use href="#tinyStar" transform="translate(15.00, 18.00) scale(0.09)" opacity="0.50"/>
+  <use href="#tinyStar" transform="translate(88.00, 52.00) scale(0.14)" opacity="0.95"/>
+  <use href="#tinyStar" transform="translate(50.00, 60.00) scale(0.08)" opacity="0.40"/>
+</svg>

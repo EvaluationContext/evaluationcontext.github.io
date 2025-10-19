@@ -1,0 +1,1713 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "Journey",
+  "name": "191675ede3754be57e11",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "4254962bb256f6f79b6e",
+      "563357991e22da3e637f",
+      "6e278118dede9bf0cd7e",
+      "a3a5b8739cb901d035cf"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "9ccf84d3c81e90fb2c3e",
+    "sections": {
+      "9ccf84d3c81e90fb2c3e": {
+        "visualContainers": {
+          "563357991e22da3e637f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f9db4bff13a8916c0475",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "a",
+                        "Entity": "Permission Triplets",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 2,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "a"
+                                  }
+                                },
+                                "Property": "Edge Selection"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "1L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "Edge Selection"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "6d2ff672bc954f81ede6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcName"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "1e6580b03b7d735d9ad4",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcType"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "06bcab9452a23736da02",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstName"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b74289caa70fc09a8fd3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstType"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "ForceGraph1449359463895",
+              "objects": {},
+              "activeProjections": {
+                "Source": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcName"
+                    }
+                  }
+                ],
+                "Target": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstName"
+                    }
+                  }
+                ]
+              },
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "6c047e04f0df497bd0b8": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "6e278118dede9bf0cd7e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "95c5fbe6ac5461ab2c2e",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "a",
+                        "Entity": "Permission Triplets",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 2,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "a"
+                                  }
+                                },
+                                "Property": "Edge Selection"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "1L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "Edge Selection"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "99d0b9170d9e88d10088",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcName"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "8177fec24dde2730b196",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "journeyGraph1859AB39DB23421488ADF752BCB05167",
+              "objects": {}
+            }
+          },
+          "a3a5b8739cb901d035cf": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "2feb96446ec9f4883260",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "a",
+                        "Entity": "Permission Triplets",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 1,
+                            "Left": {
+                              "Measure": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "a"
+                                  }
+                                },
+                                "Property": "Edge Selection"
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "0L"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "Edge Selection"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "6c855a9be6ab17e77eb0",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcColour"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "d4850c3e1a23ed61d0ec",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcName"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "674598a5620c62600eba",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "socialNetworkGraph99E9F31DDFD7429BACA50118466E4D11",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "afcbec581e556d81c493": {
+            "singleVisual": {
+              "visualType": "bookmarkNavigator",
+              "objects": {}
+            }
+          },
+          "f29fd3955768e11ac6da": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7dba3bc1b1d9b967815c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Principal Icon"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3ba8dc7584bef7d46dc6",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Access To Items"
+                        }
+                      },
+                      "Property": "principalName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Principal Icon"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "f76535038f5ddf45e08a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0bc72f1943e8a1c0895f",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "# Users"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "6756713ee3321452f9b8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "a3a46747b25f94623855",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Workspace Icon Large"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "aed5de957dfe9fc27d2f": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "bb189f81817d465758c6",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Item Icon"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "475ed71139fa17dbf53f",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "da31907a2169214487bf",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Access To Items"
+                        }
+                      },
+                      "Property": "permission"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Name"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "3fe94cb6812b46cb4871": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c42582a60353432957ba",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Workspaces"
+                        }
+                      },
+                      "Property": "Workspace Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6e3da24e261040b1eb9e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Type"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3d26ea3de939cb2fb6ae",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Workspaces"
+                        }
+                      },
+                      "Property": "Workspace Name"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Type"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Name"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Workspaces.Workspace Name"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Workspaces"
+                              }
+                            },
+                            "Property": "Workspace Name"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Items.Item Type"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Items"
+                              }
+                            },
+                            "Property": "Item Type"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Items.Item Name"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": [],
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'NCC-Discovery Bridge Command'"
+                            }
+                          }
+                        ],
+                        "isToggled": true,
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "'Semantic Model'"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          }
+                        ]
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'DS-Phoenix'"
+                            }
+                          }
+                        ],
+                        "isToggled": true,
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "'Semantic Model'"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          }
+                        ]
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'DS-Intrepid'"
+                            }
+                          }
+                        ],
+                        "isToggled": true,
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "'Report'"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          },
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "'Semantic Model'"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          }
+                        ]
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'DS-Voyager'"
+                            }
+                          }
+                        ],
+                        "isToggled": true,
+                        "children": [
+                          {
+                            "identityValues": [
+                              {
+                                "Literal": {
+                                  "Value": "'Semantic Model'"
+                                }
+                              }
+                            ],
+                            "isToggled": true
+                          }
+                        ]
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'USS-Odyssey'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'Starbase-Intrepid'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'NCC-Yorktown'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'NCC-Discovery'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "4a350ffc02f20871d101": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "628ecd88f44aa9dd048d": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c5487249cb76e3eee73f": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "bf3aafa73616bde58a20": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c9c53ea079345c1e3fd8": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6d49c0c96d90e5f4a913",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "User Icon Large"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "0c5fce9e233b884502af": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "049542c5404e521a77a7",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Access To Items"
+                        }
+                      },
+                      "Property": "principalType"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ff0f8da347da7c1865a9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Access To Items"
+                        }
+                      },
+                      "Property": "principalName"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Access To Items"
+                        }
+                      },
+                      "Property": "principalType"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Access To Items"
+                        }
+                      },
+                      "Property": "principalName"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Access To Items.principalType"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Access To Items"
+                              }
+                            },
+                            "Property": "principalType"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Access To Items.principalName"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": [],
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'User'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'Group'"
+                            }
+                          }
+                        ],
+                        "isToggled": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "30525ff93983907401ce": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "f22da6dc38e0ac5e4041",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Access To Items"
+                        }
+                      },
+                      "Property": "permission"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Access To Items"
+                        }
+                      },
+                      "Property": "permission"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Access To Items.permission"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": []
+                  }
+                }
+              ]
+            }
+          },
+          "a32b2fd57c52226cbe37": {
+            "filters": {
+              "byName": {
+                "7dc27e5f9e3820f8171a": {
+                  "name": "7dc27e5f9e3820f8171a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Type"
+                    }
+                  },
+                  "howCreated": 1
+                }
+              },
+              "byExpr": [
+                {
+                  "name": "9a6a8bf15a8ec002095d",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "_",
+                        "Entity": "_Measures",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "_"
+                                      }
+                                    },
+                                    "Property": "Item Icon"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Item Icon"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "7dbfd6fb4f327d93c528",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Workspaces"
+                        }
+                      },
+                      "Property": "Workspace Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "375841f9ecbd02578ee9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Name"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9a472fb3cbdc062203b7",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "# Users"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Workspaces"
+                        }
+                      },
+                      "Property": "Workspace Name"
+                    }
+                  }
+                },
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Name"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Workspaces"
+                        }
+                      },
+                      "Property": "Workspace Name"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Items"
+                        }
+                      },
+                      "Property": "Item Name"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "Workspaces.workspaceName"
+                      ],
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "Workspaces"
+                              }
+                            },
+                            "Property": "Workspace Name"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "Items.Item Name"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": [],
+                    "children": [
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'DS-Voyager Bridge'"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "identityValues": [
+                          {
+                            "Literal": {
+                              "Value": "'NCC-Discovery Bridge'"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "2e94323957412902b373": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "12ca3350987d5561aff5": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "8e7b7f5fb66908b3d804": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c406976e42956282929c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Key Icon"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "2c575095495596d73d3b": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "fa9610361a47151dee2c": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "c4d52d9ecbc207afb96a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "6a0b0dcb66ca6f0e0c18",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstId"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9baa95057046af86fed2",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstName"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "17afa51334e57db626e9",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstType"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "dd8c081c3f2e534cd6ae",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcId"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c9f719e35bb1913a0d3c",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcName"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "b09a12b4e07e5b9284aa",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcType"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "3a1616f78b725a6fe166",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "Edge Selection"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcId"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d99695d83188fa10ffaa": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "4254962bb256f6f79b6e": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3a1616f78b725a6fe166",
+                  "type": "Advanced",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "a",
+                        "Entity": "Permission Triplets",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "Not": {
+                            "Expression": {
+                              "Comparison": {
+                                "ComparisonKind": 0,
+                                "Left": {
+                                  "Measure": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Source": "a"
+                                      }
+                                    },
+                                    "Property": "Edge Selection"
+                                  }
+                                },
+                                "Right": {
+                                  "Literal": {
+                                    "Value": "null"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "Edge Selection"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "cd02a15a74a71dda5b03",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcId"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "2490198665f92819dfb5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcType"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "bbd5a3776a0376898134",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstId"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "df1adc66679f81b38992",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "dstType"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "989fc06f17850a4b5b89",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "accessToItemGroupId"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Permission Triplets"
+                        }
+                      },
+                      "Property": "srcType"
+                    }
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

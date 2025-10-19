@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "4a92c5f6e24a77eb1a2a",
+  "displayName": "PowerHour",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 960,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ddfa9a313f69e424bf4e",
+        "displayName": "HeartRate Datetime",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "HeartRate"
+              }
+            },
+            "Property": "Heart Rate Datetime"
+          }
+        },
+        "type": "RelativeTime",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "h",
+              "Entity": "HeartRate",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "h"
+                        }
+                      },
+                      "Property": "Heart Rate Datetime"
+                    }
+                  },
+                  "LowerBound": {
+                    "DateAdd": {
+                      "Expression": {
+                        "Now": {}
+                      },
+                      "Amount": -1,
+                      "TimeUnit": 7
+                    }
+                  },
+                  "UpperBound": {
+                    "Now": {}
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "86da20e3f3e5093db4b9",
+        "displayName": "Audio Datetime",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Audio"
+              }
+            },
+            "Property": "Audio Datetime"
+          }
+        },
+        "type": "RelativeTime",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "Audio",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Between": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "a"
+                        }
+                      },
+                      "Property": "Audio Datetime"
+                    }
+                  },
+                  "LowerBound": {
+                    "DateAdd": {
+                      "Expression": {
+                        "Now": {}
+                      },
+                      "Amount": -1,
+                      "TimeUnit": 7
+                    }
+                  },
+                  "UpperBound": {
+                    "Now": {}
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "objects": {
+    "pageRefresh": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "duration": {
+            "expr": {
+              "Literal": {
+                "Value": "'PT1S'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

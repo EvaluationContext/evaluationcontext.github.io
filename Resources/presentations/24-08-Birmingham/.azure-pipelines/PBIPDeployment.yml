@@ -1,0 +1,92 @@
+trigger:
+    branches:
+        include:
+        - release
+        - main
+# schedules:
+#   - cron: '0 0 * * *'
+#     displayName: daily prod
+#     branches:
+#       include:
+#       - main
+
+variables:
+  - name: pool_name
+    value: xxx
+  - name: svc_connection
+    value: xxxx
+  - name: kv
+    value: xxx
+  - name: secrets_filter
+    value: 'ARMCLIENTSECRET,ARMCLIENTID'
+  - name: tenant_id
+    value: xxx-xxx-xxx-xx
+  - ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+    - name: 'deploymentEnvironment'
+      value: prod
+  - ${{ elseif eq(variables['Build.SourceBranchName'], 'release') }}:
+    - name: 'deploymentEnvironment'
+      value: uat
+  - ${{ elseif eq(variables['Build.SourceBranchName'], 'merge') }}:
+    - name: 'deploymentEnvironment'
+      value: dev
+
+stages:
+  - stage: Deploy 
+    displayName: Deploy
+    jobs:
+    - deployment: Deploy
+      displayName: "Deploy"
+      pool: 
+        name: $(pool_name)
+        demands:
+          - deploy -equals green
+      environment: $(deploymentEnvironment)
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - checkout: self
+                path: 'self'
+                persistCredentials: true
+              - task: AzureKeyVault@1
+                displayName: retrieving creds
+                inputs:
+                  azureSubscription: $(svc_connection)
+                  keyVaultName: $(kv)
+                  secretsFilter: $(secrets_filter)              
+              - task: PowerShell@2
+                displayName: 'Deploy'
+                inputs:
+                  pwsh: true
+                  targetType: inline
+                  script: |
+                    Write-Host $(Build.SourceBranchName)
+                    Write-Host $(deploymentEnvironment)
+                    Write-Host "Installing FabricPS-PBIP.psm1 module"
+                    Import-Module -Name (Join-Path $(Build.SourcesDirectory) ".modules" "FabricPS-PBIP.psm1") -Force
+                    Write-Host "Getting SPN Token"
+                    Set-FabricAuthToken -servicePrincipalId $env:ARMCLIENTID -servicePrincipalSecret $env:ARMCLIENTSECRET -tenantId $env:TENANTID -reset
+                    $deploymentManifest = Get-Content '.deploymentManifest.json' | Out-String | ConvertFrom-Json -AsHashtable
+                    Write-Host "Overloading Semantic Model Parameters"
+                    try {
+                      foreach ( $semanticModel in $deploymentManifest.items.semanticModels.GetEnumerator() ) {
+                        foreach ( $parameter in $semanticModel.Value.environment['$(deploymentEnvironment)'].parameters.GetEnumerator() ) { 
+                            $path = $semanticModel.Value.path
+                            $path = "$pwd/$path"
+                            Write-Host $path   @{$parameter.Key = $parameter.Value}
+                            Set-SemanticModelParameters -path $path -Parameter @{$parameter.Key = $parameter.Value}
+                        }
+                      }
+                    }
+                    catch {Write-Host "Overload Parameters not found or misformed"}
+                    $workspaceName = $deploymentManifest.repo.environment['$(deploymentEnvironment)'].workspace
+                    $workspace = Get-FabricWorkspace -workspaceName $workspaceName
+                    $workspaceId = $workspace.id
+                    Write-Host "Target Deployment Workspace: $workspaceName ($workspaceId)" -ForegroundColor Green
+                    Write-Host "Deploying Items"
+                    Import-FabricItems -path $(Build.SourcesDirectory) -workspaceId $workspaceId
+                env:  
+                  ARMCLIENTID: $(ARMCLIENTID)
+                  ARMCLIENTSECRET: $(ARMCLIENTSECRET)
+                  TENANTID: $(tenant_id)

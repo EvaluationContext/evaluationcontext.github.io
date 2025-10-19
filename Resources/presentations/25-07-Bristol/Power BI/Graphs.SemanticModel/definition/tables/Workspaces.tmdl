@@ -1,0 +1,38 @@
+table Workspaces
+	lineageTag: 07651973-c444-4cb9-b151-cb4c68fd5bbd
+
+	column workspaceId
+		dataType: string
+		isHidden
+		lineageTag: 4f624908-ceed-42c1-827e-788b1031ae0f
+		summarizeBy: none
+		sourceColumn: workspaceId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Workspace Name'
+		dataType: string
+		lineageTag: 7b838c61-3837-4a8d-8cd0-aa8f0ddb5f76
+		summarizeBy: none
+		sourceColumn: Workspace Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Workspaces = m
+		mode: import
+		queryGroup: permissions
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\permissions\workspaces.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"workspaceId", type text}, {"workspaceName", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"workspaceName", "Workspace Name"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,9 +1,0 @@
----
-permalink: /robots.txt
-# The robots rules
----
-
-User-agent: *
-Allow: /
-
-Sitemap: {{ '/sitemap.xml' | absolute_url }}

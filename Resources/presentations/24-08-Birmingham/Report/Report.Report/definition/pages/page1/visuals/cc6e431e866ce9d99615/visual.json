@@ -1,0 +1,111 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "cc6e431e866ce9d99615",
+  "position": {
+    "x": 252.56704980842912,
+    "y": 107.89272030651341,
+    "z": 2000,
+    "width": 258.69731800766283,
+    "height": 356.78160919540227,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dimension"
+                    }
+                  },
+                  "Property": "C1"
+                }
+              },
+              "queryRef": "Dimension.C1",
+              "nativeQueryRef": "C1",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dates"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "dates.Year",
+              "nativeQueryRef": "Year"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fact"
+                    }
+                  },
+                  "Property": "C1"
+                }
+              },
+              "queryRef": "Fact.C1",
+              "nativeQueryRef": "C11"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_measures"
+                    }
+                  },
+                  "Property": "Sum C2"
+                }
+              },
+              "queryRef": "_measures.Sum C2",
+              "nativeQueryRef": "Sum C2"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_measures"
+                  }
+                },
+                "Property": "Sum C2"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,176 @@
+site_name: Evaluation Context
+site_url: https://evaluationcontext.github.io/
+repo_url: https://github.com/EvaluationContext/evaluationcontext.github.io
+repo_name: EvaluationContext
+site_author: Jake Duddy
+site_description: A blog about the Microsoft BI stack (Microsoft Fabric, Power BI, SQL, SSAS, DAX)
+copyright: >
+    Copyright &copy; 2024 - 2025 Jake Duddy -
+    <a href="/privacy/">Privacy Policy</a> -
+    <a href="#__consent">Change cookie settings</a>
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  favicon: assets/images/favicon.ico
+  logo: assets/images/avatar.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: pink
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: pink
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference  
+  features:
+    # - announce.dismiss
+    # - content.action.edit
+    # - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tooltips
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - navigation.footer
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.path
+    - toc.follow
+    # - toc.integrate
+  
+extra:
+  google_site_verification: SAsOJ1OUHiMcP4hI-eYBkBD6nbsLx6hc2nWjLqdCtd0
+  analytics:
+    provider: google
+    property: G-QLDJ0V4NT0
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/jakeduddy/
+      name: Jake Duddy
+    - icon: fontawesome/brands/github
+      link: https://github.com/EvaluationContext
+      name: EvaluationContext
+    - icon: material/microsoft
+      link: https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947
+      name: Fabric Community
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to measure and analyze how visitors interact with our site. 
+      This helps us understand what content is most valuable and improve your experience. 
+      You can change your preferences at any time.
+    actions:
+      - accept
+      - manage
+      - reject
+
+plugins:
+  - search
+  - charts
+  - glightbox
+  - blog:
+      # blog_toc: true
+      post_url_format: "{slug}"
+      blog_dir: .
+  # - rss:
+  #     match_path: "post/.*"
+  #     pretty_print: true
+  #     date_from_meta:
+  #       as_creation: data.created
+  #       as_update: date.updated
+
+extra_css:
+  - assets/css/codeblock.css
+  - assets/css/button.css
+  - assets/css/blogCards.css
+  - assets/css/posts.css
+  - assets/css/blogIndex.css
+  - assets/css/glightbox-custom.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/vega@5
+  - https://cdn.jsdelivr.net/npm/vega-lite@5
+  - https://cdn.jsdelivr.net/npm/vega-embed@6
+  - assets/js/lazy-images.js
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: vegalite
+          class: vegalite
+          format: !!python/name:mkdocs_charts_plugin.fences.fence_vegalite
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Blog: 
+      - index.md
+  - About: about.md
+  - Presentations: presentations.md
+  - Projects: projects.md

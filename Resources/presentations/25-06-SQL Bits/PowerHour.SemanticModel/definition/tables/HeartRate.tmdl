@@ -1,0 +1,41 @@
+table HeartRate
+	lineageTag: 8b1ad688-4bf3-467a-90f5-9d76543372a3
+
+	column BPM
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: da9a26ff-505a-4d2b-80b3-a7a53e6f11af
+		summarizeBy: sum
+		sourceColumn: BPM
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Heart Rate Datetime'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetimeoffset
+		lineageTag: 52a39acc-9402-4907-848e-4e9a21e932a3
+		summarizeBy: none
+		sourceColumn: Heart Rate Datetime
+
+		annotation SummarizationSetBy = Automatic
+
+	partition HeartRate = m
+		mode: directQuery
+		queryGroup: RealTime
+		source =
+				let
+				    Source = AzureDataExplorer.Contents("https://trd-tx333fxbjw5r2jqsc8.z3.kusto.fabric.microsoft.com", "PowerHour", "HeartRate | #(lf)extend trimmed_time_stamp = bin(client_timestamp, 1s) |#(lf)project-away client_timestamp", [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"source", "device_address", "data_type", "timestamp", "version", "EventProcessedUtcTime", "PartitionId", "EventEnqueuedUtcTime"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"trimmed_time_stamp", "Heart Rate Datetime"}, {"heart_rate_bpm", "BPM"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

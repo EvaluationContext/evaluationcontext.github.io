@@ -1,0 +1,198 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "6e278118dede9bf0cd7e",
+  "position": {
+    "x": 1127.864455000381,
+    "y": 627.40061472807179,
+    "z": 3000,
+    "height": 413.0647496634237,
+    "width": 769.94436964970669,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "journeyGraph1859AB39DB23421488ADF752BCB05167",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "srcName"
+                }
+              },
+              "queryRef": "Access To Items Edges.srcName",
+              "nativeQueryRef": "srcName"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "dstName"
+                }
+              },
+              "queryRef": "Access To Items Edges.dstName",
+              "nativeQueryRef": "dstName"
+            }
+          ]
+        },
+        "value": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "Edge Selection"
+                }
+              },
+              "queryRef": "Access To Items Edges.Edge Selection",
+              "nativeQueryRef": "Edge Selection"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "rootSettings": [
+        {
+          "properties": {
+            "showDataLabel": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labelSettings": [
+        {
+          "properties": {
+            "labelStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ShowData'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legendSettings": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Journey Chart'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "95c5fbe6ac5461ab2c2e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "Edge Selection"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "a",
+              "Entity": "Permission Triplets",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 2,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "a"
+                        }
+                      },
+                      "Property": "Edge Selection"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "1L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+table 'Access To Items'
+	lineageTag: 8f47ae86-e2b2-4ca5-8273-ac892b57ba55
+
+	column itemId
+		dataType: string
+		isHidden
+		lineageTag: f156b1ea-5419-4315-92a2-703c4d4f34e3
+		summarizeBy: none
+		sourceColumn: itemId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column principalId
+		dataType: string
+		lineageTag: cce080c6-7dc0-4279-81a6-5311a0374173
+		summarizeBy: none
+		sourceColumn: principalId
+
+		annotation SummarizationSetBy = Automatic
+
+	column principalType
+		dataType: string
+		lineageTag: 774281a3-185a-47a6-8614-24cd6eec48f7
+		summarizeBy: none
+		sourceColumn: principalType
+
+		annotation SummarizationSetBy = Automatic
+
+	column permission
+		dataType: string
+		lineageTag: 655329b7-27e8-4578-b8c3-efd3c3aabbf0
+		summarizeBy: none
+		sourceColumn: permission
+
+		annotation SummarizationSetBy = Automatic
+
+	column accessToItemGroupId
+		dataType: string
+		lineageTag: 89a84ec6-84cc-4920-91e2-9e0ce5c18d13
+		summarizeBy: none
+		sourceColumn: accessToItemGroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column principalName
+		dataType: string
+		lineageTag: 9781d219-158e-4e68-a653-ee4d0f6504ab
+		summarizeBy: none
+		sourceColumn: principalName
+
+		annotation SummarizationSetBy = Automatic
+
+	column accessType
+		dataType: string
+		lineageTag: 12fb72db-3a09-4410-b8cc-b6ab99a886f4
+		summarizeBy: none
+		sourceColumn: accessType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Access To Items' = m
+		mode: import
+		queryGroup: permissions
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\permissions\access_to_item.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Inserted Text Before Delimiter" = Table.AddColumn(#"Promoted Headers", "Text Before Delimiter", each Text.BeforeDelimiter([accessType], " "), type text),
+				    #"Removed Columns" = Table.RemoveColumns(#"Inserted Text Before Delimiter",{"accessType"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"Text Before Delimiter", "accessType"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

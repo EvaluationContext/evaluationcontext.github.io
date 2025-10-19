@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "PowerHour"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9868cf0c-1a9d-4eed-8ba2-c4730bb1d7c6"
+  }
+}

@@ -1,0 +1,72 @@
+itemId,itemName,itemType,workspaceId,semanticModelId
+WKS-5b6962ef,USS-Odyssey,Workspace,WKS-5b6962ef,
+WKS-d6a39ae5,Starbase-Intrepid,Workspace,WKS-d6a39ae5,
+WKS-a8083ba1,USS-Odyssey,Workspace,WKS-a8083ba1,
+WKS-bf7914a3,NCC-Yorktown,Workspace,WKS-bf7914a3,
+WKS-179874b1,NCC-Discovery,Workspace,WKS-179874b1,
+SEM-1821cc6c,Phoenix Beta,Semantic Model,WKS-5b6962ef,SEM-1821cc6c
+SEM-18ba0dae,Reliant Gamma,Semantic Model,WKS-5b6962ef,SEM-18ba0dae
+SEM-9bc1467b,Odyssey Epsilon,Semantic Model,WKS-5b6962ef,SEM-9bc1467b
+SEM-e72cdcc2,Intrepid Prime,Semantic Model,WKS-5b6962ef,SEM-e72cdcc2
+SEM-1de02fa3,Reliant Gamma,Semantic Model,WKS-d6a39ae5,SEM-1de02fa3
+SEM-5231095a,Enterprise Prime,Semantic Model,WKS-d6a39ae5,SEM-5231095a
+SEM-90557bc9,Excelsior Zeta,Semantic Model,WKS-d6a39ae5,SEM-90557bc9
+SEM-a92061c8,Excelsior Prime,Semantic Model,WKS-d6a39ae5,SEM-a92061c8
+SEM-35e88b64,Reliant Prime,Semantic Model,WKS-d6a39ae5,SEM-35e88b64
+SEM-cdb96f07,Excelsior Epsilon,Semantic Model,WKS-a8083ba1,SEM-cdb96f07
+SEM-b2d58a8d,Phoenix Prime,Semantic Model,WKS-a8083ba1,SEM-b2d58a8d
+SEM-fc3e5467,Voyager Beta,Semantic Model,WKS-a8083ba1,SEM-fc3e5467
+SEM-400adc1e,Voyager Zeta,Semantic Model,WKS-bf7914a3,SEM-400adc1e
+SEM-f61ae4f9,Phoenix Auxiliary,Semantic Model,WKS-179874b1,SEM-f61ae4f9
+SEM-ff0c559f,Voyager Beta,Semantic Model,WKS-179874b1,SEM-ff0c559f
+SEM-18770829,Reliant Prime,Semantic Model,WKS-179874b1,SEM-18770829
+REP-a63a7063,Phoenix BetaYorktown 1,Report,WKS-5b6962ef,SEM-1821cc6c
+REP-10bd7fab,Phoenix BetaEnterprise 5,Report,WKS-5b6962ef,SEM-1821cc6c
+REP-68f2b0a1,Phoenix BetaOdyssey 6,Report,WKS-5b6962ef,SEM-1821cc6c
+REP-0fe5c64f,Phoenix BetaDiscovery 2,Report,WKS-5b6962ef,SEM-1821cc6c
+REP-e2e2649f,Reliant GammaDiscovery 4,Report,WKS-5b6962ef,SEM-18ba0dae
+REP-bcc5c7ee,Reliant GammaPhoenix 4,Report,WKS-5b6962ef,SEM-18ba0dae
+REP-640d2234,Odyssey EpsilonPhoenix 6,Report,WKS-5b6962ef,SEM-9bc1467b
+REP-1720d3a1,Odyssey EpsilonDefiant 9,Report,WKS-5b6962ef,SEM-9bc1467b
+REP-26d555aa,Intrepid PrimeReliant 9,Report,WKS-5b6962ef,SEM-e72cdcc2
+REP-50b3a470,Intrepid PrimeDiscovery 3,Report,WKS-5b6962ef,SEM-e72cdcc2
+REP-c0d25e7c,Intrepid PrimeIntrepid 8,Report,WKS-5b6962ef,SEM-e72cdcc2
+REP-aa9f7044,Intrepid PrimeDefiant 9,Report,WKS-5b6962ef,SEM-e72cdcc2
+REP-80f99fa4,Reliant GammaPhoenix 8,Report,WKS-d6a39ae5,SEM-1de02fa3
+REP-41223b4c,Reliant GammaReliant 2,Report,WKS-d6a39ae5,SEM-1de02fa3
+REP-f2b1a7b8,Reliant GammaIntrepid 3,Report,WKS-d6a39ae5,SEM-1de02fa3
+REP-79d0981b,Reliant GammaIntrepid 3,Report,WKS-d6a39ae5,SEM-1de02fa3
+REP-27a95880,Enterprise PrimeOdyssey 10,Report,WKS-d6a39ae5,SEM-5231095a
+REP-aa42ddc2,Enterprise PrimeExcelsior 5,Report,WKS-d6a39ae5,SEM-5231095a
+REP-e8882d9d,Enterprise PrimeDefiant 8,Report,WKS-d6a39ae5,SEM-5231095a
+REP-24a32ba9,Excelsior ZetaDiscovery 2,Report,WKS-d6a39ae5,SEM-90557bc9
+REP-d3dbd2d3,Excelsior ZetaExcelsior 1,Report,WKS-d6a39ae5,SEM-90557bc9
+REP-03b89720,Excelsior ZetaDiscovery 3,Report,WKS-d6a39ae5,SEM-90557bc9
+REP-ef57909f,Excelsior ZetaEnterprise 10,Report,WKS-d6a39ae5,SEM-90557bc9
+REP-68832dc3,Excelsior ZetaExcelsior 6,Report,WKS-d6a39ae5,SEM-90557bc9
+REP-bfb7ba0d,Excelsior PrimeYorktown 8,Report,WKS-d6a39ae5,SEM-a92061c8
+REP-53c94305,Excelsior PrimeDefiant 8,Report,WKS-d6a39ae5,SEM-a92061c8
+REP-699507f1,Excelsior PrimeIntrepid 8,Report,WKS-d6a39ae5,SEM-a92061c8
+REP-7643de2b,Excelsior PrimeEnterprise 8,Report,WKS-d6a39ae5,SEM-a92061c8
+REP-6d89d295,Excelsior PrimeDiscovery 6,Report,WKS-d6a39ae5,SEM-a92061c8
+REP-1214a2d6,Reliant PrimeYorktown 3,Report,WKS-d6a39ae5,SEM-35e88b64
+REP-8e2edb70,Reliant PrimeOdyssey 1,Report,WKS-d6a39ae5,SEM-35e88b64
+REP-b8cdbd95,Excelsior EpsilonPhoenix 8,Report,WKS-a8083ba1,SEM-cdb96f07
+REP-0ef1f7f3,Excelsior EpsilonDefiant 5,Report,WKS-a8083ba1,SEM-cdb96f07
+REP-c9d5560a,Phoenix PrimeExcelsior 9,Report,WKS-a8083ba1,SEM-b2d58a8d
+REP-61eadd67,Voyager BetaOdyssey 6,Report,WKS-a8083ba1,SEM-fc3e5467
+REP-0a35809c,Voyager BetaIntrepid 4,Report,WKS-a8083ba1,SEM-fc3e5467
+REP-9e496bc5,Voyager BetaDefiant 4,Report,WKS-a8083ba1,SEM-fc3e5467
+REP-ed0ab0d9,Voyager BetaIntrepid 4,Report,WKS-a8083ba1,SEM-fc3e5467
+REP-951dfdb8,Voyager BetaExcelsior 6,Report,WKS-a8083ba1,SEM-fc3e5467
+REP-303f2ec0,Voyager ZetaVoyager 9,Report,WKS-bf7914a3,SEM-400adc1e
+REP-177e9253,Voyager ZetaExcelsior 10,Report,WKS-bf7914a3,SEM-400adc1e
+REP-dcddd287,Voyager ZetaVoyager 7,Report,WKS-bf7914a3,SEM-400adc1e
+REP-d4f27b45,Voyager ZetaDiscovery 7,Report,WKS-bf7914a3,SEM-400adc1e
+REP-22ddde72,Voyager ZetaReliant 2,Report,WKS-bf7914a3,SEM-400adc1e
+REP-7a063dae,Phoenix AuxiliaryPhoenix 4,Report,WKS-179874b1,SEM-f61ae4f9
+REP-211df42d,Phoenix AuxiliaryDiscovery 9,Report,WKS-179874b1,SEM-f61ae4f9
+REP-2c91b609,Voyager BetaIntrepid 1,Report,WKS-179874b1,SEM-ff0c559f
+REP-99733d93,Voyager BetaDefiant 10,Report,WKS-179874b1,SEM-ff0c559f
+REP-674b98e9,Voyager BetaDefiant 1,Report,WKS-179874b1,SEM-ff0c559f
+REP-fa00d97f,Reliant PrimePhoenix 5,Report,WKS-179874b1,SEM-18770829

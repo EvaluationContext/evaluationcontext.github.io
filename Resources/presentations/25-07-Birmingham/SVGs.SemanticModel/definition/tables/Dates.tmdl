@@ -1,0 +1,48 @@
+table Dates
+	lineageTag: dfb97b6e-adef-4058-9651-31c65ad97049
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: dd-mmm-yy
+		lineageTag: 7f698adb-13ba-43d1-93b2-82c1892fa429
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column Year
+		formatString: 0
+		lineageTag: b77f411c-58c7-4eaa-a687-a5d1b2a30d48
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = User
+
+	column 'Year Month'
+		formatString: mmm-yy
+		lineageTag: bbbf6510-7e2b-40ca-abd5-ecbcc929e695
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year Month]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	partition Dates = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS(
+				    CALENDARAUTO(),
+				    "Year", YEAR( [Date] ),
+				    "Year Month", EOMONTH( [Date], 0 )
+				)
+
+	annotation PBI_Id = 3e0323da1e5e410b8ff06b69423745a2
+

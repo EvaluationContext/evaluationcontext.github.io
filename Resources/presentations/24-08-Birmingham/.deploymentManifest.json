@@ -1,0 +1,21 @@
+{
+    "repo": {
+        "environment": {
+            "dev": {"workspace": "Birmingham User Group [dev]"},
+            "uat": {"workspace": "Birmingham User Group [uat]"},
+            "prod": {"workspace": "Birmingham User Group"}
+        }
+    },
+    "items":{
+        "semanticModels": {
+            "Report.SemanticModel": {
+                "path": "Report/Report.SemanticModel",
+                "environment":{
+                    "dev": {"parameters": {"Parameter1": "dev"}},
+                    "uat": {"parameters": {"Parameter1": "uat"}},
+                    "prod": {"parameters": {"Parameter1": "prod"}}
+                }
+            }
+        }
+    }
+}

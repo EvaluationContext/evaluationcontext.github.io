@@ -1,0 +1,44 @@
+table DP_Items
+	lineageTag: 889401d0-438e-4ebb-8fab-ce06b65d3d39
+
+	column itemId
+		dataType: string
+		lineageTag: 9718f50a-20e7-420c-a42f-2836a593d2ec
+		summarizeBy: none
+		sourceColumn: itemId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Name'
+		dataType: string
+		lineageTag: 10e9244b-cae3-4f31-8a79-ed1cca944d57
+		summarizeBy: none
+		sourceColumn: Item Name
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 2,
+				  "kind": 1,
+				  "supportsMultipleValues": true,
+				  "selectAllValue": "__SelectAll__"
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DP_Items = m
+		mode: import
+		queryGroup: 'Dynamic Parameters'
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\permissions\items.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"itemId", type text}, {"itemName", type text}, {"itemType", type text}, {"workspaceId", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"itemName", "Item Name"}, {"itemType", "Item Type"}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"Item Type", "workspaceId", "semanticModelId"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

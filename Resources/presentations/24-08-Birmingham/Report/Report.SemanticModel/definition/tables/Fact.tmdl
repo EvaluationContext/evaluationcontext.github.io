@@ -1,0 +1,47 @@
+table Fact
+	lineageTag: 6c4f3ed6-2972-4ab1-b419-795d041cbf75
+
+	column C1
+		dataType: string
+		lineageTag: 37cc868e-8614-44fa-9abc-f5c25411200b
+		summarizeBy: none
+		sourceColumn: C1
+
+		annotation SummarizationSetBy = Automatic
+
+	column C2
+		dataType: int64
+		formatString: 0
+		lineageTag: 47db80cf-19c2-4ee3-a440-d7bdc1ebde68
+		summarizeBy: none
+		sourceColumn: C2
+
+		annotation SummarizationSetBy = User
+
+	column date
+		dataType: dateTime
+		formatString: dd-mmm-yy
+		lineageTag: a74168fb-95ae-4197-b924-86e247793e3c
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	partition Fact = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\jhd74\Documents\Presentations\User Groups\Birmingham_Aug24\Report\data.xlsx"), null, true),
+				    Table1_Table = Source{[Item="Table1",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Table1_Table,{{"C1", type text}, {"C2", Int64.Type}, {"date", type date}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

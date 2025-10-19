@@ -1,0 +1,51 @@
+table dates
+	lineageTag: 18e631a5-7319-4e41-b1e1-bbd5713af9d3
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 980eb52c-2120-4746-be43-01a6299b9306
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 004e2947-cc4d-445a-99da-dd01cfb4e567
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = User
+
+	column 'Year Month'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 38286579-3a59-4402-b8d1-52c244f88463
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Year Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dates = calculated
+		mode: import
+		source =
+				
+				var startdt = DATE( YEAR( TODAY() ) -1, 1, 1 )
+				var enddt = DATE( YEAR( TODAY() ) + 2, 1, 1 ) -1
+				return
+				ADDCOLUMNS(
+				    CALENDAR( startdt, enddt )
+				    ,"Year", YEAR( [Date] )
+				    ,"Year Month", EOMONTH( [Date], 0 )
+				)
+
+	annotation PBI_Id = 3ac2ec82b88742efa7e64530731fc4f4
+

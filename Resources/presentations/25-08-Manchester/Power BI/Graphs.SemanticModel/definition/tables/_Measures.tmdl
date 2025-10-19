@@ -1,0 +1,217 @@
+table _Measures
+	lineageTag: 7b808a54-3d82-48df-ba0f-8e74275998b3
+
+	measure '# Items' = COUNTROWS( Items )
+		formatString: 0
+		displayFolder: Items
+		lineageTag: 2ad3b5e5-388e-45b6-8e05-6a25102af498
+
+	measure '# Reports' =
+			
+			CALCULATE(
+			    [# Items]
+			    ,Items[Item Type] = "Report"
+			)
+		formatString: 0
+		displayFolder: Items
+		lineageTag: ab1a57be-deaa-428c-b3ad-5fea75988f4f
+
+	measure '# Semantic Models' =
+			
+			CALCULATE(
+			    [# Items],
+			    Items[Item Type] = "Semantic Model"
+			)
+		formatString: 0
+		displayFolder: Items
+		lineageTag: e8815824-4369-4d9b-a83f-fd375751f4af
+
+	measure '# Workspaces' =
+			
+			CALCULATE(
+			    [# Items]
+			    ,Items[Item Type] = "Workspace"
+			)
+		formatString: 0
+		displayFolder: Items
+		lineageTag: 416b1b50-0012-46aa-86dd-a64388c398f7
+
+	measure 'Group Icon' =
+			
+			"data:image/svg+xml;utf8,
+			<svg width='20' height='20' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'>
+			<path fill-rule='evenodd' clip-rule='evenodd' d='M16 24C20.4183 24 24 20.4183 24 16C24 11.5817 20.4183 8 16 8C11.5817 8 8 11.5817 8 16C8 20.4183 11.5817 24 16 24ZM6.75 27C4.67893 27 3 28.6789 3 30.75V32C3 32 3 41 16 41C29 41 29 32 29 32V30.75C29 28.6789 27.3211 27 25.25 27H6.75Z' fill='#B1B3B3'/>
+			<path d='M28.6738 38.0889C30.0503 38.6468 31.793 39 33.9992 39C44.4992 39 44.4992 31 44.4992 31V30.75C44.4992 28.6789 42.8202 27 40.7492 27H29.6074C30.4743 28.0068 30.9983 29.3172 30.9983 30.75L30.9983 32.0049L30.9983 32.01L30.9983 32.0208L30.9981 32.0447C30.9978 32.0617 30.9975 32.0807 30.997 32.1017C30.996 32.1437 30.9942 32.1936 30.9913 32.2511C30.9855 32.3659 30.9751 32.5112 30.9565 32.6829C30.9194 33.0252 30.8492 33.4788 30.7157 34.0071C30.4495 35.0608 29.921 36.4513 28.8695 37.8383C28.8058 37.9224 28.7406 38.0059 28.6738 38.0889Z' fill='#0078D4'/>
+			<path d='M34 24C37.3137 24 40 21.3137 40 18C40 14.6863 37.3137 12 34 12C30.6863 12 28 14.6863 28 18C28 21.3137 30.6863 24 34 24Z' fill='#0078D4'/>
+			</svg>
+			"
+		isHidden
+		displayFolder: Icons\Defs
+		lineageTag: fa925ebd-7199-4289-b0d2-25895968d9e6
+		dataCategory: ImageUrl
+
+		changedProperty = IsHidden
+
+	measure 'User Icon' =
+			
+			"data:image/svg+xml;utf8,
+			<svg width='20' height='20' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'>
+			<path d='M24 4C18.4772 4 14 8.47715 14 14C14 19.5228 18.4772 24 24 24C29.5228 24 34 19.5228 34 14C34 8.47715 29.5228 4 24 4ZM12.2499 28C9.90326 28 8.00002 29.9013 8 32.2489L8 33C8 36.7555 9.94167 39.5669 12.9202 41.3802C15.8491 43.1633 19.7861 44 24 44C28.2139 44 32.1509 43.1633 35.0798 41.3802C38.0583 39.5669 40 36.7555 40 33L40 32.2487C40 29.9011 38.0967 28 35.7502 28H12.2499Z' fill='#B1B3B3'/>
+			</svg>"
+		isHidden
+		displayFolder: Icons\Defs
+		lineageTag: 66c14307-1626-49d1-98f7-c5a3ce3f35a1
+		dataCategory: ImageUrl
+
+		changedProperty = IsHidden
+
+	measure 'Principal Icon' =
+			
+			SWITCH(
+			    MAX( 'Access To Items'[principalType] ),
+			    "User",     [User Icon],
+			    "Group",    [Group Icon]
+			)
+		displayFolder: Icons
+		lineageTag: 8ba6791e-bc78-48b8-b228-aaaba4a8fd7e
+		dataCategory: ImageUrl
+
+		changedProperty = IsHidden
+
+	measure 'Semantic Model Icon' =
+			
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 32 32' fill='currentColor'>
+			<path fill='url(#icon-fd847b6b3886c2ad__icon-c06e0e4c52e9c301__a)' d='M3 6.5A3.5 3.5 0 0 1 6.5 3h19A3.5 3.5 0 0 1 29 6.5v19a3.5 3.5 0 0 1-3.5 3.5h-19A3.5 3.5 0 0 1 3 25.5v-19Z'/><path fill='url(#icon-69e66081eb178eae__icon-fddeca5a3c10ce59__b)' fill-opacity='.2' d='M3 6.5A3.5 3.5 0 0 1 6.5 3h19A3.5 3.5 0 0 1 29 6.5v19a3.5 3.5 0 0 1-3.5 3.5h-19A3.5 3.5 0 0 1 3 25.5v-19Z'/><path fill='url(#icon-a14ddb700327d9d1__icon-02ad71933e4f0198__c)' fill-rule='evenodd' d='M25.5 4h-19A2.5 2.5 0 0 0 4 6.5v19A2.5 2.5 0 0 0 6.5 28h19a2.5 2.5 0 0 0 2.5-2.5v-19A2.5 2.5 0 0 0 25.5 4Zm-19-1A3.5 3.5 0 0 0 3 6.5v19A3.5 3.5 0 0 0 6.5 29h19a3.5 3.5 0 0 0 3.5-3.5v-19A3.5 3.5 0 0 0 25.5 3h-19Z' clip-rule='evenodd'/><path fill='url(#icon-7afd09aed9c113e1__icon-31d87378e63ed6b2__d)' d='M9.75 14.5a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5Z'/><path fill='url(#icon-4856dd471bad1bac__icon-4de56e70684b2045__e)' d='M16 14.5a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5Z'/><path fill='url(#icon-60c47860e0073ad0__icon-b1145ffa6f06f9c7__f)' d='M11.5 19.25a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0Z'/><path fill='url(#icon-3870c8090e1ca415__icon-7a5ba509aeb903b4__g)' d='M16 21a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5Z'/><path fill='url(#icon-c70e3c74f6d80475__icon-3e416b099e4da912__h)' d='M24 12.75a1.75 1.75 0 1 1-3.5 0 1.75 1.75 0 0 1 3.5 0Z'/><defs><linearGradient id='icon-fd847b6b3886c2ad__icon-c06e0e4c52e9c301__a' x1='10.222' x2='13.511' y1='3' y2='29.311' gradientUnits='userSpaceOnUse'><stop stop-color='#fff'/><stop offset='1' stop-color='#EBEBEB'/></linearGradient><linearGradient id='icon-a14ddb700327d9d1__icon-02ad71933e4f0198__c' x1='11.396' x2='14.897' y1='3' y2='29.256' gradientUnits='userSpaceOnUse'><stop stop-color='#BBB'/><stop offset='1' stop-color='#888'/></linearGradient><linearGradient id='icon-7afd09aed9c113e1__icon-31d87378e63ed6b2__d' x1='8' x2='16.989' y1='11' y2='25.382' gradientUnits='userSpaceOnUse'><stop stop-color='#7751B8'/><stop offset='1' stop-color='#5A409C'/></linearGradient><linearGradient id='icon-4856dd471bad1bac__icon-4de56e70684b2045__e' x1='8' x2='16.989' y1='11' y2='25.382' gradientUnits='userSpaceOnUse'><stop stop-color='#7751B8'/><stop offset='1' stop-color='#5A409C'/></linearGradient><linearGradient id='icon-60c47860e0073ad0__icon-b1145ffa6f06f9c7__f' x1='8' x2='16.989' y1='11' y2='25.382' gradientUnits='userSpaceOnUse'><stop stop-color='#7751B8'/><stop offset='1' stop-color='#5A409C'/></linearGradient><linearGradient id='icon-3870c8090e1ca415__icon-7a5ba509aeb903b4__g' x1='8' x2='16.989' y1='11' y2='25.382' gradientUnits='userSpaceOnUse'><stop stop-color='#7751B8'/><stop offset='1' stop-color='#5A409C'/></linearGradient><linearGradient id='icon-c70e3c74f6d80475__icon-3e416b099e4da912__h' x1='8' x2='16.989' y1='11' y2='25.382' gradientUnits='userSpaceOnUse'><stop stop-color='#7751B8'/><stop offset='1' stop-color='#5A409C'/></linearGradient><radialGradient id='icon-69e66081eb178eae__icon-fddeca5a3c10ce59__b' cx='0' cy='0' r='1' gradientTransform='rotate(56.31 -3.476 15.448) scale(24.7381 21.408)' gradientUnits='userSpaceOnUse'><stop offset='.177' stop-color='#fff'/><stop offset='1' stop-color='#B8B8B8'/></radialGradient></defs></svg>"
+		isHidden
+		displayFolder: Icons\Defs
+		lineageTag: 6dedf33a-f807-410b-9206-15362d84410e
+		dataCategory: ImageUrl
+
+		changedProperty = IsHidden
+
+	measure 'Report Icon' =
+			
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 40 40' fill='currentColor'>
+			<path fill='url(#icon-70bcf6d0f55a2942__icon-4242538967df01e6__a)' d='M4 8a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Z'/><path fill='url(#icon-dc0b139118bb2d4d__icon-c6342d3cd3764fa8__b)' fill-opacity='.2' d='M4 8a4 4 0 0 1 4-4h24a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Z'/><path fill='url(#icon-7b3712e074eecb56__icon-2bf0fd79d4c93d1a__c)' fill-rule='evenodd' d='M32 5H8a3 3 0 0 0-3 3v24a3 3 0 0 0 3 3h24a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3ZM8 4a4 4 0 0 0-4 4v24a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H8Z' clip-rule='evenodd'/><path fill='url(#icon-59b8238f8ecc5f62__icon-c196a20213c1c3ba__d)' d='M14.219 11a.75.75 0 0 1 .75.75v16.5a.75.75 0 0 1-1.5 0v-16.5a.75.75 0 0 1 .75-.75Z'/><path fill='url(#icon-852ac7840bf2cce5__icon-0de4fcc0a34018e2__e)' d='M19.25 28.25v-11.5a.75.75 0 0 1 1.5 0v11.5a.75.75 0 0 1-1.5 0Z'/><path fill='url(#icon-7cf558d2bf095569__icon-2d3a84d59e8bb045__f)' d='M26.531 22.75a.75.75 0 1 0-1.5 0v5.5a.75.75 0 0 0 1.5 0v-5.5Z'/><defs><linearGradient id='icon-70bcf6d0f55a2942__icon-4242538967df01e6__a' x1='12.889' x2='16.937' y1='4' y2='36.383' gradientUnits='userSpaceOnUse'><stop stop-color='#fff'/><stop offset='1' stop-color='#EBEBEB'/></linearGradient><linearGradient id='icon-7b3712e074eecb56__icon-2bf0fd79d4c93d1a__c' x1='14.333' x2='18.642' y1='4' y2='36.314' gradientUnits='userSpaceOnUse'><stop stop-color='#BBB'/><stop offset='1' stop-color='#888'/></linearGradient><linearGradient id='icon-59b8238f8ecc5f62__icon-c196a20213c1c3ba__d' x1='13.469' x2='30.582' y1='11' y2='23.419' gradientUnits='userSpaceOnUse'><stop stop-color='#C28400'/><stop offset='1' stop-color='#A86500'/></linearGradient><linearGradient id='icon-852ac7840bf2cce5__icon-0de4fcc0a34018e2__e' x1='13.469' x2='30.582' y1='11' y2='23.419' gradientUnits='userSpaceOnUse'><stop stop-color='#C28400'/><stop offset='1' stop-color='#A86500'/></linearGradient><linearGradient id='icon-7cf558d2bf095569__icon-2d3a84d59e8bb045__f' x1='13.469' x2='30.582' y1='11' y2='23.419' gradientUnits='userSpaceOnUse'><stop stop-color='#C28400'/><stop offset='1' stop-color='#A86500'/></linearGradient><radialGradient id='icon-dc0b139118bb2d4d__icon-c6342d3cd3764fa8__b' cx='0' cy='0' r='1' gradientTransform='rotate(56.31 -4.411 19.454) scale(30.4469 26.3483)' gradientUnits='userSpaceOnUse'><stop offset='.177' stop-color='#fff'/><stop offset='1' stop-color='#B8B8B8'/></radialGradient></defs></svg>"
+		isHidden
+		displayFolder: Icons\Defs
+		lineageTag: 65bf275d-1f34-498f-ac38-b2b3af0f7cb9
+		dataCategory: ImageUrl
+
+		changedProperty = IsHidden
+
+	measure 'Workspace Icon' =
+			
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 32 32' fill='currentColor'><path fill='url(#icon-b8e7addc645a8e7e__icon-cd576edd03196919__a)' fill-rule='evenodd' d='M10.5 4a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5ZM7.75 7.75a2.75 2.75 0 1 1 5.5 0 2.75 2.75 0 0 1-5.5 0Z' clip-rule='evenodd'/><path fill='url(#icon-37e2038ae7d7aaab__icon-5178078314f09ecb__b)' fill-rule='evenodd' d='M12.25 14.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM16 12a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5Z' clip-rule='evenodd'/><path fill='url(#icon-269017e56fd41ed5__icon-93feafc2e14438ae__c)' fill-rule='evenodd' d='M9.5 22.377c0 .24 0 1.632.83 2.98C11.2 26.773 12.894 28 16 28s4.8-1.228 5.67-2.642c.83-1.349.83-2.74.83-2.981v-.395A1.982 1.982 0 0 0 20.518 20h-9.036A1.982 1.982 0 0 0 9.5 21.982v.395Zm12 0v-.395a.982.982 0 0 0-.982-.982h-9.036a.982.982 0 0 0-.982.982v.395c0 .197.003 1.353.682 2.457C11.85 25.919 13.202 27 16 27c2.799 0 4.15-1.08 4.818-2.166.68-1.104.682-2.26.682-2.457Z' clip-rule='evenodd'/><path fill='url(#icon-663bd25bd11cacdb__icon-3b440df22baeceea__d)' fill-rule='evenodd' d='M17.75 7.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM21.5 5a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5Z' clip-rule='evenodd'/><path fill='url(#icon-f011eb59b1716091__icon-16437cd912c9b29a__e)' d='M5.982 13h5.6a4.714 4.714 0 0 0-.273 1H5.982a.982.982 0 0 0-.982.982v.395c0 .197.003 1.353.682 2.457.566.92 1.624 1.837 3.638 2.095a2.986 2.986 0 0 0-.596.918c-2.005-.371-3.207-1.372-3.894-2.49C4 17.01 4 15.618 4 15.378v-.395C4 13.887 4.887 13 5.982 13Z'/><path fill='url(#icon-28fb18a95a47c469__icon-59bac828dedaa73f__f)' d='M27.17 18.358c-.687 1.117-1.889 2.118-3.894 2.489a2.984 2.984 0 0 0-.596-.918c2.014-.258 3.072-1.175 3.638-2.095.68-1.104.682-2.26.682-2.457v-.395a.982.982 0 0 0-.982-.982H20.69a4.714 4.714 0 0 0-.274-1h5.6c1.096 0 1.983.887 1.983 1.982v.395c0 .24 0 1.632-.83 2.98Z'/><defs><linearGradient id='icon-b8e7addc645a8e7e__icon-cd576edd03196919__a' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-37e2038ae7d7aaab__icon-5178078314f09ecb__b' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-269017e56fd41ed5__icon-93feafc2e14438ae__c' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-663bd25bd11cacdb__icon-3b440df22baeceea__d' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-f011eb59b1716091__icon-16437cd912c9b29a__e' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-28fb18a95a47c469__icon-59bac828dedaa73f__f' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient></defs></svg>"
+		isHidden
+		displayFolder: Icons\Defs
+		lineageTag: 03116aff-4e8c-4a98-aefd-3e81da6cae66
+		dataCategory: ImageUrl
+
+		changedProperty = IsHidden
+
+	measure 'Item Icon' = ```
+			
+			var icon = 
+			    SWITCH(
+			        SELECTEDVALUE( Items[Item Type] ),
+			        "Workspace",        [Workspace Icon],
+			        "Semantic Model",   [Semantic Model Icon],
+			        "Report",           [Report Icon]
+			    )
+			var isData = not ISEMPTY( VALUES( 'Access To Items'[permission] ) )
+			return
+			IF( isData, icon )
+			```
+		displayFolder: Icons
+		lineageTag: 0c74ac75-c7c0-4e42-b7ab-0a39cf0a572c
+		dataCategory: ImageUrl
+
+	measure '# Users' =
+			
+			CALCULATE(
+			    COUNTROWS( DISTINCT( 'Access To Items'[principalId] ))
+			    ,'Access To Items'[principalType] = "User"
+			)
+		formatString: 0
+		displayFolder: Access
+		lineageTag: a75c38a8-402b-4be6-aaf2-4ff05f9b91d8
+
+	measure 'Tick Icon' =
+			
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' enable-background='new 0 0 64 64'><path d='M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z M25.025,50
+				l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z' fill='#01b8aa'/></svg>
+			"
+		displayFolder: Icons\Defs
+		lineageTag: 828736ee-4f24-4133-9682-42074b093059
+		dataCategory: ImageUrl
+
+	measure 'Workspace Icon Large' =
+			
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 32 32' fill='currentColor'><path fill='url(#icon-b8e7addc645a8e7e__icon-cd576edd03196919__a)' fill-rule='evenodd' d='M10.5 4a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5ZM7.75 7.75a2.75 2.75 0 1 1 5.5 0 2.75 2.75 0 0 1-5.5 0Z' clip-rule='evenodd'/><path fill='url(#icon-37e2038ae7d7aaab__icon-5178078314f09ecb__b)' fill-rule='evenodd' d='M12.25 14.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM16 12a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5Z' clip-rule='evenodd'/><path fill='url(#icon-269017e56fd41ed5__icon-93feafc2e14438ae__c)' fill-rule='evenodd' d='M9.5 22.377c0 .24 0 1.632.83 2.98C11.2 26.773 12.894 28 16 28s4.8-1.228 5.67-2.642c.83-1.349.83-2.74.83-2.981v-.395A1.982 1.982 0 0 0 20.518 20h-9.036A1.982 1.982 0 0 0 9.5 21.982v.395Zm12 0v-.395a.982.982 0 0 0-.982-.982h-9.036a.982.982 0 0 0-.982.982v.395c0 .197.003 1.353.682 2.457C11.85 25.919 13.202 27 16 27c2.799 0 4.15-1.08 4.818-2.166.68-1.104.682-2.26.682-2.457Z' clip-rule='evenodd'/><path fill='url(#icon-663bd25bd11cacdb__icon-3b440df22baeceea__d)' fill-rule='evenodd' d='M17.75 7.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM21.5 5a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5Z' clip-rule='evenodd'/><path fill='url(#icon-f011eb59b1716091__icon-16437cd912c9b29a__e)' d='M5.982 13h5.6a4.714 4.714 0 0 0-.273 1H5.982a.982.982 0 0 0-.982.982v.395c0 .197.003 1.353.682 2.457.566.92 1.624 1.837 3.638 2.095a2.986 2.986 0 0 0-.596.918c-2.005-.371-3.207-1.372-3.894-2.49C4 17.01 4 15.618 4 15.378v-.395C4 13.887 4.887 13 5.982 13Z'/><path fill='url(#icon-28fb18a95a47c469__icon-59bac828dedaa73f__f)' d='M27.17 18.358c-.687 1.117-1.889 2.118-3.894 2.489a2.984 2.984 0 0 0-.596-.918c2.014-.258 3.072-1.175 3.638-2.095.68-1.104.682-2.26.682-2.457v-.395a.982.982 0 0 0-.982-.982H20.69a4.714 4.714 0 0 0-.274-1h5.6c1.096 0 1.983.887 1.983 1.982v.395c0 .24 0 1.632-.83 2.98Z'/><defs><linearGradient id='icon-b8e7addc645a8e7e__icon-cd576edd03196919__a' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-37e2038ae7d7aaab__icon-5178078314f09ecb__b' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-269017e56fd41ed5__icon-93feafc2e14438ae__c' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-663bd25bd11cacdb__icon-3b440df22baeceea__d' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-f011eb59b1716091__icon-16437cd912c9b29a__e' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient><linearGradient id='icon-28fb18a95a47c469__icon-59bac828dedaa73f__f' x1='4' x2='28' y1='4' y2='28' gradientUnits='userSpaceOnUse'><stop stop-color='#209782'/><stop offset='1' stop-color='#0C695A'/></linearGradient></defs></svg>"
+		displayFolder: Icons\Defs
+		lineageTag: be5ca1b1-78d4-4bc5-9345-2998aa65b45d
+		dataCategory: ImageUrl
+
+	measure 'User Icon Large' =
+			
+			"data:image/svg+xml;utf8,
+			<svg width='35' height='35' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'>
+			<path d='M24 4C18.4772 4 14 8.47715 14 14C14 19.5228 18.4772 24 24 24C29.5228 24 34 19.5228 34 14C34 8.47715 29.5228 4 24 4ZM12.2499 28C9.90326 28 8.00002 29.9013 8 32.2489L8 33C8 36.7555 9.94167 39.5669 12.9202 41.3802C15.8491 43.1633 19.7861 44 24 44C28.2139 44 32.1509 43.1633 35.0798 41.3802C38.0583 39.5669 40 36.7555 40 33L40 32.2487C40 29.9011 38.0967 28 35.7502 28H12.2499Z' fill='#B1B3B3'/>
+			</svg>"
+		displayFolder: Icons\Defs
+		lineageTag: b467e6cd-f916-4121-b6dc-89edfc53cca8
+		dataCategory: ImageUrl
+
+	measure 'Key Icon' =
+			
+			//https://www.reshot.com/free-svg-icons/item/door-key-ZBELFCJ5UH/
+			"
+			data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 512 512'>
+			<path style='fill:#f8e99b' d='M439.242 191.326H226.037c-21.156-32.445-57.763-53.895-99.384-53.895C61.169 137.431 8.084 190.516 8.084 256s53.085 118.568 118.568 118.568c41.007 0 77.151-20.82 98.442-52.463l20.126 20.126 43.116-43.116 43.116 43.116 43.116-43.116 43.116 43.116L503.916 256l-64.674-64.674zm-312.589 97.011c-17.86 0-32.337-14.478-32.337-32.337s14.477-32.337 32.337-32.337c17.859 0 32.337 14.478 32.337 32.337s-14.479 32.337-32.337 32.337z'/>
+			<path style='fill:#f6e27d' d='M261.389 272.168s-47.074 6.821-90.19 49.936c-20.873 20.873-41.852 42.497-71.492 49.387a118.959 118.959 0 0 0 26.945 3.077c41.007 0 77.151-20.82 98.442-52.463l20.126 20.126 43.116-43.116-26.947-26.947zM172.142 191.326h53.895c-21.156-32.445-57.763-53.895-99.384-53.895-9.27 0-18.29 1.066-26.947 3.077 30.213 7.024 55.992 25.6 72.436 50.818z'/>
+			<path transform='rotate(134.999 339.539 307.19)' style='fill:#f6e27d' d='M309.049 288.137h60.976v38.103h-60.976z'/>
+			<path style='fill:#f6e27d' d='M439.242 191.326h-53.895L450.021 256l-59.284 59.284 26.947 26.947L503.916 256z'/>
+			<path style='fill:#2e2d31' d='M126.653 382.652C56.816 382.652 0 325.837 0 256s56.816-126.653 126.653-126.653c42.968 0 82.653 21.519 106.155 57.563a8.083 8.083 0 0 1-2.356 11.187 8.085 8.085 0 0 1-11.187-2.356c-20.507-31.45-55.128-50.226-92.612-50.226-60.922 0-110.484 49.563-110.484 110.484s49.563 110.484 110.484 110.484c36.844 0 71.137-18.277 91.734-48.891a8.08 8.08 0 0 1 5.928-3.533 8.071 8.071 0 0 1 6.495 2.329l14.41 14.41 37.4-37.4a8.085 8.085 0 0 1 11.432 0l37.4 37.4 37.4-37.4a8.085 8.085 0 0 1 11.432 0l37.4 37.4 74.8-74.798-56.589-56.589H266.779c-4.465 0-8.084-3.618-8.084-8.084s3.62-8.084 8.084-8.084h172.463c2.144 0 4.201.852 5.716 2.367l64.674 64.674a8.085 8.085 0 0 1 0 11.433l-86.232 86.23a8.085 8.085 0 0 1-11.432 0l-37.4-37.4-37.4 37.4a8.085 8.085 0 0 1-11.432 0l-37.4-37.4-37.4 37.4a8.085 8.085 0 0 1-11.432 0l-13.451-13.451c-23.951 30.323-60.43 48.156-99.4 48.156zm0-86.231c-22.289 0-40.421-18.132-40.421-40.421 0-22.289 18.132-40.421 40.421-40.421s40.421 18.132 40.421 40.421c0 22.289-18.133 40.421-40.421 40.421zm0-64.674c-13.373 0-24.253 10.88-24.253 24.253 0 13.372 10.879 24.253 24.253 24.253s24.253-10.88 24.253-24.253c-.001-13.373-10.88-24.253-24.253-24.253z'/>
+			<path style='fill:#2e2d31' d='M439.242 264.084H212.884A8.083 8.083 0 0 1 204.8 256a8.084 8.084 0 0 1 8.084-8.084h226.358a8.083 8.083 0 0 1 8.084 8.084 8.083 8.083 0 0 1-8.084 8.084z'/>
+			</svg>
+			"
+		displayFolder: Icons\Defs
+		lineageTag: 45496750-3697-4b33-a4af-f45d33a74a1a
+		dataCategory: ImageUrl
+
+	measure Permissions = CONCATENATEX( VALUES( DP_Permissions[permission] ), DP_Permissions[permission], """, """ )
+		lineageTag: 27b4bb30-3f7d-4d74-a422-b97e2ef623aa
+
+	measure Items = CONCATENATEX( VALUES( DP_Items[Item Name] ), DP_Items[Item Name], """, """ )
+		lineageTag: 47cbd7d2-b41e-4ddd-8b3b-60ff8a6df9bc
+
+	column Measures
+		dataType: string
+		isHidden
+		lineageTag: 8d9d2901-0ee3-4d56-81f8-2e41ee814eab
+		summarizeBy: none
+		sourceColumn: Measures
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table({"Measures"}, {{""}} )
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,201 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Workspaces",
+          "nodeLineageTag": "07651973-c444-4cb9-b151-cb4c68fd5bbd",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 152
+        },
+        {
+          "location": {
+            "x": 192,
+            "y": 466.82142639160156
+          },
+          "nodeIndex": "Access To Items",
+          "nodeLineageTag": "8f47ae86-e2b2-4ca5-8273-ac892b57ba55",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 7,
+          "expandedHeight": 224
+        },
+        {
+          "location": {
+            "x": 237,
+            "y": 0
+          },
+          "nodeIndex": "Semantic Models",
+          "nodeLineageTag": "7c9e74dd-0e82-4805-93e1-a3658dcba6e5",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 8,
+          "expandedHeight": 200
+        },
+        {
+          "location": {
+            "x": 473,
+            "y": 0
+          },
+          "nodeIndex": "Reports",
+          "nodeLineageTag": "ff8c6996-5633-4a90-9d42-0eddb19353ce",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 6,
+          "expandedHeight": 200
+        },
+        {
+          "location": {
+            "x": 183.57138824462891,
+            "y": 246.25
+          },
+          "nodeIndex": "Items",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 1442.2856674194336,
+            "y": 0
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "7b808a54-3d82-48df-ba0f-8e74275998b3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1418.9999465942383,
+            "y": 461.25
+          },
+          "nodeIndex": "Logical Query Plan",
+          "nodeLineageTag": "57c221c3-858e-46df-8b0a-7c80c87861c0",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 272
+        },
+        {
+          "location": {
+            "x": 1421.2856674194336,
+            "y": 383.25
+          },
+          "nodeIndex": "Physical Query Plan",
+          "nodeLineageTag": "155f9042-9d16-4d83-957d-2ccb7865e3d9",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 3,
+          "expandedHeight": 272
+        },
+        {
+          "location": {
+            "x": 461,
+            "y": 631.25
+          },
+          "nodeIndex": "Permission Triplets",
+          "nodeLineageTag": "9e440d8f-09c9-435d-a0e7-48430dfa950d",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 248
+        },
+        {
+          "location": {
+            "x": 468.57135772705078,
+            "y": 552.53571319580078
+          },
+          "nodeIndex": "Permission Triplets (DQ)",
+          "nodeLineageTag": "7429c870-edfe-4d3d-8b3c-82a2fc68a6fe",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 248
+        },
+        {
+          "location": {
+            "x": 711.28566741943359,
+            "y": 0
+          },
+          "nodeIndex": "DP_Items",
+          "nodeLineageTag": "889401d0-438e-4ebb-8fab-ce06b65d3d39",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 949.28566741943359,
+            "y": 0
+          },
+          "nodeIndex": "DP_Permissions",
+          "nodeLineageTag": "1b5551d0-e0d2-4502-961d-95a8fa10e46d",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 104
+        },
+        {
+          "location": {
+            "x": 1191.2856521606445,
+            "y": 0
+          },
+          "nodeIndex": "DP_Users",
+          "nodeLineageTag": "69b524e3-8092-412b-90b5-0bdcde8d6701",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 128
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

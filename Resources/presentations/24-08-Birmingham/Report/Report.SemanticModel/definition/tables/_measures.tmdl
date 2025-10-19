@@ -1,0 +1,22 @@
+table _measures
+	lineageTag: f5919f8e-7b01-4436-b44c-a0a61c05ac60
+
+	measure 'Sum C2' = SUM( 'Fact'[C2] )
+		formatString: 0
+		lineageTag: 3bd66f8d-61e7-4812-b042-b50d7d9b6516
+
+	measure x = "x"
+		lineageTag: 4246d6e7-439d-43d4-8217-fb007361aceb
+
+	partition _measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

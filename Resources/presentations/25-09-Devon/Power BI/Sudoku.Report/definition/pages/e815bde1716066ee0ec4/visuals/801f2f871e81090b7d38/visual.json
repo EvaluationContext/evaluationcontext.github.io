@@ -1,0 +1,275 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
+  "name": "801f2f871e81090b7d38",
+  "position": {
+    "x": 868.04322937388861,
+    "y": 612.6190147535259,
+    "z": 1000,
+    "height": 40.575200760005522,
+    "width": 39.910033534431655,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "actionButton",
+    "objects": {
+      "icon": [
+        {
+          "properties": {
+            "shapeType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'blank'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "lineTransparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "disabled"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "text": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'✏️'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'❌'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "disabled"
+          }
+        }
+      ],
+      "shape": [
+        {
+          "properties": {
+            "tileShape": {
+              "expr": {
+                "Literal": {
+                  "Value": "'rectangleRounded'"
+                }
+              }
+            },
+            "rectangleRoundedCurve": {
+              "expr": {
+                "Literal": {
+                  "Value": "15L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "fill": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#074D49'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "disabled"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "visualLink": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'DataFunction'"
+                }
+              }
+            },
+            "dataFunction": {
+              "kind": "ItemLocation",
+              "byReference": {
+                "itemId": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'67d90437-e316-4abd-8c1d-1b7b17bba1af'"
+                    }
+                  }
+                },
+                "workspaceId": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'0191d5d7-172e-4169-a2f1-dc734bd7037a'"
+                    }
+                  }
+                }
+              },
+              "metadata": {
+                "dataFunction": {
+                  "name": "toggle_pencil_mark",
+                  "autoRefresh": true,
+                  "parameters": [
+                    {
+                      "name": "gameId",
+                      "dataType": "number",
+                      "isOptional": false,
+                      "type": "ValueParameter",
+                      "value": {
+                        "expr": {
+                          "Measure": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "_Measures"
+                              }
+                            },
+                            "Property": "Selected GameId"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "name": "pencilValue",
+                      "dataType": "number",
+                      "isOptional": false,
+                      "type": "SlicerParameter",
+                      "slicer": "0949734bc2634b112c76",
+                      "autoClear": false
+                    },
+                    {
+                      "name": "position",
+                      "dataType": "string",
+                      "isOptional": false,
+                      "type": "ValueParameter",
+                      "value": {
+                        "expr": {
+                          "Measure": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "_Measures"
+                              }
+                            },
+                            "Property": "Selected Positions"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "howCreated": "InsertVisualButton"
+}

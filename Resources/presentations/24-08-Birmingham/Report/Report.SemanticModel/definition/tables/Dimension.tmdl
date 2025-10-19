@@ -1,0 +1,27 @@
+table Dimension
+	lineageTag: eaa07935-4df4-4ac2-9fa1-bc29b1b01b55
+
+	column C1
+		dataType: string
+		lineageTag: 3387ee88-c50f-4a9e-8496-f4e18f7811d3
+		summarizeBy: none
+		sourceColumn: C1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dimension = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\jhd74\Documents\Presentations\User Groups\Birmingham_Aug24\data.xlsx"), null, true),
+				    Table1_Table = Source{[Item="Table1",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Table1_Table,{{"C1", type text}, {"C2", Int64.Type}, {"date", type date}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"C2", "date"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

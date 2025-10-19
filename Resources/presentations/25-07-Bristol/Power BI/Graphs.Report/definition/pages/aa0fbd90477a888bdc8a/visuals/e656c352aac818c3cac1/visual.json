@@ -1,0 +1,561 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "e656c352aac818c3cac1",
+  "position": {
+    "x": 52.953406152709626,
+    "y": 60.518178460239568,
+    "z": 7000,
+    "height": 534.93747031818907,
+    "width": 866.70677009128815,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "dstid"
+                }
+              },
+              "queryRef": "Logical Query Plan.dstid",
+              "nativeQueryRef": "dstid"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "isCache"
+                }
+              },
+              "queryRef": "Logical Query Plan.isCache",
+              "nativeQueryRef": "isCache"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "level"
+                }
+              },
+              "queryRef": "Logical Query Plan.level",
+              "nativeQueryRef": "level"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "operation"
+                }
+              },
+              "queryRef": "Logical Query Plan.operation",
+              "nativeQueryRef": "operation"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "operationShort"
+                }
+              },
+              "queryRef": "Logical Query Plan.operationShort",
+              "nativeQueryRef": "operationShort"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "operationType"
+                }
+              },
+              "queryRef": "Logical Query Plan.operationType",
+              "nativeQueryRef": "operationType"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "records"
+                }
+              },
+              "queryRef": "Logical Query Plan.records",
+              "nativeQueryRef": "records"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Logical Query Plan"
+                    }
+                  },
+                  "Property": "srcid"
+                }
+              },
+              "queryRef": "Logical Query Plan.srcid",
+              "nativeQueryRef": "srcid"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "stateManagement": [
+        {
+          "properties": {
+            "viewportHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "524.9374703181891D"
+                }
+              }
+            },
+            "viewportWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "856.7067700912881D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vega'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n  \"description\": \"A force-directed graph for a DAX Query Plan with Node and Edge Indices\",\n  // \"width\": 700,\n  // \"height\": 500,\n  \"padding\": 5,\n  // \"autosize\": \"none\",\n  \"background\": \"#263238\",\n  \"signals\": [\n    {\"name\": \"cx\", \"update\": \"width / 2\"},\n    {\"name\": \"cy\", \"update\": \"height / 2\"},\n    {\"name\": \"nodeRadius\", \"value\": 8},\n    {\"name\": \"nodeCharge\", \"value\": -30},\n    {\"name\": \"linkDistance\", \"value\": 30},\n    {\"name\": \"static\", \"value\": false},\n    {\"name\": \"gravityX\", \"value\": 0.2},\n    {\"name\": \"gravityY\", \"value\": 0.9},\n    {\n      \"description\": \"State variable for active node fix status.\",\n      \"name\": \"fix\",\n      \"value\": false,\n      \"on\": [\n        {\n          \"events\": \"symbol:pointerout[!event.buttons], window:pointerup\",\n          \"update\": \"false\"\n        },\n        {\"events\": \"symbol:pointerover\", \"update\": \"fix || true\"},\n        {\n          \"events\": \"[symbol:pointerdown, window:pointerup] > window:pointermove!\",\n          \"update\": \"xy()\",\n          \"force\": true\n        }\n      ]\n    },\n    {\n      \"description\": \"Graph node most recently interacted with.\",\n      \"name\": \"node\",\n      \"value\": null,\n      \"on\": [\n        {\n          \"events\": \"symbol:pointerover\",\n          \"update\": \"fix === true ? item() : node\"\n        }\n      ]\n    },\n    {\n      \"description\": \"Flag to restart Force simulation upon data changes.\",\n      \"name\": \"restart\",\n      \"value\": false,\n      \"on\": [{\"events\": {\"signal\": \"fix\"}, \"update\": \"fix && fix.length\"}]\n    }\n  ],\n  \"data\": [\n    {\n      \"name\": \"dataset\"\n    },\n    {\n      \"name\": \"node-data\",\n      \"source\": \"dataset\",\n      \"transform\": [\n        {\n          \"type\": \"project\",\n          \"fields\": [\n            \"dstid\",\n            \"operation\",\n            \"level\",\n            \"records\",\n            \"operationType\",\n            \"operationShort\"\n          ],\n          \"as\": [\"index\", \"Operation\", \"Level\", \"Records\"]\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"toNumber(datum.index)\",\n          \"as\": \"index\"\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"toNumber(datum.srcid)\",\n          \"as\": \"dstid\"\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"toNumber(datum.dstid)\",\n          \"as\": \"dstid\"\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"length(datum.operationShort) * (width / 160)\",\n          \"as\": \"operationShortLen\"\n        }\n      ]\n    },\n    {\n      \"name\": \"link-data\",\n      \"source\": \"dataset\",\n      \"transform\": [\n        {\"type\": \"filter\", \"expr\": \"datum.srcid != null\"},\n        {\n          \"type\": \"project\",\n          \"fields\": [\"srcid\", \"dstid\", \"srcid\", \"dstid\"], // Project srcid and dstid twice\n          \"as\": [\"source\", \"target\", \"edgeSrcId\", \"edgeDstId\"] // Alias the second set for labels\n        }\n      ]\n    }\n  ],\n  \"legends\": [\n    {\n      \"direction\": \"vertical\",\n      \"legendX\": 1050,\n      \"legendY\": 0,\n      \"orient\": \"none\",\n      \"stroke\": \"color\",\n      \"fill\": \"color\",\n      \"titleColor\": \"#b6bcdd\",\n      \"padding\": 10,\n      \"encode\": {\n        \"title\": {\"update\": {\"fontSize\": {\"value\": 14}}},\n        \"symbols\": {\"update\": {\"fillOpacity\": {\"value\": 0.4}}},\n        \"labels\": {\n          \"update\": {\"fontSize\": {\"value\": 12}, \"fill\": {\"value\": \"#b6bcdd\"}}\n        }\n      }\n    }\n  ],\n  \"scales\": [\n    {\n      \"name\": \"xscale\",\n      \"type\": \"band\",\n      \"domain\": {\"data\": \"node-data\", \"field\": \"Level\", \"sort\": true},\n      \"paddingOuter\": 1,\n      \"range\": \"width\"\n    },\n    {\n      \"name\": \"yscale\",\n      \"type\": \"band\",\n      \"domain\": {\"data\": \"node-data\", \"field\": \"index\", \"sort\": true},\n      \"range\": \"height\"\n    },\n    {\n      \"name\": \"color\",\n      \"type\": \"ordinal\",\n      \"domain\": {\"data\": \"node-data\", \"field\": \"operationType\"},\n      \"range\": {\"scheme\": \"tableau10\"}\n    },\n    {\n      \"name\": \"size\",\n      \"domain\": {\"data\": \"node-data\", \"field\": \"Records\"},\n      \"range\": [300, 2000]\n    }\n  ],\n  \"marks\": [\n    {\n      \"name\": \"nodes\",\n      \"type\": \"symbol\",\n      \"zindex\": 1,\n      \"from\": {\"data\": \"node-data\"},\n      \"on\": [\n        {\n          \"trigger\": \"fix\",\n          \"modify\": \"node\",\n          \"values\": \"fix === true ? {fx: node.x, fy: node.y} : {fx: fix[0], fy: fix[1]}\"\n        },\n        {\"trigger\": \"!fix\", \"modify\": \"node\", \"values\": \"{fx: null, fy: null}\"}\n      ],\n      \"encode\": {\n        \"enter\": {\n          \"size\": {\"scale\": \"size\", \"field\": \"Records\"},\n          \"stroke\": {\"scale\": \"color\", \"field\": \"operationType\"},\n          \"fill\": {\"scale\": \"color\", \"field\": \"operationType\"},\n          \"fillOpacity\": {\"value\": 0.1},\n          \"xfocus\": {\"scale\": \"xscale\", \"field\": \"Level\", \"band\": 0.5},\n          \"yfocus\": {\"scale\": \"yscale\", \"field\": \"index\", \"band\": 0.5},\n          \"tooltip\": {\n            \"signal\": \"{OperationType: datum.operationType, Operation: datum.Operation, Records: datum.Records}\"\n          }\n        },\n        \"update\": {\"cursor\": {\"value\": \"pointer\"}}\n      },\n      \"transform\": [\n        {\n          \"type\": \"force\",\n          \"iterations\": 300,\n          \"restart\": {\"signal\": \"restart\"},\n          \"static\": {\"signal\": \"static\"},\n          \"signal\": \"force\",\n          \"forces\": [\n            {\"force\": \"center\", \"x\": {\"signal\": \"cx\"}, \"y\": {\"signal\": \"cy\"}},\n            {\"force\": \"collide\", \"radius\": {\"signal\": \"nodeRadius\"}},\n            {\"force\": \"nbody\", \"strength\": {\"signal\": \"nodeCharge\"}},\n            {\n              \"force\": \"link\",\n              \"links\": \"link-data\",\n              \"distance\": {\"signal\": \"linkDistance\"},\n              \"id\": \"index\"\n            },\n            {\"force\": \"x\", \"x\": \"xfocus\", \"strength\": {\"signal\": \"gravityX\"}},\n            {\"force\": \"y\", \"y\": \"yfocus\", \"strength\": {\"signal\": \"gravityY\"}}\n          ]\n        }\n      ]\n    },\n    {\n      \"type\": \"path\",\n      \"from\": {\"data\": \"link-data\"},\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\"stroke\": {\"value\": \"#ccc\"}, \"strokeWidth\": {\"value\": 0.5}}\n      },\n      \"transform\": [\n        {\n          \"type\": \"linkpath\",\n          \"require\": {\"signal\": \"force\"},\n          \"shape\": \"line\",\n          \"sourceX\": \"datum.source.x\",\n          \"sourceY\": \"datum.source.y\",\n          \"targetX\": \"datum.target.x\",\n          \"targetY\": \"datum.target.y\"\n        }\n      ]\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"labels\",\n      \"from\": {\"data\": \"nodes\"},\n      \"zindex\": 2,\n      \"interactive\": false,\n      \"enter\": {},\n      \"encode\": {\n        \"update\": {\n          \"fill\": {\"signal\": \"''white''\"},\n          \"y\": {\"field\": \"y\"},\n          \"x\": {\"field\": \"x\"},\n          \"text\": {\"field\": \"datum.operationShort\"},\n          \"align\": {\"value\": \"left\"},\n          \"fontSize\": {\"value\": 10},\n          \"baseline\": {\"value\": \"top\"},\n          \"limit\": {\"signal\": \"clamp(60, 1, 1000)\"},\n          \"ellipsis\": {\"value\": \" \"}\n        }\n      }\n    }\n    // {\n    //   \"type\": \"text\",\n    //   \"name\": \"edge-labels\",\n    //   \"from\": {\"data\": \"link-data\"},\n    //   \"zindex\": 2,\n    //   \"interactive\": false,\n    //   \"encode\": {\n    //     \"update\": {\n    //       \"fill\": {\"value\": \"#ADD8E6\"},\n    //       \"x\": {\"signal\": \"(datum.source.x + datum.target.x) / 2\"},\n    //       \"y\": {\"signal\": \"(datum.source.y + datum.target.y) / 2\"},\n    //       \"text\": {\"signal\": \"datum.edgeSrcId + ''->'' + datum.edgeDstId\"},\n    //       \"align\": {\"value\": \"center\"},\n    //       \"fontSize\": {\"value\": 9},\n    //       \"baseline\": {\"value\": \"bottom\"}\n    //     }\n    //   }\n    // }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"autosize\": {\n    \"contains\": \"padding\",\n    \"type\": \"fit\"\n  },\n  \"view\": {\n    \"stroke\": \"transparent\"\n  },\n  \"font\": \"Segoe UI\",\n  \"arc\": {},\n  \"area\": {\n    \"line\": true,\n    \"opacity\": 0.6\n  },\n  \"bar\": {},\n  \"line\": {\n    \"strokeWidth\": 3,\n    \"strokeCap\": \"round\",\n    \"strokeJoin\": \"round\"\n  },\n  \"point\": {\n    \"filled\": true,\n    \"size\": 75\n  },\n  \"rect\": {},\n  \"text\": {\n    \"font\": \"Segoe UI\",\n    \"fontSize\": 12,\n    \"fill\": \"#605E5C\"\n  },\n  \"axis\": {\n    \"ticks\": false,\n    \"grid\": false,\n    \"domain\": false,\n    \"labelColor\": \"#605E5C\",\n    \"labelFontSize\": 12,\n    \"titleFont\": \"din\",\n    \"titleColor\": \"#252423\",\n    \"titleFontSize\": 16,\n    \"titleFontWeight\": \"normal\"\n  },\n  \"axisQuantitative\": {\n    \"tickCount\": 3,\n    \"grid\": true,\n    \"gridColor\": \"#C8C6C4\",\n    \"gridDash\": [\n      1,\n      5\n    ],\n    \"labelFlush\": false\n  },\n  \"axisX\": {\n    \"labelPadding\": 5\n  },\n  \"axisY\": {\n    \"labelPadding\": 10\n  },\n  \"header\": {\n    \"titleFont\": \"din\",\n    \"titleFontSize\": 16,\n    \"titleColor\": \"#252423\",\n    \"labelFont\": \"Segoe UI\",\n    \"labelFontSize\": 13.333333333333332,\n    \"labelColor\": \"#605E5C\"\n  },\n  \"legend\": {\n    \"titleFont\": \"Segoe UI\",\n    \"titleFontWeight\": \"bold\",\n    \"titleColor\": \"#605E5C\",\n    \"labelFont\": \"Segoe UI\",\n    \"labelFontSize\": 13.333333333333332,\n    \"labelColor\": \"#605E5C\",\n    \"symbolType\": \"circle\",\n    \"symbolSize\": 75\n  },\n  \"path\": {},\n  \"shape\": {},\n  \"symbol\": {\n    \"strokeWidth\": 1.5,\n    \"size\": 50\n  }\n}'"
+                }
+              }
+            },
+            "isNewDialogOpen": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "selectionMaxDataPoints": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'5.30.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.7.2.1'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "editor": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "theme": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dark'"
+                }
+              }
+            },
+            "backgroundPassThrough": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "debugTableRowsPerPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "200D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Graph'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6a0b0dcb66ca6f0e0c18",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "dstId"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "9baa95057046af86fed2",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "dstName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "17afa51334e57db626e9",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "dstType"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "dd8c081c3f2e534cd6ae",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "srcId"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "c9f719e35bb1913a0d3c",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "srcName"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "b09a12b4e07e5b9284aa",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "srcType"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "3a1616f78b725a6fe166",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "Edge Selection"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "14d0c613349a2c03010d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "dstid"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1835f289491011aea599",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "isCache"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5e7758be0c0a520d6455",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "level"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "256367c4c4b100409118",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "operation"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6630873fd2963487821c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "operationShort"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4fb3842fe1c010c85230",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "operationType"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a388336fa8a30313a3e2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "records"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1a9ced36b08e44273c3c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Logical Query Plan"
+              }
+            },
+            "Property": "srcid"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

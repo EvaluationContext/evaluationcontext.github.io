@@ -1,0 +1,119 @@
+table 'Permission Triplets'
+	lineageTag: 9e440d8f-09c9-435d-a0e7-48430dfa950d
+
+	measure 'Edge Selection' =
+			
+			var singleUser = HASONEFILTER( 'Access To Items'[principalName] )
+			var FilteredUsers =
+			    FILTER(
+			        'Permission Triplets'
+			        ,var user = SELECTEDVALUE( 'Access To Items'[principalId] )
+			        RETURN
+			        ('Permission Triplets'[srcType] <> "User" &&  'Permission Triplets'[dstType] <> "User" )
+			        || ('Permission Triplets'[srcType] = "User" && 'Permission Triplets'[srcId] = user )
+			        || ('Permission Triplets'[dstType] = "User" && 'Permission Triplets'[dstId] = user )
+			    )
+			RETURN
+			SWITCH(
+			    true
+			    ,not ISCROSSFILTERED( 'Access To Items' )
+			        ,0
+			    ,COUNTROWS( INTERSECT( DISTINCT( 'Access To Items'[accessToItemGroupId] ), DISTINCT( 'Permission Triplets'[accessToItemGroupId] ) ) ) > 0
+			    && IF( singleUser, COUNTROWS( FilteredUsers ) > 0, true ) // if single user selected, only include that user
+			        ,1
+			)
+		formatString: 0
+		lineageTag: 71d1d2c7-861d-4f0c-a946-bf946240c834
+
+	measure '# Edges' = COUNTROWS( 'Permission Triplets' )
+		formatString: 0
+		lineageTag: 90741488-ac49-4d13-abf7-6fdfea048cd1
+
+	column accessToItemGroupId
+		dataType: string
+		lineageTag: 786b50df-6578-415c-ac83-a83e4ff8ee56
+		summarizeBy: none
+		sourceColumn: accessToItemGroupId
+
+		annotation SummarizationSetBy = Automatic
+
+	column srcId
+		dataType: string
+		lineageTag: f7ed15ca-ff7d-4050-bc20-8b8770a00835
+		summarizeBy: none
+		sourceColumn: srcId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column srcType
+		dataType: string
+		lineageTag: de4d8eb8-aa53-49ba-8502-1746d68b177e
+		summarizeBy: none
+		sourceColumn: srcType
+
+		annotation SummarizationSetBy = Automatic
+
+	column srcName
+		dataType: string
+		lineageTag: 1c46e255-aa0a-4961-b176-c2090ec822f4
+		summarizeBy: none
+		sourceColumn: srcName
+
+		annotation SummarizationSetBy = Automatic
+
+	column dstId
+		dataType: string
+		lineageTag: b6a71c53-b3f0-4227-a725-4dad6c07f1de
+		summarizeBy: none
+		sourceColumn: dstId
+
+		annotation SummarizationSetBy = Automatic
+
+	column dstType
+		dataType: string
+		lineageTag: 8f2b022f-73f9-448e-942d-f9e33801c87f
+		summarizeBy: none
+		sourceColumn: dstType
+
+		annotation SummarizationSetBy = Automatic
+
+	column dstName
+		dataType: string
+		lineageTag: 03104206-8632-4e12-8774-b4ae399f22ae
+		summarizeBy: none
+		sourceColumn: dstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column srcColour =
+			
+			SWITCH(
+			    'Permission Triplets'[srcType],
+			    "Workspace", "#8661c5",
+			    "Semantic Model", "#01b8aa",
+			    "Report", "#FFB900",
+			    "Group", "#5A73e4",
+			    "User", "#999999"
+			)
+		lineageTag: 9485ac73-1005-4653-a44e-2a64bd58f653
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Permission Triplets' = m
+		mode: import
+		queryGroup: permissions
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\permissions\access_to_item_edges.csv"),[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"accessToItemGroupId", type text}, {"srcId", type text}, {"srcType", type text}, {"srcName", type text}, {"dstId", type text}, {"dstType", type text}, {"dstName", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,83 @@
+/* GLightbox Custom Styling */
+
+/* Make images clickable/zoomable with cursor pointer */
+.md-content__inner img,
+.md-typeset img {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.md-content__inner img:hover,
+.md-typeset img:hover {
+  transform: scale(1.02);
+}
+
+/* Remove zoom cursor and hover effect from author avatars, metadata images, and blog index card images */
+.md-post__authors img,
+.md-post__meta img,
+.md-author img,
+.md-profile img,
+.md-post-header img,
+.md-logo img,
+.md-post__image img,
+.md-post--excerpt img,
+img[src*="avatar.png"] {
+  cursor: default !important;
+  transform: none !important;
+}
+
+.md-post__authors img:hover,
+.md-post__meta img:hover,
+.md-author img:hover,
+.md-profile img:hover,
+.md-post-header img:hover,
+.md-logo img:hover,
+.md-post__image img:hover,
+.md-post--excerpt img:hover,
+img[src*="avatar.png"]:hover {
+  transform: none !important;
+}
+
+/* Glightbox wrapper links should not have underline */
+a.glightbox {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+a.glightbox:hover {
+  border-bottom: none !important;
+}
+
+/* Hide all descriptions/captions in GLightbox */
+.gslide-description {
+  display: none !important;
+}
+
+.gslide-title {
+  display: none !important;
+}
+
+/* Dark mode adjustments for GLightbox */
+[data-md-color-scheme="slate"] .gslide-description {
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color);
+  display: none !important;
+}
+
+[data-md-color-scheme="slate"] .gclose,
+[data-md-color-scheme="slate"] .gnext,
+[data-md-color-scheme="slate"] .gprev {
+  color: var(--md-default-fg-color);
+}
+
+/* Ensure lightbox is above everything */
+.glightbox-container {
+  z-index: 9999 !important;
+}
+
+/* Better mobile experience */
+@media screen and (max-width: 44.9375em) {
+  .gslide-description {
+    font-size: 0.85rem;
+  }
+}

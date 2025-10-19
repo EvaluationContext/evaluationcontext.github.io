@@ -1,0 +1,42 @@
+table Audio
+	lineageTag: 95be7bec-00ed-4c67-809d-4c64f51f72ce
+
+	column dB
+		dataType: double
+		isHidden
+		sourceProviderType: double
+		lineageTag: d1bd717e-e485-4e72-b783-07a16a6c1b12
+		summarizeBy: sum
+		sourceColumn: dB
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Audio Datetime'
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetimeoffset
+		lineageTag: fd3ad11f-fb37-45db-bd28-b59767f6a219
+		summarizeBy: none
+		sourceColumn: Audio Datetime
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Audio = m
+		mode: directQuery
+		queryGroup: RealTime
+		source =
+				let
+				    Source = AzureDataExplorer.Contents("https://trd-tx333fxbjw5r2jqsc8.z3.kusto.fabric.microsoft.com", "PowerHour", "Audio | #(lf)extend trimmed_time_stamp = bin(client_timestamp, 1s) |#(lf)project-away client_timestamp", [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]),
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"source", "timestamp", "data_type", "device", "version", "EventProcessedUtcTime", "PartitionId", "EventEnqueuedUtcTime"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"trimmed_time_stamp", "Audio Datetime"}, {"decibel_level", "dB"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

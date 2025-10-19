@@ -1,0 +1,7 @@
+/* Make code block text smaller */
+.md-typeset pre > code,
+.md-typeset pre,
+.md-typeset .highlight {
+	font-size: 0.60rem;
+    max-height: 800px;
+}

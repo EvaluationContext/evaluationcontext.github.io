@@ -1,0 +1,86 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 24
+          },
+          "nodeIndex": "Audio",
+          "nodeLineageTag": "95be7bec-00ed-4c67-809d-4c64f51f72ce",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 183
+          },
+          "nodeIndex": "HeartRate",
+          "nodeLineageTag": "8b1ad688-4bf3-467a-90f5-9d76543372a3",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 332,
+            "y": 0
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "8faeacf3-e55e-4d76-8788-c5282890dab3",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 337,
+            "y": 122
+          },
+          "nodeIndex": "Selector",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 621,
+            "y": 79.5
+          },
+          "nodeIndex": "Vote",
+          "nodeLineageTag": "a713ea05-8435-459a-895b-771b4580be7f",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

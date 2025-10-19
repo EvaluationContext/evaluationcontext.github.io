@@ -1,0 +1,221 @@
+table _Measures
+	lineageTag: 8faeacf3-e55e-4d76-8788-c5282890dab3
+
+	measure 'Heart Rate' = MAX( HeartRate[BPM] )
+		formatString: 0
+		displayFolder: HeartRate
+		lineageTag: 09ae9a63-9d7c-41b4-8d94-9f70705203d6
+
+	measure dB = MAX( Audio[dB] )
+		displayFolder: Audio
+		lineageTag: 97d880bd-b236-45b2-9d1c-c14e7959bfc3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Most Recent Heart Rate' =
+			
+			var result = LASTNONBLANKVALUE( HeartRate[Heart Rate Datetime], [Heart Rate] )
+			RETURN
+			IF( not ISBLANK( result ), result, "" )
+		formatString: 0
+		displayFolder: HeartRate
+		lineageTag: fd7afaf5-4eb7-4c1d-9d63-446304f37566
+
+	measure 'Most Recent dB' =
+			
+			var result = FORMAT( LASTNONBLANKVALUE( Audio[Audio Datetime], [dB] ) , " 0.0" )
+			RETURN
+			IF( not ISBLANK( result), result, "" )
+		displayFolder: Audio
+		lineageTag: 9a751073-e338-4398-b2ed-c56067635636
+
+	measure 'Gold Medal' = ```
+			
+			"data:image/svg+xml;utf8,
+			<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+			  <defs>
+			    <!-- Neon glow filter -->
+			    <filter id='neonGlow' x='-50%' y='-50%' width='200%' height='200%'>
+			      <feGaussianBlur stdDeviation='4' result='coloredBlur'/>
+			      <feMerge> 
+			        <feMergeNode in='coloredBlur'/>
+			        <feMergeNode in='SourceGraphic'/>
+			      </feMerge>
+			    </filter>
+			  </defs>
+			  
+			  <!-- Main medal circle -->
+			  <circle cx='100' cy='100' r='80' fill='none' stroke='" & [Gold] & "' stroke-width='6' filter='url(#neonGlow)'/>
+			  
+			  <!-- Center number -->
+			  <text x='100' y='115' text-anchor='middle' font-family='monospace' font-size='50' font-weight='300' 
+			        fill='"& [Gold] &"' filter='url(#neonGlow)'>" & FORMAT([Max dB Per User],"#") & "</text>
+			</svg>"
+			```
+		displayFolder: Medal
+		lineageTag: 898f17ac-aae8-4e67-952a-5fb542b7fde1
+		dataCategory: ImageUrl
+
+	measure 'Max dB Per User' = ```
+			
+			var startTime = MAX( Vote[TimeStart] )
+			var endTime = MAX( Vote[TimeEnd] )
+			RETURN
+			CALCULATE(
+			    // COUNTROWS( Audio ),
+			    // CONCATENATEX( 
+			    MAX( Audio[dB] ),
+			    FILTER(
+			        ALLSELECTED( Audio[Audio Datetime] ),
+			        var diff = DATEDIFF( startTime, CALCULATE( MAX( Audio[Audio Datetime] ) ), SECOND )
+			        RETURN
+			        diff >= 0 && diff <= 5
+			    )
+			    // ,Audio[Audio Datetime] , ", " )
+			)
+			```
+		displayFolder: Audio
+		lineageTag: 2b708503-354e-494e-83ed-c2931e93697d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Gold = "#EFBF04"
+		displayFolder: Medal
+		lineageTag: 2759107c-1ea0-4a05-a06d-40899da9277f
+
+	measure Silver = "#c0c0c0 "
+		displayFolder: Medal
+		lineageTag: e669c4ae-74bc-456b-ab7f-3636fc97b4cf
+
+	measure Bronze = "#CE8946"
+		displayFolder: Medal
+		lineageTag: 617fff60-2333-4075-804b-82976f8873ac
+
+	measure Medal = ```
+			
+			var Rnk = 
+			    ADDCOLUMNS(
+			        VALUES( Vote[User] ),
+			        "@Rank", 
+			            RANKX(
+			                ALL( Vote[User] ),
+			                [Max dB Per User]
+			                ,,DESC
+			            )
+			    )
+			
+			RETURN
+			IF( ISBLANK( [Max dB Per User] ), [No Medal],
+			    SWITCH(
+			        MAXX( Rnk, [@Rank] ),
+			        1, [Gold Medal],
+			        2, [Silver Medal],
+			        3, [Bronze Medal]
+			    )
+			)
+			
+			```
+		displayFolder: Medal
+		lineageTag: fc89d4b0-1364-4125-9e99-079146359351
+		dataCategory: ImageUrl
+
+	measure 'Silver Medal' = ```
+			
+			"data:image/svg+xml;utf8,
+			<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+			  <defs>
+			    <!-- Neon glow filter -->
+			    <filter id='neonGlow' x='-50%' y='-50%' width='200%' height='200%'>
+			      <feGaussianBlur stdDeviation='4' result='coloredBlur'/>
+			      <feMerge> 
+			        <feMergeNode in='coloredBlur'/>
+			        <feMergeNode in='SourceGraphic'/>
+			      </feMerge>
+			    </filter>
+			  </defs>
+			  
+			  <!-- Main medal circle -->
+			  <circle cx='100' cy='100' r='80' fill='none' stroke='" & [Silver] & "' stroke-width='6' filter='url(#neonGlow)'/>
+			  
+			  <!-- Center number -->
+			  <text x='100' y='115' text-anchor='middle' font-family='monospace' font-size='50' font-weight='300' 
+			        fill='"& [Silver] &"' filter='url(#neonGlow)'>" & FORMAT([Max dB Per User],"#") & "</text>
+			</svg>"
+			```
+		displayFolder: Medal
+		lineageTag: a7f1b6d7-eafd-49f4-a0ec-6313170581d5
+		dataCategory: ImageUrl
+
+	measure 'Bronze Medal' = ```
+			
+			"data:image/svg+xml;utf8,
+			<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+			  <defs>
+			    <!-- Neon glow filter -->
+			    <filter id='neonGlow' x='-50%' y='-50%' width='200%' height='200%'>
+			      <feGaussianBlur stdDeviation='4' result='coloredBlur'/>
+			      <feMerge> 
+			        <feMergeNode in='coloredBlur'/>
+			        <feMergeNode in='SourceGraphic'/>
+			      </feMerge>
+			    </filter>
+			  </defs>
+			  
+			  <!-- Main medal circle -->
+			  <circle cx='100' cy='100' r='80' fill='none' stroke='" & [Bronze] & "' stroke-width='6' filter='url(#neonGlow)'/>
+			  
+			  <!-- Center number -->
+			  <text x='100' y='115' text-anchor='middle' font-family='monospace' font-size='50' font-weight='300' 
+			        fill='"& [Bronze] &"' filter='url(#neonGlow)'>" & FORMAT([Max dB Per User],"#") & " </text>
+			</svg>"
+			```
+		displayFolder: Medal
+		lineageTag: a7cb394d-975f-480f-b6e0-f5beb9a75463
+		dataCategory: ImageUrl
+
+	measure 'No Medal' = ```
+			
+			"data:image/svg+xml;utf8,
+			<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'>
+			  <defs>
+			    <!-- Neon glow filter -->
+			    <filter id='neonGlow' x='-50%' y='-50%' width='200%' height='200%'>
+			      <feGaussianBlur stdDeviation='4' result='coloredBlur'/>
+			      <feMerge> 
+			        <feMergeNode in='coloredBlur'/>
+			        <feMergeNode in='SourceGraphic'/>
+			      </feMerge>
+			    </filter>
+			  </defs>
+			  
+			  <!-- Main medal circle -->
+			  <circle cx='100' cy='100' r='80' fill='none' stroke='#888888' stroke-width='6' filter='url(#neonGlow)'/>
+			</svg>"
+			```
+		displayFolder: Medal
+		lineageTag: a6002716-130f-4e0c-a1ea-ccfe5ebc7b14
+		dataCategory: ImageUrl
+
+	column Measure
+		dataType: string
+		isHidden
+		lineageTag: 6274d913-6539-414b-8a40-a854d3b1eed1
+		summarizeBy: none
+		sourceColumn: Measure
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table({"Measure"}, {{""}})
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

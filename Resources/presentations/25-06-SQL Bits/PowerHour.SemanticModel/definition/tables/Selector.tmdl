@@ -1,0 +1,31 @@
+table Selector
+	lineageTag: 167933f6-a6f1-4ff8-8981-ff085d0ca8d9
+
+	column 'Selected User'
+		dataType: string
+		lineageTag: 6b19a986-a6f4-4542-b835-8e338b38636d
+		summarizeBy: none
+		sourceColumn: Selected User
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Selector = m
+		mode: import
+		source = ```
+				let
+				    Source = #table({"Selected Exercise"}, 
+				        {
+				            {"Chris Webb"}, 
+				            {"Mark Pryce-Maher"}, 
+				            {"Jake Duddy"}
+				        }
+				    ),
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"Selected Exercise", "Selected User"}})
+				in
+				    #"Renamed Columns"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,9 +1,7 @@
 ---
 title: TOPN vs INDEX
 description: Rewriting a DAX query that uses TOPN with INDEX to investigate ease of use and performance characteristics
-image:
-  path: /assets/images/blog/2024/2024-05-01-WindowFunction/Hero.jpg
-  alt: INDEX vs TOPN
+image: /assets/images/blog/2024/2024-05-01-WindowFunction/Hero.jpg
 date:
   created: 2024-05-01
   updated: 2025-10-19

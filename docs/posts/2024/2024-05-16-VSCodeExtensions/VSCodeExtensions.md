@@ -1,9 +1,7 @@
 ---
 title: VS Code Extensions For Power BI Development and Administration
 description: VS Code extension for Power BI Development and Administration
-image:
-  path: /assets/images/blog/2024/2024-05-16-VSCodeExtensions/VS Code.png
-  alt: VS Code
+image: /assets/images/blog/2024/2024-05-16-VSCodeExtensions/VS Code.png
 date:
   created: 2024-05-16
   updated: 2025-10-19

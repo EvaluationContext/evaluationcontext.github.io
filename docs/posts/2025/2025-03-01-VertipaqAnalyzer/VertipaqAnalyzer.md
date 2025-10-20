@@ -1,9 +1,7 @@
 ---
 title: Vertipaq Analyzer, Deep Dive
 description: Exploring how Semantic Link Labs and SQLBI's Vertipaq Analyzers work
-image:
-  path: /assets/images/blog/2025/2025-03-01-VertipaqAnalyzer/VertipaqAnalyzer.svg
-  alt: Vertipaq Analyzer [SQLBI]
+image: /assets/images/blog/2025/2025-03-01-VertipaqAnalyzer/VertipaqAnalyzer.svg
 date:
   created: 2025-03-01
   updated: 2025-10-19

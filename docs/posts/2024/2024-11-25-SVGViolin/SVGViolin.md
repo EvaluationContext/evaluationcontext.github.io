@@ -1,9 +1,7 @@
 ---
 title: SVG Violin Plot
 description: Creating a SVG Violin to visualize distributions in Power BI
-image:
-  path: /assets/images/blog/2024/2024-11-25-SVGViolin/SVGViolin_Small.png
-  alt: SVG Violin Plot
+image: /assets/images/blog/2024/2024-11-25-SVGViolin/SVGViolin_Small.png
 date:
   created: 2024-11-25
   updated: 2025-10-19

@@ -1,9 +1,7 @@
 ---
 title: Graphing DAX Query Plans
 description: Using Vega Force Directed Graphs to visualizing DAX Query Plans
-image:
-  path: /assets/images/blog/2025/2025-01-28-QueryPlanGraph/PhysicalQueryPlan.png
-  alt: DAX Physical Query Plan Vega
+image: /assets/images/blog/2025/2025-01-28-QueryPlanGraph/PhysicalQueryPlan.png
 date:
   created: 2025-01-28
   updated: 2025-10-19

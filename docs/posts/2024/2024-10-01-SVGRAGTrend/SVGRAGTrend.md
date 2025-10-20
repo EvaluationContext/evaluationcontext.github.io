@@ -1,9 +1,7 @@
 ---
 title: Further Adventures in SVGs
 description: Creating a Trend SVG Visual in Power BI
-image:
-  path: /assets/images/blog/2024/2024-10-01-SVGRAGTrend/SVGTrendSmall.png
-  alt: Example of Trend SVG
+image: /assets/images/blog/2024/2024-10-01-SVGRAGTrend/SVGTrendSmall.png
 date:
   created: 2024-10-01
   updated: 2025-10-19

@@ -1,9 +1,7 @@
 ---
 title: Vega Embed
 description: Installing and using Vega Embed on my Blog
-image:
-  path: /assets/images/blog/2025/2025-01-05-VegaRendering/VegaEmbed.png
-  alt: post
+image: /assets/images/blog/2025/2025-01-05-VegaRendering/VegaEmbed.png
 date:
   created: 2025-01-05
   updated: 2025-10-19

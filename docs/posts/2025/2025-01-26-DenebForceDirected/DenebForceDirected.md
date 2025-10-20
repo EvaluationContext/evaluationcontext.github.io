@@ -1,9 +1,7 @@
 ---
 title: Visualizing Power BI Permission Inheritance
 description: Using Deneb Force Directed Graph to visualizing the inheritance of Power BI permission 
-image:
-  path: /assets/images/blog/2025/2025-01-26-DenebForceDirected/force directed.gif
-  alt: force directed deneb
+image: /assets/images/blog/2025/2025-01-26-DenebForceDirected/force directed.gif
 date:
   created: 2025-01-26
   updated: 2025-10-19

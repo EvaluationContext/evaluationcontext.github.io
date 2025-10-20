@@ -77,7 +77,7 @@ extra:
       link: https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947
       name: Fabric Community
     - icon: material/rss
-      link: https://twitter.com/EvalContext
+      link: https://evaluationcontext.github.io/feed_rss_created.xml
       name: RSS Feed
   consent:
     title: Cookie consent
@@ -100,10 +100,22 @@ plugins:
       blog_dir: .
   - rss:
       match_path: "posts/.*"
-      pretty_print: true
       date_from_meta:
         as_creation: data.created
         as_update: date.updated
+        datetime_format: "%Y-%m-%d"
+        default_timezone: UTC
+      length: 20
+      abstract_chars_count: 160
+      categories:
+        - categories
+      image: https://evaluationcontext.github.io/assets/images/avatar.png
+      json_feed_enabled: true
+      comments_path: "#__comments"
+      url_parameters:
+        utm_source: "rss-feed"
+        utm_medium: "RSS"
+        utm_campaign: "blog-syndication"
 
 extra_css:
   - assets/css/codeblock.css

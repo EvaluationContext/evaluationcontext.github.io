@@ -1,9 +1,7 @@
 ---
 title: Exporting Power BI Tenant Settings
 description: Exporting Power BI Tenant Settings with the Fabric List Tenant Settings API
-image:
-  path: /assets/images/blog/2025/2025-02-09-TenantSettings/tenantSettings.png
-  alt: Tenant Settings
+image: /assets/images/blog/2025/2025-02-09-TenantSettings/tenantSettings.png
 date:
   created: 2025-02-09
   updated: 2025-10-19

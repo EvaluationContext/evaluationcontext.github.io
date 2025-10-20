@@ -1,9 +1,7 @@
 ---
 title: Monitoring for Power BI Admins
 description: What is going on in your Power BI Tenant?
-image:
-  path: /assets/images/blog/2025/2025-04-05-AdminMonitoring/hero.png
-  alt: Power BI Admin Monitoring
+image: /assets/images/blog/2025/2025-04-05-AdminMonitoring/hero.png
 date:
   created: 2025-04-05
   updated: 2025-10-19

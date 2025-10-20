@@ -1,9 +1,7 @@
 ---
 title: Logging User Data Functions (UDFs) in Fabric
 description: Basic and advanced logging in UDFs
-image:
-  path: /assets/images/blog/2025/2025-08-13-UDFLogs/hero.png
-  alt: UDF Logging
+image: /assets/images/blog/2025/2025-08-13-UDFLogs/hero.png
 date:
   created: 2025-08-13
   updated: 2025-10-19

@@ -1,9 +1,7 @@
 ---
 title: DAX Highlighting in Github Pages
 description: DAX Syntax Highlighting on GitHub Pages with Rouge and highlight.js
-image:
-  path: assets/images/blog/2024/2024-04-22-SyntaxHighlighting/daxSyntaxHighlightingRackupDemo.png
-  alt: Example of Dax Syntax Highlighting with Rouge
+image: assets/images/blog/2024/2024-04-22-SyntaxHighlighting/daxSyntaxHighlightingRackupDemo.png
 date:
   created: 2024-04-22
   updated: 2025-10-19

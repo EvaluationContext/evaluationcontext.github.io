@@ -1,9 +1,7 @@
 ---
 title: From Wrist to Dashboard - Real-Time Dashboards in Fabric
 description: Real-time streaming of heart rate data from Garmin watch to Microsoft Fabric
-image:
-  path: /assets/images/blog/2025/2025-05-18-RealTimeIntelligence/architecture.png
-  alt: Excalidraw Architecture Diagram
+image: /assets/images/blog/2025/2025-05-18-RealTimeIntelligence/architecture.png
 date:
   created: 2025-05-18
   updated: 2025-10-19

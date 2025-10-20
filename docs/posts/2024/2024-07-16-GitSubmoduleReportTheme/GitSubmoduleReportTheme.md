@@ -1,9 +1,7 @@
 ---
 title: Using Git Submodules to Distribute a Common Theme to Power BI Reports
 description: Defining a Theme in a Git Submodule that can be injected into Reports in other repos upon deployment
-image:
-  path: assets/images/blog/2024/2024-07-16-GitSubmoduleReportTheme/beforeAfter.png
-  alt: Updating a Report theme from a Donor Report in Git Submodule
+image: assets/images/blog/2024/2024-07-16-GitSubmoduleReportTheme/beforeAfter.png
 date:
   created: 2024-07-16
   updated: 2025-10-19

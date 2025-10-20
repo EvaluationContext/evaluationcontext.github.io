@@ -1,9 +1,7 @@
 ---
 title: Handling Multi-Row Inputs for Translytical Task Flows
 description: Using DAX's TOJSON() function to pass multiple selected rows to UDFs when using Translytical Task Flows
-image:
-  path: /assets/images/blog/2025/2025-07-12-TranslyticalRows/Solution.gif
-  alt: Passing multiple cells
+image: /assets/images/blog/2025/2025-07-12-TranslyticalRows/Solution.gif
 date:
   created: 2025-07-12
   updated: 2025-10-19

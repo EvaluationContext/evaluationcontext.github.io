@@ -1,9 +1,7 @@
 ---
 title: Smarter Subgraphs - Kusto as a Engine For Power BI
 description: Move beyond VertiPaq's limitations. Using Kusto Database with Direct Query and motif matching to create dynamic, clean, and performant graph visual in Power BI
-image:
-  path: /assets/images/blog/2025/2025-07-03-KQLGraph/Hero.png
-  alt: Trimming the Graph
+image: /assets/images/blog/2025/2025-07-03-KQLGraph/Hero.png
 date:
   created: 2025-07-03
   updated: 2025-10-19

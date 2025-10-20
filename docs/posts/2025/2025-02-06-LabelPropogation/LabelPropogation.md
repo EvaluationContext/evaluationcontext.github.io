@@ -1,9 +1,7 @@
 ---
 title: Label Propagation To Identify End User Persona?
 description: Using Label Propagation to attempt to obtain cluster of users that can used to define personas, to simplify granting of permissions
-image:
-  path: /assets/images/blog/2025/2025-02-06-LabelPropogation/GraphAll.png
-  alt: Label Propagation
+image: /assets/images/blog/2025/2025-02-06-LabelPropogation/GraphAll.png
 date:
   created: 2025-02-06
   updated: 2025-10-19

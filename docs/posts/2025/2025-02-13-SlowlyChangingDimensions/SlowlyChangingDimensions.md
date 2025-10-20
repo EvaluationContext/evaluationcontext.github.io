@@ -1,9 +1,7 @@
 ---
 title: Incremental Refresh on Slowly Changing Dimension in Power BI
 description: Incremental Refresh on Slowly Changing Dimension in Power BI
-image:
-  path: assets/images/blog/2025/2025-02-13-SlowlyChangingDimensions/RefreshPolicy.png
-  alt: Incremental Refresh
+image: assets/images/blog/2025/2025-02-13-SlowlyChangingDimensions/RefreshPolicy.png
 date:
   created: 2025-02-13
   updated: 2025-10-19

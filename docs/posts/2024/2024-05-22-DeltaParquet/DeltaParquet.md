@@ -1,9 +1,7 @@
 ---
 title: The Delta Between a Lake and Lakehouse
 description: How does Delta Lake Uplift a Data Lake to a Lakehouse
-image:
-  path: /assets/images/blog/2024/2024-05-22-DeltaParquet/hero.png
-  alt: VS Code
+image: /assets/images/blog/2024/2024-05-22-DeltaParquet/hero.png
 date:
   created: 2024-05-22
   updated: 2025-10-19

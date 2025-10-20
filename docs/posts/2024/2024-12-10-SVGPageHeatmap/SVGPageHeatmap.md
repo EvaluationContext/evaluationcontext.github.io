@@ -1,9 +1,7 @@
 ---
 title: Visualizing Power BI Visual Performance
 description: Using Power BI Logs, Report metadata and SVG to visual visual performance and usage with a page heatmap
-image:
-  path: /assets/images/blog/2024/2024-12-10-SVGPageHeatmap/page svg.gif
-  alt: SVG Heatmap
+image: /assets/images/blog/2024/2024-12-10-SVGPageHeatmap/page svg.gif
 date:
   created: 2024-12-10
   updated: 2025-10-19

@@ -1,9 +1,7 @@
 ---
 title: SVG Heatmap
 description: Creating a Heatmap SVG to visualize distributions
-image:
-  path: /assets/images/blog/2024/2024-11-19-SVGHeatmap/SVG-Heatmap_small.png
-  alt: SVG Heatmap
+image: /assets/images/blog/2024/2024-11-19-SVGHeatmap/SVG-Heatmap_small.png
 date:
   created: 2024-11-19
   updated: 2025-10-19

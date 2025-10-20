@@ -1,9 +1,7 @@
 ---
 title: DAX UDF Colour Library
 description: A DAX UDF colour library to manipulate HEX colours
-image:
-  path: /assets/images/blog/2025/2025-09-16-UDFColours/icon.png
-  alt: EvaluationContext.Colour
+image: /assets/images/blog/2025/2025-09-16-UDFColours/icon.png
 date:
   created: 2025-09-16
   updated: 2025-10-19

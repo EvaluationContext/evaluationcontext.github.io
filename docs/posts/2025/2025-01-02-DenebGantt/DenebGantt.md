@@ -1,9 +1,7 @@
 ---
 title: Deneb Gantt Chart
 description: Using Deneb and Vega-Lite to create a Gantt Chart if Power BI
-image:
-  path: /assets/images/blog/2025/2025-01-02-DenebGantt/Deneb_small.png
-  alt: post
+image: /assets/images/blog/2025/2025-01-02-DenebGantt/Deneb_small.png
 date:
   created: 2025-01-02
   updated: 2025-10-19

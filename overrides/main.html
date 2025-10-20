@@ -2,8 +2,8 @@
 
 {% block extrahead %}
   <!-- Preload hero/featured images for faster loading -->
-  {% if page.meta and page.meta.image and page.meta.image.path %}
-    <link rel="preload" as="image" href="{{ page.meta.image.path }}">
+  {% if page.meta and page.meta.image %}
+    <link rel="preload" as="image" href="{{ page.meta.image }}">
   {% endif %}
   
   <!-- DNS prefetch for external resources -->
@@ -17,11 +17,7 @@
   <meta property="og:description" content="{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}" />
   <meta property="og:site_name" content="{{ config.site_name }}" />
   {% if page.meta and page.meta.image %}
-    {% if page.meta.image.path %}
-  <meta property="og:image" content="{{ config.site_url }}{{ page.meta.image.path }}" />
-    {% else %}
   <meta property="og:image" content="{{ config.site_url }}{{ page.meta.image }}" />
-    {% endif %}
   {% else %}
   <meta property="og:image" content="{{ config.site_url }}assets/images/avatar.png" />
   {% endif %}
@@ -32,12 +28,7 @@
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}" />
   <meta name="twitter:description" content="{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}" />
   {% if page.meta and page.meta.image %}
-    {% if page.meta.image.path %}
-  <meta name="twitter:image" content="{{ config.site_url }}{{ page.meta.image.path }}" />
-  <meta name="twitter:image:alt" content="{{ page.meta.image.alt }}" />
-    {% else %}
   <meta name="twitter:image" content="{{ config.site_url }}{{ page.meta.image }}" />
-    {% endif %}
   {% else %}
   <meta name="twitter:image" content="{{ config.site_url }}assets/images/avatar.png" />
   {% endif %}

@@ -1,9 +1,7 @@
 ---
 title: Keeping Power BI Incremental Refresh Up To Date
 description: A alternate solution to a solution by Nikolaos Christoforidis for keeping local Incremental Refresh Reports up to date
-image:
-  path: /assets/images/blog/2024/2024-12-22-IncrementalRefreshParameters/post.png
-  alt: post
+image: /assets/images/blog/2024/2024-12-22-IncrementalRefreshParameters/post.png
 date:
   created: 2024-12-22
   updated: 2025-10-19

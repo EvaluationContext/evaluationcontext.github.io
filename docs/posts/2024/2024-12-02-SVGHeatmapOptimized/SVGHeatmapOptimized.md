@@ -1,9 +1,7 @@
 ---
 title: Optimizing the SVG Heatmap
 description: Optimizing the SVG Heatmap using the Sparkline measure pattern
-image:
-  path: /assets/images/blog/2024/2024-12-02-SVGHeatmapOptimized/SVG-Heatmap_small.png
-  alt: SVG Heatmap
+image: /assets/images/blog/2024/2024-12-02-SVGHeatmapOptimized/SVG-Heatmap_small.png
 date:
   created: 2024-12-02
   updated: 2025-10-19

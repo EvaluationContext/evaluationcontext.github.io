@@ -10,7 +10,7 @@ authors:
 comments: true
 categories:
   - User Data Functions
-slug: posts/UDF-Log
+slug: posts/UDF-Logs
 ---
 
 [Fabric User Data Functions (UDFs)](https://learn.microsoft.com/en-us/fabric/data-engineering/user-data-functions/user-data-functions-overview) are a great way to create reusable and encapsulated logic. While Fabric provides basic invocation logs, they often lack the detail needed for proper debugging and monitoring. This post will show you how to enhance your UDFs with detailed logging by sending them to a Fabric Eventstream and a KQL database which can support advanced analysis and alerting.

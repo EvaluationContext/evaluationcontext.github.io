@@ -95,12 +95,12 @@ plugins:
       # blog_toc: true
       post_url_format: "{slug}"
       blog_dir: .
-  # - rss:
-  #     match_path: "post/.*"
-  #     pretty_print: true
-  #     date_from_meta:
-  #       as_creation: data.created
-  #       as_update: date.updated
+  - rss:
+      match_path: "post/.*"
+      pretty_print: true
+      date_from_meta:
+        as_creation: data.created
+        as_update: date.updated
 
 extra_css:
   - assets/css/codeblock.css

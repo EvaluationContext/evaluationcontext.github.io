@@ -76,6 +76,9 @@ extra:
     - icon: material/microsoft
       link: https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947
       name: Fabric Community
+    - icon: material/rss
+      link: https://twitter.com/EvalContext
+      name: RSS Feed
   consent:
     title: Cookie consent
     description: >-
@@ -96,7 +99,7 @@ plugins:
       post_url_format: "{slug}"
       blog_dir: .
   - rss:
-      match_path: "post/.*"
+      match_path: "posts/.*"
       pretty_print: true
       date_from_meta:
         as_creation: data.created

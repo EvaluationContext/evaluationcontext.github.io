@@ -4,7 +4,7 @@ description: A DAX UDF colour library to manipulate HEX colours
 image: /assets/images/blog/2025/2025-09-16-UDFColours/icon.png
 date:
   created: 2025-09-16
-  updated: 2025-10-19
+  updated: 2025-10-22
 authors:
   - jDuddy
 comments: true
@@ -43,7 +43,7 @@ UDFs are incredibly versatile. Although the example above doesn't accept any par
 
 ### EvaluationContext.Colour Library
 
-[:material-book-open: Docs](https://evaluationcontext.github.io/EvaluationContext.Colour/){ .md-button }
+[:material-book-open: Docs](https://evaluationcontext.github.io/evaluationcontext.colour/){ .md-button }
 [:material-package-variant: Package](https://daxlib.org/package/EvaluationContext.Colour/){ .md-button }
 
 My recent contribution to DAX Lib was [EvaluationContext.Colour](https://daxlib.org/package/EvaluationContext.Colour/), This library provides a comprehensive set of functions to manipulate HEX color codes, making it easier to manage colors for tasks like SVG visualizations and conditional formatting. The library includes a range of functions, for adjusting properties like hue, saturation, and luminance, using pre-built themes, and determining the best text color for contrast with a given background.

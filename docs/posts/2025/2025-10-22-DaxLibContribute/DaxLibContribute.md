@@ -10,157 +10,164 @@ comments: true
 categories:
   - DAX
 links:
-  - DaxLib: https://daxlib.org/
+  - DaxLib.org: https://daxlib.org/
   - DaxLib Docs: https://docs.daxlib.org/
   - Contribute Small Libraries to DAX Lib: https://docs.daxlib.org/contribute/fork-daxlib
   - Contribute Medium-Large Libraries to DAX Lib: https://docs.daxlib.org/contribute/github-repo
-  - DaxLib Repo Template: https://github.com/daxlib/lib-quickstart-template
-  - evaluationcontext.colour Repo: https://github.com/EvaluationContext/evaluationcontext.colour
-  - evaluationcontext.colour Docs: https://evaluationcontext.github.io/evaluationcontext.colour/
+  - daxlib/daxlib: https://github.com/daxlib/daxlib
+  - daxlib/lib-quickstart-template: https://github.com/daxlib/lib-quickstart-template
+  - evaluationcontext.colour/evaluationcontext.colour Repo: https://github.com/EvaluationContext/evaluationcontext.colour
+  - evaluationcontext.colour/evaluationcontext.colour Docs Site: https://evaluationcontext.github.io/evaluationcontext.colour/
 slug: posts/DaxLibContribute
-draft: true
 ---
 
-[Dax Lib](https://daxlib.org/), a centralized repository of DAX UDF libraries, has just announced a new type of library - [Medium/Large](https://github.com/daxlib/daxlib/discussions/81). I will show the processes of how to submit a small library, then how to move from a Small to Medium/Large Library, and explore why you might want to do this.
+[Dax Lib](https://daxlib.org/), a centralized repository of DAX UDF libraries, has just announced a new type of library - [Medium/Large](https://github.com/daxlib/daxlib/discussions/81). I will show the processes of how to submit a Small library, then how to move from a Small to Medium/Large library, and explore why you might want to do this.
 
 ## Small library
 
-In this mode you develop your library on a personal fork of [daxlib/daxlib](https://github.com/daxlib/daxlib), then submit a pull request to `daxlib/daxlib` to submit your library. There is a [guide](https://docs.daxlib.org/contribute/fork-daxlib) on how to contribute a small library to DAX Lib.
-
-```mermaid
-graph LR
-  A["evaluationcontext/daxlib"] -->|pull request| B["daxlib/daxlib"]
-```
+In this mode you develop your library on a personal fork of :octicons-repo-24: `daxlib/daxlib` (i.e :material-source-fork: `evaluationcontext/daxlib`), then submit a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib` to submit your library, and your :octicons-package-16: library will be released to `daxlib.org`. There is a [guide](https://docs.daxlib.org/contribute/fork-daxlib) on how to contribute a small library to DAX Lib.
 
 The process is as follows:
 
-- Go to [daxlib/daxlib](https://github.com/daxlib/daxlib) github repo, and create a fork
+```mermaid
+sequenceDiagram
+    participant DaxLib as daxlib.org
+    participant Main as daxlib/daxlib
+    participant Fork as evaluationcontext/daxlib
+    
+    Main->>Fork: 1. Fork repository
+    Fork->>Fork: 2. Develop library
+    Fork->>Main: 3. Submit pull request
+    Main->>Main: 4. Review & merge
+    Main->>DaxLib: 5. Package deployed
+```
+
+- Go to [daxlib/daxlib](https://github.com/daxlib/daxlib) github repo :material-source-fork:, and create a fork :material-source-fork:
 - Create a folder within packages, for your library, and add/update the relevant files
 
-=== "daxlib/daxlib repo structure"
+??? example "daxlib/daxlib package"
 
-    The example below shows the structure of `daxlib/daxlib repo`, showing only the relevant items
+    === "daxlib/daxlib repo structure"
 
-    ``` { .json .annotate .no-copy }
-    │
-    └── 📁 packages
-        |── 📁 a   
-        ├── 📁 ...
-        ├── 📁 e
-        │    └── 📁 evaluationcontext.colour // (1)!
-        │         ├── 📁 lib
-        │         │    └── functions.tmdl // (2)!
-        │         ├── 📄 icon.png // (3)!
-        │         ├── 📄 README.md // (4)!
-        │         └── 📄 manifest.daxlib // (5)!
-        ├── 📁 ...
-        └── 📁 z
-    ```
+        The example below shows the structure of the :octicons-repo-24: `daxlib/daxlib` repo, showing only the relevant items
 
-    1. Your library
-    2. Required - Your DAX UDF functions 
-    3. Optional - Icon for your library
-    4. Optional - Docs for your library
-    5. Required - Declares package properties
-
-=== "lib/functions.tmdl"
-
-    Contains TMDL definition of the functions within your library
-
-    ??? info "Naming Convention"
-
-        There are some guidelines on DAX UDF naming conventions
-
-        - [DAX Lib Naming Conventions](https://docs.daxlib.org/contribute/naming-conventions)
-        - [SQLBI DAX Naming Conventions](https://docs.sqlbi.com/dax-style/dax-naming-conventions)
-
-    ??? Warning "Annotation"
-
-        TDML script must *not* have `CreateOrReplace` keyword
-
-        Functions must have the following annotations:
-
-        ```tmdl
-        annotation DAXLIB_PackageId = EvaluationContext.Colour
-        annotation DAXLIB_PackageVersion = 0.1.2-beta
+        ``` { .json .annotate .no-copy }
+        └── 📁 packages
+            |── 📁 a   
+            ├── 📁 ...
+            ├── 📁 e
+            │    └── 📁 evaluationcontext.colour // (1)!
+            │         ├── 📁 lib
+            │         │    └── functions.tmdl // (2)!
+            │         ├── 📄 icon.png // (3)!
+            │         ├── 📄 README.md // (4)!
+            │         └── 📄 manifest.daxlib // (5)!
+            ├── 📁 ...
+            └── 📁 z
         ```
 
-    ```dax
-    /// Int to Hex conversion
-    /// number	INT64	The integer to convert
-    /// padTo	INT64	Optional: Minimum number of characters in result
-    function 'EvaluationContext.Colour.Int.ToHex' =
-        (
-          number: INT64,
-          padTo: INT64
-        ) =>
-        
-          VAR MinPadding = IF( number = 0, 1, CEILING( LOG( number + 1, 16 ), 1 ) )
-          VAR ActualPadding = MAX( MinPadding, IF( ISBLANK( padTo ), MinPadding, padTo ) )
-          VAR BitTable = GENERATESERIES( 1, ActualPadding )
-          VAR Hex =
-            CONCATENATEX(
-              BitTable,
-              VAR c = MOD( TRUNC( number / POWER( 16, [Value] - 1 ) ), 16 )
-              RETURN
-                SWITCH( c, 10, "A", 11, "B", 12, "C", 13, "D", 14, "E", 15, "F", c ),
-              "",
-              [Value],
-              DESC
-            )
-        
-          RETURN Hex
+        1. Your library
+        2. Required - Your DAX UDF functions 
+        3. Optional - Icon for your library
+        4. Optional - Docs for your library
+        5. Required - Declares package properties
 
-      annotation DAXLIB_PackageId = EvaluationContext.Colour
-      annotation DAXLIB_PackageVersion = 0.1.2-beta
-    ...
-    ```
+    === "lib/functions.tmdl"
 
-=== "manifest.daxlib"
+        *Required:* Contains TMDL definition of the functions within your library
 
-    Contains the package properties in JSON format
+        ??? info "Naming Convention"
 
-    ``` { .json .annotate }
-    {
-      "$schema": "https://raw.githubusercontent.com/sql-bi/daxlib/refs/heads/main/schemas/manifest/1.0.0/manifest.1.0.0.schema.json",
-      "id": "EvaluationContext.Colour",
-      "version": "0.1.2-beta",
-      "authors": "Jake Duddy",
-      "description": "A comprehensive set of User-Defined Functions designed to enable easy manipulation of hex colours",
-      "tags": "DAX,UDF,colour",
-      "releaseNotes": "Added Documentation page and `EvaluationContext.Colour.Hex.Interpolate` function",
-      "projectUrl": "https://evaluationcontext.github.io/EvaluationContext.Colour/",
-      "repositoryUrl": "https://github.com/sql-bi/daxlib/tree/main/packages/e/evaluationcontext.colour",
-      "icon": "/icon.png", // (1)!
-      "readme": "/README.md" // (2)!
-    }
-    ```
+            There are some guidelines on DAX UDF naming conventions
 
-    1. Required if you include a `icon.png` file
-    2. Required if you include a `README.md` file
+            - [DAX Lib Naming Conventions](https://docs.daxlib.org/contribute/naming-conventions)
+            - [SQLBI DAX Naming Conventions](https://docs.sqlbi.com/dax-style/dax-naming-conventions)
 
-=== "icon.png"
+        ??? Warning "Annotation"
 
-    Optional icon for library
+            TDML script must *not* have `CreateOrReplace` keyword
 
-    !!! remarks
+            Functions must have the following annotations:
 
-        The icon file must be in PNG format (.PNG), with a maximum size of 100 KB
+            ```tmdl
+            annotation DAXLIB_PackageId = EvaluationContext.Colour
+            annotation DAXLIB_PackageVersion = 0.1.2-beta
+            ```
 
-=== "README.md"
+        ```dax
+        /// Int to Hex conversion
+        /// number	INT64	The integer to convert
+        /// padTo	INT64	Optional: Minimum number of characters in result
+        function 'EvaluationContext.Colour.Int.ToHex' =
+            (
+              number: INT64,
+              padTo: INT64
+            ) =>
+            
+              VAR MinPadding = IF( number = 0, 1, CEILING( LOG( number + 1, 16 ), 1 ) )
+              VAR ActualPadding = MAX( MinPadding, IF( ISBLANK( padTo ), MinPadding, padTo ) )
+              VAR BitTable = GENERATESERIES( 1, ActualPadding )
+              VAR Hex =
+                CONCATENATEX(
+                  BitTable,
+                  VAR c = MOD( TRUNC( number / POWER( 16, [Value] - 1 ) ), 16 )
+                  RETURN
+                    SWITCH( c, 10, "A", 11, "B", 12, "C", 13, "D", 14, "E", 15, "F", c ),
+                  "",
+                  [Value],
+                  DESC
+                )
+            
+              RETURN Hex
 
-    Optional markdown docs file, with general information about the library, usage instructions, examples, and any notes for users
+          annotation DAXLIB_PackageId = EvaluationContext.Colour
+          annotation DAXLIB_PackageVersion = 0.1.2-beta
+        ...
+        ```
 
-    !!! remarks
+    === "manifest.daxlib"
 
-        The file must be in Markdown format (.MD), with a maximum size of 100 KB
+        *Required:* The package properties in JSON format
 
-        For security reasons, only a limited set of Markdown features are supported, and external links may be restricted to trusted domains
+        ``` { .json .annotate }
+        {
+          "$schema": "https://raw.githubusercontent.com/sql-bi/daxlib/refs/heads/main/schemas/manifest/1.0.0/manifest.1.0.0.schema.json",
+          "id": "EvaluationContext.Colour",
+          "version": "0.1.2-beta",
+          "authors": "Jake Duddy",
+          "description": "A comprehensive set of User-Defined Functions designed to enable easy manipulation of hex colours",
+          "tags": "DAX,UDF,colour",
+          "releaseNotes": "Added Documentation page and `EvaluationContext.Colour.Hex.Interpolate` function",
+          "projectUrl": "https://evaluationcontext.github.io/EvaluationContext.Colour/",
+          "repositoryUrl": "https://github.com/sql-bi/daxlib/tree/main/packages/e/evaluationcontext.colour",
+          "icon": "/icon.png", // (1)!
+          "readme": "/README.md" // (2)!
+        }
+        ```
 
----
+        1. Required if you include a `icon.png` file
+        2. Required if you include a `README.md` file
 
-- When you are ready to publish a version of the library, submit a pull request from `your fork` to `daxlib/daxlib`
-- After approval your library will appear on [DAX Lib](https://daxlib.org/) for other to download and use
+    === "icon.png"
+
+        *Optional:* icon for library
+
+        !!! remarks
+
+            The icon file must be in PNG format (.PNG), with a maximum size of 100 KB
+
+    === "README.md"
+
+        *Optional:* Markdown docs file, with general information about the library, usage instructions, examples, and any notes for users
+
+        !!! remarks
+
+            The file must be in Markdown format (.MD), with a maximum size of 100 KB
+
+            For security reasons, only a limited set of Markdown features are supported, and external links may be restricted to trusted domains
+
+- When you are ready to publish a version of the :octicons-package-16: library, submit a :octicons-git-pull-request-24: pull request from your :material-source-fork: `fork` to :octicons-repo-24: `daxlib/daxlib`
+- After approval your :octicons-package-16: library will appear on [DAX Lib](https://daxlib.org/) for other to download and use
 
 !!! info "Packages are immutable"
 
@@ -170,29 +177,39 @@ The process is as follows:
 
 The process for Medium/Large libraries uses a slightly different workflow.
 
-We still need a fork of `daxlib/daxlib`, and will still submit a pull request to `daxlib/daxlib` to publish a library. The difference is that development of the library will occur on a copy of `daxlib/lib-quickstart-template` (one per library). A github workflow can be run on the `daxlib/lib-quickstart-template` copy, which will push the library to a new branch of your `daxlib/daxlib` fork, which can then be submitted via a pull request.
+We still need a fork of :octicons-repo-24: `daxlib/daxlib` (i.e. :material-source-fork: `evaluationscontext/daxlib`), and will still submit a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib` to publish a library.
+
+The difference is that development of the library will occur on a fork of :octicons-repo-24: `daxlib/lib-quickstart-template` (one per library i.e. :material-source-fork: `evaluationcontext/evaluationcontext.colour`). A github workflow can be run on :material-source-fork: `evaluationcontext/evaluationcontext.colour`, which will push the library to a new branch of :material-source-fork: `evaluationcontext/daxlib`, which can then be submitted via a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib`.
 
 ```mermaid
-graph LR
-  A["evaluationcontext/evaluationcontext.colour"] -->|workflow creates branch| B["evaluationcontext/daxlib"]
-  C["evaluationcontext/anotherLibrary"] -->|workflow creates branch| B
-  B -->|pull request| D["daxlib/daxlib"]
+sequenceDiagram
+    participant DaxLib as daxlib.org
+    participant Main as daxlib/daxlib
+    participant Fork as evaluationcontext/daxlib
+    participant LibRepo1 as evaluationcontext/evaluationcontext.colour
+    
+    Main->>Fork: 1. Fork repository
+    LibRepo1->>LibRepo1: 2. Develop library
+    LibRepo1->>Fork: 3. Workflow creates branch
+    Fork->>Main: 4. Submit pull request
+    Main->>Main: 5. Review & merge
+    Main->>DaxLib: 6. Package deployed
 ```
 
 ### Why Create a Medium/large Library?
 
-Since you have a specific repo for your library you are able to:
+Since you have a specific repo dedicated to your library you are able to:
 
 - Connect with your users with GitHub issues
 - Collaborate with others to develop the library
-- (optional) Add documentation site and host (for example) on GitHub Pages
+- Add documentation site and host (for example) on GitHub Pages
 - Opens the door for auto-documentation generation
 
 ### Creating a Medium/large Library
 
 #### Creating a Library Repo
 
-Let's start by creating a [evaluationcontext.colour](https://github.com/EvaluationContext/evaluationcontext.colour) repo from the [daxlib/lib-quickstart-template](https://github.com/daxlib/lib-quickstart-template). This is where we can develop our library.
+Let's start by creating a development repo (:material-source-fork: [evaluationcontext/evaluationcontext.colour](https://github.com/EvaluationContext/evaluationcontext.colour)) from :octicons-repo-24: [daxlib/lib-quickstart-template](https://github.com/daxlib/lib-quickstart-template). This is where we can develop our library.
 
 ![Use This Template](UseThisTemplate.png)
 
@@ -200,7 +217,7 @@ Let's start by creating a [evaluationcontext.colour](https://github.com/Evaluati
 
 #### Modifying Repo
 
-Now we have the template we need to update it's content.
+Now we have a development repo we need to update it's content.
 
 - Go to vscode and run `#!bash git clone https://github.com/EvaluationContext/evaluationcontext.colour.git`
 
@@ -209,15 +226,15 @@ Now we have the template we need to update it's content.
     We can see the structure is slightly different, but the required content remain the same, except your library now lives in the `src` folder
 
     ```{ .json .annotate .no-copy }
-    📁 .github
-    ├── 📁 workflows
-    │    └── 📄 publish-package.yml // (1)!
+    ├── 📁 .github
+    │    └── 📁 workflows
+    │        └── 📄 publish-package.yml // (1)!
     └── 📁 src // (2)!
-        ├── 📁 lib
-        │    └── functions.tmdl // (3)!
-        ├── 📄 icon.png // (4)!
-        ├── 📄 README.md // (5)!
-        └── 📄 manifest.daxlib // (6)!
+         ├── 📁 lib
+         │    └── functions.tmdl // (3)!
+         ├── 📄 icon.png // (4)!
+         ├── 📄 README.md // (5)!
+         └── 📄 manifest.daxlib // (6)!
     ```
 
     1. Workflow to create a pull request to daxlib/daxlib repo
@@ -245,26 +262,46 @@ Now we have the template we need to update it's content.
 
 ### Adding a Docs Site
 
-For my previous library docs I used [Jekyll](https://jekyllrb.com/) and the [Just the Docs theme](https://just-the-docs.com/), primarily because I have been using the chirpy [Material](https://chirpy.cotes.page/) for my blog. But I have recently transitioned my blog over to the [Material](https://squidfunk.github.io/mkdocs-material/) Theme for [MKDocs](https://www.mkdocs.org/), as it has some really nice functionality, and faster build times. So lets quickly add a Material for MKDocs site definition to the repo.
+For my version of the library docs I used :simple-jekyll: [Jekyll](https://jekyllrb.com/) and the [Just the Docs theme](https://just-the-docs.com/), primarily because I have been using the chirpy [Material](https://chirpy.cotes.page/) for my blog. But I have recently transitioned my blog over to the :simple-materialformkdocs: [Material](https://squidfunk.github.io/mkdocs-material/) Theme for [MKDocs](https://www.mkdocs.org/), as it has some really nice functionality, and faster build times. So lets quickly add a Material for MKDocs site definition to the repo.
 
-!!! tip "Material for MKDocs"
+??? tip "Material for MKDocs"
 
     The [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/) docs site give really good documentation for how to create a site and clear explanation of all the features and how to use them. Additionally this [video series](https://www.youtube.com/playlist?list=PLw_jGKXm9lIaJCD8YClu6cAz1TcFdJdIf) is very good at getting you started.
 
-I am going to add/update the following:
+I am going to some files to define the site to the repo:
 
-- Add `DevContainer` and `requirements.txt`
-    - So I can serve the site in a container for site development, with all dependencies
-- `docs` folder
-    - Contains markdown files for all of the site pages
-- `mkdocs.yml`
-    - Site Configuration
-- `.github\workflows\ci.yml`
-    - GitHub workflow to land built site in `gh-pages` branch as a source for GitHub pages to deploy the site
-- `PowerBI` folder
-    - Power BI Project file for function testing and to show example for the usage of library
-- Update `.gitignore` 
-    - ignore for PBIP and MKdocs specific files
+``` { .json .annotate .no-copy }
+├── 📁 .devcontainer
+│    ├── 📄 devcontainer.json // (1)!
+│    └── 📄 Dockerfile
+├── 📁 .github
+│    └── 📁 workflows
+│        ├── 📄 publish-package.yml
+│        └── 📄 ci.yml // (3)!
+├── 📁 src
+│    ├── 📁 lib
+│    │    └── functions.tmdl
+│    ├── 📄 icon.png
+│    ├── 📄 README.md
+│    └── 📄 manifest.daxlib
+├── 📁 docs // (4)!
+│    ├── 📄 index.md
+│    └── 📄 ...
+├── 📁 PowerBI // (5)!
+│    ├── 📄 Model.pbip
+│    └── 📄 ...
+├── 📄 mkdocs.yml // (7)!
+├── 📄 requirements.txt // (2)!
+└── 📄 .gitignore // (6)!
+```
+
+1. Dev Container configuration for containerized development
+2. Python dependencies for MKDocs and Material theme
+3. GitHub workflow to build and deploy site to `gh-pages` branch
+4. Markdown files for all site pages
+5. Power BI Project file for function testing and examples
+6. Ignore PBIP and MKDocs specific files
+7. Site configuration
 
 Once I have everything setup I can run the run the site in the Dev Container.
 
@@ -272,7 +309,7 @@ Once I have everything setup I can run the run the site in the Dev Container.
 
     To run dev containers you need [Docker Desktop](https://docs.docker.com/desktop/) installed. Additionally if you are running on Windows you will need to install [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install). 
 
-    Since MKdocs runs on python, you could could install python, and pip install the dependencies.
+    Since MKdocs runs on python, you could could install python, and pip install the dependencies, on your machine without a container.
 
 Once the container is built I can go to the terminal and serve the site on localhost.
 
@@ -284,7 +321,7 @@ Then view the site at `http://localhost:8000/` and test to make sure the site is
 
 ![MKdocs Serve](MKdocsServe.png)
 
-Then we can `push` to GitHub, this will run the `ci` job, which will execute `#!bash mkdocs build`, generating the html pages, and saving the result to the `gh-pages` branch. We can now setup GitHub pages to use the `gh-pages` branch as a source to deploy our site, by selecting `Setting` from the top nav bar of the Git Hub repo, select `pages` and set `Deploy from a branch` and set the branch to `gh-pages`, and select save.
+Then we can `push` to GitHub, this will run the `ci` job, which will execute `#!bash mkdocs build`, generating the html pages, and saving the result to a :octicons-git-branch-24: `gh-pages` branch. We can now setup GitHub pages to use the :octicons-git-branch-24: `gh-pages` branch as a source to deploy our site, by selecting `Setting` from the top nav bar of the Git Hub repo, select `pages` and set `Deploy from a branch` and set the branch to :octicons-git-branch-24: `gh-pages`, and select save.
 
 ![GitHub Pages Setup](GitHubPagesSetup.png)
 
@@ -300,11 +337,11 @@ Then we can navigate to our site URL and confirm it deployed successfully.
 
 After that brief detour, we can deploy the library by following the [Publish Your Library](https://github.com/daxlib/lib-quickstart-template?tab=readme-ov-file#-publish-your-library) guidance.
 
-We first need to create a Personal Access Token, granting `read/write` permissions on your `daxlib/daxlib fork`.
+We first need to create a Personal Access Token, granting `read/write` permissions on :material-source-fork: `evaluationcontext/daxlib` .
 
 ![Generate PAT Token](GeneratePATToken.png)
 
-We add the token as a secret on the library repo, granting these permission to your `library repo`.
+We add the token as a secret on :material-source-fork: `evaluationcontext/evaluationcontext.colour`, granting these permission to :material-source-fork: `evaluationcontext/daxlib`. So that the workflow run from :material-source-fork: `evaluationcontext/evaluationcontext.colour` can create a new :octicons-git-branch-24: branch in :material-source-fork: `evaluationcontext/daxlib`
 
 ![Add Secret](AddSecret.png)
 
@@ -312,20 +349,22 @@ Navigate to `actions`, select `publish-package` and `Run workflow`.
 
 ![publish-package](publish-package.png)
 
-Once this has run we can navigate to our `daxlib/daxlib fork`, and we can see a new branch (`evaluationcontext.colour/publish-EvaluationContext.Colour-0.1.3-beta`) has been created.
+Once this has run we can navigate to our :material-source-fork: `evaluationcontext/daxlib`, and we confirm new branch (:octicons-git-branch-24: `evaluationcontext.colour/publish-EvaluationContext.Colour-0.1.3-beta`) has been created.
 
 ![ForkNewBranch](ForkNewBranch.png)
 
-From here we can create a Pull Request to `daxlib/daxlib`.
+If we go back the actions section of :material-source-fork: `evaluationcontext/evaluationcontext.colour` and open the completed `publish-package` job, you can see we get the option to open a :octicons-git-pull-request-24: pull request.
 
-!!! quote "Pull Request"
+![Completed publish-package job](publish-packageFinished.png)
 
-    Your pull request will be reviewed by the DAX Lib maintainers and, if changes are requested during the review:
+Then we can select `Open Pull Request` and `Create pull request` to create a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib`.
 
-    - Apply the requested fixes to your code and commit them to your repository
-    - Re-run the publish-package workflow
-    - The pull request will be automatically updated
+![Open Pull Request](OpenPullRequest.png)
 
-    Once your pull request is approved and merged, your library will be automatically published on [daxlib.org](https://daxlib.org/).
+The :octicons-git-pull-request-24: pull request will then be reviewed by the DAX Lib maintainers. If changes are requested during the review:
 
-    <cite>[daxlib/lib-quickstart-template](https://github.com/daxlib/lib-quickstart-template?tab=readme-ov-file#-publish-your-library)</cite>
+- Apply the requested fixes to your code in the development repo, and commit them to your repository
+- Re-run the `publish-package` workflow
+- The :octicons-git-pull-request-24: pull request will be automatically updated
+
+Once your :octicons-git-pull-request-24: pull request is approved and merged, your :octicons-package-16: library will be automatically published on [daxlib.org](https://daxlib.org/).

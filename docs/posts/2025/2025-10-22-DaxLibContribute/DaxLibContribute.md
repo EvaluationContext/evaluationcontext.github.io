@@ -1,7 +1,7 @@
 ---
 title: Contributing to DaxLib
 description: How to contribute a Library to DaxLib
-image: /assets/images/blog/2025/2025-10-22-DaxLibContribute/logo.svg
+image: /assets/images/blog/2025/2025-10-22-DaxLibContribute/logo.png
 date:
   created: 2025-10-22
 authors:

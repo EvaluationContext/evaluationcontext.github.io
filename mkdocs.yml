@@ -89,6 +89,8 @@ extra:
       - accept
       - manage
       - reject
+  annotate:
+    json: [.s2]
 
 plugins:
   - search

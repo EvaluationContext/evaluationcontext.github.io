@@ -26,7 +26,7 @@ hide:
 
     ---
 
-    [:material-book-open: Docs](https://evaluationcontext.github.io/EvaluationContext.Colour/){ .md-button }
+    [:material-book-open: Docs](https://evaluationcontext.github.io/evaluationcontext.Ccolour/){ .md-button }
     [:material-github: Docs](https://github.com/EvaluationContext/EvaluationContext.Colour){ .md-button }
     [:material-package-variant: Package](https://daxlib.org/package/EvaluationContext.Colour/){ .md-button }
 

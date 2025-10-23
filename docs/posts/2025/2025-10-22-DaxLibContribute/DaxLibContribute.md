@@ -25,7 +25,7 @@ slug: posts/DaxLibContribute
 
 ## Small library
 
-In this mode you develop your library on a personal fork of :octicons-repo-24: `daxlib/daxlib` (i.e :material-source-fork: `evaluationcontext/daxlib`), then submit a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib` to submit your library, and your :octicons-package-16: library will be released to `daxlib.org`. There is a [guide](https://docs.daxlib.org/contribute/fork-daxlib) on how to contribute a small library to DAX Lib.
+In this mode you develop your library on a personal fork of :octicons-repo-24: `daxlib/daxlib` (i.e :material-source-fork: `evaluationcontext/daxlib`), then submit a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib` to submit your library, and your :octicons-package-16: library will be released to `Dax lib`. There is a [guide](https://docs.daxlib.org/contribute/fork-daxlib) on how to contribute a small library to DAX Lib.
 
 The process is as follows:
 
@@ -42,7 +42,7 @@ sequenceDiagram
     Main->>DaxLib: 5. Package deployed
 ```
 
-- Go to [daxlib/daxlib](https://github.com/daxlib/daxlib) github repo :material-source-fork:, and create a fork :material-source-fork:
+- Go to :octicons-repo-24: [daxlib/daxlib](https://github.com/daxlib/daxlib) github repo, and create a fork :material-source-fork:
 - Create a folder within packages, for your library, and add/update the relevant files
 
 ??? example "daxlib/daxlib package"
@@ -145,8 +145,8 @@ sequenceDiagram
         }
         ```
 
-        1. Required if you include a `icon.png` file
-        2. Required if you include a `README.md` file
+        6. Required if you include a `icon.png` file
+        7. Required if you include a `README.md` file
 
     === "icon.png"
 
@@ -175,11 +175,11 @@ sequenceDiagram
 
 ## Medium/large Library
 
-The process for Medium/Large libraries uses a slightly different workflow.
+The process for Medium/Large libraries uses a extended workflow.
 
 We still need a fork of :octicons-repo-24: `daxlib/daxlib` (i.e. :material-source-fork: `evaluationscontext/daxlib`), and will still submit a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib` to publish a library.
 
-The difference is that development of the library will occur on a fork of :octicons-repo-24: `daxlib/lib-quickstart-template` (one per library i.e. :material-source-fork: `evaluationcontext/evaluationcontext.colour`). A github workflow can be run on :material-source-fork: `evaluationcontext/evaluationcontext.colour`, which will push the library to a new branch of :material-source-fork: `evaluationcontext/daxlib`, which can then be submitted via a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib`.
+The difference is that development of the library will occur on a fork of :octicons-repo-24: `daxlib/lib-quickstart-template` (one per library i.e. :material-source-fork: `evaluationcontext/evaluationcontext.colour`). A github workflow can be run on :material-source-fork: `evaluationcontext/evaluationcontext.colour`, which will push the library to a new, version specific, branch of :material-source-fork: `evaluationcontext/daxlib`, which can then be submitted via a :octicons-git-pull-request-24: pull request to :octicons-repo-24: `daxlib/daxlib`.
 
 ```mermaid
 sequenceDiagram
@@ -271,8 +271,8 @@ For my version of the library docs I used :simple-jekyll: [Jekyll](https://jekyl
 I am going to some files to define the site to the repo:
 
 ``` { .json .annotate .no-copy }
-├── 📁 .devcontainer
-│    ├── 📄 devcontainer.json // (1)!
+├── 📁 .devcontainer // (1)!
+│    ├── 📄 devcontainer.json
 │    └── 📄 Dockerfile
 ├── 📁 .github
 │    └── 📁 workflows
@@ -321,7 +321,9 @@ Then view the site at `http://localhost:8000/` and test to make sure the site is
 
 ![MKdocs Serve](MKdocsServe.png)
 
-Then we can `push` to GitHub, this will run the `ci` job, which will execute `#!bash mkdocs build`, generating the html pages, and saving the result to a :octicons-git-branch-24: `gh-pages` branch. We can now setup GitHub pages to use the :octicons-git-branch-24: `gh-pages` branch as a source to deploy our site, by selecting `Setting` from the top nav bar of the Git Hub repo, select `pages` and set `Deploy from a branch` and set the branch to :octicons-git-branch-24: `gh-pages`, and select save.
+Then we can `push` to GitHub, this will run the `ci` job, which will execute `#!bash mkdocs build`, generating the html pages, and saving the result to a :octicons-git-branch-24: `gh-pages` branch. 
+
+We can now setup GitHub pages to use the :octicons-git-branch-24: `gh-pages` branch as a source to deploy our site, by selecting `Setting` from the top nav bar of the Git Hub repo, select `pages` and set `Deploy from a branch` and set the branch to :octicons-git-branch-24: `gh-pages`, and select save.
 
 ![GitHub Pages Setup](GitHubPagesSetup.png)
 

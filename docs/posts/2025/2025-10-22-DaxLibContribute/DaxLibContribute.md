@@ -341,7 +341,7 @@ Then we can navigate to our site URL and confirm it deployed successfully.
 
 After that brief detour, we can deploy the library by following the [Publish Your Library](https://github.com/daxlib/lib-quickstart-template?tab=readme-ov-file#-publish-your-library) guidance.
 
-We first need to create a Personal Access Token, granting `read/write` permissions on :material-source-fork: `evaluationcontext/daxlib` .
+We first need to create a Personal Access Token, granting `read/write` permissions on :material-source-fork: `evaluationcontext/daxlib`.
 
 ![Generate PAT Token](GeneratePATToken.png)
 

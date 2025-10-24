@@ -26,7 +26,7 @@ hide:
 
     ---
 
-    [:material-book-open: Docs](https://evaluationcontext.github.io/evaluationcontext.Ccolour/){ .md-button }
+    [:material-book-open: Docs](https://evaluationcontext.github.io/evaluationcontext.colour/){ .md-button }
     [:material-github: Docs](https://github.com/EvaluationContext/EvaluationContext.Colour){ .md-button }
     [:material-package-variant: Package](https://daxlib.org/package/EvaluationContext.Colour/){ .md-button }
 
@@ -42,6 +42,7 @@ hide:
 
     ---
 
+    [:material-book-open: Docs](https://evaluationcontext.github.io/daxlib.svg/){ .md-button }
     [:material-github: Docs](https://github.com/daxlib/docs-daxlib-svg){ .md-button }
     [:material-github: Package](https://github.com/daxlib/dev-daxlib-svg){ .md-button }
     [:material-package-variant: Package](https://daxlib.org/package/daxlib.svg/){ .md-button }

@@ -129,6 +129,8 @@ extra_css:
   - assets/css/posts.css
   - assets/css/blogIndex.css
   - assets/css/glightbox-custom.css
+  - assets/css/pill.css
+  - assets/css/colorBlocks.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/vega@5

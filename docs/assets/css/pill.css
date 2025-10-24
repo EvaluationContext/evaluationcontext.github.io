@@ -1,0 +1,77 @@
+.type-label {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 0.5rem;
+  font-weight: 500;
+  margin-right: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border: 1px solid;
+}
+
+/* Tighter spacing for type labels in tables */
+table .type-label {
+  margin-right: 2px;
+  white-space: nowrap;
+}
+
+/* Prevent wrapping in table cells with type labels */
+table td:has(.type-label),
+table th:has(.type-label) {
+  white-space: nowrap;
+}
+
+/* Type label colors using the custom theme */
+.type-label.string { 
+  background-color: #ebf2ff;
+  border-color: #2a67ce;
+  color: #2a67ce;
+}
+.type-label.number,
+.type-label.numeric { 
+  background-color: #e6f4ea;
+  border-color: #137333;
+  color: #137333;
+}
+.type-label.boolean { 
+  background-color: #fff4e5;
+  border-color: #856211;
+  color: #856211;
+}
+.type-label.object { 
+  background-color: #eeeefa;
+  border-color: #4f47ba;
+  color: #4f47ba;
+}
+.type-label.array { 
+  background-color: #fcece2;
+  border-color: #794023;
+  color: #794023;
+}
+.type-label.expr { 
+  background-color: #fdf2f8;
+  border-color: #c64781;
+  color: #c64781;
+}
+.type-label.val { 
+  background-color: #f5d4df;
+  border-color: #6a2039;
+  color: #6a2039;
+}
+.type-label.int64 { 
+  background-color: #d9f5f2;
+  border-color: #00786f;
+  color: #00786f;
+}
+.type-label.anyref { 
+  background-color: #f0f1f2;
+  border-color: #4a5565;
+  color: #4a5565;
+}
+.type-label.double { 
+  background-color: #eef2ff;
+  border-color: #6251d7;
+  color: #6251d7;
+}

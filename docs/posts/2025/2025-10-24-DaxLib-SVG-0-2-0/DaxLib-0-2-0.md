@@ -4,6 +4,7 @@ description: DaxLib.SVG v0.2.0-beta release
 image: /assets/images/blog/2025/2025-10-24-DaxLib-SVG-0-2-0/UDFInAction.png
 date:
   created: 2025-10-24
+  updated: 2025-10-25
 authors:
   - jDuddy
 comments: true
@@ -24,7 +25,7 @@ I am happy to announce the release of `DaxLib.SVG v0.2.0-beta`, designed to help
 
 ## What are SVGs?
 
-SVGs are `Vector` images and defined using `XML`. You can define elements like `#!xml <circle>`, `#!xml <path>`, `#!xml <rect>` which are rendered into images.
+SVGs are Vector images and defined using `XML`. You can define elements like `#!xml <circle>`, `#!xml <path>`, `#!xml <rect>` which are rendered into images.
 
 For example you can define a simple circle like this:
 
@@ -181,7 +182,7 @@ These functions generate SVG primitives such as `#!xml <circle>`, `#!xml <rect>`
 
 === "Rect"
 
-    <svg width='500' height='100' viewbox= '0 0 100 20' xmlns='http://www.w3.org/2000/svg'><rect x='50%' y='0%' width='40%' height='8' fill='#EC008C' fill-opacity='0.3' stroke='#EC008C' stroke-width='2' stroke-opacity='0.9'/></svg>
+    <svg width='500' height='100' viewbox= '0 0 100 20' xmlns='http://www.w3.org/2000/svg'><rect x='20%' y='0%' width='50%' height='100%' fill='#EC008C' fill-opacity='0.3' stroke='#EC008C' stroke-width='2' stroke-opacity='0.9'/></svg>
 
 === "Txt"
 
@@ -264,7 +265,7 @@ For example we can use `DaxLib.SVG.Element.Circle()` to draw the circle above in
 
 ### Compounds
 
-Compound functions combine multiple `DaxLib.SVG.Element.*` functions into higher-level reusable components and complete chart visualizations. These simplify the creation of complex visuals by providing ready-made chart types.
+Compound functions combine multiple `DaxLib.SVG.Element.*` functions into higher-level reusable comcponents and complete chart visualizations. These simplify the creation of complex visuals by providing ready-made chart types.
 
 === "Area"
 
@@ -538,7 +539,7 @@ We can define a linear gradient to be applied to a `rect`.
 
 === "Example"
 
-    ```dax hl_lines="6-29"
+    ```dax hl_lines="6-29 38"
     DaxLib.SVG.SVG(
         500,
         100,
@@ -637,9 +638,34 @@ We can define a linear gradient to be applied to a `rect`.
 
 === "Example"
 
-    ```dax
-    DaxLib.SVG.Attr.Shapes("#FF0000", 0.8, "nonzero", "#000000", 2, 1, 1)
-    // Returns "fill='#FF0000' fill-opacity='0.8' fill-rule='nonzero' stroke='#000000' stroke-width='2' stroke-opacity='1' opacity='1' "
+    ```dax hl_lines="9-23"
+    DaxLib.SVG.SVG(
+        500,                // width
+        100,                // height
+        "0 0 100 20",       // viewbox
+        DaxLib.SVG.Element.Circle(
+            50,             // cx
+            10,             // cy
+            "10%",          // r
+            DaxLib.SVG.Attr.Shapes(
+                DaxLib.SVG.Colour.Theme(
+                    "Power BI",
+                    25
+                ),              // fill
+                0.5,            // fillOpacity
+                BLANK(),        // fillRule   
+                DaxLib.SVG.Colour.Theme(
+                    "Power BI",
+                    25
+                ),              // stroke
+                1,              // strokeWidth
+                BLANK(),        // strokeOpacity
+                BLANK()         // opacity
+            ),              // attributes
+            BLANK()         // transforms
+        ),                  // contents
+        BLANK()             // sortValue
+    )
     ```
 
 === "Syntax"
@@ -691,9 +717,43 @@ Transform functions help you create transformation strings for rotating, scaling
 
 === "Example"
 
-    ```dax
-    DaxLib.SVG.Transforms("10,20", "45", "1.5", "", "")
-    // Returns: "translate(10,20) rotate(45) scale(1.5)"
+    ```dax hl_lines="27-33"
+    DaxLib.SVG.SVG( 
+        100,                // width
+        20,                 // height
+        BLANK(),            // viewbox
+        DaxLib.SVG.Element.Rect(
+            "50%",          // x
+            "0%",           // y
+            "40%",          // width
+            8,              // height
+            blank(),        // rx
+            blank(),        // ry
+            DaxLib.SVG.Attr.Shapes(
+                DaxLib.SVG.Colour.Theme(
+                    MAX( Theme[Theme] ),
+                    MIN( Variant[Variant] )
+                ),          // fill
+                0.3,        // fillOpacity
+                BLANK(),    // fillRule
+                DaxLib.SVG.Colour.Theme(
+                    MAX( Theme[Theme] ),
+                    MIN( Variant[Variant] )
+                ),          // stroke
+                2,          // strokeWidth
+                0.9,        // strokeOpacity
+                BLANK()     // opacity
+            ),              // attributes
+            DaxLib.SVG.Transforms(
+                -15,        // translate
+                5,          // rotate
+                BLANK(),    // scale
+                -20,        // skewX
+                BLANK()     // skewY
+            )               // transforms
+        ),                  // contents
+        BLANK()             // sortValue
+    )
     ```
 
 === "Syntax"
@@ -733,7 +793,7 @@ Transform functions help you create transformation strings for rotating, scaling
 
 ### Scales
 
-Scale functions help you map values between different scales - essential for converting data values into SVG coordinates.
+Scale functions help you map values between different scales - essential for converting data values into SVG coordinates. These are generally helper functions used in `daxlib.svg.compound.*`.
 
 === "Example"
 
@@ -779,9 +839,34 @@ Color functions provide theme support and color manipulation utilities, for exam
 
 === "Example"
 
-    ```dax
-    DaxLib.SVG.Color.Theme("Power BI", 1)
-    // Returns: "#118DFF"
+    ```dax hl_lines="10-13 16-19"
+    DaxLib.SVG.SVG(
+        500,                // width
+        100,                // height
+        "0 0 100 20",       // viewbox
+        DaxLib.SVG.Element.Circle(
+            50,             // cx
+            10,             // cy
+            "10%",          // r
+            DaxLib.SVG.Attr.Shapes(
+                DaxLib.SVG.Colour.Theme(
+                    "Power BI",
+                    25
+                ),              // fill
+                0.5,            // fillOpacity
+                BLANK(),        // fillRule   
+                DaxLib.SVG.Colour.Theme(
+                    "Power BI",
+                    25
+                ),              // stroke
+                1,              // strokeWidth
+                BLANK(),        // strokeOpacity
+                BLANK()         // opacity
+            ),              // attributes
+            BLANK()         // transforms
+        ),                  // contents
+        BLANK()             // sortValue
+    )
     ```
 
 === "Syntax"
@@ -968,4 +1053,4 @@ Color functions provide theme support and color manipulation utilities, for exam
 
 ## Contribute
 
-This is a good start at defining the basic structure of the library, but I think a missing category of functions is `daxlib.visual.*` which uses the existing function, but with a simpler interface, to create even more elaborate SVGs. Look out for upcoming documentation on how to contribute to DAX Lib official libraries.
+This is a good start at defining the basic structure of the library, but I think a missing category of functions is `daxlib.visual.*` which uses the existing function, but with a simpler interface, to create even more elaborate SVGs. Additionally I think there is scope for axis label. Any suggestions or help would be great! Look out for upcoming documentation on how to contribute to DAX Lib official libraries.

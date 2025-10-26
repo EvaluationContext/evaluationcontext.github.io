@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
+  <!-- Cache Control -->
+  <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate" />
+  <meta http-equiv="Expires" content="0" />
+  
   <!-- Preload hero/featured images for faster loading -->
   {% if page.meta and page.meta.image %}
     <link rel="preload" as="image" href="{{ page.meta.image }}">

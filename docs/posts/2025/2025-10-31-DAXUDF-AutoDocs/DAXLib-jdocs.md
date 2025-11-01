@@ -4,12 +4,14 @@ description: Auto generate docs for DAX UDF libraries
 image: /assets/images/blog/2025/2025-10-31-DAXUDF-AutoDocs/Demo.gif
 date:
   created: 2025-10-31
+  updated: 2025-11-01
 authors:
   - jDuddy
 comments: true
 categories:
   - DAX
 slug: posts/DAXUDF-AutoDocs
+readtime: 5
 ---
 
 I've been working on a number of DAX UDF libraries for [DAX Lib](https://daxlib.org). We all know the feeling: you've been working hard on development, you've already documented the code, but the thought of having to spend another few hours creating proper documentation feels like a drag. This post is about a solution to auto-generate this documentation.
@@ -111,52 +113,38 @@ function 'EvaluationContext.Colour.Hex.Theme' =
 ...
 ```
 
-## Considerations
+## Solution
 
 We're going to want to generate a script that will perform the following actions:
 
-1. **Parse** - Reads `src/lib/functions.tmdl` and extracts JSDoc comments (description, parameters, examples, return types)
-2. **Extract** - Pulls metadata from each function: name, parameters, code, examples
+1. **Parse** - Reads `src/lib/functions.tmdl` and parse JSDoc `@tag` from UDF function comments
+2. **Store** - Store `@tags` as json
 3. **Enhance** - Include additional content that is too verbose for inclusion in function comments but should be included in the site page
 4. **Merge** - Combines JSDoc data + extended content using a [Jinja](https://jinja.palletsprojects.com/en/stable/) template
 5. **Generate** - Writes complete markdown documentation pages to the `docs/` folder
 6. **Organize** - Automatically places files in correct subfolders (conversion, hex-manipulation, themes) based on function name
 
-### Supported JSDoc tags
+??? info "Supported Tags"
 
-I decided to support the following tags:
+    | Tag | Required | Format | Purpose |
+    |-----|----------|--------|---------|
+    | Description | :material-check: | `/// Description text` | Brief function summary |
+    | `@param` | :material-check: | `@param {type} name – description` | Document parameters, `[]` for optional |
+    | `@returns` | :material-check: | `@returns {type} description` | Describe return value |
+    | `@example` | :material-close: | `@example FunctionCall()` | Override auto-generated example |
+    | `@author` | :material-close: | `@author Name` | Function author/maintainer |
+    | `@version` | :material-close: | `@version 1.0.0` | Current version |
+    | `@since` | :material-close: | `@since 1.0.0` | Version/date introduced |
+    | `@see` | :material-close: | `@see Reference` | Related functions (can repeat) |
+    | `@deprecated` | :material-close: | `@deprecated Message` | Mark as obsolete |
 
-| Tag | Required | Format | Purpose |
-|-----|----------|--------|---------|
-| Description | :material-check: | `/// Description text` | Brief function summary |
-| `@param` | :material-check: | `@param {type} name – description` | Document parameters, `[]` for optional |
-| `@returns` | :material-check: | `@returns {type} description` | Describe return value |
-| `@example` | :material-close: | `@example FunctionCall()` | Override auto-generated example |
-| `@author` | :material-close: | `@author Name` | Function author/maintainer |
-| `@version` | :material-close: | `@version 1.0.0` | Current version |
-| `@since` | :material-close: | `@since 1.0.0` | Version/date introduced |
-| `@see` | :material-close: | `@see Reference` | Related functions (can repeat) |
-| `@deprecated` | :material-close: | `@deprecated Message` | Mark as obsolete |
-
-### Extra Content
-
-We might also want to add extra content beyond what is documented with the function. In the case of `EvaluationContext.Colour`, I have a tab on the `Hex.Theme` page that shows all theme colors in a formatted table, and on `DaxLib.SVG`, I have inline SVGs after the function description and before the tabs.
-
-Therefore, I'll want to define markdown files that can be merged together with the extracted function metadata and have the content placed in the correct location for the generated function markdown files.
-
-### Folders
-
-To keep things tidy, I also want a solution that will place similar functions together in a folder. For example, `Hex.Theme` and `Hex.LinearTheme` should both be in a `themes` folder.
-
-## Solution
-
-Here is the solution I ended up with.
+`update_docs.py` performs the actions above, supported by some other files detailed below.
 
 ``` { .json .annotate .no-copy }
 ...
 ├── 📁 JSDoc
 │    ├── 📁 extended_content 
-│    │    ├── 📄 Hex.Theme.tabs.md // (1)!
+│    │    ├── 📄 Hex.Theme.pretab.md // (1)!
 │    │    └── 📄 Hex.Theme.tabs.md // (2)!
 │    ├── 📁 parsed_functions // (3)!
 │    │    ├── 📄 EvaluationContext.Colour.Hex.AdjustAlpha.json

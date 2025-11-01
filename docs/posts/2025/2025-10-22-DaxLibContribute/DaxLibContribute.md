@@ -16,8 +16,8 @@ links:
   - Contribute Medium-Large Libraries to DAX Lib: https://docs.daxlib.org/contribute/github-repo
   - daxlib/daxlib: https://github.com/daxlib/daxlib
   - daxlib/lib-quickstart-template: https://github.com/daxlib/lib-quickstart-template
-  - evaluationcontext.colour/evaluationcontext.colour Repo: https://github.com/EvaluationContext/evaluationcontext.colour
-  - evaluationcontext.colour/evaluationcontext.colour Docs Site: https://evaluationcontext.github.io/evaluationcontext.colour/
+  - evaluationcontext/evaluationcontext.colour Repo: https://github.com/EvaluationContext/evaluationcontext.colour
+  - evaluationcontext/evaluationcontext.colour Docs Site: https://evaluationcontext.github.io/evaluationcontext.colour/
 slug: posts/DaxLibContribute
 ---
 

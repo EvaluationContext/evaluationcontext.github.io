@@ -12,6 +12,10 @@ categories:
   - DAX
 slug: posts/DAXUDF-AutoDocs
 readtime: 5
+links:
+  - DaxLib.org: https://daxlib.org/
+  - evaluationcontext.colour/evaluationcontext.colour Repo: https://github.com/EvaluationContext/evaluationcontext.colour
+  - evaluationcontext.colour/evaluationcontext.colour Docs Site: https://evaluationcontext.github.io/evaluationcontext.colour/
 ---
 
 I've been working on a number of DAX UDF libraries for [DAX Lib](https://daxlib.org). We all know the feeling: you've been working hard on development, you've already documented the code, but the thought of having to spend another few hours creating proper documentation feels like a drag. This post is about a solution to auto-generate this documentation.
@@ -52,7 +56,7 @@ JSDoc's strength lies in its standardization—tools can parse these comments to
 
 ## EvaluationContext.Colour
 
-I have a library `EvaluationContext.Colour` set up as a DAX Lib [Medium/Large](https://evaluationcontext.github.io/posts/DaxLibContribute/#mediumlarge-library) library, and I'm hosting the [documentation](https://evaluationcontext.github.io/evaluationcontext.colour/) on GitHub Pages using :simple-materialformkdocs: Material for MkDocs. The [repo](https://github.com/EvaluationContext/evaluationcontext.colour) has both the source functions for DAX Lib and the site definition.
+I have a library `[EvaluationContext.Colour](https://daxlib.org/package/EvaluationContext.Colour)` set up as a DAX Lib [Medium/Large](https://evaluationcontext.github.io/posts/DaxLibContribute/#mediumlarge-library) library, and I'm hosting the [documentation](https://evaluationcontext.github.io/evaluationcontext.colour/) on GitHub Pages using :simple-materialformkdocs: Material for MkDocs. The [repo](https://github.com/EvaluationContext/evaluationcontext.colour) has both the source functions for DAX Lib and the site definition.
 
 ### Repo Structure
 

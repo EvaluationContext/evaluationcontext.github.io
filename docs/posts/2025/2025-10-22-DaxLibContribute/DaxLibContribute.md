@@ -14,10 +14,10 @@ links:
   - DaxLib Docs: https://docs.daxlib.org/
   - Contribute Small Libraries to DAX Lib: https://docs.daxlib.org/contribute/fork-daxlib
   - Contribute Medium-Large Libraries to DAX Lib: https://docs.daxlib.org/contribute/github-repo
-  - daxlib/daxlib: https://github.com/daxlib/daxlib
-  - daxlib/lib-quickstart-template: https://github.com/daxlib/lib-quickstart-template
-  - evaluationcontext/evaluationcontext.colour Repo: https://github.com/EvaluationContext/evaluationcontext.colour
-  - evaluationcontext/evaluationcontext.colour Docs Site: https://evaluationcontext.github.io/evaluationcontext.colour/
+  - daxlib Repo: https://github.com/daxlib/daxlib
+  - lib-quickstart-template Repo: https://github.com/daxlib/lib-quickstart-template
+  - evaluationcontext.colour Repo: https://github.com/EvaluationContext/evaluationcontext.colour
+  - evaluationcontext.colour Docs Site: https://evaluationcontext.github.io/evaluationcontext.colour/
 slug: posts/DaxLibContribute
 ---
 

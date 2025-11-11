@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - DAX
+  - DAX Lib
 links:
   - EvaluationContext.Colour Docs: https://evaluationcontext.github.io/evaluationcontext.colour/
   - EvaluationContext.Colour Package: https://daxlib.org/package/EvaluationContext.Colour/

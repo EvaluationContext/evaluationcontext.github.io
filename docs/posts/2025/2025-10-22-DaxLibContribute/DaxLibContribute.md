@@ -8,7 +8,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - DAX
+  - DAX Lib
 links:
   - DaxLib.org: https://daxlib.org/
   - DaxLib Docs: https://docs.daxlib.org/

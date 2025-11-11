@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - DAX
+  - DAX Lib
 links:
   - daxlib.svg Package: https://daxlib.org/package/DaxLib.SVG
   - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/

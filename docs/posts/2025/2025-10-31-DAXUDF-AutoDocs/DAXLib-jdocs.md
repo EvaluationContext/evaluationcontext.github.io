@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - DAX
+  - DAX Lib
 slug: posts/DAXUDF-AutoDocs
 readtime: 5
 links:

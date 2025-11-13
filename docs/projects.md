@@ -14,6 +14,21 @@ hide:
 
 <div class="grid cards" markdown>
 
+-   :fontawesome-solid-circle-nodes: __Power BI Nexus__
+
+    ---
+
+    Stop searching in silos. Contribute, learn, and stay current with the Power BI with Power BI Nexus.
+
+    ---
+
+    ![Power BI Nexus](./assets/images/projects/power-bi-nexus.png)
+
+    ---
+
+    [:material-book-open: Docs](https://evaluationcontext.github.io/Power-BI-Nexus/){ .md-button }
+    [:material-github: Repo](https://github.com/EvaluationContext/Power-BI-Nexus){ .md-button }
+
 -   :material-invert-colors: __EvaluationContext.Colour__
 
     ---

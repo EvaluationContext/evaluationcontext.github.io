@@ -6,12 +6,6 @@ hide:
   - title
 ---
 
-## DaxLib Libraries
-
-[daxlib.org](https://daxlib.org/) is a website designed to distribute libraries of DAX user-defined functions (UDF). Similar to NuGet, DAX Lib provides a centralized platform where users can discover, share, and download reusable DAX function libraries to enhance their Fabric, Power BI, and Analysis Services semantic models.
-
----
-
 <div class="grid cards" markdown>
 
 -   :fontawesome-solid-circle-nodes: __Power BI Nexus__
@@ -33,7 +27,7 @@ hide:
 
     ---
 
-    A DAX UDF library for manipulation of hex colours for Power BI
+    A [DAX Lib](https://daxlib.org/) UDF library for manipulation of hex colours for Power BI
 
     ---
 
@@ -48,7 +42,7 @@ hide:
 
     ---
 
-    A DAX UDF library designed to make creating SVG visuals in Power BI easier
+    A [DAX Lib](https://daxlib.org/) library designed to make creating SVG visuals in Power BI easier
 
     ---
 

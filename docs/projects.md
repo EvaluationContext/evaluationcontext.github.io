@@ -26,7 +26,7 @@ hide:
 
     ---
 
-    [:material-book-open: Docs](https://evaluationcontext.github.io/Power-BI-Nexus/){ .md-button }
+    [:fontawesome-brands-chrome: Site](https://evaluationcontext.github.io/Power-BI-Nexus/){ .md-button }
     [:material-github: Repo](https://github.com/EvaluationContext/Power-BI-Nexus){ .md-button }
 
 -   :material-invert-colors: __EvaluationContext.Colour__
@@ -41,8 +41,7 @@ hide:
 
     ---
 
-    [:material-book-open: Docs](https://evaluationcontext.github.io/evaluationcontext.colour/){ .md-button }
-    [:material-github: Docs](https://github.com/EvaluationContext/EvaluationContext.Colour){ .md-button }
+    [:fontawesome-brands-chrome: Docs](https://evaluationcontext.github.io/evaluationcontext.colour/){ .md-button }
     [:material-package-variant: Package](https://daxlib.org/package/EvaluationContext.Colour/){ .md-button }
 
 -   :material-svg: __DaxLib.SVG__
@@ -57,9 +56,7 @@ hide:
 
     ---
 
-    [:material-book-open: Docs](https://evaluationcontext.github.io/daxlib.svg/){ .md-button }
-    [:material-github: Docs](https://github.com/daxlib/docs-daxlib-svg){ .md-button }
-    [:material-github: Package](https://github.com/daxlib/dev-daxlib-svg){ .md-button }
+    [:fontawesome-brands-chrome: Docs](https://evaluationcontext.github.io/daxlib.svg/){ .md-button }
     [:material-package-variant: Package](https://daxlib.org/package/daxlib.svg/){ .md-button }
     
 </div>

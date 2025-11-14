@@ -11,7 +11,7 @@ hide:
 ## 2025
 
 &nbsp;&nbsp;&nbsp;&nbsp;**Nov**&nbsp;&nbsp;&nbsp;&nbsp;Fabric Fridays 102 - Fabric DAX LIB &nbsp;[:material-youtube:{ style="color: #FF0000; font-size: 1.3em;" }](https://www.youtube.com/watch?v=eDuTGJMr6HY)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:octicons-location-16: Devon and Cornwall User Group
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:octicons-location-16: Online
 
 &nbsp;&nbsp;&nbsp;&nbsp;**Sep**&nbsp;&nbsp;&nbsp;&nbsp;[Playing With Translytical Task Flows](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-09-Devon) &nbsp;[:material-youtube:{ style="color: #FF0000; font-size: 1.3em;" }](https://www.youtube.com/watch?v=e6MAaeVsgQU)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:octicons-location-16: Devon and Cornwall User Group

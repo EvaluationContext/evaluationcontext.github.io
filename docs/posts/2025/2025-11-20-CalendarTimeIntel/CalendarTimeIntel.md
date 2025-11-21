@@ -4,6 +4,7 @@ description: Darian Calendar using Calendar-Based Time Intelligence
 image: /assets/images/blog/2025/2025-11-20-CalendarTimeIntel/hero.jpg
 date:
   created: 2025-11-20
+  updated: 2025-11-21
 authors:
   - jDuddy
 comments: true
@@ -143,7 +144,7 @@ Since the `[Date]` field is not a tradition date, we are not able to mark this a
 
 And we can create some fake weather data to test our calendar.
 
-??? demo "Weather Table"
+??? example "Weather Table"
 
     ```dax
     FactWeather = 
@@ -176,4 +177,4 @@ CALCULATE(
 
 ## Conclusion
 
-Calendar-Based Time Intelligence opens up exciting possibilities beyond traditional Gregorian calendars, and final Martian's can use DAX's Time Intelligence functions.
+Calendar-Based Time Intelligence opens up exciting possibilities beyond traditional Gregorian calendars, and finally Martian's can use DAX's Time Intelligence functions.

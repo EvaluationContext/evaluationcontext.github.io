@@ -77,7 +77,7 @@ extra:
       link: https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947
       name: Fabric Community
     - icon: material/rss
-      link: https://evaluationcontext.github.io/feed_rss_created.xml.xml
+      link: https://evaluationcontext.github.io/feed_rss_created.xml
       name: RSS Feed
   consent:
     title: Cookie consent

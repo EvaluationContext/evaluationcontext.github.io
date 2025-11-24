@@ -1,0 +1,14 @@
+[
+  {
+    "source": 4,
+    "target": 1,
+    "since": "2025-07-05",
+    "eligibilityStart": "2025-11-23"
+  },
+  {
+    "source": 2,
+    "target": 1,
+    "since": "2025-10-16",
+    "eligibilityStart": "2025-11-23"
+  }
+]

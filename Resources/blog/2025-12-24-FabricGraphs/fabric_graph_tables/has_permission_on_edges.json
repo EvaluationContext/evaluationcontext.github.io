@@ -1,0 +1,138 @@
+[
+  {
+    "source": 1,
+    "target": 17,
+    "role": "Admin",
+    "assignedDate": "2025-08-29"
+  },
+  {
+    "source": 5,
+    "target": 17,
+    "role": "Contributor",
+    "assignedDate": "2025-11-23"
+  },
+  {
+    "source": 26,
+    "target": 25,
+    "role": "Read"
+  },
+  {
+    "source": 1,
+    "target": 31,
+    "role": "Admin",
+    "assignedDate": "2025-06-10"
+  },
+  {
+    "source": 11,
+    "target": 31,
+    "role": "Contributor",
+    "assignedDate": "2025-11-23"
+  },
+  {
+    "source": 41,
+    "target": 40,
+    "role": "Read"
+  },
+  {
+    "source": 1,
+    "target": 46,
+    "role": "Admin",
+    "assignedDate": "2025-06-08"
+  },
+  {
+    "source": 5,
+    "target": 46,
+    "role": "Contributor",
+    "assignedDate": "2025-11-23"
+  },
+  {
+    "source": 54,
+    "target": 53,
+    "role": "Read"
+  },
+  {
+    "source": 1,
+    "target": 59,
+    "role": "Admin",
+    "assignedDate": "2025-03-04"
+  },
+  {
+    "source": 11,
+    "target": 59,
+    "role": "Contributor",
+    "assignedDate": "2025-11-23"
+  },
+  {
+    "source": 67,
+    "target": 66,
+    "role": "Read"
+  },
+  {
+    "source": 1,
+    "target": 72,
+    "role": "Admin",
+    "assignedDate": "2025-03-06"
+  },
+  {
+    "source": 5,
+    "target": 72,
+    "role": "Contributor",
+    "assignedDate": "2025-11-23"
+  },
+  {
+    "source": 79,
+    "target": 78,
+    "role": "Read"
+  },
+  {
+    "source": 1,
+    "target": 84,
+    "role": "Admin",
+    "assignedDate": "2025-10-02"
+  },
+  {
+    "source": 11,
+    "target": 84,
+    "role": "Contributor",
+    "assignedDate": "2025-11-23"
+  },
+  {
+    "source": 94,
+    "target": 93,
+    "role": "Read"
+  },
+  {
+    "source": 1,
+    "target": 99,
+    "role": "Admin",
+    "assignedDate": "2025-02-16"
+  },
+  {
+    "source": 5,
+    "target": 99,
+    "role": "Contributor",
+    "assignedDate": "2025-11-23"
+  },
+  {
+    "source": 109,
+    "target": 108,
+    "role": "Read"
+  },
+  {
+    "source": 1,
+    "target": 114,
+    "role": "Admin",
+    "assignedDate": "2025-09-22"
+  },
+  {
+    "source": 11,
+    "target": 114,
+    "role": "Contributor",
+    "assignedDate": "2025-11-23"
+  },
+  {
+    "source": 118,
+    "target": 117,
+    "role": "Read"
+  }
+]

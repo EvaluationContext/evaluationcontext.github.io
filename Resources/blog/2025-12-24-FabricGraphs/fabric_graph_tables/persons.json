@@ -1,0 +1,272 @@
+[
+  {
+    "id": 2,
+    "name": "Allison Hill",
+    "email": "donaldgarcia@example.net",
+    "department": "IT"
+  },
+  {
+    "id": 3,
+    "name": "Leslie Johnson",
+    "email": "robinsonwilliam@example.org",
+    "department": "IT"
+  },
+  {
+    "id": 4,
+    "name": "Matthew Gardner",
+    "email": "shaneramirez@example.org",
+    "department": "IT"
+  },
+  {
+    "id": 6,
+    "name": "Melissa Peterson",
+    "email": "jasongallagher@example.org",
+    "department": "Business Intelligence"
+  },
+  {
+    "id": 7,
+    "name": "Ian Cooper",
+    "email": "lindsay78@example.org",
+    "department": "Analytics"
+  },
+  {
+    "id": 8,
+    "name": "Juan Calderon",
+    "email": "barbara10@example.net",
+    "department": "Analytics"
+  },
+  {
+    "id": 9,
+    "name": "Victoria Wyatt",
+    "email": "jamesshawn@example.com",
+    "department": "Business Intelligence"
+  },
+  {
+    "id": 10,
+    "name": "Daniel Adams",
+    "email": "lynchgeorge@example.net",
+    "department": "Data Engineering"
+  },
+  {
+    "id": 12,
+    "name": "James Mayo",
+    "email": "gabriellecameron@example.org",
+    "department": "Analytics"
+  },
+  {
+    "id": 13,
+    "name": "Renee Morales",
+    "email": "clarksherri@example.net",
+    "department": "Analytics"
+  },
+  {
+    "id": 14,
+    "name": "Jonathan Wilkerson",
+    "email": "ithomas@example.org",
+    "department": "Analytics"
+  },
+  {
+    "id": 15,
+    "name": "Deborah Richards",
+    "email": "icox@example.net",
+    "department": "Business Intelligence"
+  },
+  {
+    "id": 16,
+    "name": "Anthony Rodriguez",
+    "email": "laurahenderson@example.org",
+    "department": "Analytics"
+  },
+  {
+    "id": 27,
+    "name": "David Bradley",
+    "email": "millertodd@example.org",
+    "department": "HR"
+  },
+  {
+    "id": 28,
+    "name": "Betty Alvarez",
+    "email": "josephbrennan@example.com",
+    "department": "Marketing"
+  },
+  {
+    "id": 29,
+    "name": "Nicole Vaughn",
+    "email": "raymond57@example.net",
+    "department": "HR"
+  },
+  {
+    "id": 30,
+    "name": "Danny Morgan",
+    "email": "briannasmith@example.net",
+    "department": "Operations"
+  },
+  {
+    "id": 42,
+    "name": "Scott Pierce",
+    "email": "pearsonamber@example.org",
+    "department": "Finance"
+  },
+  {
+    "id": 43,
+    "name": "Sarah Martin",
+    "email": "zolson@example.org",
+    "department": "Marketing"
+  },
+  {
+    "id": 44,
+    "name": "William Baker",
+    "email": "smitchell@example.net",
+    "department": "Marketing"
+  },
+  {
+    "id": 45,
+    "name": "Katelyn Lee",
+    "email": "tanyariley@example.net",
+    "department": "Finance"
+  },
+  {
+    "id": 55,
+    "name": "Dr. Angel Lewis MD",
+    "email": "nicole35@example.com",
+    "department": "HR"
+  },
+  {
+    "id": 56,
+    "name": "Joshua Turner",
+    "email": "contrerasangela@example.net",
+    "department": "Sales"
+  },
+  {
+    "id": 57,
+    "name": "Brandy Wilson",
+    "email": "newtoneric@example.com",
+    "department": "Operations"
+  },
+  {
+    "id": 58,
+    "name": "Grant Watts",
+    "email": "william40@example.org",
+    "department": "Sales"
+  },
+  {
+    "id": 68,
+    "name": "Vanessa Cochran",
+    "email": "vjohnson@example.com",
+    "department": "Sales"
+  },
+  {
+    "id": 69,
+    "name": "Sharon Cochran",
+    "email": "erik16@example.org",
+    "department": "Operations"
+  },
+  {
+    "id": 70,
+    "name": "Robert Stevens",
+    "email": "lori33@example.org",
+    "department": "Finance"
+  },
+  {
+    "id": 71,
+    "name": "Donald Jones",
+    "email": "michael86@example.net",
+    "department": "Operations"
+  },
+  {
+    "id": 80,
+    "name": "Jason Powell",
+    "email": "angela36@example.net",
+    "department": "HR"
+  },
+  {
+    "id": 81,
+    "name": "Stephanie Gilbert",
+    "email": "richard04@example.com",
+    "department": "Marketing"
+  },
+  {
+    "id": 82,
+    "name": "Kevin Pena",
+    "email": "rramos@example.org",
+    "department": "Marketing"
+  },
+  {
+    "id": 83,
+    "name": "Steven Flynn",
+    "email": "donnacampbell@example.net",
+    "department": "Operations"
+  },
+  {
+    "id": 95,
+    "name": "Richard Washington",
+    "email": "joshuajones@example.com",
+    "department": "Finance"
+  },
+  {
+    "id": 96,
+    "name": "Francisco Fernandez",
+    "email": "edwardreyes@example.org",
+    "department": "Sales"
+  },
+  {
+    "id": 97,
+    "name": "Jason Daniels",
+    "email": "abrown@example.com",
+    "department": "Marketing"
+  },
+  {
+    "id": 98,
+    "name": "Alicia Gilmore",
+    "email": "wwoods@example.com",
+    "department": "HR"
+  },
+  {
+    "id": 110,
+    "name": "Rachael Pearson",
+    "email": "herringjames@example.org",
+    "department": "HR"
+  },
+  {
+    "id": 111,
+    "name": "Cameron Caldwell",
+    "email": "stevenscott@example.com",
+    "department": "Operations"
+  },
+  {
+    "id": 112,
+    "name": "Tracey Higgins",
+    "email": "tamirodriguez@example.org",
+    "department": "HR"
+  },
+  {
+    "id": 113,
+    "name": "Susan Brooks",
+    "email": "charlesvaughn@example.net",
+    "department": "Operations"
+  },
+  {
+    "id": 119,
+    "name": "Tyler Reid",
+    "email": "bzimmerman@example.org",
+    "department": "Sales"
+  },
+  {
+    "id": 120,
+    "name": "Debra Morton",
+    "email": "umarshall@example.net",
+    "department": "Marketing"
+  },
+  {
+    "id": 121,
+    "name": "David Michael",
+    "email": "nicole37@example.net",
+    "department": "Marketing"
+  },
+  {
+    "id": 122,
+    "name": "Gabrielle Snyder",
+    "email": "hunter35@example.com",
+    "department": "Operations"
+  }
+]

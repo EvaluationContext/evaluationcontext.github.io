@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Fabric Administrators",
+    "type": "Security",
+    "description": "Global Fabric administrators"
+  },
+  {
+    "id": 5,
+    "name": "Data Contributors Team A",
+    "type": "Security",
+    "description": "Contributors for Team A"
+  },
+  {
+    "id": 11,
+    "name": "Data Contributors Team B",
+    "type": "Security",
+    "description": "Contributors for Team B"
+  },
+  {
+    "id": 26,
+    "name": "Carlson-Mcdonald Reporting Viewers",
+    "type": "Security",
+    "description": "Viewers for Carlson-Mcdonald Reporting app"
+  },
+  {
+    "id": 41,
+    "name": "Perez Inc Data Viewers",
+    "type": "Security",
+    "description": "Viewers for Perez Inc Data app"
+  },
+  {
+    "id": 54,
+    "name": "Edwards, Williams and Woods Analytics Viewers",
+    "type": "Security",
+    "description": "Viewers for Edwards, Williams and Woods Analytics app"
+  },
+  {
+    "id": 67,
+    "name": "Calderon-Williams Reporting Viewers",
+    "type": "Security",
+    "description": "Viewers for Calderon-Williams Reporting app"
+  },
+  {
+    "id": 79,
+    "name": "Crosby-Wilson BI Viewers",
+    "type": "Security",
+    "description": "Viewers for Crosby-Wilson BI app"
+  },
+  {
+    "id": 94,
+    "name": "Rogers, Cardenas and Potter Insights Viewers",
+    "type": "Security",
+    "description": "Viewers for Rogers, Cardenas and Potter Insights app"
+  },
+  {
+    "id": 109,
+    "name": "Medina-Navarro BI Viewers",
+    "type": "Security",
+    "description": "Viewers for Medina-Navarro BI app"
+  },
+  {
+    "id": 118,
+    "name": "Terry LLC BI Viewers",
+    "type": "Security",
+    "description": "Viewers for Terry LLC BI app"
+  }
+]

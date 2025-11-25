@@ -21,9 +21,16 @@
   <meta property="og:description" content="{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}" />
   <meta property="og:site_name" content="{{ config.site_name }}" />
   {% if page.meta and page.meta.image %}
-  <meta property="og:image" content="{{ config.site_url }}{{ page.meta.image }}" />
+  {% set image_path = page.meta.image if page.meta.image.startswith('http') else (config.site_url ~ page.meta.image.lstrip('/')) %}
+  <meta property="og:image" content="{{ image_path }}" />
+  <meta property="og:image:secure_url" content="{{ image_path }}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{{ page.title }}" />
   {% else %}
   <meta property="og:image" content="{{ config.site_url }}assets/images/avatar.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
   {% endif %}
   
   <!-- Twitter -->
@@ -32,7 +39,9 @@
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}" />
   <meta name="twitter:description" content="{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}" />
   {% if page.meta and page.meta.image %}
-  <meta name="twitter:image" content="{{ config.site_url }}{{ page.meta.image }}" />
+  {% set image_path = page.meta.image if page.meta.image.startswith('http') else (config.site_url ~ page.meta.image.lstrip('/')) %}
+  <meta name="twitter:image" content="{{ image_path }}" />
+  <meta name="twitter:image:alt" content="{{ page.title }}" />
   {% else %}
   <meta name="twitter:image" content="{{ config.site_url }}assets/images/avatar.png" />
   {% endif %}

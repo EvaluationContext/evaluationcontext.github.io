@@ -4,6 +4,7 @@ description: Can you use Fabric Graph To Analyze User Permissions to Fabric Item
 image: /assets/images/blog/2025/2025-12-24-FabricGraphs/edges.png
 date:
   created: 2025-11-24
+  updated: 2025-11-25
 authors:
   - jDuddy
 comments: true
@@ -133,6 +134,15 @@ graph TB
     W -->|CONTAINS| I
     I -->|SOURCE_OF or CONTAINS| I
 ```
+
+If we start to model our Fabric tenant, particularly if we add in data lineage, we can start to ask some interesting questions:
+
+- What permissions does someone have on different items?
+- Is a person's permissions excessive?
+- If a job fails or we want to delete a item, what downstream artifacts and users are affected?
+- What reports can we recommend to people?
+- Do items have the correct security labels?
+- Which fabric items are highly connected to other fabric items or users. Should these items be targetted to ensure they are reliable? Are they self-service and be supported by central team?
 
 Fabric Graph uses [Graph Query Language (GQL)](https://learn.microsoft.com/en-us/fabric/graph/gql-language-guide) for querying the graph. If we had modelled the entire Fabric tenant, we can create a single query to find out which Items Bob has inherited build access to, from workspace-level permissions:
 
@@ -780,7 +790,7 @@ Then add the edges:
 
 ### Querying the Graph
 
-With the graph created, we can query it using GQL. Since variable-length paths aren't supported, we'll query for direct permissions:
+With the graph created, we can query it using GQL:
 
 ```gql
 MATCH (p:Person {name: "Leslie Johnson"})-[:PERSON_MEMBER_OF]->(g:UserGroup)

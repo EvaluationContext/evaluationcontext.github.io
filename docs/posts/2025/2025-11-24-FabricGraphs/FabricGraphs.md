@@ -1,7 +1,7 @@
 ---
 title: Fabric Graphs
 description: Can you use Fabric Graph To Analyze User Permissions to Fabric Items 
-image: /assets/images/blog/2025/2025-12-24-FabricGraphs/edges.png
+image: /assets/images/blog/2025/2025-11-24-FabricGraphs/edges.png
 date:
   created: 2025-11-24
   updated: 2025-11-25

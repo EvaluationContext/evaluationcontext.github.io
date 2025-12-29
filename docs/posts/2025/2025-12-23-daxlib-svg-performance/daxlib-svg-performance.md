@@ -1,9 +1,10 @@
 ---
 title: DaxLib.SVG Compound Function Performance
 description: Testing the query performance of DaxLib.SVG Compound functions with the DAX Performance Testing Notebook
-image: /assets/images/blog/2025/2025-12-14-daxlib-svg-performance/AvgDurationCompoundContextGranularity.png
+image: /assets/images/blog/2025/2025-12-23-daxlib-svg-performance/AvgDurationCompoundContextGranularity.png
 date:
   created: 2025-12-23
+  updated: 2025-12-26
 authors:
   - jDuddy
 comments: true
@@ -13,6 +14,8 @@ slug: posts/daxlibCompoundPerformance
 links:
   - daxlib.svg: https://daxlib.org/package/DaxLib.SVG/
   - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/
+  - DAX NOOB - Fabric Toolbox DAX Performance Testing: https://daxnoob.blog/2025/03/03/fabric-tools-dax-performance-testing/
+  - Fabric Toolbox - DAX Performance Testing: https://github.com/microsoft/fabric-toolbox/tree/main/tools/DAXPerformanceTesting
 ---
 
 I recently presented the [daxlib.svg](https://daxlib.org/package/DaxLib.SVG/) library on [Fabric Fridays](https://www.youtube.com/watch?v=eDuTGJMr6HY), and was asked about the performance of the function. In this post I will profile the performance of the library using the [DAX Performance Testing](https://github.com/microsoft/fabric-toolbox/tree/main/tools/DAXPerformanceTesting) notebook from the Fabric Toolbox.

@@ -621,7 +621,7 @@ Continue optimizing
 
 I'll spare you the back and forth, since I've already shown the general kind of chat you might have. 
 
-The LLM dropped upstream columns that were not used in downstream calculation steps.
+The LLM dropped upstream columns that were not used in downstream calculation steps and moved the evaluation of reduced some duplication in calculations (`#!dax @InputX`).
 
 ```dax title="Chat GPT"
 FUNCTION DaxLib.SVG.Compound.Violin.ChatCPT = (
@@ -902,6 +902,6 @@ If we compare the UDFs, we can see that `@AxisIndex` from the `_Data` table has 
 
 ## Conclusion
 
-I plan to take these observations to improve Daxlib.SVG. The grouping of points to reduce iteration seems promising, and I plan to investigate whether iterations can be further reduced. 
+I plan to take these observations to improve Daxlib.SVG. The grouping of points to reduce iteration seems promising, and I plan to investigate whether iterations can be further reduced, and remove duplicate calculations.
 
 This post highlights that LLMs and MCP servers can be a helpful tool in identifying oversights. They can be valuable tools, but there is still a high level of importance for robust testing, validation and ownership from the Semantic Model author. The DAX Performance Tuner MCP seems like a good tool and makes sensible suggestions, but you still need to remain vigilant.

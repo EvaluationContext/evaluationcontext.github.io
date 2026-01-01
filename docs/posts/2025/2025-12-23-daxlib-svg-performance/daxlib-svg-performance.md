@@ -4,7 +4,7 @@ description: Testing the query performance of DaxLib.SVG Compound functions with
 image: /assets/images/blog/2025/2025-12-23-daxlib-svg-performance/AvgDurationCompoundContextGranularity.png
 date:
   created: 2025-12-23
-  updated: 2025-01-01
+  updated: 2026-01-01
 authors:
   - jDuddy
 comments: true

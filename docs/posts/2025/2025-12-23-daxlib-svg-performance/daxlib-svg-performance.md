@@ -4,7 +4,7 @@ description: Testing the query performance of DaxLib.SVG Compound functions with
 image: /assets/images/blog/2025/2025-12-23-daxlib-svg-performance/AvgDurationCompoundContextGranularity.png
 date:
   created: 2025-12-23
-  updated: 2025-12-26
+  updated: 2025-01-01
 authors:
   - jDuddy
 comments: true
@@ -668,7 +668,7 @@ One thing to note is that the DAX Performance testing notebook is not particular
 
 If we look at Compound, Context and Granularity we can first see that there isn't a huge difference between warm and hot cache. This hints that each measure is likely relying on a lot of Formula Engine (FE) vs Storage Engine (SE), which is not unexpected. All of the `#!dax daxlib.svg.compound.*` functions have a similar construction and although I have tried to calculate a data table early to aid with generating a reusable data cache, there is still a decent amount of string manipulation which will require a reasonable amount of FE involvement. Secondly we can see the impact of the choice of `xAxis`. The increased granularity of `#!dax 'date'[Date]` vs `#!dax 'date'[Year Month]` has a large effect for many of the `#!dax daxlib.svg.compound.*` functions. The Heatmap and Violin plots are the slowest, which is to be expected since they have additional processing over the other `#!dax daxlib.svg.compound.*` functions. They both need to sample data across the data range; see my previous blog post on [SVG Violin plot](https://evaluationcontext.github.io/posts/SVG-Violin/?h=vio) for info on how and why this sampling occurs.
 
-![Average Duration Per Compound and Context (Excluding Date Granularity)](AvgDurationCompoundContextGranularity.png)
+![Average Duration Per Compound and Context (Excluding Date Granularity)](AvgDurationCompoundContextGranularityExcDate.png)
 
 If we exclude the `#!dax 'date'[Date]` granularity measure, we can see the hot cache is at least 50% faster than the warm cache. Additionally the measures all return results in a range of 141-250ms in the table context, with `#!dax daxlib.svg.compound.Heatmap` and `#!dax daxlib.svg.compound.Violin` being the slowest.
 

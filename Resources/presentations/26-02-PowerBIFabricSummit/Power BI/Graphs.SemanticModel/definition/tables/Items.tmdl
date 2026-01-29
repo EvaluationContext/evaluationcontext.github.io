@@ -1,0 +1,65 @@
+table Items
+	lineageTag: 707cfbd4-e3f3-44b3-a906-e98e50c66114
+
+	column itemId
+		dataType: string
+		isHidden
+		lineageTag: ff3b37a8-c64e-4a26-8d59-92d47707a260
+		summarizeBy: none
+		sourceColumn: itemId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Name'
+		dataType: string
+		lineageTag: 232fdf85-98a1-45d1-995e-859368fac79c
+		summarizeBy: none
+		sourceColumn: Item Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Type'
+		dataType: string
+		lineageTag: e76ca7b2-4419-4d68-9ddd-456326709431
+		summarizeBy: none
+		sourceColumn: Item Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspaceId
+		dataType: string
+		isHidden
+		lineageTag: 0e4471b3-48c6-44b3-8869-73db57f27bbf
+		summarizeBy: none
+		sourceColumn: workspaceId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column semanticModelId
+		dataType: string
+		lineageTag: 20e923d7-d0fc-4019-9406-cdb4d0073b4b
+		summarizeBy: none
+		sourceColumn: semanticModelId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Items = m
+		mode: import
+		queryGroup: permissions
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\permissions\items.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"itemId", type text}, {"itemName", type text}, {"itemType", type text}, {"workspaceId", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"itemName", "Item Name"}, {"itemType", "Item Type"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

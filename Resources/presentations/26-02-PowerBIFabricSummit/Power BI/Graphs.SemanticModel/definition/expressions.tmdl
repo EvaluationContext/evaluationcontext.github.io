@@ -1,0 +1,27 @@
+expression _StartingNodes = "USS-Odyssey', 'Starbase-Intrepid', 'NCC-Yorktown', 'NCC-Discovery', 'Phoenix Beta', 'Reliant Gamma', 'Odyssey Epsilon', 'Intrepid Prime', 'Enterprise Prime', 'Excelsior Zeta', 'Excelsior Prime', 'Reliant Prime', 'Excelsior Epsilon', 'Phoenix Prime', 'Voyager Beta', 'Voyager Zeta', 'Phoenix Auxiliary', 'Phoenix BetaYorktown 1', 'Phoenix BetaEnterprise 5', 'Phoenix BetaOdyssey 6', 'Phoenix BetaDiscovery 2', 'Reliant GammaDiscovery 4', 'Reliant GammaPhoenix 4', 'Odyssey EpsilonPhoenix 6', 'Odyssey EpsilonDefiant 9', 'Intrepid PrimeReliant 9', 'Intrepid PrimeDiscovery 3', 'Intrepid PrimeIntrepid 8', 'Intrepid PrimeDefiant 9', 'Reliant GammaPhoenix 8', 'Reliant GammaReliant 2', 'Reliant GammaIntrepid 3', 'Enterprise PrimeOdyssey 10', 'Enterprise PrimeExcelsior 5', 'Enterprise PrimeDefiant 8', 'Excelsior ZetaDiscovery 2', 'Excelsior ZetaExcelsior 1', 'Excelsior ZetaDiscovery 3', 'Excelsior ZetaEnterprise 10', 'Excelsior ZetaExcelsior 6', 'Excelsior PrimeYorktown 8', 'Excelsior PrimeDefiant 8', 'Excelsior PrimeIntrepid 8', 'Excelsior PrimeEnterprise 8', 'Excelsior PrimeDiscovery 6', 'Reliant PrimeYorktown 3', 'Reliant PrimeOdyssey 1', 'Excelsior EpsilonPhoenix 8', 'Excelsior EpsilonDefiant 5', 'Phoenix PrimeExcelsior 9', 'Voyager BetaOdyssey 6', 'Voyager BetaIntrepid 4', 'Voyager BetaDefiant 4', 'Voyager BetaExcelsior 6', 'Voyager ZetaExcelsior 10', 'Voyager ZetaVoyager 7', 'Voyager ZetaDiscovery 7', 'Voyager ZetaReliant 2', 'Phoenix AuxiliaryPhoenix 4', 'Phoenix AuxiliaryDiscovery 9', 'Voyager BetaIntrepid 1', 'Voyager BetaDefiant 10', 'Voyager BetaDefiant 1', 'Reliant PrimePhoenix 5" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 689d409e-86a5-4716-befe-dc2b4909c3e5
+	queryGroup: 'Dynamic Parameters'
+	parameterValuesColumn: DP_Items.'Item Name'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression _EndingNodes = "Amanda Reynolds" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 3b0377ca-23a1-4d27-b336-c6a16251c029
+	queryGroup: 'Dynamic Parameters'
+	parameterValuesColumn: DP_Users.principalName
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression _Permissions = "Contributor', 'Admin" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f11ab79f-2a7f-425f-ace3-04d9b753fa45
+	queryGroup: 'Dynamic Parameters'
+	parameterValuesColumn: DP_Permissions.permission
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

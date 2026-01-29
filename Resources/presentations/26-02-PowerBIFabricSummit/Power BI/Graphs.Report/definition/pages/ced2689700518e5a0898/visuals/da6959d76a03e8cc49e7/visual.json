@@ -1,0 +1,506 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "da6959d76a03e8cc49e7",
+  "position": {
+    "x": 228,
+    "y": 193,
+    "z": 11000,
+    "height": 430,
+    "width": 1669,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "deneb7E15AEF80B9E4D4F8E12924291ECE89A",
+    "query": {
+      "queryState": {
+        "dataset": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "srcId"
+                }
+              },
+              "queryRef": "Access To Items Edges.srcId",
+              "nativeQueryRef": "srcId"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "srcName"
+                }
+              },
+              "queryRef": "Access To Items Edges.srcName",
+              "nativeQueryRef": "srcName"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "srcType"
+                }
+              },
+              "queryRef": "Access To Items Edges.srcType",
+              "nativeQueryRef": "srcType"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "dstId"
+                }
+              },
+              "queryRef": "Access To Items Edges.dstId",
+              "nativeQueryRef": "dstId"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "dstName"
+                }
+              },
+              "queryRef": "Access To Items Edges.dstName",
+              "nativeQueryRef": "dstName"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "dstType"
+                }
+              },
+              "queryRef": "Access To Items Edges.dstType",
+              "nativeQueryRef": "dstType"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Permission Triplets"
+                    }
+                  },
+                  "Property": "Edge Selection"
+                }
+              },
+              "queryRef": "Access To Items Edges.Edge Selection",
+              "nativeQueryRef": "Edge Selection"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Permission Triplets"
+                  }
+                },
+                "Property": "srcId"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "stateManagement": [
+        {
+          "properties": {
+            "viewportHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "387.6666660308838D"
+                }
+              }
+            },
+            "viewportWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "1653D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "vega": [
+        {
+          "properties": {
+            "provider": {
+              "expr": {
+                "Literal": {
+                  "Value": "'vega'"
+                }
+              }
+            },
+            "jsonSpec": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n\n  \"$schema\": \"https://vega.github.io/schema/vega/v5.json\",\n\n  \"description\": \"Based off Force Directed example by David Bacci:https://github.com/PBI-David/Deneb-Showcase/blob/main/Force%20Directed%20Graph/Spec.json\",\n\n  // \"width\": 1300,\n  // \"height\": 500,\n  \"padding\": {\n    \"left\": 0,\n    \"right\": 0,\n    \"top\": 0,\n    \"bottom\": 0\n  },\n  // \"autosize\": \"pad\",\n \n  \"signals\": [\n    {\"name\": \"xrange\", \"update\": \"[0, width]\"},\n    {\"name\": \"yrange\", \"update\": \"[height, 0]\"},\n    {\"name\": \"xext\",\"update\": \"[0, width]\"},\n    {\"name\": \"yext\",\"update\": \"[height, 0]\"},\n    {\n      \"name\": \"down\",\n      \"value\": null,\n      \"on\": [\n        {\n          \"events\": \"mouseup,touchend\",\n          \"update\": \"null\"\n        },\n        {\n          \"events\": \"mousedown, touchstart\",\n          \"update\": \"xy()\"\n        },\n        {\n          \"events\": \"symbol:mousedown, symbol:touchstart\",\n          \"update\": \"null\"\n        }\n      ]\n    },\n    {\n      \"name\": \"xcur\",\n      \"value\": null,\n      \"on\": [\n        {\n          \"events\": \"mousedown, touchstart, touchend\",\n          \"update\": \"xdom\"\n        }\n      ]\n    },\n    {\n      \"name\": \"ycur\",\n      \"value\": null,\n      \"on\": [\n        {\n          \"events\": \"mousedown, touchstart, touchend\",\n          \"update\": \"ydom\"\n        }\n      ]\n    },\n    {\n      \"name\": \"delta\",\n      \"value\": [0, 0],\n      \"on\": [\n        {\n          \"events\": [\n            {\n              \"source\": \"window\",\n              \"type\": \"mousemove\",\n              \"consume\": true,\n              \"between\": [\n                {\"type\": \"mousedown\"},\n                {\n                  \"source\": \"window\",\n                  \"type\": \"mouseup\"\n                }\n              ]\n            },\n            {\n              \"type\": \"touchmove\",\n              \"consume\": true,\n              \"filter\": \"event.touches.length === 1\"\n            }\n          ],\n          \"update\": \"down ? [down[0]-x(), y()-down[1]] : [0,0]\"\n        }\n      ]\n    },\n    {\n      \"name\": \"anchor\",\n      \"value\": [0, 0],\n      \"on\": [\n        {\n          \"events\": \"wheel\",\n          \"update\": \"[invert(''xscale'', x()), invert(''yscale'', y())]\"\n        },\n        {\n          \"events\": {\n            \"type\": \"touchstart\",\n            \"filter\": \"event.touches.length===2\"\n          },\n          \"update\": \"[(xdom[0] + xdom[1]) / 2, (ydom[0] + ydom[1]) / 2]\"\n        }\n      ]\n    },\n    {\n      \"name\": \"zoom\",\n      \"value\": 1,\n      \"on\": [\n        {\n          \"events\": \"wheel!\",\n          \"force\": true,\n          \"update\": \"pow(1.001, event.deltaY * pow(16, event.deltaMode))\"\n        },\n        {\n          \"events\": {\"signal\": \"dist2\"},\n          \"force\": true,\n          \"update\": \"dist1 / dist2\"\n        },\n        {\n          \"events\": [\n            {\n              \"source\": \"view\",\n              \"type\": \"dblclick\"\n            }\n          ],\n          \"update\": \"1\"\n        }\n      ]\n    },\n    {\n      \"name\": \"dist1\",\n      \"value\": 0,\n      \"on\": [\n        {\n          \"events\": {\n            \"type\": \"touchstart\",\n            \"filter\": \"event.touches.length===2\"\n          },\n          \"update\": \"pinchDistance(event)\"\n        },\n        {\n          \"events\": {\"signal\": \"dist2\"},\n          \"update\": \"dist2\"\n        }\n      ]\n    },\n    {\n      \"name\": \"dist2\",\n      \"value\": 0,\n      \"on\": [\n        {\n          \"events\": {\n            \"type\": \"touchmove\",\n            \"consume\": true,\n            \"filter\": \"event.touches.length===2\"\n          },\n          \"update\": \"pinchDistance(event)\"\n        }\n      ]\n    },\n    {\n      \"name\": \"xdom\",\n      \"update\": \"xext\",\n      \"on\": [\n        {\n          \"events\": {\"signal\": \"delta\"},\n          \"update\": \"[xcur[0] + span(xcur) * delta[0] / width, xcur[1] + span(xcur) * delta[0] / width]\"\n        },\n        {\n          \"events\": {\"signal\": \"zoom\"},\n          \"update\": \"[anchor[0] + (xdom[0] - anchor[0]) * zoom, anchor[0] + (xdom[1] - anchor[0]) * zoom]\"\n        },\n        {\n          \"events\": [\n            {\n              \"source\": \"view\",\n              \"type\": \"dblclick\"\n            }\n          ],\n          \"update\": \"xrange\"\n        }\n      ]\n    },\n    {\n      \"name\": \"ydom\",\n      \"update\": \"yext\",\n      \"on\": [\n        {\n          \"events\": {\"signal\": \"delta\"},\n          \"update\": \"[ycur[0] + span(ycur) * delta[1] / height, ycur[1] + span(ycur) * delta[1] / height]\"\n        },\n        {\n          \"events\": {\"signal\": \"zoom\"},\n          \"update\": \"[anchor[1] + (ydom[0] - anchor[1]) * zoom, anchor[1] + (ydom[1] - anchor[1]) * zoom]\"\n        },\n        {\n          \"events\": [\n            {\n              \"source\": \"view\",\n              \"type\": \"dblclick\"\n            }\n          ],\n          \"update\": \"yrange\"\n        }\n      ]\n    },\n    {\n      \"name\": \"size\",\n      \"update\": \"clamp(20 / span(xdom), 1, 1000)\"\n    },\n    {\n      \"name\": \"cx\",\n      \"update\": \"width / 2\",\n      \"on\": [\n        {\n          \"events\": \"[symbol:mousedown, window:mouseup] > window:mousemove\",\n          \"update\": \" cx==width/2?cx+0.001:width/2\"\n        }\n      ]\n    },\n    {\n      \"name\": \"cy\",\n      \"update\": \"height / 2\"\n    },\n    {\n      \"name\": \"nodeRadiusKey\",\n      \"description\": \"q=increase size, a=decrease size\",\n      \"value\": 8,\n      \"on\": [\n        {\n          \"events\": \"window:keypress\",\n          \"update\": \"event.key==''a''&&nodeRadiusKey>1?nodeRadiusKey-1:event.key==''q''?nodeRadiusKey+1:nodeRadiusKey\"\n        }\n      ]\n    },\n    {\n      \"name\": \"nodeRadius\",\n      \"value\": 20,\n      \"on\": [\n        {\n          \"events\": {\n            \"signal\": \"nodeRadiusKey\"\n          },\n          \"update\": \"nodeRadiusKey\"\n        }\n      ]\n    },\n    {\"name\": \"nodeCharge\",\"value\": -0},\n    {\"name\": \"linkDistance\",\"value\": 5\n    },\n    {\n      \"description\": \"State variable for active node fix status.\",\n      \"name\": \"fix\",\n      \"value\": false,\n      \"on\": [\n        {\n          \"events\": \"symbol:mouseout[!event.buttons], window:mouseup\",\n          \"update\": \"false\"\n        },\n        {\n          \"events\": \"symbol:mouseover\",\n          \"update\": \"fix || true\",\n          \"force\": true\n        },\n        {\n          \"events\": \"[symbol:mousedown, window:mouseup] > window:mousemove!\",\n          \"update\": \"xy()\",\n          \"force\": true\n        }\n      ]\n    },\n    {\n      \"description\": \"Graph node most recently interacted with.\",\n      \"name\": \"node\",\n      \"value\": null,\n      \"on\": [\n        {\n          \"events\": \"symbol:mouseover\",\n          \"update\": \"fix === true ? datum.index : node\"\n        }\n      ]\n    },\n    {\n      \"name\": \"nodeHover\",\n      \"value\": {\n        \"id\": null,\n        \"connections\": []\n      },\n      \"on\": [\n        {\n          \"events\": \"symbol:mouseover\",\n          \"update\": \"{''id'':datum.index, ''connections'':split(datum.sources+'',''+datum.targets,'','')}\"\n        },\n        {\n          \"events\": \"symbol:mouseout\",\n          \"update\": \"{''id'':null, ''connections'':[]}\"\n        }\n      ]\n    },\n    {\n      \"description\": \"Flag to restart Force simulation upon data changes.\",\n      \"name\": \"restart\",\n      \"value\": false,\n      \"on\": [\n        {\n          \"events\": {\"signal\": \"fix\"},\n          \"update\": \"fix && fix.length\"\n        }\n      ]\n    }\n  ],\n  \"data\": [\n    {\n      \"name\": \"dataset\",\n      \"transform\": [\n          {\n            \"type\": \"filter\",  \n            \"expr\":\"datum[''Edge Selection''] == 1\"}\n        ]\n    },\n    {\n      \"name\": \"link-data\",\n      \"source\": \"dataset\",\n      \"transform\": [\n        {\n          \"type\": \"project\",\n          \"fields\": [\"srcId\", \"srcName\", \"srcType\", \"dstId\", \"dstName\", \"dstType\"],\n          \"as\": [\"source\", \"srcName\", \"srcType\", \"target\", \"dstName\", \"dstType\"]\n        }\n      ]\n    },\n    {\n      \"name\": \"source-connections\",\n      \"source\": \"link-data\",\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"groupby\": [\"source\"],\n          \"ops\": [\"values\"],\n          \"fields\": [\"source\"],\n          \"as\": [\"connections\"]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"targets\",\n          \"expr\": \"pluck(datum.connections, ''target'')\"\n        }\n      ]\n    },\n    {\n      \"name\": \"target-connections\",\n      \"source\": \"link-data\",\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"groupby\": [\"target\"],\n          \"ops\": [\"values\"],\n          \"fields\": [\"source\"],\n          \"as\": [\"connections\"]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"sources\",\n          \"expr\": \"pluck(datum.connections, ''source'')\"\n        }\n      ]\n    },\n    {\n      \"name\": \"src\",\n      \"source\": \"dataset\",\n      \"transform\": [\n        {\n          \"type\": \"project\",\n          \"fields\": [\"srcId\", \"srcName\", \"srcType\"],\n          \"as\": [\"id\", \"Name\", \"Type\"]\n        }\n      ]\n    },\n    {\n      \"name\": \"dst\",\n      \"source\": \"dataset\",\n      \"transform\": [\n        {\n          \"type\": \"project\",\n          \"fields\": [\"dstId\", \"dstName\", \"dstType\"],\n          \"as\": [\"id\", \"Name\", \"Type\"]\n        }\n      ]\n    },\n    {\n      \"name\": \"vertices\",\n      \"source\": [\"src\", \"dst\"],\n      \"transform\": [\n        {\n          \"type\": \"aggregate\",\n          \"groupby\": [\"id\", \"Name\", \"Type\"]\n        },\n        {\n          \"type\": \"project\",\n          \"fields\": [\"id\", \"Name\", \"Type\"]\n        }\n      ]\n    },\n    {\n      \"name\": \"node-data\",\n      \"source\": \"vertices\",\n      \"transform\": [\n        {\n          \"type\": \"lookup\",\n          \"from\": \"source-connections\",\n          \"key\": \"source\",\n          \"fields\": [\"id\"],\n          \"values\": [\"targets\"],\n          \"as\": [\"targets\"],\n          \"default\": [\"\"]\n        },\n        {\n          \"type\": \"lookup\",\n          \"from\": \"target-connections\",\n          \"key\": \"target\",\n          \"fields\": [\"id\"],\n          \"values\": [\"sources\"],\n          \"as\": [\"sources\"],\n          \"default\": [\"\"]\n        },\n        {\n          \"type\": \"force\",\n          \"iterations\": 300,\n          \"restart\": {\n            \"signal\": \"restart\"\n          },\n          \"signal\": \"force\",\n          \"forces\": [\n            {\n              \"force\": \"center\",\n              \"x\": {\"signal\": \"cx\"},\n              \"y\": {\"signal\": \"cy\"}\n            },\n            {\n              \"force\": \"collide\",\n              \"radius\": {\n                \"signal\": \"sqrt(4 * nodeRadius * nodeRadius)\"\n              },\n              \"iterations\": 1,\n              \"strength\": 0.7\n            },\n            {\n              \"force\": \"nbody\",\n              \"strength\": {\n                \"signal\": \"nodeCharge\"\n              }\n            },\n            {\n              \"force\": \"link\",\n              \"links\": \"link-data\",\n              \"distance\": {\n                \"signal\": \"linkDistance\"\n              },\n              \"id\": \"id\"\n            }\n          ]\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"fx\",\n          \"expr\": \"fix[0]!=null && node==datum.index ?invert(''xscale'',fix[0]):null\"\n        },\n        {\n          \"type\": \"formula\",\n          \"as\": \"fy\",\n          \"expr\": \"fix[1]!=null && node==datum.index ?invert(''yscale'',fix[1]):null\"\n\n        }\n      ]\n    }\n  ],\n  \"scales\": [\n    {\n      \"name\": \"color\",\n      \"type\": \"ordinal\",\n      \"domain\": [\"Workspace\", \"Semantic Model\", \"Report\", \"Group\", \"User\"],\n      \"range\": [\"#8661c5\", \"#01b8aa\", \"#FFB900\", \"#5A73e4\", \"#999999\"]\n      // \"range\": [\"#181b25\", \"#737d77\", \"#827349\", \"#243446\", \"#415562\"]\n    },\n    {\n      \"name\": \"xscale\",\n      \"zero\": false,\n      \"domain\": {\"signal\": \"xdom\"},\n      \"range\": {\"signal\": \"xrange\"}\n    },\n    {\n      \"name\": \"yscale\",\n      \"zero\": false,\n      \"domain\": {\"signal\": \"ydom\"},\n      \"range\": {\"signal\": \"yrange\"}\n    }\n  ],\n  \"legends\": [\n    {\n      \"fill\": \"color\",\n      \"encode\": {\n        \"title\": {\n          \"update\": {\n            \"fontSize\": {\"value\": 18}\n          }\n        },\n        \"labels\": {\n          \"interactive\": true,\n          \"update\": {\n            \"fontSize\": {\"value\": 18},\n            \"fill\": {\"value\": \"black\"}\n          }\n        },\n        \"symbols\": {\n          \"update\": {\n            \"stroke\": {\"value\": \"transparent\"}\n          }\n        },\n        \"legend\": {\n          \"update\": {\n            \"stroke\": {\"value\": \"#ccc\"},\n            \"strokeWidth\": {\"value\": 0}\n          }\n        }\n      }\n    }\n  ],\n  \"marks\": [\n    {\n      \"type\": \"path\",\n      \"name\": \"links\",\n      \"from\": {\"data\": \"link-data\"},\n      \"interactive\": false,\n      \"encode\": {\n        \"update\": {\n          \"stroke\": {\n            \"signal\": \"datum.source.index!=nodeHover.id && datum.target.index!=nodeHover.id ? ''#929399'':merge(hsl(scale(''color'', datum.source.Type)), {l:0.64})\"\n          },\n          \"strokeWidth\": {\n            \"signal\": \"datum.source.index!=nodeHover.id && datum.target.index!=nodeHover.id ? 2:3\"\n          }\n        }\n      },\n      \"transform\": [\n        {\n          \"type\": \"linkpath\",\n          \"require\": {\n            \"signal\": \"force\"\n          },\n          \"shape\": \"line\",\n          \"sourceX\": {\n            \"expr\": \"scale(''xscale'', datum.datum.source.x)\"\n          },\n          \"sourceY\": {\n            \"expr\": \"scale(''yscale'', datum.datum.source.y)\"\n          },\n          \"targetX\": {\n            \"expr\": \"scale(''xscale'', datum.datum.target.x)\"\n          },\n          \"targetY\": {\n            \"expr\": \"scale(''yscale'', datum.datum.target.y)\"\n          }\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"atan2(datum.datum.target.y - datum.datum.source.y,datum.datum.source.x - datum.datum.target.x)\",\n          \"as\": \"angle1\"\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"(datum.angle1>=0?datum.angle1:(2*PI + datum.angle1)) * (360 / (2*PI))\",\n          \"as\": \"angle2\"\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"(360-datum.angle2)*(PI/180)\",\n          \"as\": \"angle3\"\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"(cos(datum.angle3)*(nodeRadius+5))+(scale(''xscale'',datum.datum.target.x))\",\n          \"as\": \"arrowX\"\n        },\n        {\n          \"type\": \"formula\",\n          \"expr\": \"(sin(datum.angle3)*(nodeRadius+5))+(scale(''yscale'',datum.datum.target.y))\",\n          \"as\": \"arrowY\"\n        }\n      ]\n    },\n    {\n      \"type\": \"symbol\",\n      \"name\": \"arrows\",\n      \"zindex\": 1,\n      \"from\": {\"data\": \"links\"},\n      \"encode\": {\n        \"update\": {\n          \"shape\": {\n            \"value\": \"triangle\"\n          },\n          \"angle\": {\n            \"signal\": \"-datum.angle2-90\"\n          },\n          \"x\": {\n            \"signal\": \"datum.arrowX\"\n          },\n          \"y\": {\n            \"signal\": \"datum.arrowY\"\n          },\n          \"text\": {\"signal\": \"''▲''\"},\n          \"fill\": {\n            \"signal\": \"datum.datum.source.index!=nodeHover.id && datum.datum.target.index!=nodeHover.id ? ''#929399'':merge(hsl(scale(''color'', datum.datum.source.Type)), {l:0.64})\"\n          },\n          \"size\": {\n            \"signal\": \"100\"//\"nodeRadius==1?0:30\"\n          }\n        }\n      }\n    },\n    {\n      \"name\": \"nodes\",\n      \"type\": \"symbol\",\n      \"zindex\": 1,\n      \"from\": {\"data\": \"node-data\"},\n      \"encode\": {\n        \"update\": {\n          \"opacity\": {\"value\": 1},\n          \"fill\": {\n            \"signal\": \"nodeHover.id===datum.index || indexof(nodeHover.connections, datum.id)>-1 ?scale(''color'', datum.Type):hsl(scale(''color'', datum.Type))\"\n          },\n          \"stroke\": {\n            \"signal\": \"nodeHover.id===datum.index || indexof(nodeHover.connections, datum.id)>-1 ?scale(''color'', datum.Type):merge(hsl(scale(''color'', datum.Type)), {l:0.84})\"\n          },\n          \"strokeWidth\": {\"value\": 0.5},\n          // \"strokeOpacity\": {\"value\": 1},\n          \"size\": {\"signal\": \"4 * nodeRadius * nodeRadius\"},\n          \"cursor\": {\"value\": \"pointer\"},\n          \"x\": {\"signal\": \"fix[0]!=null && node===datum.index ?fix[0]:scale(''xscale'', datum.x)\"},\n          \"y\": {\"signal\": \"fix[1]!=null && node===datum.index ?fix[1]:scale(''yscale'', datum.y)\"}\n        },\n        \"hover\": {\n          \"tooltip\": {\n            \"signal\": \"datum.Name\"\n          }\n        }\n      }\n    },\n    {\n      \"type\": \"text\",\n      \"name\": \"labels\",\n      \"from\": {\"data\": \"nodes\"},\n      \"zindex\": 2,\n      \"interactive\": false,\n      \"enter\": {},\n      \"encode\": {\n        \"update\": {\n          \"fill\": {\"signal\": \"''white''\"},\n          \"y\": {\"field\": \"y\"},\n          \"x\": {\"field\": \"x\"},\n          \"text\": {\n            \"field\": \"datum.Name\"\n          },\n          \"align\": {\"value\": \"center\"},\n          \"fontSize\": {\"value\": 12},\n          \"baseline\": {\n            \"value\": \"middle\"\n          },\n          \"limit\": {\n            \"signal\": \"clamp(sqrt(4 * nodeRadius * nodeRadius)-5,1,1000)\"\n          },\n          \"ellipsis\": {\"value\": \" \"}\n        }\n      }\n    }\n  ]\n}'"
+                }
+              }
+            },
+            "jsonConfig": {
+              "expr": {
+                "Literal": {
+                  "Value": "'{\n  \"autosize\": {\n    \"contains\": \"padding\",\n    \"type\": \"fit\"\n  },\n  \"view\": {\n    \"stroke\": \"transparent\"\n  },\n  \"font\": \"Segoe UI\",\n  \"arc\": {},\n  \"area\": {\n    \"line\": true,\n    \"opacity\": 0.6\n  },\n  \"bar\": {},\n  \"line\": {\n    \"strokeWidth\": 3,\n    \"strokeCap\": \"round\",\n    \"strokeJoin\": \"round\"\n  },\n  \"point\": {\n    \"filled\": true,\n    \"size\": 75\n  },\n  \"rect\": {},\n  \"text\": {\n    \"font\": \"Segoe UI\",\n    \"fontSize\": 12,\n    \"fill\": \"#605E5C\"\n  },\n  \"axis\": {\n    \"ticks\": false,\n    \"grid\": false,\n    \"domain\": false,\n    \"labelColor\": \"#605E5C\",\n    \"labelFontSize\": 12,\n    \"titleFont\": \"din\",\n    \"titleColor\": \"#252423\",\n    \"titleFontSize\": 16,\n    \"titleFontWeight\": \"normal\"\n  },\n  \"axisQuantitative\": {\n    \"tickCount\": 3,\n    \"grid\": true,\n    \"gridColor\": \"#C8C6C4\",\n    \"gridDash\": [\n      1,\n      5\n    ],\n    \"labelFlush\": false\n  },\n  \"axisX\": {\n    \"labelPadding\": 5\n  },\n  \"axisY\": {\n    \"labelPadding\": 10\n  },\n  \"header\": {\n    \"titleFont\": \"din\",\n    \"titleFontSize\": 16,\n    \"titleColor\": \"#252423\",\n    \"labelFont\": \"Segoe UI\",\n    \"labelFontSize\": 13.333333333333332,\n    \"labelColor\": \"#605E5C\"\n  },\n  \"legend\": {\n    \"titleFont\": \"Segoe UI\",\n    \"titleFontWeight\": \"bold\",\n    \"titleColor\": \"#605E5C\",\n    \"labelFont\": \"Segoe UI\",\n    \"labelFontSize\": 13.333333333333332,\n    \"labelColor\": \"#605E5C\",\n    \"symbolType\": \"circle\",\n    \"symbolSize\": 75\n  },\n  \"path\": {},\n  \"shape\": {},\n  \"symbol\": {\n    \"strokeWidth\": 1.5,\n    \"size\": 50\n  }\n}'"
+                }
+              }
+            },
+            "isNewDialogOpen": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableTooltips": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableContextMenu": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "enableHighlight": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "enableSelection": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "selectionMaxDataPoints": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            },
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'6.2.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "developer": [
+        {
+          "properties": {
+            "version": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1.8.2.0'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "editor": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "theme": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dark'"
+                }
+              }
+            },
+            "backgroundPassThrough": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Deneb'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.2
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6a0b0dcb66ca6f0e0c18",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "dstId"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9baa95057046af86fed2",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "dstName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "17afa51334e57db626e9",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "dstType"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dd8c081c3f2e534cd6ae",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "srcId"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c9f719e35bb1913a0d3c",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "srcName"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b09a12b4e07e5b9284aa",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "srcType"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3a1616f78b725a6fe166",
+        "ordinal": 6,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Permission Triplets"
+              }
+            },
+            "Property": "Edge Selection"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

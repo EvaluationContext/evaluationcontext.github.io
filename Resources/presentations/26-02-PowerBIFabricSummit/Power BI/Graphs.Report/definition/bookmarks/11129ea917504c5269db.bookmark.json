@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.0.0/schema.json",
+  "displayName": "Data",
+  "name": "11129ea917504c5269db",
+  "options": {
+    "targetVisualNames": [
+      "4254962bb256f6f79b6e",
+      "563357991e22da3e637f",
+      "6e278118dede9bf0cd7e",
+      "a3a5b8739cb901d035cf"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "9ccf84d3c81e90fb2c3e",
+    "sections": {
+      "9ccf84d3c81e90fb2c3e": {
+        "visualContainers": {}
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

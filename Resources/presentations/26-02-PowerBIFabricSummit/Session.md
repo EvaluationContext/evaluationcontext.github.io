@@ -1,0 +1,1 @@
+Graphs are everywhere – from the intricate web of social networks to the scheduling algorithms on our devices. Yet, Power BI traditionally struggles with visualizing graphs. Discover practical strategies for structuring your data and learn how to use Deneb to create compelling, interactive graph visualizations that reveal crucial relationships within your data.

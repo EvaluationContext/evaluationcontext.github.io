@@ -1,0 +1,39 @@
+table 'Semantic Models'
+	lineageTag: 7c9e74dd-0e82-4805-93e1-a3658dcba6e5
+
+	column semanticModelId
+		dataType: string
+		isHidden
+		lineageTag: 1a4e2635-11ae-4663-a6aa-6d8ddafa9849
+		summarizeBy: none
+		sourceColumn: semanticModelId
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semantic Model Name'
+		dataType: string
+		lineageTag: 5bab691f-0b0c-4f2d-a4ab-ab2512c5f69a
+		summarizeBy: none
+		sourceColumn: Semantic Model Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Semantic Models' = m
+		mode: import
+		queryGroup: permissions
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\Sessions\25-07-Bristol\Power BI\data\permissions\semantic_models.csv"),[Delimiter=",", Columns=3, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"semanticModelId", type text}, {"workspaceId", type text}, {"semanticModelName", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"workspaceId"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{"semanticModelName", "Semantic Model Name"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navigation
+

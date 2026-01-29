@@ -1,0 +1,149 @@
+table 'Permission Triplets (DQ)'
+	lineageTag: 7429c870-edfe-4d3d-8b3c-82a2fc68a6fe
+
+	column srcId
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 8891623e-b337-4b7a-a02c-5fdc3dbfe37e
+		summarizeBy: none
+		sourceColumn: srcId
+
+		annotation SummarizationSetBy = Automatic
+
+	column srcName
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: d0aa714e-15e8-4b0d-baeb-2f04f98a6d20
+		summarizeBy: none
+		sourceColumn: srcName
+
+		annotation SummarizationSetBy = Automatic
+
+	column srcType
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: c579f7b0-bcf8-48dd-8aa4-73af6fc718f3
+		summarizeBy: none
+		sourceColumn: srcType
+
+		annotation SummarizationSetBy = Automatic
+
+	column dstId
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: b1bc59c5-7eee-40e8-838f-6e81ad96972b
+		summarizeBy: none
+		sourceColumn: dstId
+
+		annotation SummarizationSetBy = Automatic
+
+	column dstType
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: e1f25a40-32cd-4edb-9d8c-cb5632df42fc
+		summarizeBy: none
+		sourceColumn: dstType
+
+		annotation SummarizationSetBy = Automatic
+
+	column dstName
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: e746947e-c373-43ba-8719-72187570916a
+		summarizeBy: none
+		sourceColumn: dstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column permission
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 72370836-1c21-4fd8-b179-82e7bf9e8f90
+		summarizeBy: none
+		sourceColumn: permission
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Permission Triplets (DQ)' = m
+		mode: directQuery
+		queryGroup: Kusto
+		source = ```
+				let
+				    StartingNodes = 
+				        if Type.Is(Value.Type(_StartingNodes), List.Type)
+				        then Text.Combine({"'", Text.Combine(_StartingNodes, "','"), "'"})
+				        else Text.Combine({"'", _StartingNodes, "'"}),
+				    endingNodes = 
+				        if Type.Is(Value.Type(_EndingNodes), List.Type)
+				        then Text.Combine({"'", Text.Combine(_EndingNodes, "','"), "'"})
+				        else Text.Combine({"'", _EndingNodes, "'"}),
+				    permissions =
+				        if Type.Is(Value.Type(_Permissions), List.Type)
+				        then Text.Combine({"'", Text.Combine(_Permissions, "','"), "'"})
+				        else Text.Combine({"'", _Permissions, "'"}),
+				    Source = AzureDataExplorer.Contents(
+				        "https://trd-y4vwg29chydm6jmuga.z0.kusto.fabric.microsoft.com", 
+				        "Graph", 
+				        "let _StartingNodes = dynamic([" & StartingNodes & "]); //dynamic(['Excelsior ZetaExcelsior 1']);
+				        let _EndingNodes = dynamic([" & endingNodes & "]); //dynamic(['Vincent Bates']);
+				        let _Permissions = dynamic([" & permissions & "]); //dynamic(['Read', 'ReadWrite']);
+				        let data = permissions | extend permission = tostring(split(accessToItemGroupId, '-')[-1]);
+				        let nodes = 
+				            union
+				                (data | distinct srcId, srcType, srcName | project Id = srcId, Type = srcType, Name = srcName),
+				                (data | distinct dstId, dstType, dstName | project Id = dstId, Type = dstType, Name = dstName)
+				            | distinct Id, Type, Name;
+				        let edges = data | distinct source = srcId, destination = dstId, permission
+				        | where isempty(_Permissions) or permission in (_Permissions);
+				        edges
+				        | make-graph source --> destination with nodes on Id
+				        | graph-match (start_node)-[path_edge*1..5]->(end_node)
+				        where
+				            (isempty(_StartingNodes) or start_node.Name in (_StartingNodes))
+				            and (isempty(_EndingNodes) or end_node.Name in (_EndingNodes))
+				        project
+				            srcId = start_node.Id,
+				            srcName = start_node.Name,
+				            srcType = start_node.Type,
+				            dstId = end_node.Id,
+				            dstName = end_node.Name,
+				            dstType = end_node.Type,
+				            Path = path_edge
+				        | mvexpand Path
+				        | project
+				            srcId = tostring(Path.source),
+				            dstId = tostring(Path.destination),
+				            permission = tostring(Path.permission)
+				        | distinct 
+				            srcId,
+				            dstId,
+				            permission
+				        | join kind=inner nodes on
+				            $left.srcId == $right.Id
+				        | project 
+				            srcId, 
+				            srcType = Type, 
+				            srcName = Name, 
+				            dstId,
+				            permission
+				        | join kind=inner nodes on
+				            $left.dstId == $right.Id
+				        | project 
+				            srcId,
+				            srcName,
+				            srcType, 
+				            dstId, 
+				            dstType = Type, 
+				            dstName = Name,
+				            permission 
+				        ", 
+				        [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null]
+				    )
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

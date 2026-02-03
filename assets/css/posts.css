@@ -1,0 +1,143 @@
+/* Blog Post Header Styling */
+
+/* CSS Variables for Blog Posts */
+:root {
+  --post-sidebar-title-font-size: 0.65rem;
+  --post-sidebar-title-weight: 200;
+  --post-sidebar-item-font-size: 0.6rem;
+  --post-sidebar-item-weight: 300;
+  --post-content-font-size: 0.7rem;
+  --post-content-weight: 400;
+}
+
+/* Title spacing */
+.md-content__inner.md-typeset h1:has(+ .md-post-header) {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: var(--md-default-fg-color);
+}
+
+.md-post-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Description text */
+.md-post-header__text p.md-post-header__description,
+p.md-post-header__description,
+.md-post-header__description {
+  margin-bottom: 0rem !important;
+  line-height: 1.2 !important;
+  font-weight: 100 !important;
+  color: var(--md-default-fg-color--light) !important;
+}
+
+.md-post-header__divider {
+  border: none;
+  border-top: 1px solid var(--md-default-border-color-lighter);
+  margin-bottom: 1.5rem !important;
+}
+
+/* Blog Post Content Styling */
+
+/* Text sizing */
+.md-content--post .md-content__inner.md-typeset p,
+.md-content--post .md-content__inner.md-typeset li {
+  font-size: var(--post-content-font-size);
+  font-weight: var(--post-content-weight);
+}
+
+/* Heading weights */
+.md-content--post .md-content__inner.md-typeset h2 { font-weight: 200; font-size: 1.5rem; }
+.md-content--post .md-content__inner.md-typeset h3 { font-weight: 200; font-size: 1.25rem; }
+.md-content--post .md-content__inner.md-typeset h4 { font-weight: 200; font-size: 1.125rem; }
+.md-content--post .md-content__inner.md-typeset h5 { font-weight: 200; font-size: 1rem; }
+.md-content--post .md-content__inner.md-typeset h6 { font-weight: 200; font-size: 0.875rem; }
+
+/* Post Images */
+.md-content--post .md-content__inner.md-typeset img {
+  display: block;
+  margin-top: 1rem;
+}
+
+/* Sidebar Navigation - Common Styles */
+/* All sidebar items (TOC, metadata, links) */
+.md-sidebar--post .md-post__meta .md-nav__link,
+.md-sidebar--post .md-post__meta .md-nav__link time,
+.md-sidebar--post .md-post__meta .md-nav__item,
+[data-md-component="toc"] a.md-nav__link,
+.md-nav--secondary a.md-nav__link,
+.md-sidebar--post a.md-nav__link {
+  font-size: var(--post-sidebar-item-font-size) !important;
+  font-family: var(--md-text-font-family) !important;
+}
+
+/* All sidebar titles (TOC title and left nav titles) */
+.md-sidebar--post .md-post__title,
+.md-sidebar--post .md-nav__title,
+[data-md-component="toc"] .md-nav__title {
+  font-size: var(--post-sidebar-title-font-size) !important;
+  font-family: var(--md-text-font-family) !important;
+  font-weight: var(--post-sidebar-title-weight) !important;
+  color: var(--md-default-fg-color) !important;
+}
+
+/* Ensure TOC title is not bold - override Material theme */
+[data-md-component="toc"] .md-nav__title,
+.md-nav--secondary .md-nav__title {
+  font-style: normal !important;
+  font-size: var(--post-sidebar-title-font-size) !important;
+  font-family: var(--md-text-font-family) !important;
+  font-weight: var(--post-sidebar-title-weight) !important;
+  color: var(--md-default-fg-color) !important;
+}
+
+/* All sidebar items - weight and color */
+.md-sidebar--post .md-post__meta .md-nav__link,
+.md-sidebar--post .md-post__meta .md-nav__link time,
+.md-sidebar--post .md-post__meta .md-nav__item,
+.md-sidebar--post a.md-nav__link,
+[data-md-component="toc"] a.md-nav__link,
+.md-nav--secondary a.md-nav__link {
+  font-weight: var(--post-sidebar-item-weight) !important;
+  color: var(--md-default-fg-color--light) !important;
+}
+
+.md-sidebar--post .md-post__meta svg {
+  opacity: 0.6;
+}
+
+/* Hover - Accent color */
+.md-sidebar--post .md-post__meta a:hover,
+.md-sidebar--post a.md-nav__link:hover,
+[data-md-component="toc"] a.md-nav__link:hover,
+.md-nav--secondary a.md-nav__link:hover {
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* Active section - highlight on scroll */
+.md-sidebar--post a.md-nav__link--active,
+[data-md-component="toc"] a.md-nav__link--active,
+.md-nav--secondary a.md-nav__link--active {
+  color: var(--md-default-fg-color) !important;
+  font-weight: 400 !important;
+}
+
+.md-sidebar--post a.md-nav__link--active:hover,
+[data-md-component="toc"] a.md-nav__link--active:hover,
+.md-nav--secondary a.md-nav__link--active:hover {
+  color: var(--md-accent-fg-color) !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 44.9375em) {
+  .md-post-header {
+    margin-bottom: 2rem;
+  }
+  
+  .md-post-header__description {
+    margin: 0 0 0.75rem;
+  }
+}

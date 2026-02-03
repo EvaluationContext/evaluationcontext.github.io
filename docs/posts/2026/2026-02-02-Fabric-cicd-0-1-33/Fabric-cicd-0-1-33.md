@@ -17,14 +17,14 @@ I last posted about [fabric-cicd](https://microsoft.github.io/fabric-cicd/latest
 
 ## Configuration Deployment
 
-As of **v0.1.26**, fabric-cicd supports alternative deployment mode: [Configuration-based deployment](https://microsoft.github.io/fabric-cicd/0.1.33/how_to/config_deployment/). Instead of defining a workspace object, with parameters and calling `#!py publish_all_items()`/`#!py unpublish_all_orphan_items()`, you can define and pass `config.yml` to `#!pydeploy_with_config()`. With `config.yml` you can define workspaces, item types in scope, publish and unpublish rules etc. 
+As of **v0.1.26**, fabric-cicd supports alternative deployment mode: [Configuration-based deployment](https://microsoft.github.io/fabric-cicd/0.1.33/how_to/config_deployment/). Instead of defining a workspace object, with parameters and calling `#!py publish_all_items()`/`#!py unpublish_all_orphan_items()`, you can define and pass `config.yml` to `#!py deploy_with_config()`. With `config.yml` you can define workspaces, item types in scope, publish and unpublish rules etc. 
 
-!!! "Optional Features"
+!!! note "Optional Features"
     Please note selective publish/unpublish requires you enable [Feature Flags](https://microsoft.github.io/fabric-cicd/0.1.33/how_to/optional_feature/)
 
 === "Config.yml"
 
-    ```yml title="config.yml"
+    ```yaml title="config.yml"
     core:
         workspace:
             dev: "Fabric-Dev-Engineering"
@@ -211,7 +211,7 @@ find_replace:
 
 Additionally, parameter handling has become more robust. In **v0.1.33**, `key_value_replace` support was added to YAML configurations, allowing for precise key-based replacements in your JSON definitions.
 
-```yaml Title = parameter.yml
+```yaml title="parameter.yml"
 key_value_replace:
     # Example: Replace Server in Semantic Model "Foo" for DataSource "Bar"
     - find_key: $.model.dataSources[?(@.name=="Bar")].connectionDetails.server
@@ -250,7 +250,7 @@ notebook_response = workspace.responses["Notebook"]["Hello World"]
 
 [Semantic Model Binding](https://microsoft.github.io/fabric-cicd/latest/how_to/parameterization/#semantic_model_binding) allows you to map your Semantic Models to specific connections, removing additional clicks after a new semantic model is deployed, or new sources are added to a existing semantic model.
 
-```yml Title="parameters.yml"
+```yaml title="parameters.yml"
 semantic_model_binding:
     # Required field: value must be a string (GUID)
     # Connection Ids can be found from the Fabric UI under Settings -> Manage Connections and gateways -> Settings pane of the connection

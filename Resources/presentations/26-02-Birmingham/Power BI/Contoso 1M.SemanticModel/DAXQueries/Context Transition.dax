@@ -1,0 +1,15 @@
+DEFINE 
+    Function Funct = 
+    (
+        a : EXPR
+    ) =>
+	
+		SELECTCOLUMNS(
+			VALUES( 'Product'[Color] ),
+			"@", a // CALCUALTE( a )
+		)
+
+EVALUATE
+	
+	Funct( SUM( Sales[Net Price] ) )
+	

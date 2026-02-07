@@ -1,0 +1,243 @@
+/* ============================================
+   Hero Image — Cinematic parallax reveal
+   Dark cinematic overlay with vivid image,
+   text gets dramatic contrast treatment.
+   ============================================ */
+
+/* --- Hero Banner Container --- */
+.hero-banner {
+  position: fixed;
+  top: var(--md-header-height, 3rem);
+  left: 0;
+  width: 100%;
+  height: 60vh;
+  min-height: 340px;
+  max-height: 520px;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Background image layer — much more vivid */
+.hero-banner__image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  will-change: opacity;
+  transition: opacity 0.15s linear;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+/* Tinted overlay — cinematic dark gradient */
+.hero-banner__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+[data-md-color-scheme="default"] .hero-banner__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 15, 30, 0.55) 0%,
+    rgba(15, 15, 30, 0.35) 40%,
+    rgba(255, 255, 255, 0.60) 85%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+}
+
+[data-md-color-scheme="slate"] .hero-banner__overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 20, 0.60) 0%,
+    rgba(8, 8, 20, 0.40) 40%,
+    rgba(15, 23, 42, 0.70) 85%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+}
+
+/* --- Bottom fade --- */
+.hero-banner__bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--md-default-bg-color) 50%, transparent) 45%,
+    color-mix(in srgb, var(--md-default-bg-color) 85%, transparent) 70%,
+    var(--md-default-bg-color) 100%
+  );
+}
+
+/* Decorative gradient line — disabled */
+.hero-banner__bottom-fade::after {
+  display: none;
+}
+
+/* --- Transparency so hero peeks through --- */
+.has-hero-image .md-main {
+  background: transparent;
+}
+
+.has-hero-image .md-content--post {
+  background: transparent;
+}
+
+.has-hero-image .md-sidebar {
+  background: transparent;
+}
+
+/* After scrolling past hero, restore solid backgrounds */
+.has-hero-image.hero-scrolled .md-content--post {
+  background: var(--md-default-bg-color);
+}
+
+.has-hero-image.hero-scrolled .md-sidebar {
+  background: var(--md-default-bg-color);
+}
+
+/* --- Hero text treatment: dramatic white text with glow --- */
+.has-hero-image .md-content__inner.md-typeset h1:has(+ .md-post-header) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(236, 72, 153, 0.15);
+  position: relative;
+  z-index: 3;
+}
+
+.has-hero-image .md-post-header__description {
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+.has-hero-image .md-post-header__divider {
+  background: linear-gradient(
+    90deg,
+    rgba(236, 72, 153, 0.6) 0%,
+    rgba(249, 168, 212, 0.4) 40%,
+    transparent 100%
+  ) !important;
+}
+
+/* Sidebar text in hero area — only before scrolling past */
+.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__title,
+.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-nav__title {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__meta .md-nav__link,
+.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__meta .md-nav__link time,
+.has-hero-image:not(.hero-scrolled) .md-sidebar--post a.md-nav__link {
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__meta svg {
+  opacity: 0.6;
+  filter: brightness(10);
+}
+
+.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__back a {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__back svg {
+  filter: brightness(10);
+}
+
+/* After scrolling past hero, ensure sidebar is readable in light mode */
+[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__title,
+[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-nav__title {
+  color: var(--md-default-fg-color) !important;
+  text-shadow: none;
+}
+
+[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__meta .md-nav__link,
+[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__meta .md-nav__link time,
+[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post a.md-nav__link {
+  color: var(--md-default-fg-color--light) !important;
+  text-shadow: none;
+}
+
+[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__meta svg {
+  opacity: 0.5;
+  filter: none;
+}
+
+[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__back a {
+  color: var(--md-default-fg-color--light) !important;
+  text-shadow: none;
+}
+
+[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__back svg {
+  filter: none;
+}
+
+/* Dark mode: slightly different treatment */
+[data-md-color-scheme="slate"] .has-hero-image .md-content__inner.md-typeset h1:has(+ .md-post-header) {
+  text-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.7),
+    0 0 50px rgba(249, 168, 212, 0.12);
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 76.1875em) {
+  .hero-banner {
+    height: 48vh;
+    min-height: 280px;
+    max-height: 420px;
+  }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .hero-banner {
+    height: 40vh;
+    min-height: 220px;
+    max-height: 360px;
+  }
+
+  .has-hero-image .md-content__inner.md-typeset h1:has(+ .md-post-header) {
+    font-size: 1.6rem;
+  }
+}
+
+/* --- Header override on hero pages (light mode) --- */
+[data-md-color-scheme="default"] .has-hero-image .md-header {
+  background: rgba(15, 15, 30, 0.45) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-md-color-scheme="default"] .has-hero-image .md-header .md-header__title,
+[data-md-color-scheme="default"] .has-hero-image .md-header .md-header__topic,
+[data-md-color-scheme="default"] .has-hero-image .md-header .md-header__title .md-ellipsis,
+[data-md-color-scheme="default"] .has-hero-image .md-header .md-header__button,
+[data-md-color-scheme="default"] .has-hero-image .md-header .md-search__icon {
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="default"] .has-hero-image .md-tabs {
+  background: rgba(15, 15, 30, 0.35) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-md-color-scheme="default"] .has-hero-image .md-tabs__link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-md-color-scheme="default"] .has-hero-image .md-tabs__link:hover,
+[data-md-color-scheme="default"] .has-hero-image .md-tabs__link--active {
+  color: #ffffff !important;
+}

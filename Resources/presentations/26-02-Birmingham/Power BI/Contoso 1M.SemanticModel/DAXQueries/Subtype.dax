@@ -1,0 +1,13 @@
+DEFINE 
+    Function SumTwoNumbers = 
+    (
+        a : INT64, // decimal
+    	b : INT64
+    ) =>
+    a + b
+
+EVALUATE
+    {
+    SumTwoNumbers( 3.4, 2.4 ),       -- evaluates INT ( 3.4 ) + INT ( 2.4 )
+    SumTwoNumbers( "3.4", "2.4" )    -- evaluates INT ( "3.4" ) + INT ( "2.4" )
+	}

@@ -5,6 +5,16 @@
 {% import "partials/nav-item.html" as item with context %}
 
 {% block container %}
+  {% if page.meta and page.meta.image %}
+    {% set image_path = page.meta.image.path if page.meta.image is mapping else page.meta.image %}
+    {% set image_alt = page.meta.image.alt if page.meta.image is mapping else page.title %}
+    <div class="hero-banner">
+      <div class="hero-banner__image" style="background-image: url('{{ image_path | url }}');"></div>
+      <div class="hero-banner__overlay"></div>
+      <div class="hero-banner__bottom-fade"></div>
+    </div>
+    <script>document.body.classList.add('has-hero-image');</script>
+  {% endif %}
   <div class="md-content md-content--post" data-md-component="content">
     <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
       <div class="md-sidebar__scrollwrap">

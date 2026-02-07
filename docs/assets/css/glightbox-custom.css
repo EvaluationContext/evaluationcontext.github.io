@@ -1,18 +1,23 @@
-/* GLightbox Custom Styling */
+/* ============================================
+   GLightbox — Refined zoom & overlay
+   ============================================ */
 
-/* Make images clickable/zoomable with cursor pointer */
+/* Images — smooth zoom-in cursor with subtle scale */
 .md-content__inner img,
 .md-typeset img {
   cursor: zoom-in;
-  transition: transform 0.2s ease;
+  transition: transform 0.35s var(--ec-ease-out, ease-out),
+              box-shadow 0.35s var(--ec-ease-out, ease-out);
+  border-radius: 0.5rem;
 }
 
 .md-content__inner img:hover,
 .md-typeset img:hover {
-  transform: scale(1.02);
+  transform: scale(1.015);
+  box-shadow: var(--ec-shadow-md, 0 4px 12px rgba(0,0,0,0.07));
 }
 
-/* Remove zoom cursor and hover effect from author avatars, metadata images, and blog index card images */
+/* Exclude non-content images */
 .md-post__authors img,
 .md-post__meta img,
 .md-author img,
@@ -24,6 +29,8 @@
 img[src*="avatar.png"] {
   cursor: default !important;
   transform: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 .md-post__authors img:hover,
@@ -36,9 +43,10 @@ img[src*="avatar.png"] {
 .md-post--excerpt img:hover,
 img[src*="avatar.png"]:hover {
   transform: none !important;
+  box-shadow: none !important;
 }
 
-/* Glightbox wrapper links should not have underline */
+/* Wrapper links */
 a.glightbox {
   border-bottom: none !important;
   text-decoration: none !important;
@@ -48,26 +56,40 @@ a.glightbox:hover {
   border-bottom: none !important;
 }
 
-/* Hide all descriptions/captions in GLightbox */
-.gslide-description {
-  display: none !important;
-}
-
+/* Hide captions */
+.gslide-description,
 .gslide-title {
   display: none !important;
 }
 
-/* Dark mode adjustments for GLightbox */
-[data-md-color-scheme="slate"] .gslide-description {
-  background: var(--md-code-bg-color);
-  color: var(--md-default-fg-color);
-  display: none !important;
+/* Overlay backdrop — frosted glass */
+.goverlay {
+  background: rgba(0, 0, 0, 0.82) !important;
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
 }
 
-[data-md-color-scheme="slate"] .gclose,
-[data-md-color-scheme="slate"] .gnext,
-[data-md-color-scheme="slate"] .gprev {
-  color: var(--md-default-fg-color);
+/* Dark mode overlay */
+[data-md-color-scheme="slate"] .goverlay {
+  background: rgba(2, 6, 18, 0.88) !important;
+}
+
+/* Nav buttons — glass pill style */
+.gclose,
+.gnext,
+.gprev {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.gclose:hover,
+.gnext:hover,
+.gprev:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  transform: scale(1.08);
 }
 
 /* Ensure lightbox is above everything */
@@ -75,7 +97,7 @@ a.glightbox:hover {
   z-index: 9999 !important;
 }
 
-/* Better mobile experience */
+/* Mobile */
 @media screen and (max-width: 44.9375em) {
   .gslide-description {
     font-size: 0.85rem;

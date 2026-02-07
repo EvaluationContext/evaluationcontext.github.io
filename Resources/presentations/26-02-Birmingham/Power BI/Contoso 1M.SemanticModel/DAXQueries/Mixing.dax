@@ -1,0 +1,27 @@
+// If you are provided with a model-independent function but want to use to create alot of similar measures you can make them more concise by adding a model-dependent on top
+DEFINE
+	FUNCTION TopByMeasure = 
+	(
+		colRef: ANYREF,
+		measureRef: ANYREF
+	) =>
+		
+		MAXX(
+			INDEX(
+				1,
+				ALLSELECTED( colRef ),
+				ORDERBY( CALCULATE( SUM( measureRef ) ), DESC ) 
+			),
+			colRef
+		)
+		
+	FUNCTION BestSellingProductColor = 
+	(
+		measureRef: ANYREF
+	) =>
+		
+		TopByMeasure( 'Product'[Color], measureRef )
+	
+EVALUATE
+	
+	{ BestSellingProductColor( Sales[Net Price] ) }

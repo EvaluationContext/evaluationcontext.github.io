@@ -5,7 +5,7 @@ repo_name: EvaluationContext
 site_author: Jake Duddy
 site_description: A blog about the Microsoft BI stack (Microsoft Fabric, Power BI, SQL, SSAS, DAX)
 copyright: >
-    Copyright &copy; 2024 - 2025 Jake Duddy -
+    Copyright &copy; 2024 - 2026 Jake Duddy -
     <a href="/privacy/">Privacy Policy</a> -
     <a href="#__consent">Change cookie settings</a>
 theme:
@@ -19,7 +19,7 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: teal
+      primary: pink
       accent: pink
       toggle:
         icon: material/toggle-switch
@@ -123,6 +123,8 @@ plugins:
         utm_campaign: "blog-syndication"
 
 extra_css:
+  - assets/css/extra.css
+  - assets/css/hero-image.css
   - assets/css/codeblock.css
   - assets/css/button.css
   - assets/css/blogCards.css
@@ -131,12 +133,15 @@ extra_css:
   - assets/css/glightbox-custom.css
   - assets/css/pill.css
   - assets/css/colorBlocks.css
+  - assets/css/pages.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/vega@5
   - https://cdn.jsdelivr.net/npm/vega-lite@5
   - https://cdn.jsdelivr.net/npm/vega-embed@6
   - assets/js/lazy-images.js
+  - assets/js/hero-scroll.js
+  - assets/js/interactions.js
 
 markdown_extensions:
   - abbr

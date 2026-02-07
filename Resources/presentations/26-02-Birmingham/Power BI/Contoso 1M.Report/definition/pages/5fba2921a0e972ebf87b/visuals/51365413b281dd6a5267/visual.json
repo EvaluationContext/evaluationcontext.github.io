@@ -1,0 +1,134 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.6.0/schema.json",
+  "name": "51365413b281dd6a5267",
+  "position": {
+    "x": 79.7822286439582,
+    "y": 149.75516688087237,
+    "z": 1,
+    "height": 83.705944806775818,
+    "width": 560.4374585891162,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales"
+                    }
+                  },
+                  "Property": "Margin FS"
+                }
+              },
+              "queryRef": "Sales.Margin FS",
+              "nativeQueryRef": "Margin FS"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales"
+                    }
+                  },
+                  "Property": "Sales Amount FS"
+                }
+              },
+              "queryRef": "Sales.Sales Amount FS",
+              "nativeQueryRef": "Sales Amount FS"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Sales"
+                    }
+                  },
+                  "Property": "Total Cost FS"
+                }
+              },
+              "queryRef": "Sales.Total Cost FS",
+              "nativeQueryRef": "Total Cost FS"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dynamic Format String'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f4228ddc324c9d81e45a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales"
+              }
+            },
+            "Property": "Margin FS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2acfaebceb0440885fe3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales"
+              }
+            },
+            "Property": "Sales Amount FS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b14ebea53444971849b8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Sales"
+              }
+            },
+            "Property": "Total Cost FS"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

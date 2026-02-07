@@ -1,5 +1,5 @@
 :root {
-  --button-color: #24987d;
+  --button-color: #ec4899;
   --youtube-red: #FF0000;
   --button-blue: #2196F3;
   --button-green: #4CAF50;
@@ -17,185 +17,108 @@
 }
 
 .md-button {
-  border-radius: 0.4em !important;
-  background-color: color-mix(in srgb, var(--button-color) 10%, transparent) !important;
+  border-radius: 0.5em !important;
+  background-color: color-mix(in srgb, var(--button-color) 8%, transparent) !important;
   color: var(--button-color) !important;
-  border: 2px solid var(--button-color) !important;
+  border: 1.5px solid color-mix(in srgb, var(--button-color) 40%, transparent) !important;
   stroke: var(--button-color);
   opacity: 1;
-  font-size: 0.8em;
-  padding: 0.25em 0.8em;
+  font-size: 0.78em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.3em 1em;
+  transition: all 0.3s var(--ec-ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
+  position: relative;
+  overflow: hidden;
+}
+
+.md-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, color-mix(in srgb, var(--button-color) 6%, transparent));
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
 }
 
 .md-button:hover,
 .md-button:focus {
-  background-color: color-mix(in srgb, var(--button-color) 30%, transparent) !important;
+  background-color: color-mix(in srgb, var(--button-color) 15%, transparent) !important;
+  border-color: var(--button-color) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--button-color) 20%, transparent);
 }
 
-/* Colored Button Variants */
-.md-button-blue {
-  background-color: color-mix(in srgb, var(--button-blue) 10%, transparent) !important;
-  color: var(--button-blue) !important;
-  border: 2px solid var(--button-blue) !important;
-  stroke: var(--button-blue);
+.md-button:hover::before {
+  opacity: 1;
 }
 
-.md-button-blue:hover,
-.md-button-blue:focus {
-  background-color: color-mix(in srgb, var(--button-blue) 30%, transparent) !important;
-}
+/* ---- Shared variant mixin via CSS custom property ---- */
+/* Each variant sets --btn-c; everything else inherits */
 
-.md-button-green {
-  background-color: color-mix(in srgb, var(--button-green) 10%, transparent) !important;
-  color: var(--button-green) !important;
-  border: 2px solid var(--button-green) !important;
-  stroke: var(--button-green);
-}
-
-.md-button-green:hover,
-.md-button-green:focus {
-  background-color: color-mix(in srgb, var(--button-green) 30%, transparent) !important;
-}
-
-.md-button-orange {
-  background-color: color-mix(in srgb, var(--button-orange) 10%, transparent) !important;
-  color: var(--button-orange) !important;
-  border: 2px solid var(--button-orange) !important;
-  stroke: var(--button-orange);
-}
-
-.md-button-orange:hover,
-.md-button-orange:focus {
-  background-color: color-mix(in srgb, var(--button-orange) 30%, transparent) !important;
-}
-
-.md-button-purple {
-  background-color: color-mix(in srgb, var(--button-purple) 10%, transparent) !important;
-  color: var(--button-purple) !important;
-  border: 2px solid var(--button-purple) !important;
-  stroke: var(--button-purple);
-}
-
-.md-button-purple:hover,
-.md-button-purple:focus {
-  background-color: color-mix(in srgb, var(--button-purple) 30%, transparent) !important;
-}
-
-.md-button-red {
-  background-color: color-mix(in srgb, var(--button-red) 10%, transparent) !important;
-  color: var(--button-red) !important;
-  border: 2px solid var(--button-red) !important;
-  stroke: var(--button-red);
-}
-
-.md-button-red:hover,
-.md-button-red:focus {
-  background-color: color-mix(in srgb, var(--button-red) 30%, transparent) !important;
-}
-
-.md-button-teal {
-  background-color: color-mix(in srgb, var(--button-teal) 10%, transparent) !important;
-  color: var(--button-teal) !important;
-  border: 2px solid var(--button-teal) !important;
-  stroke: var(--button-teal);
-}
-
-.md-button-teal:hover,
-.md-button-teal:focus {
-  background-color: color-mix(in srgb, var(--button-teal) 30%, transparent) !important;
-}
-
-.md-button-pink {
-  background-color: color-mix(in srgb, var(--button-pink) 10%, transparent) !important;
-  color: var(--button-pink) !important;
-  border: 2px solid var(--button-pink) !important;
-  stroke: var(--button-pink);
-}
-
-.md-button-pink:hover,
-.md-button-pink:focus {
-  background-color: color-mix(in srgb, var(--button-pink) 30%, transparent) !important;
-}
-
-.md-button-indigo {
-  background-color: color-mix(in srgb, var(--button-indigo) 10%, transparent) !important;
-  color: var(--button-indigo) !important;
-  border: 2px solid var(--button-indigo) !important;
-  stroke: var(--button-indigo);
-}
-
-.md-button-indigo:hover,
-.md-button-indigo:focus {
-  background-color: color-mix(in srgb, var(--button-indigo) 30%, transparent) !important;
-}
-
-.md-button-cyan {
-  background-color: color-mix(in srgb, var(--button-cyan) 10%, transparent) !important;
-  color: var(--button-cyan) !important;
-  border: 2px solid var(--button-cyan) !important;
-  stroke: var(--button-cyan);
-}
-
-.md-button-cyan:hover,
-.md-button-cyan:focus {
-  background-color: color-mix(in srgb, var(--button-cyan) 30%, transparent) !important;
-}
-
-.md-button-lime {
-  background-color: color-mix(in srgb, var(--button-lime) 10%, transparent) !important;
-  color: var(--button-lime) !important;
-  border: 2px solid var(--button-lime) !important;
-  stroke: var(--button-lime);
-}
-
-.md-button-lime:hover,
-.md-button-lime:focus {
-  background-color: color-mix(in srgb, var(--button-lime) 30%, transparent) !important;
-}
-
-.md-button-amber {
-  background-color: color-mix(in srgb, var(--button-amber) 10%, transparent) !important;
-  color: var(--button-amber) !important;
-  border: 2px solid var(--button-amber) !important;
-  stroke: var(--button-amber);
-}
-
-.md-button-amber:hover,
-.md-button-amber:focus {
-  background-color: color-mix(in srgb, var(--button-amber) 30%, transparent) !important;
-}
-
-.md-button-mvp {
-  background-color: color-mix(in srgb, var(--microsoft-mvp-blue) 10%, transparent) !important;
-  color: var(--microsoft-mvp-blue) !important;
-  border: 2px solid var(--microsoft-mvp-blue) !important;
-  stroke: var(--microsoft-mvp-blue);
-}
-
-.md-button-mvp:hover,
-.md-button-mvp:focus {
-  background-color: color-mix(in srgb, var(--microsoft-mvp-blue) 30%, transparent) !important;
-}
-
-.md-button-fabric {
-  background-color: color-mix(in srgb, var(--microsoft-fabric-green) 10%, transparent) !important;
-  color: var(--microsoft-fabric-green) !important;
-  border: 2px solid var(--microsoft-fabric-green) !important;
-  stroke: var(--microsoft-fabric-green);
-}
-
-.md-button-fabric:hover,
-.md-button-fabric:focus {
-  background-color: color-mix(in srgb, var(--microsoft-fabric-green) 30%, transparent) !important;
-}
-
-/* YouTube Button Override */
+.md-button-blue,
+.md-button-green,
+.md-button-orange,
+.md-button-purple,
+.md-button-red,
+.md-button-teal,
+.md-button-pink,
+.md-button-indigo,
+.md-button-cyan,
+.md-button-lime,
+.md-button-amber,
+.md-button-mvp,
+.md-button-fabric,
 a[href*="youtube.com"].md-button,
 a[href*="youtu.be"].md-button {
-  background-color: color-mix(in srgb, var(--youtube-red) 10%, transparent) !important;
-  color: var(--youtube-red) !important;
-  border: 2px solid var(--youtube-red) !important;
-  stroke: var(--youtube-red);
+  background-color: color-mix(in srgb, var(--btn-c) 8%, transparent) !important;
+  color: var(--btn-c) !important;
+  border: 1.5px solid color-mix(in srgb, var(--btn-c) 40%, transparent) !important;
+  stroke: var(--btn-c);
+}
+
+.md-button-blue:hover,   .md-button-blue:focus,
+.md-button-green:hover,  .md-button-green:focus,
+.md-button-orange:hover, .md-button-orange:focus,
+.md-button-purple:hover, .md-button-purple:focus,
+.md-button-red:hover,    .md-button-red:focus,
+.md-button-teal:hover,   .md-button-teal:focus,
+.md-button-pink:hover,   .md-button-pink:focus,
+.md-button-indigo:hover, .md-button-indigo:focus,
+.md-button-cyan:hover,   .md-button-cyan:focus,
+.md-button-lime:hover,   .md-button-lime:focus,
+.md-button-amber:hover,  .md-button-amber:focus,
+.md-button-mvp:hover,    .md-button-mvp:focus,
+.md-button-fabric:hover, .md-button-fabric:focus,
+a[href*="youtube.com"].md-button:hover,
+a[href*="youtube.com"].md-button:focus,
+a[href*="youtu.be"].md-button:hover,
+a[href*="youtu.be"].md-button:focus {
+  background-color: color-mix(in srgb, var(--btn-c) 15%, transparent) !important;
+  border-color: var(--btn-c) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--btn-c) 20%, transparent);
+}
+
+/* Color assignments */
+.md-button-blue     { --btn-c: var(--button-blue); }
+.md-button-green    { --btn-c: var(--button-green); }
+.md-button-orange   { --btn-c: var(--button-orange); }
+.md-button-purple   { --btn-c: var(--button-purple); }
+.md-button-red      { --btn-c: var(--button-red); }
+.md-button-teal     { --btn-c: var(--button-teal); }
+.md-button-pink     { --btn-c: var(--button-pink); }
+.md-button-indigo   { --btn-c: var(--button-indigo); }
+.md-button-cyan     { --btn-c: var(--button-cyan); }
+.md-button-lime     { --btn-c: var(--button-lime); }
+.md-button-amber    { --btn-c: var(--button-amber); }
+.md-button-mvp      { --btn-c: var(--microsoft-mvp-blue); }
+.md-button-fabric   { --btn-c: var(--microsoft-fabric-green); }
+
+/* YouTube */
+a[href*="youtube.com"].md-button,
+a[href*="youtu.be"].md-button {
+  --btn-c: var(--youtube-red);
 }
 
 a[href*="youtube.com"].md-button:hover,

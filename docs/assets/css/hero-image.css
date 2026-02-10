@@ -40,13 +40,13 @@
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    transparent 30%,
-    color-mix(in srgb, var(--md-default-bg-color) 10%, transparent) 40%,
-    color-mix(in srgb, var(--md-default-bg-color) 25%, transparent) 50%,
-    color-mix(in srgb, var(--md-default-bg-color) 45%, transparent) 60%,
-    color-mix(in srgb, var(--md-default-bg-color) 70%, transparent) 70%,
-    color-mix(in srgb, var(--md-default-bg-color) 90%, transparent) 80%,
-    var(--md-default-bg-color) 90%,
+    color-mix(in srgb, var(--md-default-bg-color) 15%, transparent) 30%,
+    color-mix(in srgb, var(--md-default-bg-color) 50%, transparent) 40%,
+    color-mix(in srgb, var(--md-default-bg-color) 80%, transparent) 50%,
+    color-mix(in srgb, var(--md-default-bg-color) 100%, transparent) 60%,
+    color-mix(in srgb, var(--md-default-bg-color) 100%, transparent) 70%,
+    color-mix(in srgb, var(--md-default-bg-color) 100%, transparent) 80%,
+    var(--md-default-bg-color) 100%,
     var(--md-default-bg-color) 100%
   );
 }

@@ -99,6 +99,13 @@ code, pre, .md-typeset code, .md-typeset pre {
   color: #1a1a2e !important;
 }
 
+[data-md-color-scheme="default"] .md-header .md-source,
+[data-md-color-scheme="default"] .md-header .md-source__icon svg,
+[data-md-color-scheme="default"] .md-header .md-source__repository {
+  color: #1a1a2e !important;
+  fill: currentColor;
+}
+
 [data-md-color-scheme="default"] .md-header .md-header__button:hover {
   opacity: 0.7;
 }

@@ -1,6 +1,8 @@
 /**
  * Hero Image Scroll Effect
- * Fades out the fixed hero banner as the user scrolls down.
+ * Fades the hero image from opacity 1 → 0 on scroll so it
+ * disappears into the page background. The gradient overlay
+ * stays fixed throughout.
  */
 (function () {
   "use strict";
@@ -9,20 +11,28 @@
     var hero = document.querySelector(".hero-banner");
     if (!hero) return;
 
-    var heroImage = hero.querySelector(".hero-banner__image");
+    var image = hero.querySelector(".hero-banner__image");
+    if (!image) return;
+
     var heroHeight = hero.offsetHeight;
     var ticking = false;
+    var body = document.body;
 
     function onScroll() {
       if (!ticking) {
         window.requestAnimationFrame(function () {
           var scrollY = window.scrollY || window.pageYOffset;
-          var progress = Math.min(scrollY / heroHeight, 1);
+          var progress = Math.min(scrollY / (heroHeight * 0.65), 1);
 
-          // Fade out the image as user scrolls
-          var opacity = 1 - progress * 1.2;
-          if (opacity < 0) opacity = 0;
-          heroImage.style.opacity = opacity;
+          // Image: opacity 1 → 0 (fade to background, completes at ~65 % scroll)
+          image.style.opacity = 1 - progress;
+
+          // Toggle hero-scrolled once the user scrolls past 70 % of the hero
+          if (scrollY >= heroHeight * 0.7) {
+            body.classList.add("hero-scrolled");
+          } else {
+            body.classList.remove("hero-scrolled");
+          }
 
           ticking = false;
         });
@@ -30,7 +40,7 @@
       }
     }
 
-    // Recalculate height on resize
+    // Recalculate on resize
     window.addEventListener("resize", function () {
       heroHeight = hero.offsetHeight;
     });

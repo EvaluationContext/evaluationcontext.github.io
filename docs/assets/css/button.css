@@ -1,19 +1,6 @@
 :root {
   --button-color: #ec4899;
   --youtube-red: #FF0000;
-  --button-blue: #2196F3;
-  --button-green: #4CAF50;
-  --button-orange: #FF9800;
-  --button-purple: #9C27B0;
-  --button-red: #F44336;
-  --button-teal: #009688;
-  --button-pink: #E91E63;
-  --button-indigo: #3F51B5;
-  --button-cyan: #00BCD4;
-  --button-lime: #CDDC39;
-  --button-amber: #FFC107;
-  --microsoft-mvp-blue: #0078D4;
-  --microsoft-fabric-green: #107C10;
 }
 
 .md-button {
@@ -53,72 +40,14 @@
   opacity: 1;
 }
 
-/* ---- Shared variant mixin via CSS custom property ---- */
-/* Each variant sets --btn-c; everything else inherits */
-
-.md-button-blue,
-.md-button-green,
-.md-button-orange,
-.md-button-purple,
-.md-button-red,
-.md-button-teal,
-.md-button-pink,
-.md-button-indigo,
-.md-button-cyan,
-.md-button-lime,
-.md-button-amber,
-.md-button-mvp,
-.md-button-fabric,
-a[href*="youtube.com"].md-button,
-a[href*="youtu.be"].md-button {
-  background-color: color-mix(in srgb, var(--btn-c) 8%, transparent) !important;
-  color: var(--btn-c) !important;
-  border: 1.5px solid color-mix(in srgb, var(--btn-c) 40%, transparent) !important;
-  stroke: var(--btn-c);
-}
-
-.md-button-blue:hover,   .md-button-blue:focus,
-.md-button-green:hover,  .md-button-green:focus,
-.md-button-orange:hover, .md-button-orange:focus,
-.md-button-purple:hover, .md-button-purple:focus,
-.md-button-red:hover,    .md-button-red:focus,
-.md-button-teal:hover,   .md-button-teal:focus,
-.md-button-pink:hover,   .md-button-pink:focus,
-.md-button-indigo:hover, .md-button-indigo:focus,
-.md-button-cyan:hover,   .md-button-cyan:focus,
-.md-button-lime:hover,   .md-button-lime:focus,
-.md-button-amber:hover,  .md-button-amber:focus,
-.md-button-mvp:hover,    .md-button-mvp:focus,
-.md-button-fabric:hover, .md-button-fabric:focus,
-a[href*="youtube.com"].md-button:hover,
-a[href*="youtube.com"].md-button:focus,
-a[href*="youtu.be"].md-button:hover,
-a[href*="youtu.be"].md-button:focus {
-  background-color: color-mix(in srgb, var(--btn-c) 15%, transparent) !important;
-  border-color: var(--btn-c) !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--btn-c) 20%, transparent);
-}
-
-/* Color assignments */
-.md-button-blue     { --btn-c: var(--button-blue); }
-.md-button-green    { --btn-c: var(--button-green); }
-.md-button-orange   { --btn-c: var(--button-orange); }
-.md-button-purple   { --btn-c: var(--button-purple); }
-.md-button-red      { --btn-c: var(--button-red); }
-.md-button-teal     { --btn-c: var(--button-teal); }
-.md-button-pink     { --btn-c: var(--button-pink); }
-.md-button-indigo   { --btn-c: var(--button-indigo); }
-.md-button-cyan     { --btn-c: var(--button-cyan); }
-.md-button-lime     { --btn-c: var(--button-lime); }
-.md-button-amber    { --btn-c: var(--button-amber); }
-.md-button-mvp      { --btn-c: var(--microsoft-mvp-blue); }
-.md-button-fabric   { --btn-c: var(--microsoft-fabric-green); }
-
 /* YouTube */
 a[href*="youtube.com"].md-button,
 a[href*="youtu.be"].md-button {
   --btn-c: var(--youtube-red);
+  background-color: color-mix(in srgb, var(--btn-c) 8%, transparent) !important;
+  color: var(--btn-c) !important;
+  border: 1.5px solid color-mix(in srgb, var(--btn-c) 40%, transparent) !important;
+  stroke: var(--btn-c);
 }
 
 a[href*="youtube.com"].md-button:hover,
@@ -126,4 +55,7 @@ a[href*="youtube.com"].md-button:focus,
 a[href*="youtu.be"].md-button:hover,
 a[href*="youtu.be"].md-button:focus {
   background-color: color-mix(in srgb, var(--youtube-red) 30%, transparent) !important;
+  border-color: var(--btn-c) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--btn-c) 20%, transparent);
 }

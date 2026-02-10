@@ -1,7 +1,10 @@
 /* ============================================
-   Hero Image — Cinematic parallax reveal
-   Dark cinematic overlay with vivid image,
-   text gets dramatic contrast treatment.
+   Hero Image — Fixed background with scroll overlay
+   A gradient overlay sits over the image: clear
+   at the top, solid bg-colour at the bottom.
+   On scroll the solid region grows upward until
+   the image is completely covered. Content is
+   slightly offset; sidebars stick on scroll.
    ============================================ */
 
 /* --- Hero Banner Container --- */
@@ -18,178 +21,79 @@
   pointer-events: none;
 }
 
-/* Background image layer — much more vivid */
+/* Background image layer */
 .hero-banner__image {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.15;
-  will-change: opacity;
-  transition: opacity 0.15s linear;
   filter: saturate(1.2) contrast(1.1);
 }
 
-/* Tinted overlay — cinematic dark gradient */
+/* Overlay — fixed gradient, always visible.
+   JS fades the image itself to transparent on scroll. */
 .hero-banner__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-}
-
-[data-md-color-scheme="default"] .hero-banner__overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(15, 15, 30, 0.55) 0%,
-    rgba(15, 15, 30, 0.35) 40%,
-    rgba(255, 255, 255, 0.60) 85%,
-    rgba(255, 255, 255, 0.95) 100%
-  );
-}
-
-[data-md-color-scheme="slate"] .hero-banner__overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(8, 8, 20, 0.60) 0%,
-    rgba(8, 8, 20, 0.40) 40%,
-    rgba(15, 23, 42, 0.70) 85%,
-    rgba(15, 23, 42, 0.95) 100%
-  );
-}
-
-/* --- Bottom fade --- */
-.hero-banner__bottom-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 180px;
-  z-index: 2;
-  pointer-events: none;
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    color-mix(in srgb, var(--md-default-bg-color) 50%, transparent) 45%,
-    color-mix(in srgb, var(--md-default-bg-color) 85%, transparent) 70%,
+    transparent 30%,
+    color-mix(in srgb, var(--md-default-bg-color) 10%, transparent) 40%,
+    color-mix(in srgb, var(--md-default-bg-color) 25%, transparent) 50%,
+    color-mix(in srgb, var(--md-default-bg-color) 45%, transparent) 60%,
+    color-mix(in srgb, var(--md-default-bg-color) 70%, transparent) 70%,
+    color-mix(in srgb, var(--md-default-bg-color) 90%, transparent) 80%,
+    var(--md-default-bg-color) 90%,
     var(--md-default-bg-color) 100%
   );
 }
 
-/* Decorative gradient line — disabled */
-.hero-banner__bottom-fade::after {
+/* Bottom fade — not needed (gradient handles this) */
+.hero-banner__bottom-fade {
   display: none;
 }
 
-/* --- Transparency so hero peeks through --- */
+/* --- Content offset so it starts near the bottom of the hero --- */
 .has-hero-image .md-main {
   background: transparent;
 }
 
 .has-hero-image .md-content--post {
-  background: transparent;
+  position: relative;
+  z-index: 1;
+  /* Push content down so it starts near the bottom of the hero image. */
+  padding-top: calc(60vh - 340px);
 }
 
+/* --- Sidebars --- */
+/* Material's .md-sidebar already has position: sticky; top: 2.4rem.
+   We add matching top-margin so they start at the same offset, then
+   naturally stick once the user scrolls past that point. */
 .has-hero-image .md-sidebar {
   background: transparent;
 }
 
-/* After scrolling past hero, restore solid backgrounds */
-.has-hero-image.hero-scrolled .md-content--post {
-  background: var(--md-default-bg-color);
+.has-hero-image .md-sidebar--post {
+  /* Sticky behaviour — stick to top as user scrolls past hero */
+  position: sticky;
+  top: calc(var(--md-header-height, 3rem) + 0.6rem);
+  align-self: flex-start;
 }
 
+/* Secondary sidebar (TOC) — also push down to match content */
+.has-hero-image .md-sidebar--secondary {
+  margin-top: calc(60vh - 340px);
+  position: sticky;
+  top: calc(var(--md-header-height, 3rem) + 0.6rem);
+  align-self: flex-start;
+}
+
+/* Once scrolled, give sidebars their bg */
 .has-hero-image.hero-scrolled .md-sidebar {
   background: var(--md-default-bg-color);
-}
-
-/* --- Hero text treatment: dramatic white text with glow --- */
-.has-hero-image .md-content__inner.md-typeset h1:has(+ .md-post-header) {
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  background: none !important;
-  text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(236, 72, 153, 0.15);
-  position: relative;
-  z-index: 3;
-}
-
-.has-hero-image .md-post-header__description {
-  color: rgba(255, 255, 255, 0.85) !important;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
-}
-
-.has-hero-image .md-post-header__divider {
-  background: linear-gradient(
-    90deg,
-    rgba(236, 72, 153, 0.6) 0%,
-    rgba(249, 168, 212, 0.4) 40%,
-    transparent 100%
-  ) !important;
-}
-
-/* Sidebar text in hero area — only before scrolling past */
-.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__title,
-.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-nav__title {
-  color: rgba(255, 255, 255, 0.7) !important;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__meta .md-nav__link,
-.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__meta .md-nav__link time,
-.has-hero-image:not(.hero-scrolled) .md-sidebar--post a.md-nav__link {
-  color: rgba(255, 255, 255, 0.6) !important;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__meta svg {
-  opacity: 0.6;
-  filter: brightness(10);
-}
-
-.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__back a {
-  color: rgba(255, 255, 255, 0.7) !important;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-.has-hero-image:not(.hero-scrolled) .md-sidebar--post .md-post__back svg {
-  filter: brightness(10);
-}
-
-/* After scrolling past hero, ensure sidebar is readable in light mode */
-[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__title,
-[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-nav__title {
-  color: var(--md-default-fg-color) !important;
-  text-shadow: none;
-}
-
-[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__meta .md-nav__link,
-[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__meta .md-nav__link time,
-[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post a.md-nav__link {
-  color: var(--md-default-fg-color--light) !important;
-  text-shadow: none;
-}
-
-[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__meta svg {
-  opacity: 0.5;
-  filter: none;
-}
-
-[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__back a {
-  color: var(--md-default-fg-color--light) !important;
-  text-shadow: none;
-}
-
-[data-md-color-scheme="default"] .has-hero-image.hero-scrolled .md-sidebar--post .md-post__back svg {
-  filter: none;
-}
-
-/* Dark mode: slightly different treatment */
-[data-md-color-scheme="slate"] .has-hero-image .md-content__inner.md-typeset h1:has(+ .md-post-header) {
-  text-shadow:
-    0 2px 16px rgba(0, 0, 0, 0.7),
-    0 0 50px rgba(249, 168, 212, 0.12);
 }
 
 /* --- Responsive --- */
@@ -199,6 +103,12 @@
     min-height: 280px;
     max-height: 420px;
   }
+  .has-hero-image .md-content--post {
+    padding-top: calc(48vh - 280px);
+  }
+  .has-hero-image .md-sidebar--secondary {
+    margin-top: calc(48vh - 280px);
+  }
 }
 
 @media screen and (max-width: 44.9375em) {
@@ -207,37 +117,10 @@
     min-height: 220px;
     max-height: 360px;
   }
-
-  .has-hero-image .md-content__inner.md-typeset h1:has(+ .md-post-header) {
-    font-size: 1.6rem;
+  .has-hero-image .md-content--post {
+    padding-top: calc(40vh - 220px);
   }
-}
-
-/* --- Header override on hero pages (light mode) --- */
-[data-md-color-scheme="default"] .has-hero-image .md-header {
-  background: rgba(15, 15, 30, 0.45) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-}
-
-[data-md-color-scheme="default"] .has-hero-image .md-header .md-header__title,
-[data-md-color-scheme="default"] .has-hero-image .md-header .md-header__topic,
-[data-md-color-scheme="default"] .has-hero-image .md-header .md-header__title .md-ellipsis,
-[data-md-color-scheme="default"] .has-hero-image .md-header .md-header__button,
-[data-md-color-scheme="default"] .has-hero-image .md-header .md-search__icon {
-  color: #ffffff !important;
-}
-
-[data-md-color-scheme="default"] .has-hero-image .md-tabs {
-  background: rgba(15, 15, 30, 0.35) !important;
-  border-bottom-color: rgba(255, 255, 255, 0.06);
-}
-
-[data-md-color-scheme="default"] .has-hero-image .md-tabs__link {
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-
-[data-md-color-scheme="default"] .has-hero-image .md-tabs__link:hover,
-[data-md-color-scheme="default"] .has-hero-image .md-tabs__link--active {
-  color: #ffffff !important;
+  .has-hero-image .md-sidebar--secondary {
+    margin-top: 0;   /* secondary sidebar hidden at this breakpoint anyway */
+  }
 }

@@ -34,7 +34,7 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-PowerBIFabricSummit){ .ec-badge .ec-badge--slides }
+[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-PowerBIFabricSummit){ .ec-badge .ec-badge--slides }
 
 </div>
 </div>

@@ -10,7 +10,7 @@ hide:
 
 # Projects { .ec-profile__name }
 
-Open-source tools for the **Power BI** community.
+Open-source tools for the **Fabric** community.
 { .ec-profile__tagline }
 
 </div>

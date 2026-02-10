@@ -1,0 +1,25 @@
+DEFINE 
+    Function SumTwoNumbers = 
+    (
+        a : VAL,
+    	b : EXPR
+    ) =>
+	COMBINEVALUES(
+		" | ",
+		FORMAT( CALCULATE( a, 'Product'[Color] = "Blue" ), "0,,m" ), 
+		FORMAT( CALCULATE( b, 'Product'[Color] = "Blue" ), "0,,m" )
+	)
+
+EVALUATE
+    { SumTwoNumbers( SUM( Sales[Net Price] ), SUM ( Sales[Net Price] ) ) }
+	
+	
+/*
+VAR a = SUM ( Sales[Net Price] )
+RETURN
+COMBINEVALUES(
+	" | ",
+	FORMAT( CALCULATE( a, 'Product'[Color] = "Blue" ), "0,,m" ), 
+	FORMAT( CALCULATE( SUM ( Sales[Net Price] ), 'Product'[Color] = "Blue" ), "0,,m" )
+)
+*/

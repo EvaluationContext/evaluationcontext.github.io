@@ -1,29 +1,39 @@
+/* ============================================
+   Type Label Pills — Semantic color coding
+   ============================================ */
+
 .type-label {
   display: inline-block;
-  padding: 2px 6px;
-  border-radius: 12px;
-  font-size: 0.5rem;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.56rem;
+  font-family: var(--ec-font-mono, var(--md-code-font-family));
   font-weight: 500;
   margin-right: 6px;
   vertical-align: middle;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
   border: 1px solid;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
 }
 
-/* Tighter spacing for type labels in tables */
+.type-label:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Tighter spacing in tables */
 table .type-label {
   margin-right: 2px;
   white-space: nowrap;
 }
 
-/* Prevent wrapping in table cells with type labels */
 table td:has(.type-label),
 table th:has(.type-label) {
   white-space: nowrap;
 }
 
-/* Type label colors using the custom theme */
+/* ---- Light mode colors ---- */
 .type-label.string { 
   background-color: #ebf2ff;
   border-color: #2a67ce;
@@ -74,4 +84,57 @@ table th:has(.type-label) {
   background-color: #eef2ff;
   border-color: #6251d7;
   color: #6251d7;
+}
+
+/* ---- Dark mode ---- */
+[data-md-color-scheme="slate"] .type-label.string {
+  background-color: rgba(42, 103, 206, 0.15);
+  border-color: #5b93e6;
+  color: #8ab4f8;
+}
+[data-md-color-scheme="slate"] .type-label.number,
+[data-md-color-scheme="slate"] .type-label.numeric {
+  background-color: rgba(19, 115, 51, 0.15);
+  border-color: #34a853;
+  color: #81c995;
+}
+[data-md-color-scheme="slate"] .type-label.boolean {
+  background-color: rgba(133, 98, 17, 0.15);
+  border-color: #b8940e;
+  color: #fdd663;
+}
+[data-md-color-scheme="slate"] .type-label.object {
+  background-color: rgba(79, 71, 186, 0.15);
+  border-color: #7b74d1;
+  color: #a8a3e6;
+}
+[data-md-color-scheme="slate"] .type-label.array {
+  background-color: rgba(121, 64, 35, 0.15);
+  border-color: #b5744a;
+  color: #d9a07a;
+}
+[data-md-color-scheme="slate"] .type-label.expr {
+  background-color: rgba(198, 71, 129, 0.15);
+  border-color: #d678a8;
+  color: #f0a0c8;
+}
+[data-md-color-scheme="slate"] .type-label.val {
+  background-color: rgba(106, 32, 57, 0.15);
+  border-color: #a84068;
+  color: #d87098;
+}
+[data-md-color-scheme="slate"] .type-label.int64 {
+  background-color: rgba(0, 120, 111, 0.15);
+  border-color: #26a69a;
+  color: #80cbc4;
+}
+[data-md-color-scheme="slate"] .type-label.anyref {
+  background-color: rgba(74, 85, 101, 0.15);
+  border-color: #78909c;
+  color: #b0bec5;
+}
+[data-md-color-scheme="slate"] .type-label.double {
+  background-color: rgba(98, 81, 215, 0.15);
+  border-color: #8577e6;
+  color: #b0a6f0;
 }

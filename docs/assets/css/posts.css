@@ -1,69 +1,147 @@
-/* Blog Post Header Styling */
+/* ============================================
+   Blog Post Reading Experience
+   Refined typography, elegant sidebar, 
+   editorial heading hierarchy
+   ============================================ */
 
 /* CSS Variables for Blog Posts */
 :root {
-  --post-sidebar-title-font-size: 0.65rem;
-  --post-sidebar-title-weight: 200;
-  --post-sidebar-item-font-size: 0.6rem;
+  --post-sidebar-title-font-size: 0.72rem;
+  --post-sidebar-title-weight: 500;
+  --post-sidebar-item-font-size: 0.68rem;
   --post-sidebar-item-weight: 300;
-  --post-content-font-size: 0.7rem;
+  --post-content-font-size: 0.82rem;
   --post-content-weight: 400;
 }
 
-/* Title spacing */
+/* Title — Playfair Display serif for editorial feel */
 .md-content__inner.md-typeset h1:has(+ .md-post-header) {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  font-size: 2rem;
+  font-family: var(--ec-font-display, Georgia, serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   color: var(--md-default-fg-color);
 }
 
+/* Post header section */
 .md-post-header__content {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-/* Description text */
+/* Description text — lighter, editorial */
 .md-post-header__text p.md-post-header__description,
 p.md-post-header__description,
 .md-post-header__description {
   margin-bottom: 0rem !important;
-  line-height: 1.2 !important;
-  font-weight: 100 !important;
+  line-height: 1.4 !important;
+  font-weight: 300 !important;
+  font-size: 0.85rem !important;
   color: var(--md-default-fg-color--light) !important;
+  font-style: italic;
 }
 
+/* Divider — subtle teal accent line */
 .md-post-header__divider {
   border: none;
-  border-top: 1px solid var(--md-default-border-color-lighter);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--ec-teal, #ec4899) 0%,
+    rgba(236, 72, 153, 0.2) 50%,
+    transparent 100%
+  );
   margin-bottom: 1.5rem !important;
+  margin-top: 0.75rem !important;
 }
 
-/* Blog Post Content Styling */
+/* --- Blog Post Content --- */
 
 /* Text sizing */
 .md-content--post .md-content__inner.md-typeset p,
 .md-content--post .md-content__inner.md-typeset li {
   font-size: var(--post-content-font-size);
   font-weight: var(--post-content-weight);
+  line-height: 1.75;
 }
 
-/* Heading weights */
-.md-content--post .md-content__inner.md-typeset h2 { font-weight: 200; font-size: 1.5rem; }
-.md-content--post .md-content__inner.md-typeset h3 { font-weight: 200; font-size: 1.25rem; }
-.md-content--post .md-content__inner.md-typeset h4 { font-weight: 200; font-size: 1.125rem; }
-.md-content--post .md-content__inner.md-typeset h5 { font-weight: 200; font-size: 1rem; }
-.md-content--post .md-content__inner.md-typeset h6 { font-weight: 200; font-size: 0.875rem; }
+/* Heading hierarchy — clean, weighted */
+.md-content--post .md-content__inner.md-typeset h2 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: -0.015em;
+  margin-top: 2.5rem;
+}
 
-/* Post Images */
+.md-content--post .md-content__inner.md-typeset h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.md-content--post .md-content__inner.md-typeset h4 {
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.md-content--post .md-content__inner.md-typeset h5 {
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-content--post .md-content__inner.md-typeset h6 {
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Post Images — refined */
 .md-content--post .md-content__inner.md-typeset img {
   display: block;
   margin-top: 1rem;
+  border-radius: 0.5rem;
 }
 
-/* Sidebar Navigation - Common Styles */
-/* All sidebar items (TOC, metadata, links) */
+/* --- Sidebar Navigation --- */
+
+/* Remove Material default backgrounds on sidebar titles */
+.md-sidebar--post .md-post__back,
+.md-sidebar--post .md-nav__title,
+.md-sidebar--post .md-post__title,
+[data-md-component="toc"] .md-nav__title,
+.md-nav--secondary .md-nav__title {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove TOC sticky title gradient overlay */
+.md-nav--secondary .md-nav__title[for="__toc"] {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove lifted nav sticky backgrounds */
+.md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove primary nav title sticky backgrounds */
+.md-nav--primary .md-nav__title {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* All sidebar items */
 .md-sidebar--post .md-post__meta .md-nav__link,
 .md-sidebar--post .md-post__meta .md-nav__link time,
 .md-sidebar--post .md-post__meta .md-nav__item,
@@ -71,30 +149,34 @@ p.md-post-header__description,
 .md-nav--secondary a.md-nav__link,
 .md-sidebar--post a.md-nav__link {
   font-size: var(--post-sidebar-item-font-size) !important;
-  font-family: var(--md-text-font-family) !important;
+  font-family: var(--ec-font-body, var(--md-text-font-family)) !important;
 }
 
-/* All sidebar titles (TOC title and left nav titles) */
+/* Sidebar titles */
 .md-sidebar--post .md-post__title,
 .md-sidebar--post .md-nav__title,
 [data-md-component="toc"] .md-nav__title {
   font-size: var(--post-sidebar-title-font-size) !important;
-  font-family: var(--md-text-font-family) !important;
+  font-family: var(--ec-font-body, var(--md-text-font-family)) !important;
   font-weight: var(--post-sidebar-title-weight) !important;
   color: var(--md-default-fg-color) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-/* Ensure TOC title is not bold - override Material theme */
+/* TOC title override */
 [data-md-component="toc"] .md-nav__title,
 .md-nav--secondary .md-nav__title {
   font-style: normal !important;
   font-size: var(--post-sidebar-title-font-size) !important;
-  font-family: var(--md-text-font-family) !important;
+  font-family: var(--ec-font-body, var(--md-text-font-family)) !important;
   font-weight: var(--post-sidebar-title-weight) !important;
   color: var(--md-default-fg-color) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
-/* All sidebar items - weight and color */
+/* Sidebar items — weight and color */
 .md-sidebar--post .md-post__meta .md-nav__link,
 .md-sidebar--post .md-post__meta .md-nav__link time,
 .md-sidebar--post .md-post__meta .md-nav__item,
@@ -103,32 +185,33 @@ p.md-post-header__description,
 .md-nav--secondary a.md-nav__link {
   font-weight: var(--post-sidebar-item-weight) !important;
   color: var(--md-default-fg-color--light) !important;
+  transition: color 0.2s var(--ec-ease-out, ease-out);
 }
 
 .md-sidebar--post .md-post__meta svg {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
-/* Hover - Accent color */
+/* Hover — Teal accent */
 .md-sidebar--post .md-post__meta a:hover,
 .md-sidebar--post a.md-nav__link:hover,
 [data-md-component="toc"] a.md-nav__link:hover,
 .md-nav--secondary a.md-nav__link:hover {
-  color: var(--md-accent-fg-color) !important;
+  color: var(--ec-teal, var(--md-accent-fg-color)) !important;
 }
 
-/* Active section - highlight on scroll */
+/* Active section — bold on scroll */
 .md-sidebar--post a.md-nav__link--active,
 [data-md-component="toc"] a.md-nav__link--active,
 .md-nav--secondary a.md-nav__link--active {
   color: var(--md-default-fg-color) !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 .md-sidebar--post a.md-nav__link--active:hover,
 [data-md-component="toc"] a.md-nav__link--active:hover,
 .md-nav--secondary a.md-nav__link--active:hover {
-  color: var(--md-accent-fg-color) !important;
+  color: var(--ec-teal, var(--md-accent-fg-color)) !important;
 }
 
 /* Responsive */
@@ -139,5 +222,9 @@ p.md-post-header__description,
   
   .md-post-header__description {
     margin: 0 0 0.75rem;
+  }
+
+  .md-content__inner.md-typeset h1:has(+ .md-post-header) {
+    font-size: 1.6rem;
   }
 }

@@ -1,0 +1,3 @@
+# Extending DAX with User-Defined Functions (UDFs)
+
+Microsoft has recently released User-Defined Functions (UDFs), which you can use to encapsulate complex logic into reusable, maintainable functions that simplify your Power BI semantic models. By the end of the session you'll understand what DAX UDFs are, and will be able to start building your own functions. We'll also cover DAXLib, a community driven, open-source library of DAX UDFs, initiated by SQLBI, allowing you to instantly benefit from libraries focused on SVGs, Format Strings, Filtering, and more.

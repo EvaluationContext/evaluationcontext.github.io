@@ -1,0 +1,21 @@
+DEFINE
+	FUNCTION TopByMeasure = 
+	(
+		colRef: ANYREF,
+		measureRef: ANYREF
+	) =>
+		
+		MAXX(
+			INDEX(
+				1,
+				ALLSELECTED( colRef ),
+				ORDERBY( CALCULATE( SUM( measureRef ) ), DESC ) 
+			),
+			colRef
+		)
+	
+EVALUATE
+	{
+		{ TopByMeasure( 'Product'[Color], Sales[Net Price] ) },
+		{ TopByMeasure( 'Product'[Brand], Sales[Net Price] ) }
+	}

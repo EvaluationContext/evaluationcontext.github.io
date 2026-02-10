@@ -1,0 +1,6 @@
+/// Name of the database to load
+expression DatabaseName = "Contoso 1M" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 51a5e502-ea90-4d89-b63e-71f40e319111
+
+	annotation PBI_ResultType = Text
+

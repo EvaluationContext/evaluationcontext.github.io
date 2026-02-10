@@ -5,62 +5,143 @@ hide:
   - title
 ---
 
-# About
+<div class="ec-profile__info" markdown>
 
-Jake Duddy is a Business Intelligence specialist with a deep focus on Power BI and Microsoft Fabric.
+# Jake Duddy { .ec-profile__name }
 
----
+**Business Intelligence specialist** with a deep focus on **Power BI** and **Microsoft Fabric**. Building, sharing, and speaking — from DAX libraries to graph visualisations.
+{ .ec-profile__tagline }
 
-<div class="grid cards" markdown>
+</div>
 
--   :material-post: __Blog__
+<hr class="ec-section-divider">
 
-    ---
+<div class="ec-roles" markdown>
 
-    Shares experiments, experiences and insights on Power BI and Microsoft Fabric
+<div class="ec-role" markdown>
+<div class="ec-role__header" markdown>
 
-    ---
+### Blog Author { .ec-role__title }
 
-    [:octicons-link-external-16: Read Blog](https://evaluationcontext.github.io/){ .md-button }
+<div class="ec-role__icon" markdown>
+:material-newspaper:
+</div>
+</div>
 
--   :material-presentation: __Speaker__
+Sharing experiments, deep dives, and insights on Power BI, Microsoft Fabric, SVGs, and DAX.
+{ .ec-role__desc }
 
-    ---
+<div class="ec-role__actions" markdown>
 
-    Presents at Fabric and Power BI User Groups and conferences
+[:material-web: Read the blog](https://evaluationcontext.github.io/){ .ec-badge .ec-badge--site }
 
-    ---
+</div>
 
-    [:octicons-link-external-16: View Presentations](https://evaluationcontext.github.io/presentations/){ .md-button }
+</div>
 
--   :material-trophy: __Microsoft MVP__
+<div class="ec-role" markdown>
+<div class="ec-role__header" markdown>
 
-    ---
+### Speaker { .ec-role__title }
 
-    Recognized as a Microsoft Data Platform MVP - Power BI
+<div class="ec-role__icon" markdown>
+:material-presentation:
+</div>
+</div>
 
-    ---
+Presenting at Fabric & Power BI user groups and conferences across the UK.
+{ .ec-role__desc }
 
-    [:octicons-link-external-16: MVP Profile](https://mvp.microsoft.com/en-US/MVP/profile/83f59bc7-9ff2-46e3-a9c9-30c97cad847f){ .md-button }
+<div class="ec-role__actions" markdown>
 
--   :material-star: __Community Super User__
+[:material-presentation: Presentations](https://evaluationcontext.github.io/presentations/){ .ec-badge .ec-badge--site }
 
-    ---
+</div>
 
-    Helps out on the Fabric forums as a Fabric Community Super User
+</div>
 
-    ---
+<div class="ec-role" markdown>
+<div class="ec-role__header" markdown>
 
-    [:octicons-link-external-16: Community Profile](https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947){ .md-button }
+### Microsoft MVP { .ec-role__title }
 
--   :material-account-group: __User Group Organizer__
+<div class="ec-role__icon" markdown>
+:material-trophy:
+</div>
+</div>
 
-    ---
+Recognised as a Microsoft Data Platform MVP — Power BI for community contributions.
+{ .ec-role__desc }
 
-    Co-organizer of the Devon and Cornwall Microsoft Power BI User Group
+<div class="ec-role__actions" markdown>
 
-    ---
+[:material-open-in-new: MVP profile](https://mvp.microsoft.com/en-US/MVP/profile/83f59bc7-9ff2-46e3-a9c9-30c97cad847f){ .ec-badge .ec-badge--site }
 
-    [:octicons-link-external-16: Join Meetup](https://www.meetup.com/d-c_powerbi/){ .md-button }
+</div>
+
+</div>
+
+<div class="ec-role" markdown>
+<div class="ec-role__header" markdown>
+
+### Community Super User { .ec-role__title }
+
+<div class="ec-role__icon" markdown>
+:material-star:
+</div>
+</div>
+
+Helping out on the Fabric forums as a recognised Fabric Community Super User.
+{ .ec-role__desc }
+
+<div class="ec-role__actions" markdown>
+
+[:material-open-in-new: Community profile](https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947){ .ec-badge .ec-badge--site }
+
+</div>
+
+</div>
+
+<div class="ec-role" markdown>
+<div class="ec-role__header" markdown>
+
+### User Group Organiser { .ec-role__title }
+
+<div class="ec-role__icon" markdown>
+:material-account-group:
+</div>
+</div>
+
+Co-organiser of the Devon and Cornwall Microsoft Power BI User Group.
+{ .ec-role__desc }
+
+<div class="ec-role__actions" markdown>
+
+[:material-open-in-new: Join meetup](https://www.meetup.com/d-c_powerbi/){ .ec-badge .ec-badge--site }
+
+</div>
+
+</div>
+
+<div class="ec-role" markdown>
+<div class="ec-role__header" markdown>
+
+### Open-Source Creator { .ec-role__title }
+
+<div class="ec-role__icon" markdown>
+:material-layers-triple:
+</div>
+</div>
+
+Building DAX Lib packages and tools that make Power BI development faster and more creative.
+{ .ec-role__desc }
+
+<div class="ec-role__actions" markdown>
+
+[:material-web: View projects](https://evaluationcontext.github.io/projects/){ .ec-badge .ec-badge--site }
+
+</div>
+
+</div>
 
 </div>

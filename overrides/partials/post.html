@@ -2,9 +2,9 @@
   <a href="{{ post.url | url }}" class="md-post__link">
     <div class="md-post__content md-typeset">
       <div class="md-post__text">
-        <h2>
+        <h3>
           {{ post.meta.title if post.meta.title else post.title }}
-        </h2>
+        </h3>
         
         {% if post.meta.description %}
         <p class="md-post__description">

@@ -1,0 +1,8 @@
+DEFINE 
+    Function SumTwoNumbers = (a, b) =>
+    
+    a + b
+
+EVALUATE
+    { SumTwoNumber( 5, 15 ) }
+

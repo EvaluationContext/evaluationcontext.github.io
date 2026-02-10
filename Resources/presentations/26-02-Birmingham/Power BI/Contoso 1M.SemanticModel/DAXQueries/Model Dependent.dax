@@ -1,0 +1,25 @@
+DEFINE
+	FUNCTION BestSellingProductColor = 
+	(
+		measureRef: ANYREF
+	) =>
+		
+		MAXX(
+			INDEX(
+				1,
+				ALLSELECTED( 'Product'[Color] ),
+				ORDERBY( CALCULATE( SUM( measureRef ) ), DESC ) 
+			),
+			'Product'[Color]
+		)
+	
+EVALUATE
+	{ BestSellingProductColor( Sales[Net Price] ) }
+	
+EVALUATE
+	SUMMARIZECOLUMNS(
+		'Product'[Color],
+		"@",  CALCULATE( SUM( Sales[Net Price] ) )
+	)
+ORDER BY [@] DESC
+	

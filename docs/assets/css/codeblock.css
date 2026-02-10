@@ -1,7 +1,9 @@
-/* Make code block text smaller */
+/* Code blocks — JetBrains Mono, refined sizing */
 .md-typeset pre > code,
 .md-typeset pre,
 .md-typeset .highlight {
-	font-size: 0.60rem;
-    max-height: 800px;
+  font-family: var(--ec-font-code, var(--md-code-font-family));
+  font-size: 0.65rem;
+  max-height: 500px;
+  border-radius: 8px;
 }

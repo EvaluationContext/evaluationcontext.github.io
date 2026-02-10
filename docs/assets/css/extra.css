@@ -85,7 +85,7 @@ code, pre, .md-typeset code, .md-typeset pre {
 }
 
 [data-md-color-scheme="default"] .md-header {
-  background: rgba(230, 230, 235, 0.65) !important;
+  background: rgba(255, 255, 255, 0.65) !important;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
@@ -113,7 +113,7 @@ code, pre, .md-typeset code, .md-typeset pre {
 }
 
 [data-md-color-scheme="slate"] .md-header {
-  background: rgba(15, 23, 42, 0.75) !important;
+  background: rgba(0, 0, 0, 0.65) !important;
 }
 
 .md-header[data-md-state="shadow"] {
@@ -126,6 +126,11 @@ code, pre, .md-typeset code, .md-typeset pre {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   font-size: 0.78rem;
+}
+
+/* Header logo — circular avatar */
+.md-header .md-logo img {
+  border-radius: 50% !important;
 }
 
 /* Navigation tabs — refined underline animation */
@@ -170,7 +175,7 @@ code, pre, .md-typeset code, .md-typeset pre {
 
 /* Light mode — ensure tab and header text is dark */
 [data-md-color-scheme="default"] .md-tabs {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1);
 }
 
 [data-md-color-scheme="default"] .md-tabs__link {

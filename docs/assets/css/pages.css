@@ -138,14 +138,14 @@
 
 .ec-role__title {
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   margin: 0 0 0.35rem;
   letter-spacing: -0.01em;
   line-height: 1.35;
 }
 
 .ec-role__desc {
-  font-size: 0.78rem;
+  font-size: 0.70rem;
   font-weight: 300;
   color: var(--md-default-fg-color--light);
   line-height: 1.55;
@@ -334,7 +334,7 @@
   align-items: center;
   gap: 0.3rem;
   font-family: var(--ec-font-body);
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 300;
   color: var(--md-default-fg-color--light);
   letter-spacing: 0.02em;
@@ -361,7 +361,7 @@
 
 .ec-tl-entry__title {
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   margin: 0;
   line-height: 1.35;
   letter-spacing: -0.01em;
@@ -371,7 +371,7 @@
 
 /* Venue */
 .ec-tl-entry__venue {
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 300;
   color: var(--md-default-fg-color--light);
   margin: 0;
@@ -602,14 +602,14 @@
 
 .ec-project__title {
   font-weight: 600;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   margin: 0 0 0.35rem;
   letter-spacing: -0.01em;
   line-height: 1.35;
 }
 
 .ec-project__desc {
-  font-size: 0.78rem;
+  font-size: 0.70rem;
   font-weight: 300;
   color: var(--md-default-fg-color--light);
   line-height: 1.55;

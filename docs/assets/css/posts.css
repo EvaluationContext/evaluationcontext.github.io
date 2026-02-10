@@ -70,7 +70,9 @@ p.md-post-header__description,
 
 /* Text sizing */
 .md-content--post .md-content__inner.md-typeset p,
-.md-content--post .md-content__inner.md-typeset li {
+.md-content--post .md-content__inner.md-typeset li,
+.md-content--post .md-content__inner.md-typeset td,
+.md-content--post .md-content__inner.md-typeset th {
   font-size: var(--post-content-font-size);
   font-weight: var(--post-content-weight);
   line-height: 1.75;

@@ -10,8 +10,15 @@
   --post-sidebar-title-weight: 500;
   --post-sidebar-item-font-size: 0.68rem;
   --post-sidebar-item-weight: 300;
-  --post-content-font-size: 0.82rem;
+  --post-content-font-size: 0.78rem;
   --post-content-weight: 400;
+}
+
+/* Scale down on wide viewports (full-screen) */
+@media (min-width: 1440px) {
+  :root {
+    --post-content-font-size: 0.70rem;
+  }
 }
 
 /* Title — Playfair Display serif for editorial feel */

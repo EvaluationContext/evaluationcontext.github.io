@@ -28,7 +28,7 @@ hide:
 </div>
 </div>
 
-Sharing experiments, deep dives, and insights on Power BI, Microsoft Fabric, SVGs, and DAX.
+Sharing experiments, deep dives, and insights on Power BI, Microsoft Fabric and other assorted tech.
 { .ec-role__desc }
 
 <div class="ec-role__actions" markdown>
@@ -49,7 +49,7 @@ Sharing experiments, deep dives, and insights on Power BI, Microsoft Fabric, SVG
 </div>
 </div>
 
-Presenting at Fabric & Power BI user groups and conferences across the UK.
+Presenting at user groups and conferences.
 { .ec-role__desc }
 
 <div class="ec-role__actions" markdown>
@@ -70,7 +70,7 @@ Presenting at Fabric & Power BI user groups and conferences across the UK.
 </div>
 </div>
 
-Recognised as a Microsoft Data Platform MVP — Power BI for community contributions.
+Recognized as a Microsoft Data Platform MVP — Power BI.
 { .ec-role__desc }
 
 <div class="ec-role__actions" markdown>
@@ -91,7 +91,7 @@ Recognised as a Microsoft Data Platform MVP — Power BI for community contribut
 </div>
 </div>
 
-Helping out on the Fabric forums as a recognised Fabric Community Super User.
+Helping out on the Fabric forums as a recognized Fabric Community Super User.
 { .ec-role__desc }
 
 <div class="ec-role__actions" markdown>
@@ -133,7 +133,7 @@ Co-organiser of the Devon and Cornwall Microsoft Power BI User Group.
 </div>
 </div>
 
-Building DAX Lib packages and tools that make Power BI development faster and more creative.
+Building DAX Lib packages and tools that make Power BI development easier.
 { .ec-role__desc }
 
 <div class="ec-role__actions" markdown>

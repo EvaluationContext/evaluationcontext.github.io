@@ -40,6 +40,30 @@ hide:
 </div>
 </div>
 
+<div class="ec-tl-entry" markdown>
+<div class="ec-tl-entry__node"></div>
+<div class="ec-tl-entry__card" markdown>
+
+### Extending DAX with User-Defined Functions (UDFs) { .ec-tl-entry__title }
+
+<div class="ec-tl-entry__meta" markdown>
+
+:material-calendar:{ .ec-tl-icon } Feb 2026
+{ .ec-tl-entry__date }
+
+:material-map-marker:{ .ec-tl-icon } [Microsoft Data Platform Group - Birmingham](https://www.meetup.com/microsoftdataplatformbirmingham/)
+{ .ec-tl-entry__venue }
+
+</div>
+
+<div class="ec-tl-entry__badges" markdown>
+
+[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-Birmingham){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+</div>
+
 <!-- ── 2025 ── -->
 <div class="ec-timeline__year">
 <div class="ec-timeline__year-dot"></div>

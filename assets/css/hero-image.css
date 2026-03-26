@@ -1,0 +1,127 @@
+/* ============================================
+   Hero Image — Fixed background with scroll overlay
+   A gradient overlay sits over the image: clear
+   at the top, solid bg-colour at the bottom.
+   On scroll the solid region grows upward until
+   the image is completely covered. Content is
+   slightly offset; sidebars stick on scroll.
+   ============================================ */
+
+/* --- Hero Banner Container --- */
+.hero-banner {
+  position: fixed;
+  top: var(--md-header-height, 3rem);
+  left: 0;
+  width: 100%;
+  height: 60vh;
+  min-height: 340px;
+  max-height: 520px;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Background image layer */
+.hero-banner__image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+/* Overlay — fixed gradient, always visible.
+   JS fades the image itself to transparent on scroll. */
+.hero-banner__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--md-default-bg-color) 15%, transparent) 30%,
+    color-mix(in srgb, var(--md-default-bg-color) 50%, transparent) 40%,
+    color-mix(in srgb, var(--md-default-bg-color) 80%, transparent) 50%,
+    color-mix(in srgb, var(--md-default-bg-color) 100%, transparent) 60%,
+    color-mix(in srgb, var(--md-default-bg-color) 100%, transparent) 70%,
+    color-mix(in srgb, var(--md-default-bg-color) 100%, transparent) 80%,
+    var(--md-default-bg-color) 100%,
+    var(--md-default-bg-color) 100%
+  );
+}
+
+/* Bottom fade — not needed (gradient handles this) */
+.hero-banner__bottom-fade {
+  display: none;
+}
+
+/* --- Content offset so it starts near the bottom of the hero --- */
+.has-hero-image .md-main {
+  background: transparent;
+}
+
+.has-hero-image .md-content--post {
+  position: relative;
+  z-index: 1;
+  /* Push content down so it starts near the bottom of the hero image.
+     Use min() so the offset never exceeds what max-height allows. */
+  padding-top: calc(min(60vh, 520px) - 340px);
+}
+
+/* --- Sidebars --- */
+/* Material's .md-sidebar already has position: sticky; top: 2.4rem.
+   We add matching top-margin so they start at the same offset, then
+   naturally stick once the user scrolls past that point. */
+.has-hero-image .md-sidebar {
+  background: transparent;
+}
+
+.has-hero-image .md-sidebar--post {
+  /* Sticky behaviour — stick to top as user scrolls past hero */
+  position: sticky;
+  top: calc(var(--md-header-height, 3rem) + 0.6rem);
+  align-self: flex-start;
+}
+
+/* Secondary sidebar (TOC) — also push down to match content */
+.has-hero-image .md-sidebar--secondary {
+  margin-top: calc(min(60vh, 520px) - 340px);
+  position: sticky;
+  top: calc(var(--md-header-height, 3rem) + 0.6rem);
+  align-self: flex-start;
+}
+
+/* Once scrolled, give sidebars their bg */
+.has-hero-image.hero-scrolled .md-sidebar {
+  background: var(--md-default-bg-color);
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 76.1875em) {
+  .hero-banner {
+    height: 48vh;
+    min-height: 280px;
+    max-height: 420px;
+  }
+  .has-hero-image .md-content--post {
+    padding-top: calc(min(48vh, 420px) - 280px);
+  }
+  .has-hero-image .md-sidebar--secondary {
+    margin-top: calc(min(48vh, 420px) - 280px);
+  }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .hero-banner {
+    height: 40vh;
+    min-height: 220px;
+    max-height: 360px;
+  }
+  .has-hero-image .md-content--post {
+    padding-top: calc(min(40vh, 360px) - 220px);
+  }
+  .has-hero-image .md-sidebar--secondary {
+    margin-top: 0;   /* secondary sidebar hidden at this breakpoint anyway */
+  }
+}

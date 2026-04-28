@@ -1,0 +1,1719 @@
+table _Measures
+	lineageTag: fc71a644-ec86-4b02-8cbe-a3b62e5b9769
+
+	measure 'Compound.Pill' = ```
+			
+			VAR Compound = 
+			    DaxLib.SVG.Compound.Pill(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        MAX( Products[Brand] ), // txt
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        )                  // color
+			    )
+			RETURN
+			
+			    IF( 
+			        NOT ISBLANK( Compound ) && NOT ISBLANK( [Total Cost] ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: 9c01df68-7f3e-486f-ba39-70e260a26808
+		dataCategory: ImageUrl
+
+	measure Txt = ```
+			
+			DaxLib.SVG.SVG( 
+			    100,                // width
+			    20,                 // height
+			    BLANK(),            // viewbox
+			    DaxLib.SVG.Element.Txt(
+			        10,             // x
+			        10, 	        // y
+			        "SomeText",     // txt
+			        0,              // dx
+			        0,              // dy
+			        DaxLib.SVG.Attr.Txt(
+			            "Arial",    // fontFamily
+			            12,         // fontSize
+			            BLANK(),    // fontWeight
+			            BLANK(),    // fontStyle
+			            BLANK(),    // textAnchor
+			            BLANK(),    // baseline
+			            BLANK(),    // textDecoration
+			            BLANK(),    // letterSpacing
+			            BLANK()     // wordSpacing
+			         ),             // attributes
+			        BLANK()			// transforms
+			    ),                  // contents
+			    BLANK()             // sortValue
+			)
+			```
+		displayFolder: SVG\Elements
+		lineageTag: f68968c6-ad1e-4871-8185-d3d2b2ca2e49
+		dataCategory: ImageUrl
+
+	measure Rect = ```
+			
+			DaxLib.SVG.SVG( 
+			    100,                // width
+			    20,                 // height
+			    BLANK(),            // viewbox
+			    DaxLib.SVG.Element.Rect(
+			        "50%",          // x
+			        "0%",           // y
+			        "40%",          // width
+			        8,              // height
+			        blank(),        // rx
+			        blank(),        // ry
+			        DaxLib.SVG.Attr.Shapes(
+			            DaxLib.SVG.Color.Theme(
+			                MAX( Theme[Theme] ),
+			                MIN( Variant[Variant] )
+			            ),          // fill
+			            0.3,        // fillOpacity
+			            BLANK(),    // fillRule
+			             DaxLib.SVG.Color.Theme(
+			                MAX( Theme[Theme] ),
+			                MIN( Variant[Variant] )
+			            ),          // stroke
+			            2,          // strokeWidth
+			            0.9,        // strokeOpacity
+			            BLANK()     // opacity
+			        ),              // attributes
+			        DaxLib.SVG.Transforms(
+			            -15,        // translate
+			            5,          // rotate
+			            BLANK(),    // scale
+			            -20,        // skewX
+			            BLANK()     // skewY
+			        )               // transforms
+			    ),                  // contents
+			    BLANK()             // sortValue
+			)
+			```
+		displayFolder: SVG\Elements
+		lineageTag: 87155b89-ffcd-4fc0-8396-6ad38a537478
+		dataCategory: ImageUrl
+
+	measure Line =
+			
+			DaxLib.SVG.SVG(
+			    100,                // width
+			    20,                 // height
+			    BLANK(),            // viewbox
+			    DaxLib.SVG.Element.Line(
+			        1,              // x1
+			        5,              // y1
+			        80,             // x2
+			        5,              // y2
+			        DaxLib.SVG.Attr.Shapes(
+			            BLANK(),    // fill
+			            BLANK(),    // fillOpacity
+			            BLANK(),    // fillRule
+			            DaxLib.SVG.Color.Theme(
+			                MAX( Theme[Theme] ),
+			                MIN( Variant[Variant] )
+			            ),          // stroke
+			            2,          // strokeWidth
+			            BLANK(),    // strokeOpacity
+			            BLANK()     // opacity
+			        ),              // attributes
+			        BLANK()         // transforms
+			    ),                  // contents
+			    BLANK()             // sortValue
+			)
+		displayFolder: SVG\Elements
+		lineageTag: 37190c4a-0a1d-46c7-8d8a-0ccf9f2e8303
+		dataCategory: ImageUrl
+
+	measure Path =
+			
+			DaxLib.SVG.SVG(
+			    100,                // width
+			    20,                 // height
+			    BLANK(),            // viewbox
+			    DaxLib.SVG.Element.Paths(
+			        "M10 10 L30 5 C50 0 70 20 90 15 L100 0", // d
+			        DaxLib.SVG.Attr.Shapes(
+			            "none",     // fill
+			            BLANK(),    // fillOpacity
+			            BLANK(),    // fillRule
+			            DaxLib.SVG.Color.Theme(
+			                MAX( Theme[Theme] ),
+			                MIN( Variant[Variant] )
+			            ),          // stroke
+			            2,          // strokeWidth
+			            BLANK(),    // strokeOpacity
+			            BLANK()     // opacity
+			        ),              // attributes
+			        BLANK()		    // transforms
+			    ),                  // contents
+			    BLANK()             // sortValue
+			)
+		displayFolder: SVG\Elements
+		lineageTag: b09066a5-dce4-49d1-b3f1-a0afd85d05f9
+		dataCategory: ImageUrl
+
+	measure Circle = ```
+			
+			DaxLib.SVG.SVG(
+			    100,                // width
+			    20,                 // height
+			    BLANK(),            // viewbox
+			    DaxLib.SVG.Element.Circle(
+			        50,             // cx
+			        10,             // cy
+			        "10%",          // r
+			        DaxLib.SVG.Attr.Shapes(
+			            DaxLib.SVG.Color.Theme(
+			                MAX( Theme[Theme] ),
+			                MIN( Variant[Variant] )
+			            ),          // fill
+			            0.5,        // fillOpacity
+			            BLANK(),    // fillRule   
+			             DaxLib.SVG.Color.Theme(
+			                MAX( Theme[Theme] ),
+			                MIN( Variant[Variant] )
+			            ),          // stroke
+			            1,          // strokeWidth
+			            BLANK(),    // strokeOpacity
+			            BLANK()     // opacity
+			        ),              // attributes
+			        BLANK()         // transforms
+			    ),                  // contents
+			    BLANK()             // sortValue
+			)
+			```
+		displayFolder: SVG\Elements
+		lineageTag: 92072fdf-f75d-4f91-8e28-02e9cb597fa8
+		dataCategory: ImageUrl
+
+	measure Use = ```
+			
+			VAR _Defs =
+			    DaxLib.SVG.Element.Defs(
+			        DaxLib.SVG.Def.Circle(
+			            "Circle1",      // id
+			            0,              // cx
+			            0,              // cy
+			            8,              // r
+			            DaxLib.SVG.Attr.Shapes(
+			                DaxLib.SVG.Color.Theme(
+			                    MAX( Theme[Theme] ),
+			                    MIN( Variant[Variant] )
+			                ),          // fill
+			                0.8,        // fillOpacity
+			                BLANK(),    // fillRule
+			                "black",    // stroke
+			                1,          // strokeWidth
+			                0.8,        // strokeOpacity
+			                BLANK()     // opacity
+			            ),              // attributes
+			            BLANK()         // transforms
+			        ) &
+			        DaxLib.SVG.Def.Circle(
+			            "Circle2",      // id
+			            0,              // cx
+			            0,              // cy
+			            8,              // r
+			            DaxLib.SVG.Attr.Shapes(
+			            DaxLib.SVG.Color.Theme(
+			                MAX( Theme[Theme] ),
+			                MIN( Variant[Variant] ) + 1
+			            ),              // fill
+			                0.8,        // fillOpacity
+			                BLANK(),    // fillRule
+			                "black",    // stroke
+			                1,          // strokeWidth
+			                0.8,        // strokeOpacity
+			                BLANK()     // opacity
+			            ),              // attributes
+			            BLANK()         // transforms
+			        ) &
+			        DaxLib.SVG.Def.Paths(
+			            "myPath",       // id
+			            "M10 10 L30 5 L90 15 L100 0", // d
+			            DaxLib.SVG.Attr.Shapes(
+			                "none",    // fill
+			                0.8,        // fillOpacity
+			                BLANK(),    // fillRule
+			                DaxLib.SVG.Color.Theme(
+			                    MAX( Theme[Theme] ),
+			                    MIN( Variant[Variant] )
+			                ),          // stroke
+			                BLANK(),    // strokeWidth
+			                BLANK(),    // strokeOpacity
+			                BLANK()     // opacity
+			            ),              // attributes
+			            BLANK()         // transforms
+			        )
+			    )
+			VAR _Contents = 
+			    _Defs &
+			    DaxLib.SVG.Element.UseDef(
+			        "Circle1",   // id
+			        20,             // x
+			        10,             // y
+			        DaxLib.SVG.Transforms(
+			            BLANK(),    // translate
+			            30,         // rotate
+			            BLANK(),    // scale
+			            BLANK(),    // skewX
+			            BLANK()     // skewY
+			        )               // transforms
+			    ) &
+			    DaxLib.SVG.Element.UseDef(
+			        "Circle2",      // id
+			        50,             // x
+			        10,             // y
+			        BLANK()         // transforms
+			    ) &
+			    DaxLib.SVG.Element.UseDef(
+			        "Circle1",      // id
+			        80,             // x
+			        10,             // y
+			        BLANK()         // transforms
+			    ) &
+			    DaxLib.SVG.Element.UseDef(
+			        "myPath",       // id
+			        BLANK(),        // x
+			        5,              // y
+			        BLANK()         // transforms
+			    ) &
+			    DaxLib.SVG.Element.UseDef(
+			        "myPath",       // id
+			        BLANK(),        // x
+			        10,             // y
+			        DaxLib.SVG.Transforms(
+			            BLANK(),    // translate
+			            -10,        // rotate
+			            BLANK(),    // scale
+			            BLANK(),    // skewX
+			            BLANK()     // skewY
+			        )               // transforms
+			    )
+			
+			RETURN
+			DaxLib.SVG.SVG(
+			    100,                // width
+			    20,                 // height
+			    BLANK(),            // viewbox
+			    _Contents,          // contents
+			    BLANK()             // sortValue
+			)
+			```
+		displayFolder: SVG\Elements
+		lineageTag: 83356105-4da8-4006-9c35-b5f533a4055c
+		dataCategory: ImageUrl
+
+	measure 'Total Cost' = ```
+			SUMX( Orders, Orders[UnitPrice] * Orders[Quantity] ) 
+			```
+		displayFolder: Sum
+		lineageTag: 16f76255-7cf0-4631-a89e-8397ab223d2f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Linear Gradient' = ```
+			
+			DaxLib.SVG.SVG(
+			    100,
+			    20,
+			    BLANK(),
+			    DaxLib.SVG.Element.Defs(
+			        DaxLib.SVG.Def.LinearGradient(
+			            "myGradient",   // id
+			            DaxLib.SVG.Def.GradientStop(
+			                "20%",      // offset
+			                DaxLib.SVG.Color.Theme(
+			                    MAX( Theme[Theme] ),
+			                    MIN( Variant[Variant] )
+			                ),          // colour
+			                BLANK()     // opacity
+			            ) &
+			            DaxLib.SVG.Def.GradientStop( 
+			                "80%",      // offset
+			                DaxLib.SVG.Color.Theme(
+			                    MAX( Theme[Theme] ),
+			                    MIN( Variant[Variant] ) + 1
+			                ),           // colour
+			                BLANK()     // opacity
+			            ),              // stops
+			            BLANK(),        // x1
+			            BLANK(),        // y1
+			            BLANK(),        // x2
+			            BLANK()         // y2
+			        )                   // contents
+			    ) &
+			    DaxLib.SVG.Element.Rect(
+			        2,                  // x
+			        2,                  // y
+			        "80%",              // width
+			        "80%",              // height
+			        BLANK(),            // rx
+			        BLANK(),            // ry
+			        DaxLib.SVG.Attr.Shapes(
+			            "url(""" & "#myGradient" & """)", // fill
+			            BLANK(),        // fillOpacity
+			            BLANK(),        // fillRule   
+			            BLANK(),        // stroke
+			            BLANK(),        // strokeWidth
+			            BLANK(),        // strokeOpacity
+			            BLANK()         // opacity
+			        ),                  // attributes
+			        BLANK()             // transforms
+			    ),
+			    BLANK()                 // sortValue               
+			)
+			```
+		displayFolder: SVG\Defs
+		lineageTag: c4285bff-3b51-465f-906e-be7706f858ef
+		dataCategory: ImageUrl
+
+	measure 'Radial Gradient' = ```
+			
+			DaxLib.SVG.SVG(
+			    100,                    // width
+			    20,                     // height
+			    BLANK(),                // viewbox
+			    DaxLib.SVG.Element.Defs(
+			        DaxLib.SVG.Def.RadialGradient(
+			            "myGradient",   // id
+			            DaxLib.SVG.Def.GradientStop( 
+			                "10%",      // offset
+			                DaxLib.SVG.Color.Theme(
+			                    MAX( Theme[Theme] ),
+			                    MIN( Variant[Variant] )
+			                ),          // colour
+			                BLANK()     // opacity
+			            ) &
+			            DaxLib.SVG.Def.GradientStop( 
+			                "80%",      // offset
+			                DaxLib.SVG.Color.Theme(
+			                    MAX( Theme[Theme] ),
+			                    MIN( Variant[Variant] ) + 1
+			                ),          // colour
+			                0.5         // opacity
+			            ) &
+			            DaxLib.SVG.Def.GradientStop( 
+			                "95%",      // offset
+			                DaxLib.SVG.Color.Theme(
+			                    MAX( Theme[Theme] ),
+			                    MIN( Variant[Variant] ) + 2
+			                ),          // colour
+			                BLANK()     // opacity
+			            ),              // stops
+			            BLANK(),        // cx
+			            BLANK(),        // cy
+			            BLANK(),        // r
+			            BLANK(),        // fx
+			            BLANK(),        // fy
+			            BLANK()         // fr
+			        )
+			    ) &
+			    DaxLib.SVG.Element.Circle(
+			        "50%",              // cx
+			        "50%",              // cy
+			        15,                 // r
+			        DaxLib.SVG.Attr.Shapes(
+			            "url(""" & "#myGradient" & """)", // fill
+			            BLANK(),        // fillOpacity
+			            BLANK(),        // fillRule   
+			            BLANK(),        // stroke
+			            BLANK(),        // strokeWidth
+			            BLANK(),        // strokeOpacity
+			            BLANK()         // opacity
+			        ),                  // attributes
+			        BLANK()             // transforms
+			    ),                      // contents
+			    BLANK()                 // sortODer
+			)
+			```
+		displayFolder: SVG\Defs
+		lineageTag: fc5b8b49-b24c-4278-ac3b-b217eefbf556
+		dataCategory: ImageUrl
+
+	measure 'Clip Path' = ```
+			
+			VAR _Defs = 
+			    DaxLib.SVG.Element.Defs(
+			        DaxLib.SVG.Def.ClipPath(
+			            "clip-circle",      // id
+			            DaxLib.SVG.Element.Circle(
+			                "50%",          // cx 
+			                "80%",          // cy
+			                8,              // r
+			                BLANK(),        // attributes
+			                BLANK()         // transforms
+			            )                   // elements
+			        )
+			    )
+			
+			VAR _Rectangle = 
+			    DaxLib.SVG.Element.Rect(
+			        "0%",           // x
+			        "0%",           // y
+			        "100%",         // width
+			        "80%",          // height
+			        BLANK(),        // rx
+			        BLANK(),        // ry
+			        DaxLib.SVG.Attr.Shapes(
+			            DaxLib.SVG.Color.Theme(
+			                MAX( Theme[Theme] ),
+			                MIN( Variant[Variant] )
+			            ),          // fill
+			            BLANK(),    // fillOpacity
+			            BLANK(),    // fillRule   
+			            BLANK(),    // stroke
+			            BLANK(),    // strokeWidth
+			            BLANK(),    // strokeOpacity
+			            BLANK()     // opacity
+			        ) &
+			        "clip-path='url(#clip-circle)'",  // Add clip-path reference
+			        BLANK()         // transforms
+			    )
+			
+			RETURN
+			DaxLib.SVG.SVG(
+			    100,                // width
+			    20,                 // height
+			    BLANK(),            // viewbox
+			    _Defs &             // definitions including clipPath
+			    _Rectangle,         // clipped rectangle
+			    BLANK()             // sortValue
+			)
+			```
+		displayFolder: SVG\Defs
+		lineageTag: 0ee21ac1-95fc-44e3-89d5-6a67c09cd0ed
+		dataCategory: ImageUrl
+
+	measure 'Compound.Line' = ```
+			
+			VAR Compound = 
+			    DaxLib.SVG.Compound.Line(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,               // paddingX
+			        0.1,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),                  // lineColor
+			        DaxLib.SVG.Color.PerformanceTheme(
+			           "Stoplight",
+			            "veryBad"
+			        ),                  // minMarkColor
+			        DaxLib.SVG.Color.PerformanceTheme(
+			           "Stoplight",
+			            "veryGood"
+			        ),                  // maxMarkColor
+			        [Axes Toggle],      // showAxis
+			        8                  // axisFontSize
+			    )
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Compound ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: 12d80253-de6a-46a9-9cf4-9341367e4c0b
+		dataCategory: ImageUrl
+
+	measure 'Theme Colour' =
+			
+			DaxLib.SVG.Color.Theme( SELECTEDVALUE( Theme[Theme] ), SELECTEDVALUE( Variant[Variant] ) )
+		displayFolder: Theme
+		lineageTag: cd8e7976-795d-4798-9f25-8d21bca8676e
+		dataCategory: Uncategorized
+
+	measure Blank = ""
+		lineageTag: e0d624fb-152d-45bf-a154-bbbef29f53db
+
+	measure 'Compound.Area' = ```
+			
+			VAR Compound = 
+			    DaxLib.SVG.Compound.Area(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,           // paddingX
+			        0.02,           // paddingY
+			        Dates[Date],    // axisRef
+			        [Total Cost],   // measureRef
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),              // fillColor
+			        0.2,            // fillOpacity
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),              // strokeColor
+			        DaxLib.SVG.Color.PerformanceTheme(
+			           "Stoplight",
+			            "veryBad"
+			        ),                  // minMarkColor
+			        DaxLib.SVG.Color.PerformanceTheme(
+			           "Stoplight",
+			            "veryGood"
+			        ),                  // maxMarkColor
+			        [Axes Toggle],  // showAxis
+			        8               // axisFontSize
+			    )
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Compound ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound;Demo
+		lineageTag: 84ce9f4e-83dc-49d9-bc7d-c58508ccbc1d
+		dataCategory: ImageUrl
+
+	measure 'Compound.BoxPlot' = ```
+			
+			VAR Compound = 
+			    DaxLib.SVG.Compound.Boxplot(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),                  // fillColor
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),                   // strokeColor
+			        TRUE,                // showOutliers
+			        SELECTEDVALUE( Orientation[Orientation]) // orientation
+			    )
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Compound ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,                 
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: 6d5721f0-b599-41a7-8ef0-9b9418142174
+		dataCategory: ImageUrl
+
+	measure 'Compound.Violin' = ```
+			
+			VAR Compound =
+			    DaxLib.SVG.Compound.Violin(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        MAX( Samples[Samples] ), // samples
+			        MAX( Bandwidth[Bandwidth] ), // bandwidth
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),                  // color
+			        SELECTEDVALUE( Orientation[Orientation]) // orientation
+			    )
+			RETURN
+			
+			    IF( 
+			        NOT ISBLANK( Compound ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: fc5f68fa-6a23-4e30-adcf-f3ca84abf767
+		dataCategory: ImageUrl
+
+	measure 'Compound.Jitter' =
+			
+			VAR Compound =
+			    DaxLib.SVG.Compound.Jitter(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),                  // pointColor
+			        0.5                 // jitterAmount
+			    )
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Compound ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,
+			            BLANK()
+			        )
+			    )
+		displayFolder: SVG\Compound
+		lineageTag: 1daf81bd-2dda-4291-89a5-5291a52581af
+		dataCategory: ImageUrl
+
+	measure 'Compound.Heatmap' = ```
+			
+			VAR Compound = 
+			    DaxLib.SVG.Compound.Heatmap(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        MAX( Samples[Samples] ), // samples
+			        MAX( Bandwidth[Bandwidth] ), // bandwidth
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        )                   // color
+			    )
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Compound ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,                 
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: 657c1c16-3fd9-4498-9dd6-1039a9c5db76
+		dataCategory: ImageUrl
+
+	measure 'Jitter and Heatmap' = ```
+			
+			VAR Jitter =
+			    DaxLib.SVG.Compound.Jitter(
+			        0,                  // x
+			        0,                  // y
+			        100,                // width
+			        20,                 // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] ) + 1
+			        ),                  // pointColor
+			        0.5                 // jitterAmount
+			    )
+			VAR Heatmap = 
+			    DaxLib.SVG.Compound.Heatmap(
+			        0,                  // x
+			        0,                  // y
+			        100,                // width
+			        20,                 // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        MAX( Samples[Samples] ), // samples
+			        MAX( Bandwidth[Bandwidth] ), // bandwidth
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        )                   // color
+			    )
+			VAR Combined = 
+			    Heatmap &
+			    Jitter
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Combined ),
+			        DaxLib.SVG.SVG(
+			            100,
+			            20,
+			            BLANK(),
+			            Combined,                 
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: b39fb0db-6272-4845-8483-c8a30fe6f5fa
+		dataCategory: ImageUrl
+
+	measure 'Jitter and Violin' = ```
+			
+			VAR Jitter =
+			    DaxLib.SVG.Compound.Jitter(
+			        0,                  // x
+			        0,                  // y
+			        100,                // width
+			        20,                 // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] ) + 1
+			        ),                  // pointColor
+			        0.5                 // jitterAmount
+			    )
+			VAR Violin =
+			    DaxLib.SVG.Compound.Violin(
+			        0,                  // x
+			        0,                  // y
+			        100,                // width
+			        20,                 // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        MAX( Samples[Samples] ), // samples
+			        MAX( Bandwidth[Bandwidth] ), // bandwidth
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] ) 
+			        ),                   // color
+			        SELECTEDVALUE( Orientation[Orientation] ) // Orientation
+			    )
+			VAR Combined = 
+			    Violin &
+			    Jitter
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Combined ),
+			        DaxLib.SVG.SVG(
+			            100,
+			            20,
+			            BLANK(),
+			            Combined,                 
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: 28f64d09-7940-451d-8b66-3305905f9484
+		dataCategory: ImageUrl
+
+	measure 'Compound.Bars' = ```
+			
+			VAR Compound = 
+			    DaxLib.SVG.Compound.Bars(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,               // paddingX
+			        0.04,               // paddingY
+			        Dates[Date],        // axisRef
+			        [Total Cost],       // measureRef
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),                 // barColor
+			        DaxLib.SVG.Color.PerformanceTheme(
+			           "Stoplight",
+			            "veryBad"
+			        ),                  // minMarkColor
+			        DaxLib.SVG.Color.PerformanceTheme(
+			           "Stoplight",
+			            "veryGood"
+			        ),                  // maxMarkColor
+			        [Axes Toggle],     // showAxis
+			        8                  // axisFontSize
+			    )
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Compound ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: 642d48c6-9dbd-49c5-af50-0d203a518eb3
+		dataCategory: ImageUrl
+
+	measure 'Viz.Line' = ```
+			
+			Var Viz = 
+			DaxLib.SVG.Viz.Line(
+			    Dates[Date],
+			    [Total Cost],
+			    DaxLib.SVG.Color.Theme( MAX( Theme[Theme] ), MIN( Variant[Variant] ) ),
+			    FALSE(),
+			    100,
+			    20
+			)
+			RETURN
+			IF( NOT ISBLANK( viz ), Viz )
+			```
+		displayFolder: SVG\Viz
+		lineageTag: 67d76202-3b8f-4b1e-89e4-1f90f2798302
+		dataCategory: ImageUrl
+
+	measure 'Viz.Area' = ```
+			
+			Var Viz = 
+			    DaxLib.SVG.Viz.Area(
+			        Dates[Date],
+			        [Total Cost],
+			        DaxLib.SVG.Color.Theme( MAX( Theme[Theme] ), MIN( Variant[Variant] ) ),
+			        FALSE(),
+			        100,
+			        20
+			    )
+			RETURN
+			IF( NOT ISBLANK( viz ), Viz )
+			```
+		displayFolder: SVG\Viz;Demo
+		lineageTag: 242b6de3-4e80-4432-b2ee-2bc4147ef7b8
+		dataCategory: ImageUrl
+
+	measure 'Viz.ProgressBar' = ```
+			
+			Var Viz = 
+			DaxLib.SVG.Viz.ProgressBar(
+			    [Total Cost],
+			    [Total Cost] * ( RANDBETWEEN( 50, 150) / 100 ),
+			    DaxLib.SVG.Color.Theme( MAX( Theme[Theme] ), MIN( Variant[Variant] ) ),
+			    SELECTEDVALUE( Orientation[Orientation] ),
+			    100,
+			    20
+			)
+			RETURN
+			IF( NOT ISBLANK( viz ), Viz )
+			```
+		displayFolder: SVG\Viz
+		lineageTag: d42fcb84-6d8f-4a6b-95cc-238491f11c83
+		dataCategory: ImageUrl
+
+	measure Background = ```
+			
+			"data:image/svg+xml;utf8," & 
+			"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 720' width='1280' height='720'>" &
+			  "<defs>" &
+			    "<linearGradient id='darkGradient' x1='0%' y1='0%' x2='0%' y2='100%'>" &
+			      "<stop offset='0%' stop-color='#2A2D34' />" &
+			      "<stop offset='100%' stop-color='#111215' />" &
+			    "</linearGradient>" &
+			    "<linearGradient id='glassSheen' x1='0%' y1='0%' x2='100%' y2='100%'>" &
+			      "<stop offset='0%' stop-color='#ffffff' stop-opacity='0.12' />" &
+			      "<stop offset='50%' stop-color='#ffffff' stop-opacity='0.0' />" &
+			    "</linearGradient>" &
+			    "<linearGradient id='glassBorder' x1='0%' y1='0%' x2='100%' y2='100%'>" &
+			      "<stop offset='0%' stop-color='#ffffff' stop-opacity='0.3' />" &
+			      "<stop offset='100%' stop-color='#ffffff' stop-opacity='0.05' />" &
+			    "</linearGradient>" &
+			    "<filter id='dropShadow' x='-10%' y='-10%' width='130%' height='130%'>" &
+			      "<feDropShadow dx='8' dy='12' stdDeviation='15' flood-color='#000000' flood-opacity='0.15' />" &
+			    "</filter>" &
+			  "</defs>" &
+			  "<rect width='1280' height='720' fill='#F4F5F7' />" &
+			//   "<g filter='url(#dropShadow)'>" &
+			    "<rect x='0' y='0' width='125' height='720' fill='url(#darkGradient)' />" &
+			    "<rect x='0' y='0' width='125' height='720' fill='url(#glassSheen)' />" &
+			    "<rect x='0' y='0' width='125' height='720' fill='none' stroke='url(#glassBorder)' stroke-width='1.5' />" &
+			//   "</g>" &
+			"</svg>"
+			```
+		lineageTag: 4594eee4-2225-40fc-98ed-ac97f77997bf
+		dataCategory: ImageUrl
+
+	measure 'Viz.Bars' = ```
+			
+			Var Viz = 
+			    DaxLib.SVG.Viz.Bars(
+			    Dates[Date],
+			    [Total Cost],
+			    DaxLib.SVG.Color.Theme( MAX( Theme[Theme] ), MIN( Variant[Variant] ) ),
+			    DaxLib.SVG.Color.PerformanceTheme(
+			        "Stoplight",
+			        "veryBad"
+			    ),                  // minMarkColor
+			    DaxLib.SVG.Color.PerformanceTheme(
+			        "Stoplight",
+			        "veryGood"
+			    ),                  // maxMarkColor
+			    FALSE(),
+			    100,
+			    20
+			)
+			RETURN
+			IF( NOT ISBLANK( viz ), Viz )
+			```
+		displayFolder: SVG\Viz
+		lineageTag: b2c3d4e5-f6a7-8901-bcde-f12345678901
+		dataCategory: ImageUrl
+
+	measure 'Compound.ProgressBar' = ```
+			
+			VAR Compound = 
+			    DaxLib.SVG.Compound.ProgressBar(
+			        SELECTEDVALUE( x[x], 0 ), // x
+			        SELECTEDVALUE( y[y], 0 ), // y
+			        SELECTEDVALUE( Width[Width], 100 ), // width
+			        SELECTEDVALUE( Height[Height], 20), // height
+			        0.05,               // paddingX
+			        0.02,               // paddingY
+			        [Total Cost],       // valueRef
+			        [Total Cost] * ( RANDBETWEEN( 50, 150 ) / 100 ), // trackRef
+			        DaxLib.SVG.Color.Theme(
+			            MAX( Theme[Theme] ),
+			            MIN( Variant[Variant] )
+			        ),                  // fillColor
+			        "#E1DFDD",          // trackColor
+			        SELECTEDVALUE( Orientation[Orientation]) // orientation
+			    )
+			RETURN
+			
+			    IF(
+			        NOT ISBLANK( Compound ),
+			        DaxLib.SVG.SVG(
+			            SELECTEDVALUE( Width[Width], 100 ), // width
+			            SELECTEDVALUE( Height[Height], 20), // height
+			            BLANK(),
+			            Compound,
+			            BLANK()
+			        )
+			    )
+			```
+		displayFolder: SVG\Compound
+		lineageTag: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+		dataCategory: ImageUrl
+
+	measure '# Orders' = COUNTROWS( Orders )
+		formatString: 0
+		displayFolder: Sum
+		lineageTag: 71c8efc1-de1b-4644-9acd-4d828f1e1348
+
+	measure 'Violin SVG' = ```
+			
+			VAR _SvgWidth = 150
+			VAR _SvgHeight = 20
+			
+			VAR _samples = 50
+			VAR _bandwidth = 60 // Kernal width, adjust to avoid over or under fitting
+			
+			VAR _range = 
+			    MAXX(
+			        ALLSELECTED( Dates[YearMonth] )
+			        ,[Total Cost]
+			    )
+			
+			VAR _rangePerSample = _range / _samples
+			VAR _values =
+			    ADDCOLUMNS(
+			        ALLSELECTED( Dates[YearMonth] )
+			        ,"@Val", [Total Cost]
+			    )
+			VAR _numValues = COUNTAX( _values, [@Val] )
+			VAR _KDE = // Kernal Density Estimation
+			    ADDCOLUMNS(
+			        GENERATESERIES( 0, _samples + 1, 1 )
+			        ,"@inputX", _rangePerSample * [Value]
+			        ,"@KDE", ( 1 / _numValues ) * SUMX( _values, NORM.DIST( _rangePerSample * [Value], [@val], _bandwidth, false ) ) // Normal distribution for Kernal (Gaussian, Uniform, Triangular etc.)
+			    )
+			VAR _maxKDE = MAXX( _KDE, [@KDE] )
+			VAR _points =
+			    ADDCOLUMNS(
+			        _KDE
+			        ,"@x",
+			            VAR _xInputStart =           0                         // The lowest number of the range input
+			            VAR _xInputEnd =             _range                    // The largest number of the range input
+			            VAR _xOutputStart =          0                         // The lowest number of the range output
+			            VAR _xOutputEnd =            _SvgWidth                 // The largest number of the range output         
+			            VAR _xOutputVal =            _xOutputStart + ((_xOutputEnd - _xOutputStart) / (_xInputEnd - _xInputStart)) * ( [@inputX] - _xInputStart)
+			            RETURN
+			            _xOutputVal
+			        ,"@y",
+			            VAR _yInputStart =           0                         // The lowest number of the range input
+			            VAR _yInputEnd =             _maxKDE                   // The largest number of the range input
+			            VAR _yOutputStart =          _SvgHeight / 2            // The lowest number of the range output
+			            VAR _yOutputEnd =            0                         // The largest number of the range output         
+			            VAR _yOutputVal =            _yOutputStart + ((_yOutputEnd - _yOutputStart) / (_yInputEnd - _yInputStart)) * ([@KDE] - _yInputStart)
+			            RETURN
+			            _yOutputVal
+			    )
+			VAR _pointsAndPreviousPoint = 
+			    NATURALLEFTOUTERJOIN(
+			        _points
+			        ,SELECTCOLUMNS(
+			            _points
+			            ,"Value", [Value] + 1
+			            ,"@prevX", [@x]
+			            ,"@prevY", [@y]
+			        )
+			    )
+			VAR _plusControlPoint = // Calculate control point for cubic Bézier curve. Assumes they half way between points, at the same height as the current point
+			    ADDCOLUMNS(
+			        _pointsAndPreviousPoint
+			        ,"@cx", [@prevX] + (([@x] - [@prevX]) / 2)
+			        ,"@cy", [@y]
+			    )
+			VAR _topCurves =
+			    CONCATENATEX(
+			        _plusControlPoint
+			        ,"S " & [@cx] & " " & [@cy] & ", " & [@x] & " " & [@y] // cubic Bézier curve
+			        , " "
+			        , [Value]
+			)
+			VAR _bottomCurves = // top curve inverted
+			    CONCATENATEX(
+			        _plusControlPoint
+			        ,"S " & [@cx] & " " & (_SvgHeight / 2) - ([@cy] - (_SvgHeight / 2)) & ", " & [@x] & " " & (_SvgHeight / 2) - ([@y] - (_SvgHeight / 2))
+			        , " "
+			        , [Value]
+			)
+			VAR _svg =
+			    "data:image/svg+xml;utf8, <svg width=""" & _SvgWidth & """ height=""" & _SvgHeight &""" xmlns='http://www.w3.org/2000/svg'>" &
+			    "<path d=' M 0 " & (_SvgHeight / 2) & " " & _topCurves & "M " & _SvgWidth & " " & (_SvgHeight / 2) & "' stroke='gray' fill='gray' fill-opacity='50%'/>" &
+			    "<path d=' M 0 " & (_SvgHeight / 2) & " " & _bottomCurves & "M " & _SvgWidth & " " & (_SvgHeight / 2) & "' stroke='gray' fill='gray' fill-opacity='50%'/>" &
+			    "</svg>"
+			RETURN
+			IF( not ISBLANK( _maxKDE ), _svg )
+			```
+		displayFolder: Demo
+		lineageTag: f787ec50-7c63-4824-a94b-ade6b28eedec
+		dataCategory: ImageUrl
+
+	measure 'Slope Chart (Brand Aug-Sep 2025)' =
+			
+			VAR _m0 = "2025-08"
+			VAR _m1 = "2025-09"
+			
+			VAR _w = 520
+			VAR _h = 220
+			VAR _padL = 120
+			VAR _padR = 120
+			VAR _padT = 24
+			VAR _padB = 30
+			
+			VAR _x0 = _padL
+			VAR _x1 = _w - _padR
+			VAR _yTop = _padT
+			VAR _yBot = _h - _padB
+			
+			VAR _brands =
+			    FILTER (
+			        ALLSELECTED ( Products[Brand] ),
+			        NOT ISBLANK ( Products[Brand] )
+			    )
+			
+			VAR _data =
+			    ADDCOLUMNS (
+			        _brands,
+			        "@v0",
+			            CALCULATE (
+			                [Total Cost],
+			                REMOVEFILTERS ( Dates[YearMonth] ),
+			                TREATAS ( { _m0 }, Dates[YearMonth] )
+			            ),
+			        "@v1",
+			            CALCULATE (
+			                [Total Cost],
+			                REMOVEFILTERS ( Dates[YearMonth] ),
+			                TREATAS ( { _m1 }, Dates[YearMonth] )
+			            )
+			    )
+			
+			VAR _dataFiltered =
+			    FILTER ( _data, NOT ( ISBLANK ( [@v0] ) && ISBLANK ( [@v1] ) ) )
+			
+			VAR _minV =
+			    MINX ( _dataFiltered, IF ( [@v0] < [@v1], [@v0], [@v1] ) )
+			VAR _maxV =
+			    MAXX ( _dataFiltered, IF ( [@v0] > [@v1], [@v0], [@v1] ) )
+			VAR _rng = MAX ( _maxV - _minV, 0.0000001 )
+			
+			VAR _lines =
+			    CONCATENATEX (
+			        _dataFiltered,
+			        VAR _brand = Products[Brand]
+			        VAR _v0 = [@v0]
+			        VAR _v1 = [@v1]
+			        VAR _y0 = _yBot - DIVIDE ( _v0 - _minV, _rng, 0 ) * ( _yBot - _yTop )
+			        VAR _y1 = _yBot - DIVIDE ( _v1 - _minV, _rng, 0 ) * ( _yBot - _yTop )
+			        VAR _stroke =
+			            IF ( _v1 > _v0, "%232ca02c", IF ( _v1 < _v0, "%23d62728", "%237f7f7f" ) )
+			        RETURN
+			              "<line x1='" & FORMAT ( _x0, "0.##" ) & "' y1='" & FORMAT ( _y0, "0.##" ) &
+			              "' x2='" & FORMAT ( _x1, "0.##" ) & "' y2='" & FORMAT ( _y1, "0.##" ) &
+			              "' stroke='" & _stroke & "' stroke-width='2' opacity='0.9'/>"
+			            & "<circle cx='" & FORMAT ( _x0, "0.##" ) & "' cy='" & FORMAT ( _y0, "0.##" ) &
+			              "' r='2.8' fill='" & _stroke & "'/>"
+			            & "<circle cx='" & FORMAT ( _x1, "0.##" ) & "' cy='" & FORMAT ( _y1, "0.##" ) &
+			              "' r='2.8' fill='" & _stroke & "'/>"
+			            & "<text x='" & FORMAT ( _x0 - 8, "0.##" ) & "' y='" & FORMAT ( _y0 + 3, "0.##" ) &
+			              "' text-anchor='end' font-size='10' fill='%23555'>" & _brand & "</text>",
+			        ""
+			    )
+			
+			VAR _svg =
+			    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 " & _w & " " & _h & "'>"
+			    & "<rect x='0' y='0' width='" & _w & "' height='" & _h & "' fill='white'/>"
+			    & "<line x1='" & _x0 & "' y1='" & _yTop & "' x2='" & _x0 & "' y2='" & _yBot & "' stroke='%23bdbdbd'/>"
+			    & "<line x1='" & _x1 & "' y1='" & _yTop & "' x2='" & _x1 & "' y2='" & _yBot & "' stroke='%23bdbdbd'/>"
+			    & _lines
+			    & "<text x='" & _x0 & "' y='" & (_h - 8) & "' text-anchor='middle' font-size='11' fill='%23666'>" & _m0 & "</text>"
+			    & "<text x='" & _x1 & "' y='" & (_h - 8) & "' text-anchor='middle' font-size='11' fill='%23666'>" & _m1 & "</text>"
+			    & "</svg>"
+			
+			RETURN
+			    "data:image/svg+xml;utf8," & _svg
+		lineageTag: 68ac4f99-f934-4a55-b507-ac043666d7e3
+
+	measure daxlib =
+			
+			VAR _Aug =
+			    CALCULATE (
+			        [Total Cost],
+			        REMOVEFILTERS ( Dates[YearMonth] ),
+			        KEEPFILTERS ( Dates[YearMonth] = "2025-08" )
+			    )
+			VAR _Sep =
+			    CALCULATE (
+			        [Total Cost],
+			        REMOVEFILTERS ( Dates[YearMonth] ),
+			        KEEPFILTERS ( Dates[YearMonth] = "2025-09" )
+			    )
+			VAR _HasBoth = NOT ISBLANK ( _Aug ) && NOT ISBLANK ( _Sep )
+			
+			VAR _W = 140
+			VAR _H = 44
+			VAR _PadX = 10
+			VAR _PadY = 6
+			VAR _X1 = _PadX
+			VAR _X2 = _W - _PadX
+			
+			VAR _MinV = MIN ( _Aug, _Sep )
+			VAR _MaxV = MAX ( _Aug, _Sep )
+			VAR _Range = _MaxV - _MinV
+			VAR _PadV = IF ( _Range = 0, MAX ( ABS ( _MaxV ) * 0.05, 1 ), _Range * 0.20 )
+			VAR _ScaleMin = _MinV - _PadV
+			VAR _ScaleMax = _MaxV + _PadV
+			
+			VAR _Y1 =
+			    IF (
+			        _ScaleMax = _ScaleMin,
+			        _H / 2,
+			        DaxLib.SVG.Scale.Normalize ( _Aug, _ScaleMin, _ScaleMax, _H - _PadY, _PadY )
+			    )
+			VAR _Y2 =
+			    IF (
+			        _ScaleMax = _ScaleMin,
+			        _H / 2,
+			        DaxLib.SVG.Scale.Normalize ( _Sep, _ScaleMin, _ScaleMax, _H - _PadY, _PadY )
+			    )
+			
+			VAR _Color =
+			    SWITCH ( TRUE (), _Sep > _Aug, "#2E7D32", _Sep < _Aug, "#C62828", "#6B7280" )
+			
+			VAR _Line =
+			    DaxLib.SVG.Element.Line (
+			        _X1, _Y1, _X2, _Y2,
+			        DaxLib.SVG.Attr.Shapes ( "none", BLANK (), BLANK (), _Color, 2, BLANK (), BLANK () ),
+			        BLANK ()
+			    )
+			VAR _StartDot =
+			    DaxLib.SVG.Element.Circle (
+			        _X1, _Y1, 3,
+			        DaxLib.SVG.Attr.Shapes ( "white", BLANK (), BLANK (), _Color, 2, BLANK (), BLANK () ),
+			        BLANK ()
+			    )
+			VAR _EndDot =
+			    DaxLib.SVG.Element.Circle (
+			        _X2, _Y2, 3,
+			        DaxLib.SVG.Attr.Shapes ( _Color, BLANK (), BLANK (), "white", 1, BLANK (), BLANK () ),
+			        BLANK ()
+			    )
+			
+			RETURN
+			    IF (
+			        _HasBoth,
+			        DaxLib.SVG.SVG ( "100%", "100%", "0 0 " & _W & " " & _H, _Line & _StartDot & _EndDot, _Sep - _Aug )
+			    )
+		lineageTag: f14aa7c5-264b-4253-b3c2-97f39b8a4f83
+
+	measure Filter =
+			
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>
+			  <filter id='heavyNoise'>
+			    <feTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='8' result='noise' />
+			    <feColorMatrix type='hueRotate' values='90' />
+			  </filter>
+			  <rect width='200' height='200' filter='url(%23heavyNoise)' />
+			</svg>"
+		lineageTag: 08cecb70-2951-4948-9b7e-c930c2501b8e
+		dataCategory: ImageUrl
+
+	measure Animation =
+			
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>
+			  <circle cx='100' cy='100' r='10' fill='red'>
+			    <animate attributeName='r' values='10;150;10' dur='0.05s' repeatCount='indefinite' />
+			  </circle>
+			</svg>"
+		lineageTag: 76a0e0ac-441d-48c4-ace1-2834a389fe9f
+		dataCategory: ImageUrl
+
+	measure Gradient =
+			
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>
+			  <defs>
+			    <radialGradient id='grad1' cx='50%' cy='50%' r='50%'>
+			      <stop offset='0%' stop-color='rgba(255,0,0,0.5)' />
+			      <stop offset='100%' stop-color='rgba(0,0,255,0.5)' />
+			    </radialGradient>
+			  </defs>
+			  <circle cx='100' cy='100' r='90' fill='url(%23grad1)' stroke='rgba(0,255,0,0.5)' stroke-width='20' />
+			  <circle cx='100' cy='100' r='70' fill='url(%23grad1)' stroke='rgba(255,255,0,0.5)' stroke-width='20' />
+			  <circle cx='100' cy='100' r='50' fill='url(%23grad1)' stroke='rgba(255,0,255,0.5)' stroke-width='20' />
+			</svg>"
+		lineageTag: edb68d12-5e46-4845-be17-e19d008a063f
+		dataCategory: ImageUrl
+
+	measure Combined = ```
+			
+			"data:image/svg+xml;utf8," & 
+			"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'>" &
+			  "<defs>" &
+			    "<filter id='lag' x='-20%' y='-20%' width='140%' height='140%'>" &
+			      "<feTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='4' result='noise' />" &
+			      "<feDisplacementMap in='SourceGraphic' in2='noise' scale='40' xChannelSelector='R' yChannelSelector='G' />" &
+			    "</filter>" &
+			    "<radialGradient id='grad' cx='50%' cy='50%' r='50%'>" &
+			      "<stop offset='0%' stop-color='red'>" &
+			         "<animate attributeName='stop-color' values='red;blue;magenta;red' dur='0.5s' repeatCount='indefinite' />" &
+			      "</stop>" &
+			      "<stop offset='100%' stop-color='yellow' />" &
+			    "</radialGradient>" &
+			  "</defs>" &
+			  "<g filter='url(#lag)'>" &
+			     "<rect x='0' y='0' width='500' height='500' fill='url(#grad)'>" &
+			        "<animateTransform attributeName='transform' type='rotate' from='0 250 250' to='360 250 250' dur='1.5s' repeatCount='indefinite' />" &
+			     "</rect>" &
+			     "<circle cx='250' cy='250' r='100' fill='rgba(255,255,255,0.6)'>" &
+			        "<animate attributeName='r' values='10;250;10' dur='0.3s' repeatCount='indefinite' />" &
+			     "</circle>" &
+			  "</g>" &
+			"</svg>"
+			```
+		lineageTag: 6f5eacf2-7105-43a8-a01b-a89f6917ba5c
+		dataCategory: ImageUrl
+
+	measure Baseline = ```
+			
+			"data:image/svg+xml;utf8," & 
+			"<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'>" &
+			     "<rect x='0' y='0' width='500' height='500' fill='red'>" &
+			     "</rect>" &
+			"</svg>"
+			```
+		lineageTag: f80d643f-d668-407f-9f93-b36fd3fcdc87
+		dataCategory: ImageUrl
+
+	measure 'Many Circles' = ```
+			
+			VAR NumItems = 1000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: 1d362b57-4687-46db-9395-400999e63f7e
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: 1ab527fd-0e0a-4ff0-8008-f91ba97e1468
+		dataCategory: ImageUrl
+
+	measure Hard = ```
+			
+			"data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3000 3000' width='1000' height='1000'>
+			  <defs>
+			    <filter id='cpu-melter' x='-20%' y='-20%' width='140%' height='140%'>
+			      
+			      <feTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='20' result='noise' />
+			      
+			      <feDisplacementMap in='noise' in2='noise' scale='300' xChannelSelector='R' yChannelSelector='G' result='displaced' />
+			      
+			      <feGaussianBlur in='displaced' stdDeviation='50' result='blurred' />
+			      
+			      <feSpecularLighting in='blurred' surfaceScale='20' specularConstant='2.5' specularExponent='40' lighting-color='#00ffcc' result='lit'>
+			        <fePointLight x='1500' y='1500' z='300' />
+			      </feSpecularLighting>
+			      
+			      <feBlend mode='color-dodge' in='lit' in2='SourceGraphic' />
+			    </filter>
+			  </defs>
+			
+			  <rect width='3000' height='3000' fill='#ff0055' filter='url(#cpu-melter)' />
+			</svg>"
+			```
+		lineageTag: 9764ca30-5e7d-415f-bc55-d505eae58b1a
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 2' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: 5f5f1776-1821-4d11-addc-476a9d2c7f07
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 3' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: e633bb85-abc5-4d4b-b943-7e7b3c2a6ceb
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 4' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: 52509497-13ec-4fe0-93ff-c84a7eacc679
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 5' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: e65d7592-7161-45f5-b9f1-314dc376f414
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 6' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: 8f22d8ac-d8fc-467e-be52-eadf8d748038
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 7' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: 85f4d4ae-95cb-4c2c-99a7-6a79d30970bf
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 8' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: f16efa76-45d3-4953-af4b-498fe4d28048
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 9' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: f9745d70-aee2-49e6-bc84-ffe2961ec043
+		dataCategory: ImageUrl
+
+	measure 'Even More Circles 10' = ```
+			
+			VAR NumItems = 10000
+			VAR Circles = 
+			ADDCOLUMNS(
+			    GENERATESERIES(1, NumItems),
+			    "cx", RAND() * 200,
+			    "cy", RAND() * 200,
+			    "r", RAND() * 5 + 1,
+			    "fill", "hsl(" & RAND() * 360 & ", 80%, 50%)"
+			    )
+			VAR SvgItems = 
+			CONCATENATEX(
+			    Circles,
+			    "<circle cx='" & [cx] & "' cy='" & [cy] & "' r='" & [r] & "' fill='" & [fill] & "' />",
+			    UNICHAR(10)
+			)
+			RETURN
+			"data:image/svg+xml;utf8,
+			<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'>" & UNICHAR(10) &
+			SvgItems & UNICHAR(10) &
+			"</svg>"
+			```
+		lineageTag: fe692b8f-50a0-411a-8e80-2d39e79b04a5
+		dataCategory: ImageUrl
+
+	column Value
+		isHidden
+		lineageTag: 69ad6815-829f-4dd6-aebd-683bbdf2da4b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = User
+
+	partition _Measures = calculated
+		mode: import
+		source =
+				
+				{{[Blank]}}
+
+	annotation PBI_Id = dd4f35947dae48a1981020aadef84e92
+

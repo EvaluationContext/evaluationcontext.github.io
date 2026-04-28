@@ -1,0 +1,146 @@
+table Query
+	lineageTag: a226e884-2e27-4447-85a8-6587edb757c6
+
+	column 'events.name'
+		dataType: string
+		lineageTag: 0dd18aef-287b-47b3-9e6f-aaec3b6d7a36
+		summarizeBy: none
+		sourceColumn: events.name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'events.component'
+		dataType: string
+		lineageTag: 35894259-8644-4960-a15f-131c883031a3
+		summarizeBy: none
+		sourceColumn: events.component
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'events.start'
+		dataType: dateTime
+		formatString: hh:nn:ss
+		lineageTag: 97534b0e-096e-40df-bd93-a0f05955fac4
+		summarizeBy: none
+		sourceColumn: events.start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'events.end'
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: c0dc732a-9060-47a8-a3f8-7c75b0b49ae9
+		summarizeBy: none
+		sourceColumn: events.end
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'events.id'
+		dataType: string
+		lineageTag: 0b25ee70-774a-4330-a31c-76ca46affb8b
+		summarizeBy: none
+		sourceColumn: events.id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'events.metrics.sourceLabel'
+		dataType: string
+		lineageTag: 76e1db77-355c-4f30-8e95-05ee41fe82b4
+		summarizeBy: none
+		sourceColumn: events.metrics.sourceLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'events.metrics.visualId'
+		dataType: string
+		lineageTag: 280ab88c-b78e-4cf9-8b63-0cb4cb5538bb
+		summarizeBy: none
+		sourceColumn: events.metrics.visualId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'events.metrics.QueryText'
+		dataType: string
+		lineageTag: f7addbd7-008e-43c6-b85f-1175c0d3bbc8
+		summarizeBy: none
+		sourceColumn: events.metrics.QueryText
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'events.parentId'
+		dataType: string
+		lineageTag: c1bdc0ec-185e-47ef-b016-fa20445b4f72
+		summarizeBy: none
+		sourceColumn: events.parentId
+
+		annotation SummarizationSetBy = Automatic
+
+	column duration
+		dataType: double
+		lineageTag: ac0147f7-9592-46f6-8f53-a06bd7745b5d
+		summarizeBy: sum
+		sourceColumn: duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column eventIdParent
+		dataType: string
+		lineageTag: 6d77509c-64d6-4073-8fb2-fd45627454c9
+		summarizeBy: none
+		sourceColumn: eventIdParent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'duration (ms)'
+		dataType: int64
+		formatString: 0
+		lineageTag: b2dfb236-ab6f-48de-a502-f7e81339ed81
+		summarizeBy: sum
+		sourceColumn: duration (ms)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'events.metrics.visualTitle'
+		dataType: string
+		lineageTag: 8e1365cd-4097-4ef3-aa5b-9d7af04399d2
+		summarizeBy: none
+		sourceColumn: events.metrics.visualTitle
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Query = m
+		mode: import
+		source =
+				let
+				  Source = Json.Document(File.Contents("C:\Users\jhd74\OneDrive\Documents\EvaluationContext\evaluationcontext.github.io\docs\posts\2026\2026-04-26-SVG-Render-Cost\PowerBIPerformanceData.json")),
+				  #"Converted to table" = Table.FromRecords({Source}),
+				  #"Expanded events" = Table.ExpandListColumn(#"Converted to table", "events"),
+				  #"Expanded events1" = Table.ExpandRecordColumn(#"Expanded events", "events", {"name", "component", "start", "end", "id", "metrics", "parentId"}, {"events.name", "events.component", "events.start", "events.end", "events.id", "events.metrics", "events.parentId"}),
+				  #"Expanded events.metrics" = Table.ExpandRecordColumn(#"Expanded events1", "events.metrics", {"sourceLabel", "status", "visualTitle", "visualId", "visualType", "initialLoad", "QueryText", "RowCount"}, {"events.metrics.sourceLabel", "events.metrics.status", "events.metrics.visualTitle", "events.metrics.visualId", "events.metrics.visualType", "events.metrics.initialLoad", "events.metrics.QueryText", "events.metrics.RowCount"}),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Expanded events.metrics", {{"version", type date}, {"events.name", type text}, {"events.component", type text}, {"events.start", type datetime}, {"events.end", type datetime}, {"events.id", type text}, {"events.metrics.sourceLabel", type text}, {"events.metrics.status", Int64.Type}, {"events.metrics.visualTitle", type text}, {"events.metrics.visualId", type text}, {"events.metrics.visualType", type text}, {"events.metrics.initialLoad", type logical}, {"events.metrics.QueryText", type text}, {"events.metrics.RowCount", Int64.Type}, {"events.parentId", type text}, {"sessionId", type text}}, "en-US"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Changed column type",{{"events.start", type time}, {"events.end", type time}}),
+				    #"Added Custom" = Table.AddColumn(#"Changed Type", "duration", each [events.end] - [events.start]),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "eventIdParent", each if [events.parentId] = null then [events.id] else [events.parentId]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Added Custom1",{"version", "events.metrics.status", "events.metrics.visualType", "events.metrics.initialLoad", "events.metrics.RowCount", "sessionId"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Columns",{"events.name", "events.component", "events.start", "events.end", "duration", "eventIdParent", "events.id", "events.parentId", "events.metrics.sourceLabel", "events.metrics.visualId", "events.metrics.QueryText"}),
+				    #"Sorted Rows" = Table.Sort(#"Reordered Columns",{{"events.start", Order.Descending}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Sorted Rows",{{"duration", type duration}}),
+				    #"Added Custom2" = Table.AddColumn(#"Changed Type1", "Custom", each Duration.Seconds([events.end]-[events.start])*1000),
+				    #"Reordered Columns1" = Table.ReorderColumns(#"Added Custom2",{"events.name", "events.component", "events.start", "events.end", "duration", "Custom", "eventIdParent", "events.id", "events.parentId", "events.metrics.sourceLabel", "events.metrics.visualId", "events.metrics.QueryText"}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns1",{{"Custom", "duration (ms)"}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Renamed Columns",{{"duration (ms)", Int64.Type}})
+				in
+				    #"Changed Type2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

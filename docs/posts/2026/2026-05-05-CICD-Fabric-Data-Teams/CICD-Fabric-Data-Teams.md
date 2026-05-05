@@ -23,13 +23,13 @@ Without proper CI/CD practice you might struggle with:
 - :material-cursor-default-click: **Click-ops tax** — manual, error-prone promotion steps that rely on humans remembering the right sequence
 - :material-restore: **Recovery** — no straightforward way to roll back a bad deployment
 
-## Low Code Options
+## Low-Code Options
 
-Fabric provides some built-in low code options to help deal with these issues.
+Fabric provides some built-in low-code options to help deal with these issues.
 
 ### Deployment Pipelines
 
-Most Power BI teams are familiar with [Deployment Pipelines](https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines?tabs=new-ui), they are a low code option to move items between workspaces (i.e. `Dev` -> `Prod`).
+Most Power BI teams are familiar with [Deployment Pipelines](https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines?tabs=new-ui). They are a low-code option to move items between workspaces (i.e. `Dev` -> `Prod`).
 
 ![Deployment Pipelines](deployment-pipeline.png)
 
@@ -43,7 +43,7 @@ This option has some significant limitations:
 
 ### Deployment Pipelines + Git Integration
 
-We can improve this situation with [git integration](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/intro-to-git-integration) and simple trunk-based development. To develop new features we can branch-out from the `Dev` workspace and perform development work. Once complete, this can be commit to the `feature` branch, and changes can be applied to the `Dev` workspace by merging into our long-lived branch (`main`), and syncing. Movement of items to other environments is still performed by deployment pipelines.
+We can improve this situation with [git integration](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/intro-to-git-integration) and simple trunk-based development. To develop new features, we can branch out from the `Dev` workspace and perform development work. Once complete, this can be committed to the `feature` branch, and changes can be applied to the `Dev` workspace by merging into our long-lived branch (`main`) and syncing. Movement of items to other environments is still performed by deployment pipelines.
 
 ![Deployment Pipelines with git integration](deployment-pipeline-git.png)
 
@@ -55,7 +55,7 @@ This gives us a meaningful step forward:
 
 ### Git Integration
 
-But we can take this one step further, by throwing away Deployment Pipelines. This does mean we need a long lived branch per environment. Rather than use deployment pipelines to move changes through environment, we can do this by merging into the appropriate branch.
+But we can take this one step further by throwing away Deployment Pipelines. This does mean we need a long-lived branch per environment. Rather than use deployment pipelines to move changes through environments, we can do this by merging into the appropriate branch.
 
 ![Git integration](git-integration.png)
 
@@ -68,7 +68,7 @@ Replacing Deployment Pipelines with branch-based promotion gives us additional b
 
 For many teams, especially those early in their CI/CD journey or working with simpler solutions, this may be enough. But as solutions grow in complexity, some gaps start to emerge:
 
-- :material-folder-multiple: **Monolith**: Multi-repo deployment into a single workspace are not supported, and push teams toward large repos
+- :material-folder-multiple: **Monolith**: Multi-repo deployments into a single workspace are not supported, which can push teams toward large repos
 - :material-variable: **Variable libraries**: Not all Fabric items and parameters are supported
 - :material-timeline-clock: **Orchestration**: No native pre/post deployment scripting, rollback automation, or dependency ordering
 
@@ -87,7 +87,7 @@ A monolithic approach means either one repo per workspace, or one repo for the e
 A solution-per-repo model offers a number of advantages:
 
 - :material-target: **Scope**: A focused repo is easier for any developer to reason about in its entirety — reducing onboarding time and cognitive load
-- - :material-robot-outline: **Agentic workflows**: A concise repo gives AI agents a well-bounded context. You can define the solution's intent in `copilot-instructions.md` / `AGENTS.md` / `CLAUDE.md`, and bring in purpose-built agents and skills for that domain (e.g. a data engineer agent with Lakehouse and Semantic Model skills)
+- :material-robot-outline: **Agentic workflows**: A concise repo gives AI agents a well-bounded context. You can define the solution's intent in `copilot-instructions.md` / `AGENTS.md` / `CLAUDE.md`, and bring in purpose-built agents and skills for that domain (e.g. a data engineer agent with Lakehouse and Semantic Model skills)
 - :material-account-key: **Ownership**: Clear team or domain ownership per repo, with explicit accountability for changes
 - :material-shield-account: **RBAC**: Least-privilege access can be enforced at the repo level — developers only have visibility and write access to the solutions they own
 - :material-radius-outline: **Blast radius**: A misconfigured deployment or bad merge only affects one solution, not the entire tenant
@@ -104,7 +104,7 @@ Allowing us to have a repo structure like this:
 │    │    └── 📄 data-engineer.agent.md // (2)!
 │    └── 📁 skills
 │         ├── 📁 lakehouse
-│         │    └── 📄 SKILL.md // (43)!
+│         │    └── 📄 SKILL.md // (3)!
 │         └── 📁 semantic-model
 │              └── 📄 SKILL.md
 ├── 📁 pipelines
@@ -123,11 +123,11 @@ Allowing us to have a repo structure like this:
 ```
 
 1. **Always-on custom instructions** - project-wide coding standards and conventions applied to every Copilot request
-2. **Agents** - AI personas with its own behavior, tools, and model preferences
+2. **Agents** - AI personas with their own behavior, tools, and model preferences
 3. **Skills** - reusable, packaged capabilities (scripts/tools) agents can invoke to expand knowledge and refine behavior
 4. **CI/CD pipeline definition** - runs fabric-cicd to deploy Fabric workspace items on merge
 5. **fabric-cicd repository_directory per workspace**
-6. **fabric-cicd parameter.yml** - environment-specific value replacement (GUIDs, connection IDs, spark pools) applied at deploy time
+6. **fabric-cicd parameters.yml** - environment-specific value replacement (GUIDs, connection IDs, spark pools) applied at deploy time
 7. **fabric-cicd config.yml** - deployment configuration (workspace IDs, environments, item type scope)
 
 ### Deployment
@@ -146,21 +146,21 @@ With `fabric-cicd` as the deployment framework, we can build a structured, multi
 
     `fabric-cicd` is powerful but not yet a complete deployment DAG. Some scenarios that currently require custom scripting:
 
-    - **Ordered dependencies**: fabric-cicd does order deployment of items, but this is not specifiable
+    - **Ordered dependencies**: fabric-cicd does order item deployment, but the order is not configurable
     - **Post-deployment checks**: running smoke tests or pipeline executions after deployment and rolling back automatically on failure
-    - **Unsupported items**: a small number of item types (e.g. Org Apps) are not able deployed programmatically, yet
+    - **Unsupported items**: a small number of item types (e.g. Org Apps) cannot be deployed programmatically yet
 
 ### Additional Capabilities Worth Considering
 
 Once the core deployment pattern is in place, there are a number of supplementary API calls worth incorporating into your pipeline:
 
 - :material-calendar-clock: **Schedule management**: Set or update item schedules as part of deployment rather than relying on manual configuration in the UI post-deploy
-- :material-connection: **Connection binding**: Bind Semantic Models to the correct gateway connections for the target environment automatically, removing a common post-deployment manual step
-- :material-refresh: **Semantic model refresh**: Trigger a full refresh after deploying a new Semantic Model version to validate the model against the target data source before signalling success
+- :material-connection: **Connection binding**: Bind Fabric items to the correct gateway connections for the target environment automatically, removing a common post-deployment manual step
+- :material-refresh: **Semantic model refresh**: Trigger a full refresh after deploying a new Semantic Model version to validate the model against the target data source before signaling success
 - :material-call-split: **Scale-out configuration**: Configure Import-mode Semantic Model read-only replicas for production environments as part of the deployment process
-- :material-home-sync: **Workspace lifecycle automation**: Use pipeline triggers (branch created / PR merged) to provision and deprovision branch-out workspaces on demand, eliminating the need for developers to manage workspace cleanup manually
+- :simple-inductiveautomation: **Workspace lifecycle automation**: Use pipeline triggers (branch created / PR merged) to provision and deprovision branch-out workspaces on demand, eliminating the need for developers to manage workspace cleanup manually
 
-The Fabric CICD story is still in its infancy and in active development. It is worth avoid over-engineering bespoke solutions on top of the existing frameworks at this time and these may become obsolete as need features are added, with excessive customization risking accumulating tech debt.
+The Fabric CI/CD story is still in its infancy and in active development. Avoid over-engineering bespoke solutions on top of the existing frameworks at this time; custom code may become obsolete as new features are added, and excessive customization risks accumulating tech debt.
 
 ## Summary
 

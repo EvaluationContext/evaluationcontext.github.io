@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - User Data Functions
+  - Logging
 slug: posts/UDF-Logs
 ---
 

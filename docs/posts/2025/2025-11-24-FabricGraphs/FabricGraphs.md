@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - Fabric
+  - Graphs
 slug: posts/FabricGraph
 links:
   - MS Docs: https://learn.microsoft.com/en-us/fabric/graph/

@@ -1,0 +1,105 @@
+/* ============================================
+   GLightbox — Refined zoom & overlay
+   ============================================ */
+
+/* Images — smooth zoom-in cursor with subtle scale */
+.md-content__inner img,
+.md-typeset img {
+  cursor: zoom-in;
+  transition: transform 0.35s var(--ec-ease-out, ease-out),
+              box-shadow 0.35s var(--ec-ease-out, ease-out);
+  border-radius: 0.5rem;
+}
+
+.md-content__inner img:hover,
+.md-typeset img:hover {
+  transform: scale(1.015);
+  box-shadow: var(--ec-shadow-md, 0 4px 12px rgba(0,0,0,0.07));
+}
+
+/* Exclude non-content images */
+.md-post__authors img,
+.md-post__meta img,
+.md-author img,
+.md-profile img,
+.md-post-header img,
+.md-logo img,
+.md-post__image img,
+.md-post--excerpt img,
+img[src*="avatar.png"] {
+  cursor: default !important;
+  transform: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.md-post__authors img:hover,
+.md-post__meta img:hover,
+.md-author img:hover,
+.md-profile img:hover,
+.md-post-header img:hover,
+.md-logo img:hover,
+.md-post__image img:hover,
+.md-post--excerpt img:hover,
+img[src*="avatar.png"]:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Wrapper links */
+a.glightbox {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+a.glightbox:hover {
+  border-bottom: none !important;
+}
+
+/* Hide captions */
+.gslide-description,
+.gslide-title {
+  display: none !important;
+}
+
+/* Overlay backdrop — frosted glass */
+.goverlay {
+  background: rgba(0, 0, 0, 0.82) !important;
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+
+/* Dark mode overlay */
+[data-md-color-scheme="slate"] .goverlay {
+  background: rgba(2, 6, 18, 0.88) !important;
+}
+
+/* Nav buttons — glass pill style */
+.gclose,
+.gnext,
+.gprev {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.gclose:hover,
+.gnext:hover,
+.gprev:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  transform: scale(1.08);
+}
+
+/* Ensure lightbox is above everything */
+.glightbox-container {
+  z-index: 9999 !important;
+}
+
+/* Mobile */
+@media screen and (max-width: 44.9375em) {
+  .gslide-description {
+    font-size: 0.85rem;
+  }
+}

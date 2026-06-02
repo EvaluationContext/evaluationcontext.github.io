@@ -20,6 +20,30 @@ hide:
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
 
+### [DAX] Lib - From Zero to Community Hero (with Jake Duddy) { .ec-tl-entry__title }
+
+<div class="ec-tl-entry__meta" markdown>
+
+:material-calendar:{ .ec-tl-icon } Jun 2026
+{ .ec-tl-entry__date }
+
+:material-map-marker:{ .ec-tl-icon } [Havens Consulting](https://www.youtube.com/@HavensConsulting)
+{ .ec-tl-entry__venue }
+
+</div>
+
+<div class="ec-tl-entry__badges" markdown>
+
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=6W25fR70lAk&t){ .ec-badge .ec-badge--video }
+
+</div>
+</div>
+</div>
+
+<div class="ec-tl-entry" markdown>
+<div class="ec-tl-entry__node"></div>
+<div class="ec-tl-entry__card" markdown>
+
 ### Power Hour { .ec-tl-entry__title }
 
 <div class="ec-tl-entry__meta" markdown>

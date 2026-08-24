@@ -81,7 +81,7 @@ Support comes in three tiers, and each is narrower than the last:
 
 Check the linked supported-items lists before designing around any of these — they're short, they differ per variable type, and each consuming item integrates variables differently.
 
-### The trust issues
+### Room for improvement
 
 - :material-egg: **Chicken-and-egg.** An [`ItemReference`](https://learn.microsoft.com/en-us/fabric/cicd/variable-library/item-reference-variable-type) stores a `workspaceId` + `itemId` pair, which means the target item must **already exist** before you can record its address. If you want to deploy into a fresh environment, you have no idea what the GUID will be, so you can't pre-author a value set. You can only create it after the target is published
 - :material-pin: **Both advanced types are static.** An item reference "points to a specific item and not automatically adjusting across environments"; connection references likewise "don't auto-bind during deployment — their values remain fixed across environments." Value sets let you *hold* a different target per stage. You still maintain those GUIDs by hand
@@ -197,4 +197,4 @@ For a brand-new environment — disaster recovery, a new tenant, an ISV installi
 | Ordering across workspaces | :material-close-thick: | :material-close-thick: | :material-close-thick: **Not covered** |
 | Cold start into empty workspaces | :material-alert: Items yes, references wrong | :material-close-thick: | :material-alert: One workspace per call, order manual |
 
-The single-workspace binding story has quietly become good. The multi-workspace story is where the platform still shrugs and hands you says "This is your problem."
+The single-workspace binding story has quietly become good. The multi-workspace story is where the platform still shrugs and says "This is your problem."

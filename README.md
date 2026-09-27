@@ -1,6 +1,6 @@
 # Evaluation Context
 
-[![Blog](https://img.shields.io/badge/Live_Site-evaluationcontext.github.io-teal?style=for-the-badge&logo=github&logoColor=white)](https://evaluationcontext.github.io/)
+[![Blog](https://img.shields.io/badge/Live_Site-evaluationcontext.com-teal?style=for-the-badge&logo=github&logoColor=white)](https://evaluationcontext.com/)
 
 A technical blog focused on the Microsoft BI stack, featuring experiments, insights, and deep dives into Power BI, Microsoft Fabric, DAX, and data visualization techniques.
 

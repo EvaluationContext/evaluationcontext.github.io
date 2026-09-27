@@ -1,5 +1,5 @@
 site_name: Evaluation Context
-site_url: https://evaluationcontext.github.io/
+site_url: https://evaluationcontext.com/
 repo_url: https://github.com/EvaluationContext/evaluationcontext.github.io
 repo_name: EvaluationContext
 site_author: Jake Duddy
@@ -77,7 +77,7 @@ extra:
       link: https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947
       name: Fabric Community
     - icon: material/rss
-      link: https://evaluationcontext.github.io/feed_rss_created.xml
+      link: https://evaluationcontext.com/feed_rss_created.xml
       name: RSS Feed
   consent:
     title: Cookie consent
@@ -110,7 +110,7 @@ plugins:
         default_timezone: "UTC"
       categories:
         - categories
-      image: https://evaluationcontext.github.io/assets/images/avatar.png
+      image: https://evaluationcontext.com/assets/images/avatar.png
       json_feed_enabled: true
       rss_feed_enabled: true
       pretty_print: false

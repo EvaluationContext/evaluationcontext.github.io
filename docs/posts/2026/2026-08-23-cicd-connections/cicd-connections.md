@@ -4,6 +4,7 @@ description: When autobinding, variable libraries, and fabric-cicd can rebind yo
 image: /assets/images/blog/2026/2026-08-23-cicd-connections/hero.jpg
 date:
   created: 2026-08-23
+  updated: 2026-09-27
 authors:
   - jDuddy
 comments: true
@@ -11,6 +12,10 @@ categories:
   - CICD
 slug: posts/cicd-connections
 ---
+
+!!! note "Edited 27 September 2026"
+
+    The `is_regex` bullet under [fabric-cicd](#the-sharp-edges) said regex and dynamic variables could never be combined. That was wrong. The restriction only applies to `find_value`; a regex `find_value` with a dynamic `replace_value` works, and is the pattern to use. Corrected below.
 
 A notebook and a lakehouse meet in a Dev workspace. Things go well. Queries flow, the two are inseparable, everything just clicks.
 
@@ -133,7 +138,7 @@ find_replace:
 
 There are some gotchas to watch for:
 
-- :material-close-octagon: **`is_regex` and dynamic variables cannot be combined.** A rule is either a regex match *or* it uses `$…` variables — never both. If you were hoping to write "any GUID in this position becomes the target's lakehouse", you can't; the `find_value` has to be a literal
+- :material-close-octagon: **`is_regex` and dynamic variables cannot be combined in `find_value`.** A `find_value` is either a regex pattern *or* it uses a `$workspace.*` variable — never both. `replace_value` is unrestricted, so "any GUID in this position becomes the target's lakehouse" is fine: a regex `find_value` with one capture group and a dynamic `replace_value`, which is exactly what fabric-cicd's own [sample `parameter.yml`](https://github.com/microsoft/fabric-cicd/blob/main/sample/workspace/parameter.yml) does for a notebook's default lakehouse. *(Corrected 27 September 2026; an earlier version of this post said the two could never be combined)*
 - :material-magnify-close: **`find_value` barely supports dynamic variables.** Only `$workspace.*` variables are allowed there, and `$items` notation is rejected outright — those values don't exist in the source files
 - :material-volume-off: **Non-matches fail silently.** A `find_value` that no longer matches find nothing, replaces nothing and reports nothing
 - :material-flash-alert: **Dynamic variables trigger [eager SQL endpoint resolution](https://microsoft.github.io/fabric-cicd/latest/how_to/parameterization/#dynamic-replacement).** Use *any* dynamic variable — even one that never mentions `$sqlendpoint` — and endpoints resolve for **every** lakehouse, mirrored database, warehouse and SQL database in the target workspace. If any of them is still provisioning, "the deployment fails before any item is published". This might mean you need to split your deploy into two calls: first the lakehouses, then the rest

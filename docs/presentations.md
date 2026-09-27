@@ -20,6 +20,30 @@ hide:
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
 
+### DAXLib: Zero to Community Hero { .ec-tl-entry__title }
+
+<div class="ec-tl-entry__meta" markdown>
+
+:material-calendar:{ .ec-tl-icon } Sep 2026
+{ .ec-tl-entry__date }
+
+:material-map-marker:{ .ec-tl-icon } [Power BI Next Step](https://powerbinextstep.com/breakout-sessions/)
+{ .ec-tl-entry__venue }
+
+</div>
+
+<div class="ec-tl-entry__badges" markdown>
+
+[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-08-PBINextSteps){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+</div>
+
+<div class="ec-tl-entry" markdown>
+<div class="ec-tl-entry__node"></div>
+<div class="ec-tl-entry__card" markdown>
+
 ### [DAX] Lib - From Zero to Community Hero (with Jake Duddy) { .ec-tl-entry__title }
 
 <div class="ec-tl-entry__meta" markdown>

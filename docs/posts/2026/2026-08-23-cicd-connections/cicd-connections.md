@@ -17,6 +17,8 @@ slug: posts/cicd-connections
 
     The `is_regex` bullet under [fabric-cicd](#the-sharp-edges) said regex and dynamic variables could never be combined. That was wrong. The restriction only applies to `find_value`; a regex `find_value` with a dynamic `replace_value` works, and is the pattern to use. Corrected below.
 
+    Also added a sentence under [Cross-workspace bindings](#cross-workspace-bindings-cant-follow-the-environment) saying that fixed workspace names per environment are a usable answer; the original read as though cross-workspace references never worked.
+
 A notebook and a lakehouse meet in a Dev workspace. Things go well. Queries flow, the two are inseparable, everything just clicks.
 
 Then the solution is promoted to Test. Both of them make the move — but the notebook still has the old number saved. It keeps calling the lakehouse back in Dev: quietly reading the wrong data if it has permission, failing outright if it doesn't. The lakehouse standing right beside it in Test with the same name and definition, never hears a thing.
@@ -168,6 +170,8 @@ find_replace:
       TEST: "$workspace.Contoso-Data-Test.$items.Lakehouse.Sales.$id"
       PROD: "$workspace.Contoso-Data-Prod.$items.Lakehouse.Sales.$id"
 ```
+
+To be fair to fabric-cicd, for a team with fixed dev, test and prod workspaces this works and is a perfectly usable answer: three literals per environment in a file you already maintain. The problems below start when names move.
 
 Inside one workspace, `$items…` meant *"whoever I'm deployed next to"* — environment-agnostic, needing no maintenance. The moment the reference crosses a boundary, `$workspace.<display-name>` is a **literal, case-sensitive workspace name, hard-coded per environment**. There is no "the data workspace *for this environment*". Rename a workspace, or spin up a per-branch feature workspace and you'll be stuck constantly manually managing the `parameters.yml` file.
 

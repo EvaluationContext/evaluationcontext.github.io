@@ -4,6 +4,7 @@ description: Setting up Fabric CI/CD, laying the groundwork of branching strateg
 image: /assets/images/blog/2026/2026-09-29-Fabric-cicd-First-Deploy/hero.jpg
 date:
   created: 2026-09-29
+  updated: 2026-09-30
 authors:
   - jDuddy
 comments: true
@@ -24,6 +25,10 @@ links:
   - Lost Connections: https://evaluationcontext.com/posts/cicd-connections/
 slug: posts/fabric-cicd-first-deploy
 ---
+
+??? note "Edited 30 September 2026"
+
+    The **Clicks** bullet under [Why fabric-cicd](#why-fabric-cicd) listed active value sets as a UI step. The active value set has an [API](https://learn.microsoft.com/en-us/rest/api/fabric/variablelibrary/items/update-variable-library), and fabric-cicd calls it after publishing a library, activating the value set named after the target environment ([docs](https://microsoft.github.io/fabric-cicd/1.3.0/reference/item_types/#variable-library)). The bullet now says so. Deployment rules and branch-out remain UI steps, and nothing native sets the value set for you.
 
 As a first for me I am going to try writing a series. Starting from an empty workspace, over three posts, we will build up to a multi-workspace solution that deploys into empty environments with nobody clicking anything. It will be opinionated, and the first opinion is that [fabric-cicd](https://microsoft.github.io/fabric-cicd/1.3.0/) is the only sensible basis for a complete CI/CD solution in Fabric. This first post is the groundwork the series will build on: the branching strategy and what each workspace is for, the sample repo, the service principals, the pipelines that promote code to higher environments, and the approval gate that protects prod, ending with a deployment into empty test and prod workspaces.
 
@@ -113,7 +118,7 @@ Microsoft's [recommended path](https://community.fabric.microsoft.com/blog/fbc_f
 
 - **Greenfield**: none of the three can stand an environment up from the repo alone, because each needs the target item to exist before it can be pointed at. 
 
-- **Clicks**: deployment rules, active value sets and branch-out are all UI steps someone has to remember, and I believe if you do something more than once you should automate it.
+- **Clicks**: deployment rules, active value sets and branch-out are all UI steps someone has to remember, and I believe if you do something more than once you should automate it. The active value set is the exception: it has an [API](https://learn.microsoft.com/en-us/rest/api/fabric/variablelibrary/items/update-variable-library), and fabric-cicd [sets it](https://microsoft.github.io/fabric-cicd/1.3.0/reference/item_types/#variable-library) after publishing a library, but only fabric-cicd does; git sync, deployment pipelines and plans leave a new workspace on **Default**.
 
 fabric-cicd rewrites item definitions during deployment and resolves ids against the workspace being deployed to, at publish time, so a first deploy into an empty workspace works. It isn't the whole answer, as [Jacob Knightley](https://www.linkedin.com/in/jacobknightley/) described in a [post](https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/optimizing-for-cicd-in-microsoft-fabric/5172830) last year; there are some limitations around multi-workspace deployments. But it is still the best deployment solution available.
 

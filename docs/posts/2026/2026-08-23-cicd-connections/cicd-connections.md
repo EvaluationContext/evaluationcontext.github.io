@@ -4,7 +4,7 @@ description: When autobinding, variable libraries, and fabric-cicd can rebind yo
 image: /assets/images/blog/2026/2026-08-23-cicd-connections/hero.jpg
 date:
   created: 2026-08-23
-  updated: 2026-09-27
+  updated: 2026-09-30
 authors:
   - jDuddy
 comments: true
@@ -13,11 +13,15 @@ categories:
 slug: posts/cicd-connections
 ---
 
-!!! note "Edited 27 September 2026"
+??? note "Edited 27 September 2026"
 
     The `is_regex` bullet under [fabric-cicd](#the-sharp-edges) said regex and dynamic variables could never be combined. That was wrong. The restriction only applies to `find_value`; a regex `find_value` with a dynamic `replace_value` works, and is the pattern to use. Corrected below.
 
     Also added a sentence under [Cross-workspace bindings](#cross-workspace-bindings-cant-follow-the-environment) saying that fixed workspace names per environment are a usable answer; the original read as though cross-workspace references never worked.
+
+??? note "Edited 30 September 2026"
+
+    The activation bullet under [Variable Libraries](#room-for-improvement) said a new workspace's **Default** value set "requires manual intervention". Not quite: the [Update Variable Library API](https://learn.microsoft.com/en-us/rest/api/fabric/variablelibrary/items/update-variable-library) sets the active value set, and fabric-cicd calls it after publishing a library, activating the value set named after the environment ([docs](https://microsoft.github.io/fabric-cicd/1.3.0/reference/item_types/#variable-library)). Nothing native does, so the point stands for git sync, deployment pipelines and deployment plans. Corrected below.
 
 A notebook and a lakehouse meet in a Dev workspace. Things go well. Queries flow, the two are inseparable, everything just clicks.
 
@@ -92,7 +96,7 @@ Check the linked supported-items lists before designing around any of these — 
 
 - :material-egg: **Chicken-and-egg.** An [`ItemReference`](https://learn.microsoft.com/en-us/fabric/cicd/variable-library/item-reference-variable-type) stores a `workspaceId` + `itemId` pair, which means the target item must **already exist** before you can record its address. If you want to deploy into a fresh environment, you have no idea what the GUID will be, so you can't pre-author a value set. You can only create it after the target is published
 - :material-pin: **Both advanced types are static.** An item reference "points to a specific item and not automatically adjusting across environments"; connection references likewise "don't auto-bind during deployment — their values remain fixed across environments." Value sets let you *hold* a different target per stage. You still maintain those GUIDs by hand
-- :material-gesture-tap-button: **Activation is a separate step.** There is exactly one active value set per workspace at a time, this is a workspace-level setting and is not tracked by git. Git only carries the value set *definitions*, [this is by design](https://learn.microsoft.com/en-us/fabric/cicd/variable-library/value-sets#source-control-representation). This means a deploy doesn't overwrite it, and syncing Dev's commit into Test won't flip Test off its "test" set, but it means a *new* workspace has the **Default** set active, requiring manual intervention
+- :material-gesture-tap-button: **Activation is a separate step.** There is exactly one active value set per workspace at a time, this is a workspace-level setting and is not tracked by git. Git only carries the value set *definitions*, [this is by design](https://learn.microsoft.com/en-us/fabric/cicd/variable-library/value-sets#source-control-representation). This means a deploy doesn't overwrite it, and syncing Dev's commit into Test won't flip Test off its "test" set, but it means a *new* workspace has the **Default** set active until something switches it. Git sync, deployment pipelines and deployment plans never do. The [Update Variable Library API](https://learn.microsoft.com/en-us/rest/api/fabric/variablelibrary/items/update-variable-library) can, and fabric-cicd calls it after publishing a library, activating the value set named after the environment you pass, [per its docs](https://microsoft.github.io/fabric-cicd/1.3.0/reference/item_types/#variable-library)
 - :material-map-marker-radius: **The library must live in the consuming item's workspace.** A shared configuration workspace isn't expressible
 - :material-key-remove: **No secrets.** Values are plain text in git
 
@@ -146,6 +150,7 @@ There are some gotchas to watch for:
 - :material-flash-alert: **Dynamic variables trigger [eager SQL endpoint resolution](https://microsoft.github.io/fabric-cicd/latest/how_to/parameterization/#dynamic-replacement).** Use *any* dynamic variable — even one that never mentions `$sqlendpoint` — and endpoints resolve for **every** lakehouse, mirrored database, warehouse and SQL database in the target workspace. If any of them is still provisioning, "the deployment fails before any item is published". This might mean you need to split your deploy into two calls: first the lakehouses, then the rest
 - :material-package-down: **Dynamic variables disable bulk publish**, falling back to standard publishing
 - :material-numeric-1-box: **`_ALL_` must be the only environment key** in a `replace_value` when you use it
+- :material-tag-text-outline: **Value set activation is exact-match.** After publishing a variable library fabric-cicd sets the active value set to the one named exactly after the environment, and falls back to **Default** with a warning otherwise ([docs](https://microsoft.github.io/fabric-cicd/1.3.0/reference/item_types/#variable-library), [API](https://learn.microsoft.com/en-us/rest/api/fabric/variablelibrary/items/update-variable-library)). The docs also warn that renaming or removing the set that is currently active fails the next deploy: the definition lands before the set is switched and Fabric won't drop an active set, so someone has to activate another set in the UI first
 
 !!! tip "Use fabric-cicd when"
 

@@ -4,6 +4,7 @@ description: What the new deployment plan item does and where does it fit into C
 image: /assets/images/blog/2026/2026-09-29-Fabric-Deployment-Plans/hero.jpg
 date:
   created: 2026-09-30
+  updated: 2026-09-30
 authors:
   - jDuddy
 comments: true
@@ -131,6 +132,10 @@ An action can carry up to twenty [parameters](https://learn.microsoft.com/en-us/
     You can't use a deployment plan to change the active value set of a Variable Library during deployment. Variable references resolve against the value set that's already active in the target workspace. In a newly created target workspace, **Default** is active until you select and save another value set.
     -- <cite>[Microsoft Docs: What is a deployment plan in Microsoft Fabric?](https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-overview#limitations-for-plan-actions)</cite>
 
+!!! info "The active value set has an API, just not during a deployment"
+
+    The set can be switched outside a deployment: the [Update Variable Library API](https://learn.microsoft.com/en-us/rest/api/fabric/variablelibrary/items/update-variable-library) takes an `activeValueSetName`, and fabric-cicd calls it after publishing a library, activating the value set named after the target environment ([fabric-cicd docs](https://microsoft.github.io/fabric-cicd/1.3.0/reference/item_types/#variable-library)). What nothing can do is switch it inside a native deployment operation, and when the operation itself creates the workspace (a branch-out, a deployment to an empty stage) there is no moment before it in which to set it. The action reads **Default**.
+
 ### Failure
 
 The deployment [stops at the first item or action that fails](https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-troubleshoot#problems-during-a-deployment) and doesn't roll back. What was deployed stays, and later items are left undeployed. A failed action's detail is logged in that item's run history rather than on the plan.
@@ -163,7 +168,7 @@ Deployment plans are not supported by fabric-cicd.
 | Native release process | | Fits deployment pipelines plus variable libraries |
 | Auto-binding | Unchanged. A plan orders and runs, it doesn't rebind, and carries no connections or workspace settings. Existing auto-binding gaps are not addressed | |
 | fabric-cicd | Can't use with the one tool that does resolve auto-binding gaps | |
-| Greenfield | A variable library lands on **Default** active set in a new workspace and the plan can't change it, so a cold deploy reads the wrong values | |
+| Greenfield | A variable library lands on **Default** active set in a new workspace and the plan can't change it, so a cold deploy reads the wrong values. The [API](https://learn.microsoft.com/en-us/rest/api/fabric/variablelibrary/items/update-variable-library) can, but only outside the deployment | |
 | Multi-workspace | One plan, one workspace. Nothing crosses workspaces | |
 | Control | No environment filter on a step, no continue on error, and the first failure stops the operation | |
 

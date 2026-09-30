@@ -66,7 +66,7 @@ flowchart TB
     style G3 fill:#f472b61a,stroke:#f472b6,stroke-width:1.5px
 ```
 
-Giving the `plan.yml` below. Groups are a list under `groups:`, each with a `name`, a `logicalId`, optional `preActions` and `postActions`, and `dependsOn` for the edges.
+Represented by the `plan.yml` below. Groups are a list under `groups:`, each with a `name`, a `logicalId`, optional `preActions` and `postActions`, and `dependsOn` for the edges.
 
 ```yaml title="plan.yml"
 $schema: https://developer.microsoft.com/json-schemas/fabric/item/deploymentPlan/definition/plan/1.0.0/schema.json
@@ -144,7 +144,7 @@ Never on its own. A plan is a passive item until it is attached to one operation
     A plan attachment applies only to the current operation. You can't configure a plan as the default for future deployments or schedule the plan itself. If a deployment tool schedules an operation, the operation must attach the plan each time it runs.
     -- <cite>[Microsoft Docs: What is a deployment plan in Microsoft Fabric?](https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-overview#considerations-and-limitations)</cite>
 
-The operations that can carry one:
+The operations that a plan can be attached to include:
 
 - :material-source-branch: [Git integration](https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-attach#where-you-can-attach-a-plan), in the git to workspace direction only: the initial sync after connecting, Update from Git, switch branch, and [branch out](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/branched-workspace#branch-out-with-a-deployment-plan). A commit from the workspace never runs a plan.
 - :material-pipe: [Deployment pipelines](https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/deploy-content#deploy-with-a-deployment-plan-preview), deploying between stages. You choose the target stage's existing plan or the incoming one from the source stage.
@@ -157,7 +157,7 @@ Deployment plans are not supported by fabric-cicd.
 ## :material-heart-off: Swipe Left or :material-cards-heart: Swipe Right
 
 | Consideration | :material-heart-off: Swipe Left | :material-cards-heart: Swipe Right |
-| --- | --- | --- |
+| --- | :-: | :-: |
 | Source control | | Order and post-deploy runs live in git as `plan.yml`, keyed by logical id, reviewed in a pull request |
 | No build agent | | Runs inside Fabric, so a branch-out from the portal and a deployment pipeline get the same order and actions |
 | Native release process | | Fits deployment pipelines plus variable libraries |
@@ -173,4 +173,4 @@ The problem is that there are still large gaps in the native CICD story: auto-bi
 
 ## Conclusion
 
-But if they were supported by fabric-cicd, would I use them? I think the answer would be yes. It does fill a gap in that you can't specify the deployment order of items with fabric-cicd, and it has no built-in pre- or post-deployment mechanism. But I would like some more control over failure handling and rollback mechanisms. Today a failed pre- or post-deploy action stops the whole operation, with no way to say carry on,, and no rollback of what already landed, so a flaky refresh leaves a half-deployed workspace. So right now I'll have to :material-heart-off: swipe left. 
+But if they were supported by fabric-cicd, would I use them? I think the answer would be yes. It does fill a gap in that you deploy a workspace as unit, and you can't easily modify the deployment order of items within that unit, and it has no built-in pre- or post-deployment mechanism. That being said, I would like some more control over failure handling and rollback mechanisms. Today a failed pre- or post-deploy action stops the whole operation, with no way to say carry on failure and no rollback of what already landed, so a flaky refresh leaves a half-deployed workspace. I can see why that is the case, the Deployment Plan is designed to be a simple DAG modifier and job orchestrator, nothing more. But right now, with no fabric-cicd support, I'll have to :material-heart-off: swipe left. 

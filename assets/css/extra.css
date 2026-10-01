@@ -1,0 +1,536 @@
+/* ============================================
+   Evaluation Context — Design System
+   A refined, editorial tech-blog aesthetic.
+   Hot-pink palette · JetBrains Mono code ·
+   IBM Plex Sans body · Cinematic micro-interactions
+   ============================================ */
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Brand palette — hot pink */
+  --ec-teal:          #ec4899;
+  --ec-teal-dark:     #db2777;
+  --ec-teal-light:    #f472b6;
+  --ec-teal-ghost:    rgba(236, 72, 153, 0.08);
+  --ec-ocean:         #831843;
+  --ec-navy:          #0c1222;
+  --ec-mint:          #fbcfe8;
+  --ec-coral:         #fb7185;
+  --ec-amber:         #fbbf24;
+  --ec-surface-glass: rgba(255, 255, 255, 0.55);
+  --ec-border-subtle: rgba(0, 0, 0, 0.06);
+  
+  /* Typography */
+  --ec-font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ec-font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ec-font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+  
+  /* Spacing rhythm */
+  --ec-space-xs: 0.25rem;
+  --ec-space-sm: 0.5rem;
+  --ec-space-md: 1rem;
+  --ec-space-lg: 2rem;
+  --ec-space-xl: 3rem;
+  --ec-space-2xl: 5rem;
+  
+  /* Motion */
+  --ec-ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ec-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ec-duration:    0.4s;
+  
+  /* Elevation */
+  --ec-shadow-sm:  0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --ec-shadow-md:  0 4px 12px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+  --ec-shadow-lg:  0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+  --ec-shadow-glow: 0 0 30px rgba(236, 72, 153, 0.15);
+}
+
+/* Dark mode tokens */
+[data-md-color-scheme="slate"] {
+  --ec-surface-glass: rgba(15, 23, 42, 0.65);
+  --ec-border-subtle: rgba(255, 255, 255, 0.06);
+  --ec-shadow-sm:  0 1px 3px rgba(0,0,0,0.25);
+  --ec-shadow-md:  0 4px 12px rgba(0,0,0,0.30);
+  --ec-shadow-lg:  0 12px 40px rgba(0,0,0,0.40);
+  --ec-shadow-glow: 0 0 40px rgba(249, 168, 212, 0.10);
+}
+
+/* ---------- Global typography override ---------- */
+:root {
+  --md-text-font: "IBM Plex Sans";
+  --md-code-font: "JetBrains Mono";
+}
+
+body, .md-typeset {
+  font-family: var(--ec-font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code, pre, .md-typeset code, .md-typeset pre {
+  font-family: var(--ec-font-mono);
+}
+
+/* ---------- Header refinement ---------- */
+.md-header {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background: var(--ec-surface-glass) !important;
+  border-bottom: 1px solid var(--ec-border-subtle);
+  transition: background var(--ec-duration) var(--ec-ease-out),
+              box-shadow var(--ec-duration) var(--ec-ease-out);
+}
+
+[data-md-color-scheme="default"] .md-header {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+[data-md-color-scheme="default"] .md-header .md-header__title,
+[data-md-color-scheme="default"] .md-header .md-header__topic,
+[data-md-color-scheme="default"] .md-header .md-header__title .md-ellipsis {
+  color: #1a1a2e !important;
+}
+
+[data-md-color-scheme="default"] .md-header .md-header__button,
+[data-md-color-scheme="default"] .md-header .md-search__icon {
+  color: #1a1a2e !important;
+}
+
+[data-md-color-scheme="default"] .md-header .md-source,
+[data-md-color-scheme="default"] .md-header .md-source__icon svg,
+[data-md-color-scheme="default"] .md-header .md-source__repository {
+  color: #1a1a2e !important;
+  fill: currentColor;
+}
+
+[data-md-color-scheme="default"] .md-header .md-header__button:hover {
+  opacity: 0.7;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background: rgba(0, 0, 0, 0.65) !important;
+}
+
+.md-header[data-md-state="shadow"] {
+  box-shadow: var(--ec-shadow-md);
+}
+
+/* Header title — match nav tab style */
+.md-header__title {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+/* Header logo — circular avatar */
+.md-header .md-logo img {
+  border-radius: 50% !important;
+}
+
+/* Navigation tabs — refined underline animation */
+.md-tabs {
+  border-bottom: 1px solid var(--ec-border-subtle);
+}
+
+.md-tabs__link {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity var(--ec-duration) var(--ec-ease-out),
+              color var(--ec-duration) var(--ec-ease-out);
+  position: relative;
+}
+
+.md-tabs__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--ec-teal);
+  transition: width var(--ec-duration) var(--ec-ease-spring),
+              left var(--ec-duration) var(--ec-ease-spring);
+  border-radius: 1px;
+}
+
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  opacity: 1;
+}
+
+.md-tabs__link:hover::after,
+.md-tabs__link--active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Light mode — ensure tab and header text is dark */
+[data-md-color-scheme="default"] .md-tabs {
+  background: rgba(255, 255, 255, 1);
+}
+
+[data-md-color-scheme="default"] .md-tabs__link {
+  color: #1a1a2e !important;
+}
+
+/* ---------- Content area refinements ---------- */
+
+/* Slightly wider reading measure */
+.md-content__inner {
+  max-width: 52rem;
+}
+
+/* Article typography */
+.md-typeset {
+  line-height: 1.7;
+}
+
+/* Display headings with serif accent */
+.md-typeset h1 {
+  font-family: var(--ec-font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.md-typeset h2 {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-top: 2.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--ec-border-subtle);
+}
+
+/* Accent bar on h2 */
+.md-typeset h2::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background: var(--ec-teal);
+  border-radius: 2px;
+  margin-right: 0.6rem;
+  vertical-align: middle;
+  position: relative;
+  top: -0.05em;
+}
+
+.md-typeset h3 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Links — teal with underline animation */
+.md-typeset a:not(.md-button):not(.md-nav__link):not(.md-post__link):not(.headerlink):not(.md-author):not(.glightbox) {
+  color: var(--ec-teal-dark);
+  text-decoration: none;
+  background-image: linear-gradient(var(--ec-teal-light), var(--ec-teal-light));
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s var(--ec-ease-out),
+              color 0.2s var(--ec-ease-out);
+}
+
+.md-typeset a:not(.md-button):not(.md-nav__link):not(.md-post__link):not(.headerlink):not(.md-author):not(.glightbox):hover {
+  color: var(--ec-teal);
+  background-size: 100% 1px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-button):not(.md-nav__link):not(.md-post__link):not(.headerlink):not(.md-author):not(.glightbox) {
+  color: var(--ec-teal-light);
+}
+
+/* ---------- Code blocks - refined ---------- */
+.md-typeset pre {
+  border-radius: 0.6rem;
+  border: 1px solid var(--ec-border-subtle);
+  box-shadow: var(--ec-shadow-sm);
+}
+
+.md-typeset code {
+  border-radius: 0.3rem;
+  font-size: 0.82em;
+  padding: 0.15em 0.4em;
+}
+
+/* ---------- Admonitions - refined ---------- */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.5rem;
+  border-left-width: 3px;
+  box-shadow: var(--ec-shadow-sm);
+  overflow: hidden;
+}
+
+.md-typeset .admonition pre,
+.md-typeset details pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.md-typeset .admonition .highlight,
+.md-typeset details .highlight {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* ---------- Tables ---------- */
+.md-typeset table:not([class]) {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--ec-shadow-sm);
+  border: 1px solid var(--ec-border-subtle);
+}
+
+.md-typeset table:not([class]) th {
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.md-typeset table:not([class]) td {
+  font-size: 0.82rem;
+}
+
+/* ---------- Scroll reveal animation ---------- */
+.ec-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ec-ease-out),
+              transform 0.6s var(--ec-ease-out);
+}
+
+.ec-reveal.ec-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.ec-reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ec-ease-out),
+              transform 0.5s var(--ec-ease-out);
+}
+
+.ec-reveal-stagger.ec-visible > *:nth-child(1) { transition-delay: 0s; }
+.ec-reveal-stagger.ec-visible > *:nth-child(2) { transition-delay: 0.06s; }
+.ec-reveal-stagger.ec-visible > *:nth-child(3) { transition-delay: 0.12s; }
+.ec-reveal-stagger.ec-visible > *:nth-child(4) { transition-delay: 0.06s; }
+.ec-reveal-stagger.ec-visible > *:nth-child(5) { transition-delay: 0.12s; }
+.ec-reveal-stagger.ec-visible > *:nth-child(6) { transition-delay: 0.18s; }
+
+.ec-reveal-stagger.ec-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Footer refinement ---------- */
+.md-footer {
+  border-top: 1px solid var(--ec-border-subtle);
+}
+
+.md-footer-meta {
+  font-size: 0.78rem;
+}
+
+/* ---------- Selection color ---------- */
+::selection {
+  background: rgba(236, 72, 153, 0.2);
+  color: inherit;
+}
+
+/* ---------- Scrollbar refinement (Webkit) ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(236, 72, 153, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 72, 153, 0.45);
+}
+
+/* ---------- Reading progress bar ---------- */
+.ec-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ec-teal), var(--ec-teal-light));
+  z-index: 999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ---------- Grid cards polish ---------- */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  border-radius: 0.6rem;
+  border: 1px solid var(--ec-border-subtle);
+  box-shadow: var(--ec-shadow-sm);
+  transition: transform var(--ec-duration) var(--ec-ease-spring),
+              box-shadow var(--ec-duration) var(--ec-ease-out);
+  will-change: transform;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  box-shadow: var(--ec-shadow-lg), var(--ec-shadow-glow);
+}
+
+/* ---------- Smooth page transitions ---------- */
+.md-content {
+  animation: ec-fadeIn 0.4s var(--ec-ease-out);
+}
+
+@keyframes ec-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Keyboard-accessible focus rings ---------- */
+.ec-keyboard *:focus-visible {
+  outline: 2px solid var(--ec-teal) !important;
+  outline-offset: 2px !important;
+  border-radius: 3px;
+}
+
+.ec-pointer *:focus {
+  outline: none;
+}
+
+/* ---------- Search dialog polish ---------- */
+.md-search__form {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.md-search-result__link {
+  border-radius: 0.4rem;
+  transition: background 0.15s ease-out;
+}
+
+/* ---------- Announcement bar ---------- */
+.md-banner {
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Table of Contents indicator ---------- */
+.md-nav__link--active {
+  position: relative;
+}
+
+.md-nav--secondary .md-nav__link--active::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 0.15rem;
+  bottom: 0.15rem;
+  width: 2px;
+  background: var(--ec-teal);
+  border-radius: 1px;
+}
+
+/* ---------- Admonition titles — tighter ---------- */
+.md-typeset .admonition-title,
+.md-typeset details > summary {
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Pagination polish ---------- */
+.md-typeset .md-pagination {
+  gap: 0.25rem;
+}
+
+.md-typeset .md-pagination a {
+  border-radius: 0.4rem;
+  transition: background 0.2s ease-out, color 0.2s ease-out;
+}
+
+.md-typeset .md-pagination a:hover {
+  background: var(--ec-teal-ghost);
+  color: var(--ec-teal);
+}
+
+/* ---------- Dialog / Cookie consent polish ---------- */
+.md-consent__inner {
+  border-radius: 0.75rem;
+  box-shadow: var(--ec-shadow-lg);
+}
+
+/* ---------- Social links — hover glow ---------- */
+.md-social__link {
+  transition: transform 0.2s var(--ec-ease-spring),
+              opacity 0.2s ease-out;
+}
+
+.md-social__link:hover {
+  transform: translateY(-2px);
+  opacity: 1 !important;
+}
+
+/* ---------- Content tabs — hot pink active indicator ---------- */
+.md-typeset .tabbed-labels > label.tabbed-alternate[aria-selected="true"],
+.md-typeset .tabbed-labels > label[checked] {
+  border-bottom-color: var(--ec-teal) !important;
+  color: var(--ec-teal) !important;
+}
+
+.md-typeset .tabbed-set > input:checked + label {
+  border-bottom-color: var(--ec-teal) !important;
+  color: var(--ec-teal) !important;
+}
+
+/* ---------- Related links sidebar — underline animation ---------- */
+.md-sidebar--post .md-post__meta a.md-nav__link {
+  text-decoration: none;
+  background-image: linear-gradient(var(--ec-teal-light), var(--ec-teal-light)) !important;
+  background-size: 0 1px !important;
+  background-position: 0 100% !important;
+  background-repeat: no-repeat !important;
+  transition: background-size 0.3s var(--ec-ease-out),
+              color 0.2s var(--ec-ease-out) !important;
+}
+
+.md-sidebar--post .md-post__meta a.md-nav__link:hover {
+  background-size: 100% 1px !important;
+  color: var(--ec-teal) !important;
+}
+
+/* ---------- Print cleanup ---------- */
+@media print {
+  .ec-progress,
+  .hero-banner {
+    display: none !important;
+  }
+}

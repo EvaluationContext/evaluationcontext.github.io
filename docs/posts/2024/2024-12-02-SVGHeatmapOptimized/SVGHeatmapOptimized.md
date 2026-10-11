@@ -1,7 +1,7 @@
 ---
 title: Optimizing the SVG Heatmap
 description: Optimizing the SVG Heatmap using the Sparkline measure pattern
-image: /assets/images/blog/2024/2024-12-02-SVGHeatmapOptimized/SVG-Heatmap_small.png
+image: SVG-Heatmap_small.png
 date:
   created: 2024-12-02
   updated: 2025-10-19
@@ -9,14 +9,19 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - DAX
+  - Performance
 links:
-  - SVG Heatmap: https://evaluationcontext.github.io/posts/SVG-Heatmap/
-  - Stealing Performance from Sparklines: https://evaluationcontext.github.io/posts/SVG-Sparkline/
+  - SVG Heatmap: https://evaluationcontext.com/posts/SVG-Heatmap/
+  - Stealing Performance from Sparklines: https://evaluationcontext.com/posts/SVG-Sparkline/
 slug: posts/SVG-Heatmap-Optimized
 ---
  
-A quick post that is the cumulation of a couple of previous posts, optimizing the [heatmap SVG](https://evaluationcontext.github.io/posts/SVG-Heatmap/) using the [Power BI Sparklines](https://evaluationcontext.github.io/posts/SVG-Sparkline/) pattern. 
+A quick post that is the cumulation of a couple of previous posts, optimizing the [heatmap SVG](https://evaluationcontext.com/posts/SVG-Heatmap/) using the [Power BI Sparklines](https://evaluationcontext.com/posts/SVG-Sparkline/) pattern. 
 
 ## Performance
 

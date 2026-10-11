@@ -1,7 +1,7 @@
 ---
 title: Smarter Subgraphs - Kusto as a Engine For Power BI
 description: Move beyond VertiPaq's limitations. Using Kusto Database with Direct Query and motif matching to create dynamic, clean, and performant graph visual in Power BI
-image: /assets/images/blog/2025/2025-07-03-KQLGraph/Hero.png
+image: Hero.png
 date:
   created: 2025-07-03
   updated: 2025-10-19
@@ -9,11 +9,16 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Administration
+tags:
+  - Power BI
+  - KQL
   - Graphs
+  - Performance
 slug: posts/KQLGraph
 ---
 
-In a couple of previous posts, I detailed how to get permission data into a graph structure with [Graphframes](https://evaluationcontext.github.io/posts/graphframes/) and visualize it in Power BI using a [force-directed Deneb visual](https://evaluationcontext.github.io/posts/deneb-force-directed/). This approach is great for understanding permission inheritance from the perspective of Fabric Items, but it has a significant drawback when you try to view the graph in reverse, from the User's perspective.
+In a couple of previous posts, I detailed how to get permission data into a graph structure with [Graphframes](https://evaluationcontext.com/posts/graphframes/) and visualize it in Power BI using a [force-directed Deneb visual](https://evaluationcontext.com/posts/deneb-force-directed/). This approach is great for understanding permission inheritance from the perspective of Fabric Items, but it has a significant drawback when you try to view the graph in reverse, from the User's perspective.
 
 This post introduces a better way. By swapping the VertiPaq engine for a [Fabric Kusto database](https://learn.microsoft.com/en-us/kusto/query/schema-entities/databases?view=microsoft-fabric), we can leverage its native graph processing capabilities to solve the subgraph filtering problem.
 

@@ -1,7 +1,7 @@
 ---
 title: One Pipeline to Rule Them All
 description: Consolidating Fabric Deployment Pipelines in Azure DevOps
-image: /assets/images/blog/2025/2025-06-10-OnePipeline/hero.png
+image: hero.png
 date:
   created: 2025-06-10
   updated: 2025-10-19
@@ -9,7 +9,11 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - CICD
+  - CI/CD
+tags:
+  - Microsoft Fabric
+  - CI/CD
+  - Azure DevOps
 slug: posts/one-pipeline
 ---
 

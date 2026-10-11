@@ -30,9 +30,12 @@
       giscus.setAttribute("data-theme", theme) 
     }
 
-    // Register event handlers after documented loaded
-    document.addEventListener("DOMContentLoaded", function() {
+    // Register the palette handler once; this script re-runs on every
+    // instant navigation, and the header (with the palette form) persists.
+    (function bindPalette() {
       var ref = document.querySelector("[data-md-component=palette]")
+      if (!ref || ref.dataset.giscusBound) return
+      ref.dataset.giscusBound = "1"
       ref.addEventListener("change", function() {
         var palette = __md_get("__palette")
         if (palette && typeof palette.color === "object") {
@@ -42,12 +45,12 @@
 
           // Instruct Giscus to change theme
           var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
+          if (frame) frame.contentWindow.postMessage(
             { giscus: { setConfig: { theme } } },
             "https://giscus.app"
           )
         }
       })
-    })
+    })()
   </script>
 {% endif %}

@@ -1,7 +1,7 @@
 ---
 title: Fabric-CICD in Practice - Groundwork
 description: Setting up Fabric CI/CD, laying the groundwork of branching strategy, workspaces, service principals, connections, pipelines and approval gates before a first test deployment
-image: /assets/images/blog/2026/2026-09-29-Fabric-cicd-First-Deploy/hero.jpg
+image: hero.jpg
 date:
   created: 2026-09-29
   updated: 2026-09-30
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - CICD
+  - CI/CD
+tags:
+  - Microsoft Fabric
+  - CI/CD
+  - fabric-cicd
+  - Azure DevOps
 links:
   - fabric-cicd Docs: https://microsoft.github.io/fabric-cicd/1.3.0/
   - Community Blog - New CI/CD resources for Microsoft Fabric: https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/new-cicd-resources-for-microsoft-fabric-from-concepts-to-end-to-end-automation/5358502

@@ -1,14 +1,19 @@
 ---
 title: Fabric CICD - Two Different Worlds
 description: Where the low-code and code-first halves of Fabric CI/CD fail to meet, and my thoughts on what would close the gap
-image: /assets/images/blog/2026/2026-10-01-Fabric-cicd-Two-Worlds/hero.jpg
+image: hero.jpg
 date:
   created: 2026-10-01
 authors:
   - jDuddy
 comments: true
 categories:
-  - CICD
+  - CI/CD
+tags:
+  - Microsoft Fabric
+  - CI/CD
+  - fabric-cicd
+  - Deployment Pipelines
 links:
   - fabric-cicd Docs: https://microsoft.github.io/fabric-cicd/1.3.0/
   - Community Blog - New CI/CD resources for Microsoft Fabric: https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/new-cicd-resources-for-microsoft-fabric-from-concepts-to-end-to-end-automation/5358502

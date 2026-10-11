@@ -1,7 +1,7 @@
 ---
 title: Calendar-Based Time Intelligence Is Out Of This World
 description: Darian Calendar using Calendar-Based Time Intelligence
-image: /assets/images/blog/2025/2025-11-20-CalendarTimeIntel/hero.jpg
+image: hero.jpg
 date:
   created: 2025-11-20
   updated: 2025-11-21
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Modelling
+tags:
+  - Power BI
+  - DAX
   - Data Modelling
+  - Semantic Model
 slug: posts/CalendarTimeIntel
 links:
   - MS Docs: https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-time-intelligence#calendar-based-time-intelligence-preview

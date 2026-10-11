@@ -3,7 +3,6 @@ icon: material/github
 hide:
   - navigation
   - toc
-  - title
 ---
 
 <div class="ec-profile__info" markdown>
@@ -22,7 +21,7 @@ Open-source tools for the **Fabric** community.
 <div class="ec-project" markdown>
 <div class="ec-project__screenshot" markdown>
 
-![Power BI Nexus screenshot](assets/images/projects/power-bi-nexus.png){ loading=lazy }
+[![Power BI Nexus screenshot](assets/images/projects/power-bi-nexus.png){ .off-glb loading=lazy }](https://evaluationcontext.github.io/Power-BI-Nexus/){ target=_blank rel=noopener }
 
 </div>
 <div class="ec-project__body" markdown>
@@ -51,7 +50,7 @@ Stop searching in silos. Contribute, learn, and stay current with Power BI — a
 <div class="ec-project" markdown>
 <div class="ec-project__screenshot" markdown>
 
-![EvaluationContext.Colour documentation](assets/images/projects/evaluationcontext-color-docs.png){ loading=lazy }
+[![EvaluationContext.Colour documentation](assets/images/projects/evaluationcontext-color-docs.png){ .off-glb loading=lazy }](https://evaluationcontext.github.io/evaluationcontext.colour/){ target=_blank rel=noopener }
 
 </div>
 <div class="ec-project__body" markdown>
@@ -80,7 +79,7 @@ A [DAX Lib](https://daxlib.org/) UDF library for manipulation of hex colours in 
 <div class="ec-project" markdown>
 <div class="ec-project__screenshot" markdown>
 
-![DaxLib.SVG documentation](assets/images/projects/daxlib-svg-docs.png){ loading=lazy }
+[![DaxLib.SVG documentation](assets/images/projects/daxlib-svg-docs.png){ .off-glb loading=lazy }](https://evaluationcontext.github.io/daxlib.svg/){ target=_blank rel=noopener }
 
 </div>
 <div class="ec-project__body" markdown>

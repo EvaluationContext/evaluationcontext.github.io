@@ -1,7 +1,7 @@
 ---
 title: Stealing Performance from Sparklines
 description: Using the ad hoc measures created by sparklines to optimize SVG generating measures
-image: /assets/images/blog/2024/2024-11-29-SVGSparkline/Visual.png
+image: Visual.png
 date:
   created: 2024-11-29
   updated: 2025-10-19
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - DAX
+  - Performance
 slug: posts/SVG-Sparkline
 ---
 

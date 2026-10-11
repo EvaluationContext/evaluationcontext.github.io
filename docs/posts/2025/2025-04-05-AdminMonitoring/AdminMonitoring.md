@@ -1,7 +1,7 @@
 ---
 title: Monitoring for Power BI Admins
 description: What is going on in your Power BI Tenant?
-image: /assets/images/blog/2025/2025-04-05-AdminMonitoring/hero.png
+image: hero.png
 date:
   created: 2025-04-05
   updated: 2025-10-19
@@ -9,6 +9,10 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Administration
+tags:
+  - Power BI
+  - Microsoft Fabric
   - Administration
 slug: posts/AdminMonitoring
 ---
@@ -62,7 +66,7 @@ This data is very useful for:
      
     -- <cite>[Microsoft Docs: Run metadata scanning](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview)</cite>
 
-I have a [previous post](https://evaluationcontext.github.io/posts/graphframes/) on using the [Scanner APIs](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview) to extracting tenant metadata. 
+I have a [previous post](https://evaluationcontext.com/posts/graphframes/) on using the [Scanner APIs](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview) to extracting tenant metadata. 
 
 [Rui Romano](https://www.linkedin.com/in/ruiromano/) has a reporting solution, [pbimonitor](https://github.com/RuiRomano/pbimonitor), that visuals that data as a catalogue for all Power BI assets.
 
@@ -81,11 +85,11 @@ Log Analytics records Semantic Model server traces, so we can easily appended th
 
 Now the Server Traces have been enriched you get some benefits. Firstly you can see items that have no traces, which means you can identify unused artifact that can be decommissioned. Secondly, the logs have `reportId`, with a report dimension you can provide the report name making the data more understandable.
 
-You can see in the Scanner ER diagram I have the `accessToObjects` and `accessToObject Edges` tables. These are from my previous posts on [GraphFrames](https://evaluationcontext.github.io/posts/graphframes/), and are used in a [Deneb Force Direct graph](https://evaluationcontext.github.io/posts/deneb-force-directed/). These allow you to know the exact permissions a specific user has on Workspace, Semantic Models etc, even if they inherit the permission through a long chain of User Groups. Additionally you can filter to a specific object and visually see what permissions are granted and by what path.
+You can see in the Scanner ER diagram I have the `accessToObjects` and `accessToObject Edges` tables. These are from my previous posts on [GraphFrames](https://evaluationcontext.com/posts/graphframes/), and are used in a [Deneb Force Direct graph](https://evaluationcontext.com/posts/deneb-force-directed/). These allow you to know the exact permissions a specific user has on Workspace, Semantic Models etc, even if they inherit the permission through a long chain of User Groups. Additionally you can filter to a specific object and visually see what permissions are granted and by what path.
 
 ![Force Directed Graph](object_permissions.png)
 
-For me, the last piece of the puzzle, is to add a tenant wide Vertipaq Analyzer scan. If you have Fabric this is easy as you can run the DMVs with Sempy, as investigated in my previous post on [Vertipaq Analyzer](https://evaluationcontext.github.io/posts/vertipaq-analyzer/). I don't, and annoyingly the REST APIs don't support DMVs or DAX INFO functions. This could be a fantastic addition, allowing the identification of potential areas for optimizations, by comparing refresh times to Semantic Model sizes for example.
+For me, the last piece of the puzzle, is to add a tenant wide Vertipaq Analyzer scan. If you have Fabric this is easy as you can run the DMVs with Sempy, as investigated in my previous post on [Vertipaq Analyzer](https://evaluationcontext.com/posts/vertipaq-analyzer/). I don't, and annoyingly the REST APIs don't support DMVs or DAX INFO functions. This could be a fantastic addition, allowing the identification of potential areas for optimizations, by comparing refresh times to Semantic Model sizes for example.
 
 ## FUAM
 

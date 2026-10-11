@@ -6,11 +6,11 @@ A technical blog focused on the Microsoft BI stack, featuring experiments, insig
 
 ## About
 
-This blog is written by **Jake Duddy**, a Business Intelligence specialist and Microsoft Data Platform MVP focusing on Power BI and Microsoft Fabric. Jake shares practical experiences, technical experiments, and insights from working with the Microsoft BI stack.
+This blog is written by **Jake Duddy**, a Business Intelligence specialist and Microsoft MVP for Power BI and Microsoft Fabric. Jake shares practical experiences, technical experiments, and insights from working with the Microsoft BI stack.
 
 ### Community Involvement
 
-- 🏆 **Microsoft MVP** - Data Platform (Power BI)
+- 🏆 **Microsoft MVP** - Power BI and Microsoft Fabric
 - ⭐ **Fabric Community Super User** - Active on Fabric forums
 - 👥 **User Group Organizer** - Co-organizer of Devon and Cornwall Microsoft Power BI User Group
 - 🎤 **Speaker** - Presents at Power BI User Groups and conferences including SQLBits
@@ -31,7 +31,7 @@ The blog covers a wide range of topics including:
 
 Resources and recordings from presentations at various user groups and conferences:
 
-[![View Presentations](https://img.shields.io/badge/View_Presentations-evaluationcontext.github.io/presentations-pink?style=for-the-badge&logo=presentation&logoColor=white)](https://evaluationcontext.github.io/presentations/)
+[![View Presentations](https://img.shields.io/badge/View_Presentations-evaluationcontext.com/presentations-pink?style=for-the-badge&logo=presentation&logoColor=white)](https://evaluationcontext.com/presentations/)
 
 ### Projects
 
@@ -48,6 +48,6 @@ Open-source DAX user-defined function libraries distributed via [daxlib.org](htt
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Jake_Duddy-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jakeduddy/)
 [![GitHub](https://img.shields.io/badge/GitHub-EvaluationContext-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EvaluationContext)
 [![Microsoft Fabric Community](https://img.shields.io/badge/Fabric_Community-Super_User-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947)
-[![MVP Profile](https://img.shields.io/badge/Microsoft_MVP-Data_Platform-5E5E5E?style=for-the-badge&logo=microsoft&logoColor=white)](https://mvp.microsoft.com/en-US/MVP/profile/83f59bc7-9ff2-46e3-a9c9-30c97cad847f)
+[![MVP Profile](https://img.shields.io/badge/Microsoft_MVP-Power_BI_%26_Fabric-5E5E5E?style=for-the-badge&logo=microsoft&logoColor=white)](https://mvp.microsoft.com/en-US/MVP/profile/83f59bc7-9ff2-46e3-a9c9-30c97cad847f)
 
-[![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?style=for-the-badge&logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
+[![Built with Zensical](https://img.shields.io/badge/Built_with-Zensical-526CFE?style=for-the-badge&logoColor=white)](https://zensical.org/)

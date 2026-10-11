@@ -1,13 +1,27 @@
+{%- macro hero_src(obj, image) -%}
+  {%- if image is startingwith "/" or image is startingwith "http" -%}
+    {{ image }}
+  {%- else -%}
+    {{ ((obj.edit_url | split("/docs/posts/"))[1] | split("/"))[0:2] | join("/") }}/{{ image }}
+  {%- endif -%}
+{%- endmacro -%}
 {#-
-  Override content template to add post header after title
+  Content override: tags, title, description header, then a contained hero
+  image for posts that have one. Everything else is Zensical's.
 -#}
 {% include "partials/tags.html" %}
 {% include "partials/actions.html" %}
-{% if "\u003ch1" not in page.content %}
+{% if "<h1" not in page.content %}
   <h1>{{ page.title | d(config.site_name, true)}}</h1>
 {% endif %}
-{# Add post header with description and image after title #}
 {% include "partials/post-header.html" %}
+{% if page.config and page.config.date and page.meta.image %}
+  {% set image_path = page.meta.image.path if page.meta.image is mapping else page.meta.image %}
+  {% set image_alt = page.meta.image.alt if page.meta.image is mapping else "" %}
+  <figure class="post-hero">
+    <img src="{{ hero_src(page, image_path) | trim | url }}" alt="{{ image_alt }}" fetchpriority="high">
+  </figure>
+{% endif %}
 {{ page.content }}
 {% include "partials/source-file.html" %}
 {% include "partials/feedback.html" %}

@@ -1,7 +1,7 @@
 ---
 title: Logging User Data Functions (UDFs) in Fabric
 description: Basic and advanced logging in UDFs
-image: /assets/images/blog/2025/2025-08-13-UDFLogs/hero.png
+image: hero.png
 date:
   created: 2025-08-13
   updated: 2025-10-19
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Fabric
+tags:
+  - Microsoft Fabric
+  - User Data Functions
   - Logging
+  - Python
 slug: posts/UDF-Logs
 ---
 

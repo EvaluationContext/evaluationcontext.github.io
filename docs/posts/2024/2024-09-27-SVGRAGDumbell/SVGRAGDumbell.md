@@ -1,7 +1,7 @@
 ---
 title: SVG Dumbbell Chart in Power BI
 description: Using DAX to create a SVG Dumbbell chart in Power BI 
-image: assets/images/blog/2024/2024-09-27-SVGRAGDumbell/SVGDumbbell.png
+image: SVGDumbbell.png
 date:
   created: 2024-09-27
   updated: 2025-10-19
@@ -9,7 +9,11 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - DAX
 slug: posts/SVG-RAG-Dumbell
 ---
 

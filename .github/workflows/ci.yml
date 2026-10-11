@@ -1,8 +1,8 @@
-name: ci 
+name: ci
 on:
   push:
     branches:
-      - master 
+      - master
       - main
 permissions:
   contents: write
@@ -10,14 +10,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
         with:
           python-version: 3.x
-      - uses: actions/cache@v4
-        with:
-          key: ${{ github.ref }}
-          path: .cache
       - run: pip install -r requirements.txt
-      - run: pip install pillow cairosvg
-      - run: mkdocs gh-deploy --force
+      # --clean: Zensical's page cache does not invalidate on theme feature
+      # changes, so always render from scratch (about 35s for this site).
+      - run: zensical build --clean
+      # Publishes site/ to the gh-pages branch, which GitHub Pages already
+      # serves (replaces `mkdocs gh-deploy`). docs/CNAME is copied into site/.
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site

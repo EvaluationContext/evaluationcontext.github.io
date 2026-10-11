@@ -1,7 +1,7 @@
 ---
 title: Graphing DAX Query Plans
 description: Using Vega Force Directed Graphs to visualizing DAX Query Plans
-image: /assets/images/blog/2025/2025-01-28-QueryPlanGraph/PhysicalQueryPlan.png
+image: PhysicalQueryPlan.png
 date:
   created: 2025-01-28
   updated: 2025-10-19
@@ -10,6 +10,11 @@ authors:
 comments: true
 categories:
   - DAX
+tags:
+  - DAX
+  - Vega
+  - Graphs
+  - Performance
 slug: posts/query-plan-graph
 ---
  
@@ -17,7 +22,7 @@ Ever since completing [SQLBI's Optimizing DAX course](https://www.sqlbi.com/p/op
 
 ## Query
 
-We are going to be looking at the execution of the following query, from a [previous post](https://evaluationcontext.github.io/posts/Window-Function/).
+We are going to be looking at the execution of the following query, from a [previous post](https://evaluationcontext.com/posts/Window-Function/).
 
 ```dax
 EVALUATE

@@ -1,7 +1,7 @@
 ---
 title: Lost Connections - How item references survive deployment in Microsoft Fabric
 description: When autobinding, variable libraries, and fabric-cicd can rebind your item references between environments — and when nothing can
-image: /assets/images/blog/2026/2026-08-23-cicd-connections/hero.jpg
+image: hero.jpg
 date:
   created: 2026-08-23
   updated: 2026-09-30
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - CICD
+  - CI/CD
+tags:
+  - Microsoft Fabric
+  - CI/CD
+  - fabric-cicd
+  - Deployment Pipelines
 slug: posts/cicd-connections
 ---
 

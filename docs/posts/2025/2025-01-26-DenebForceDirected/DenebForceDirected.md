@@ -1,7 +1,7 @@
 ---
 title: Visualizing Power BI Permission Inheritance
 description: Using Deneb Force Directed Graph to visualizing the inheritance of Power BI permission 
-image: /assets/images/blog/2025/2025-01-26-DenebForceDirected/force directed.gif
+image: force-directed.gif
 date:
   created: 2025-01-26
   updated: 2025-10-19
@@ -9,13 +9,19 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - Deneb
+  - Vega
+  - Graphs
+  - Administration
 links:
-  - Who Actually Has Access To What In Power BI?: https://evaluationcontext.github.io/posts/graphframes/
+  - Who Actually Has Access To What In Power BI?: https://evaluationcontext.com/posts/graphframes/
 slug: posts/deneb-force-directed
 ---
  
-In my previous [post](https://evaluationcontext.github.io/posts/graphframes/) I used the [Power BI Scanner APIs](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview), [Graph APIs](https://learn.microsoft.com/en-us/graph/overview?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) and [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) to generate a graph to disseminate Access Roles from Workspaces, Reports and Semantic Models directly granted to AAD groups, to all downstream members. Now we are going to create some visualizations to make this data more accessible.
+In my previous [post](https://evaluationcontext.com/posts/graphframes/) I used the [Power BI Scanner APIs](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview), [Graph APIs](https://learn.microsoft.com/en-us/graph/overview?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) and [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) to generate a graph to disseminate Access Roles from Workspaces, Reports and Semantic Models directly granted to AAD groups, to all downstream members. Now we are going to create some visualizations to make this data more accessible.
 
 !!! info
 
@@ -63,7 +69,7 @@ I tried using the [Power BI Force-Directed Graph visual](https://appsource.micro
 
 We create a page with the Deneb visual, and create the measure below. We add the `[Edge Selection]` measure to the filter well of the Deneb visual and filter to where the measure = 1.
 
-![Force Directed gif](force directed.gif)
+![Force Directed gif](force-directed.gif)
 
 ```dax
 Edge Selection =

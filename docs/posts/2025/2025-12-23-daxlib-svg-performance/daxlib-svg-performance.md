@@ -1,7 +1,7 @@
 ---
 title: DaxLib.SVG Compound Function Performance
 description: Testing the query performance of DaxLib.SVG Compound functions with the DAX Performance Testing Notebook
-image: /assets/images/blog/2025/2025-12-23-daxlib-svg-performance/AvgDurationCompoundContextGranularity.png
+image: AvgDurationCompoundContextGranularity.png
 date:
   created: 2025-12-23
   updated: 2026-01-01
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - DAX Lib
+  - DAX
+tags:
+  - DAX
+  - DaxLib
+  - SVG
+  - Performance
 slug: posts/daxlibCompoundPerformance
 links:
   - daxlib.svg: https://daxlib.org/package/DaxLib.SVG/
@@ -666,7 +671,7 @@ One thing to note is that the DAX Performance testing notebook is not particular
 
 ![Average Duration Per Compound, Context and Granularity](AvgDurationCompoundContextGranularity.png)
 
-If we look at Compound, Context and Granularity we can first see that there isn't a huge difference between warm and hot cache. This hints that each measure is likely relying on a lot of Formula Engine (FE) vs Storage Engine (SE), which is not unexpected. All of the `#!dax daxlib.svg.compound.*` functions have a similar construction and although I have tried to calculate a data table early to aid with generating a reusable data cache, there is still a decent amount of string manipulation which will require a reasonable amount of FE involvement. Secondly we can see the impact of the choice of `xAxis`. The increased granularity of `#!dax 'date'[Date]` vs `#!dax 'date'[Year Month]` has a large effect for many of the `#!dax daxlib.svg.compound.*` functions. The Heatmap and Violin plots are the slowest, which is to be expected since they have additional processing over the other `#!dax daxlib.svg.compound.*` functions. They both need to sample data across the data range; see my previous blog post on [SVG Violin plot](https://evaluationcontext.github.io/posts/SVG-Violin/?h=vio) for info on how and why this sampling occurs.
+If we look at Compound, Context and Granularity we can first see that there isn't a huge difference between warm and hot cache. This hints that each measure is likely relying on a lot of Formula Engine (FE) vs Storage Engine (SE), which is not unexpected. All of the `#!dax daxlib.svg.compound.*` functions have a similar construction and although I have tried to calculate a data table early to aid with generating a reusable data cache, there is still a decent amount of string manipulation which will require a reasonable amount of FE involvement. Secondly we can see the impact of the choice of `xAxis`. The increased granularity of `#!dax 'date'[Date]` vs `#!dax 'date'[Year Month]` has a large effect for many of the `#!dax daxlib.svg.compound.*` functions. The Heatmap and Violin plots are the slowest, which is to be expected since they have additional processing over the other `#!dax daxlib.svg.compound.*` functions. They both need to sample data across the data range; see my previous blog post on [SVG Violin plot](https://evaluationcontext.com/posts/SVG-Violin/?h=vio) for info on how and why this sampling occurs.
 
 ![Average Duration Per Compound and Context (Excluding Date Granularity)](AvgDurationCompoundContextGranularityExcDate.png)
 

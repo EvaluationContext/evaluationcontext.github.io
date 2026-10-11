@@ -1,14 +1,18 @@
 ---
 title: DaxLib.SVG 1.0.1
 description: DaxLib.SVG v1.0.1 release
-image: /assets/images/blog/2026/2026-03-19-DaxLib-SVG-1-0-1/daxlib-svg.png
+image: daxlib-svg.png
 date:
   created: 2026-03-19
 authors:
   - jDuddy
 comments: true
 categories:
-  - DAX Lib
+  - DAX
+tags:
+  - DAX
+  - DaxLib
+  - SVG
 links:
   - daxlib.svg Package: https://daxlib.org/package/DaxLib.SVG
   - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/

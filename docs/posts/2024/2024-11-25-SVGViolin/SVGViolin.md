@@ -1,7 +1,7 @@
 ---
 title: SVG Violin Plot
 description: Creating a SVG Violin to visualize distributions in Power BI
-image: /assets/images/blog/2024/2024-11-25-SVGViolin/SVGViolin_Small.png
+image: SVGViolin_Small.png
 date:
   created: 2024-11-25
   updated: 2025-10-19
@@ -9,13 +9,17 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - DAX
 links:
-  - SVG Heatmap: https://evaluationcontext.github.io/posts/SVG-Heatmap/
+  - SVG Heatmap: https://evaluationcontext.com/posts/SVG-Heatmap/
 slug: posts/SVG-Violin
 ---
 
-In my [previous post](https://evaluationcontext.github.io/posts/SVG-Heatmap/) I created a heat map SVG visual to visualize data distributions. In that post I mentioned Violin plots, in this post I describe how to create one.
+In my [previous post](https://evaluationcontext.com/posts/SVG-Heatmap/) I created a heat map SVG visual to visualize data distributions. In that post I mentioned Violin plots, in this post I describe how to create one.
 
 ## Violin Plots
 

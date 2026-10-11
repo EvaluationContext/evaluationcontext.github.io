@@ -1,7 +1,7 @@
 ---
 title: Fabric Deployment Plans - Swipe Left or Swipe Right
 description: What the new deployment plan item does and where does it fit into CICD?
-image: /assets/images/blog/2026/2026-09-29-Fabric-Deployment-Plans/hero.jpg
+image: hero.jpg
 date:
   created: 2026-09-30
   updated: 2026-09-30
@@ -9,7 +9,11 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - CICD
+  - CI/CD
+tags:
+  - Microsoft Fabric
+  - CI/CD
+  - Deployment Pipelines
 links:
   - Deployment plan overview: https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-overview
   - Lost Connections: https://evaluationcontext.com/posts/cicd-connections/

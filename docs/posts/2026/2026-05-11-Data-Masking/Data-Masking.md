@@ -1,14 +1,19 @@
 ---
 title: Dynamic Data Masking in Power BI
 description: Secure dynamic data masking in Power BI Import Models
-image: /assets/images/blog/2026/2026-05-11-Data-Masking/hero.png
+image: hero.png
 date:
   created: 2026-05-11
 authors:
   - jDuddy
 comments: true
 categories:
-  - Data Modelling
+  - Modelling
+tags:
+  - Power BI
+  - Semantic Model
+  - Security
+  - DAX
 slug: posts/data-masking
 ---
 

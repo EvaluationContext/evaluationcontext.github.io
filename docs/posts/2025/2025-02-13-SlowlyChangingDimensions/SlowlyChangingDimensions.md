@@ -1,7 +1,7 @@
 ---
 title: Incremental Refresh on Slowly Changing Dimension in Power BI
 description: Incremental Refresh on Slowly Changing Dimension in Power BI
-image: assets/images/blog/2025/2025-02-13-SlowlyChangingDimensions/RefreshPolicy.png
+image: RefreshPolicy.png
 date:
   created: 2025-02-13
   updated: 2025-10-19
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - SSAS Tabular
+  - Modelling
+tags:
+  - Power BI
+  - Semantic Model
+  - Incremental Refresh
+  - Data Modelling
 slug: posts/slowly-changing-dimensions
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Fabric Graphs
 description: Can you use Fabric Graph To Analyze User Permissions to Fabric Items 
-image: /assets/images/blog/2025/2025-11-24-FabricGraphs/edges.png
+image: edges.png
 date:
   created: 2025-11-24
   updated: 2025-11-25
@@ -9,7 +9,11 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Administration
+tags:
+  - Microsoft Fabric
   - Graphs
+  - Administration
 slug: posts/FabricGraph
 links:
   - MS Docs: https://learn.microsoft.com/en-us/fabric/graph/

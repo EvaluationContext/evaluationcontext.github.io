@@ -6,7 +6,7 @@
    ============================================ */
 
 /* ---------- Google Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@600&display=swap');
 
 /* ---------- Design tokens ---------- */
 :root {
@@ -48,6 +48,12 @@
   --ec-shadow-glow: 0 0 30px rgba(236, 72, 153, 0.15);
 }
 
+/* Light mode: secondary text was too faint; bring it closer to body text */
+[data-md-color-scheme="default"] {
+  --md-default-fg-color--light: rgba(0, 0, 0, 0.72);
+  --md-default-fg-color--lighter: rgba(0, 0, 0, 0.5);
+}
+
 /* Dark mode tokens */
 [data-md-color-scheme="slate"] {
   --ec-surface-glass: rgba(15, 23, 42, 0.65);
@@ -56,12 +62,6 @@
   --ec-shadow-md:  0 4px 12px rgba(0,0,0,0.30);
   --ec-shadow-lg:  0 12px 40px rgba(0,0,0,0.40);
   --ec-shadow-glow: 0 0 40px rgba(249, 168, 212, 0.10);
-}
-
-/* ---------- Global typography override ---------- */
-:root {
-  --md-text-font: "IBM Plex Sans";
-  --md-code-font: "JetBrains Mono";
 }
 
 body, .md-typeset {
@@ -133,9 +133,15 @@ code, pre, .md-typeset code, .md-typeset pre {
   border-radius: 50% !important;
 }
 
-/* Navigation tabs — refined underline animation */
+/* Navigation tabs — one indicator: the pink animated underline below the
+   text. The modern theme also draws a solid line on the divider for the
+   active tab, which is suppressed here. */
 .md-tabs {
   border-bottom: 1px solid var(--ec-border-subtle);
+}
+
+.md-tabs__item--active {
+  border-bottom-color: transparent !important;
 }
 
 .md-tabs__link {
@@ -163,12 +169,12 @@ code, pre, .md-typeset code, .md-typeset pre {
 }
 
 .md-tabs__link:hover,
-.md-tabs__link--active {
+.md-tabs__item--active .md-tabs__link {
   opacity: 1;
 }
 
 .md-tabs__link:hover::after,
-.md-tabs__link--active::after {
+.md-tabs__item--active .md-tabs__link::after {
   width: 100%;
   left: 0;
 }
@@ -303,39 +309,6 @@ code, pre, .md-typeset code, .md-typeset pre {
   font-size: 0.82rem;
 }
 
-/* ---------- Scroll reveal animation ---------- */
-.ec-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ec-ease-out),
-              transform 0.6s var(--ec-ease-out);
-}
-
-.ec-reveal.ec-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Staggered children */
-.ec-reveal-stagger > * {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s var(--ec-ease-out),
-              transform 0.5s var(--ec-ease-out);
-}
-
-.ec-reveal-stagger.ec-visible > *:nth-child(1) { transition-delay: 0s; }
-.ec-reveal-stagger.ec-visible > *:nth-child(2) { transition-delay: 0.06s; }
-.ec-reveal-stagger.ec-visible > *:nth-child(3) { transition-delay: 0.12s; }
-.ec-reveal-stagger.ec-visible > *:nth-child(4) { transition-delay: 0.06s; }
-.ec-reveal-stagger.ec-visible > *:nth-child(5) { transition-delay: 0.12s; }
-.ec-reveal-stagger.ec-visible > *:nth-child(6) { transition-delay: 0.18s; }
-
-.ec-reveal-stagger.ec-visible > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ---------- Footer refinement ---------- */
 .md-footer {
   border-top: 1px solid var(--ec-border-subtle);
@@ -415,26 +388,17 @@ code, pre, .md-typeset code, .md-typeset pre {
   }
 }
 
-/* ---------- Keyboard-accessible focus rings ---------- */
-.ec-keyboard *:focus-visible {
-  outline: 2px solid var(--ec-teal) !important;
-  outline-offset: 2px !important;
+/* ---------- Keyboard focus rings (browser-native :focus-visible) ---------- */
+:focus-visible {
+  outline: 2px solid var(--ec-teal);
+  outline-offset: 2px;
   border-radius: 3px;
-}
-
-.ec-pointer *:focus {
-  outline: none;
 }
 
 /* ---------- Search dialog polish ---------- */
 .md-search__form {
   border-radius: 0.5rem;
   overflow: hidden;
-}
-
-.md-search-result__link {
-  border-radius: 0.4rem;
-  transition: background 0.15s ease-out;
 }
 
 /* ---------- Announcement bar ---------- */
@@ -529,8 +493,7 @@ code, pre, .md-typeset code, .md-typeset pre {
 
 /* ---------- Print cleanup ---------- */
 @media print {
-  .ec-progress,
-  .hero-banner {
+  .ec-progress {
     display: none !important;
   }
 }

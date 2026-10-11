@@ -10,7 +10,7 @@
   border-radius: 0.75rem;
   overflow: hidden;
   margin-bottom: 12px;
-  height: 200px;
+  height: 236px;
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.35s var(--ec-ease-out),
@@ -37,7 +37,7 @@
 /* Featured image — diagonal clip */
 .md-post__image {
   width: 320px;
-  height: 200px;
+  align-self: stretch;
   overflow: hidden;
   background: var(--md-default-fg-color--lightest);
   margin: 0;
@@ -83,12 +83,84 @@
   transform: scale(1.04);
 }
 
-/* Link wrapper */
-.md-post__link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
+/* Title link, stretched over the whole card (chips sit above it) */
+.md-post__text h3 a.md-post__link,
+.md-post__text h3 a.md-post__link:hover {
+  text-decoration: none !important;
+  color: inherit !important;
+  background-image: none !important;
+}
+
+.md-post__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Footer: chips row, then date and read time */
+.md-post__footer {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Category and tag chips */
+.md-post__chips {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  /* one row only; chips that would wrap are hidden */
+  max-height: 1.35rem;
+  overflow: hidden;
+}
+
+.ec-chip {
+  display: inline-block;
+  padding: 0.05rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.56rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-decoration: none !important;
+  background-image: none !important;
+  color: var(--md-default-fg-color--light) !important;
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+  background: color-mix(in srgb, var(--md-default-fg-color) 4%, transparent);
+  transition: border-color 0.2s ease-out, color 0.2s ease-out, background 0.2s ease-out;
+}
+
+.ec-chip:not(a):hover {
+  color: var(--md-default-fg-color--light) !important;
+  border-color: color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+  background: color-mix(in srgb, var(--md-default-fg-color) 4%, transparent);
+}
+
+a.ec-chip:hover {
+  color: var(--ec-teal) !important;
+  border-color: color-mix(in srgb, var(--ec-teal) 50%, transparent);
+  background: var(--ec-teal-ghost);
+}
+
+.ec-chip--category {
+  color: var(--ec-teal-dark) !important;
+  border-color: color-mix(in srgb, var(--ec-teal) 35%, transparent);
+  background: var(--ec-teal-ghost);
+}
+
+[data-md-color-scheme="slate"] .ec-chip--category {
+  color: var(--ec-teal-light) !important;
+}
+
+.md-post__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 /* Blog post content area */
@@ -114,9 +186,15 @@
   flex-direction: column;
 }
 
-/* Post title */
+/* Post title: at most two lines, then an ellipsis */
 .md-post__text h3 {
   margin: 0;
+  flex-shrink: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   /* font-size: 0.82rem !important; */
   /* font-weight: 600;
   line-height: 1.35; */
@@ -144,20 +222,23 @@
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
-  flex: 1;
+  flex: 0 0 auto;
   margin-top: 0.5rem;
   padding-bottom: 0.25rem;
+  text-overflow: ellipsis;
 }
 
-/* Date */
+/* Description keeps the card compact; chips and date follow it */
+
+/* Date and read time */
 .md-post__date {
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  flex-wrap: wrap;
+  gap: 0.9rem;
   font-size: 0.55rem;
   font-weight: 300;
   color: var(--md-default-fg-color--light);
-  margin-top: auto;
   letter-spacing: 0.02em;
 }
 
@@ -191,3 +272,35 @@
     height: auto;
   }
 }
+
+/* Cards hidden by the tag filter (the flex rule above would otherwise win) */
+.md-post.md-post--excerpt[hidden] {
+  display: none !important;
+}
+
+/* Summary bar above the cards while a filter is active */
+.ec-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--ec-teal) 35%, transparent);
+  background: var(--ec-teal-ghost);
+  font-size: 0.68rem;
+}
+
+.ec-filter__clear {
+  white-space: nowrap;
+  color: var(--ec-teal) !important;
+  background-image: none !important;
+}
+
+.ec-chip.ec-tag-active {
+  color: var(--ec-teal) !important;
+  border-color: var(--ec-teal);
+  background: var(--ec-teal-ghost);
+}
+

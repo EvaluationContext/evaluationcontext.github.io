@@ -1,0 +1,70 @@
+# Evaluation Context
+
+> A blog about the Microsoft BI stack (Microsoft Fabric, Power BI, SQL, SSAS, DAX)
+
+Posts on Microsoft Fabric, Power BI and DAX by Jake Duddy
+
+## Posts
+
+- [DAX Highlighting in Github Pages](<https://evaluationcontext.com/posts/Syntax-Highlight-DAX/index.md>): Blog post
+- [Considering Cardinality of Column Combinations in Junk Dimension Design](<https://evaluationcontext.com/posts/Trash-Compactor/index.md>): Blog post
+- [TOPN vs INDEX](<https://evaluationcontext.com/posts/Window-Function/index.md>): Blog post
+- [Solving the Islands Problem in DAX](<https://evaluationcontext.com/posts/IslandsAndGaps/index.md>): Blog post
+- [VS Code Extensions For Power BI Development and Administration](<https://evaluationcontext.com/posts/VSCode-Extensions/index.md>): Blog post
+- [The Delta Between a Lake and Lakehouse](<https://evaluationcontext.com/posts/DeltaParquet/index.md>): Blog post
+- [Using Git Submodules to Distribute a Common Theme to Power BI Reports](<https://evaluationcontext.com/posts/Git-Submodule-Report-Theme/index.md>): Blog post
+- [SVG Dumbbell Chart in Power BI](<https://evaluationcontext.com/posts/SVG-RAG-Dumbell/index.md>): Blog post
+- [Further Adventures in SVGs](<https://evaluationcontext.com/posts/SVG-RAG-Trend/index.md>): Blog post
+- [SVG Heatmap](<https://evaluationcontext.com/posts/SVG-Heatmap/index.md>): Blog post
+- [SVG Violin Plot](<https://evaluationcontext.com/posts/SVG-Violin/index.md>): Blog post
+- [Stealing Performance from Sparklines](<https://evaluationcontext.com/posts/SVG-Sparkline/index.md>): Blog post
+- [Optimizing the SVG Heatmap](<https://evaluationcontext.com/posts/SVG-Heatmap-Optimized/index.md>): Blog post
+- [Visualizing Power BI Visual Performance](<https://evaluationcontext.com/posts/SVG-Page-Heatmap/index.md>): Blog post
+- [Keeping Power BI Incremental Refresh Up To Date](<https://evaluationcontext.com/posts/IncrementalRefersh-Parameters/index.md>): Blog post
+- [Deneb Gantt Chart](<https://evaluationcontext.com/posts/Deneb-Gantt/index.md>): Blog post
+- [Vega Embed](<https://evaluationcontext.com/posts/vega-rendering/index.md>): Blog post
+- [Who Actually Has Access To What In Power BI?](<https://evaluationcontext.com/posts/graphframes/index.md>): Blog post
+- [Visualizing Power BI Permission Inheritance](<https://evaluationcontext.com/posts/deneb-force-directed/index.md>): Blog post
+- [Graphing DAX Query Plans](<https://evaluationcontext.com/posts/query-plan-graph/index.md>): Blog post
+- [Label Propagation To Identify End User Persona?](<https://evaluationcontext.com/posts/label-propogation/index.md>): Blog post
+- [Exporting Power BI Tenant Settings](<https://evaluationcontext.com/posts/TenantSettings/index.md>): Blog post
+- [Incremental Refresh on Slowly Changing Dimension in Power BI](<https://evaluationcontext.com/posts/slowly-changing-dimensions/index.md>): Blog post
+- [Minimizing SVG Strings to Avoid Hitting Power BI Memory Limits](<https://evaluationcontext.com/posts/minimizing-svg-strings/index.md>): Blog post
+- [Vertipaq Analyzer, Deep Dive](<https://evaluationcontext.com/posts/vertipaq-analyzer/index.md>): Blog post
+- [Monitoring for Power BI Admins](<https://evaluationcontext.com/posts/AdminMonitoring/index.md>): Blog post
+- [Fabric-cicd, Kicking the tyres](<https://evaluationcontext.com/posts/fabric-cicd/index.md>): Blog post
+- [From Wrist to Dashboard - Real-Time Dashboards in Fabric](<https://evaluationcontext.com/posts/RealTime-Intelligence/index.md>): Blog post
+- [One Pipeline to Rule Them All](<https://evaluationcontext.com/posts/one-pipeline/index.md>): Blog post
+- [Smarter Subgraphs - Kusto as a Engine For Power BI](<https://evaluationcontext.com/posts/KQLGraph/index.md>): Blog post
+- [Translytical Sudoku](<https://evaluationcontext.com/posts/sudoku/index.md>): Blog post
+- [Handling Multi-Row Inputs for Translytical Task Flows](<https://evaluationcontext.com/posts/translytical-rows/index.md>): Blog post
+- [Logging User Data Functions (UDFs) in Fabric](<https://evaluationcontext.com/posts/UDF-Logs/index.md>): Blog post
+- [DAX UDF Colour Library](<https://evaluationcontext.com/posts/udf-colours/index.md>): Blog post
+- [Contributing to DaxLib](<https://evaluationcontext.com/posts/DaxLibContribute/index.md>): Blog post
+- [DaxLib.SVG](<https://evaluationcontext.com/posts/DAXLibSVG-0-2-0/index.md>): Blog post
+- [Blogging in Numbers](<https://evaluationcontext.com/posts/blogging-numbers/index.md>): Blog post
+- [DAX UDF Library AutoDocs](<https://evaluationcontext.com/posts/DAXUDF-AutoDocs/index.md>): Blog post
+- [Calendar-Based Time Intelligence Is Out Of This World](<https://evaluationcontext.com/posts/CalendarTimeIntel/index.md>): Blog post
+- [Fabric Graphs](<https://evaluationcontext.com/posts/FabricGraph/index.md>): Blog post
+- [DaxLib.SVG Compound Function Performance](<https://evaluationcontext.com/posts/daxlibCompoundPerformance/index.md>): Blog post
+- [DAX Performance Tuner MCP Server](<https://evaluationcontext.com/posts/daxlibCompoundDAXPerformanceTuner/index.md>): Blog post
+- [DaxLib.SVG 0.2.3](<https://evaluationcontext.com/posts/DAXLibSVG-0-2-3/index.md>): Blog post
+- [Fabric-CICD Updates - Semantic Models, Parameters and Config](<https://evaluationcontext.com/posts/Fabric-cicd-0-1-33/index.md>): Blog post
+- [Fabric-CICD - It's Official](<https://evaluationcontext.com/posts/Fabric-cicd-0-2-0/index.md>): Blog post
+- [DaxLib.SVG 1.0.1](<https://evaluationcontext.com/posts/DAXLibSVG-1-0-1/index.md>): Blog post
+- [SVG Rendering Cost in Power BI](<https://evaluationcontext.com/posts/SVG-Render-Cost/index.md>): Blog post
+- [CICD for Fabric Data Teams](<https://evaluationcontext.com/posts/CICD-Fabric-Data-Teams/index.md>): Blog post
+- [Musings on Agentic Development in Fabric](<https://evaluationcontext.com/posts/Agentic-Dev-Musings/index.md>): Blog post
+- [Dynamic Data Masking in Power BI](<https://evaluationcontext.com/posts/data-masking/index.md>): Blog post
+- [Fabric App Documentation Site](<https://evaluationcontext.com/posts/rayfin-zensical/index.md>): Blog post
+- [DaxLib.SVG 2.0.0](<https://evaluationcontext.com/posts/DAXLib-SVG-2-0-0/index.md>): Blog post
+- [Lost Connections - How item references survive deployment in Microsoft Fabric](<https://evaluationcontext.com/posts/cicd-connections/index.md>): Blog post
+- [Fabric Deployment Plans - Swipe Left or Swipe Right](<https://evaluationcontext.com/posts/fabric-deployment-plans/index.md>): Blog post
+- [Fabric-CICD in Practice - Groundwork](<https://evaluationcontext.com/posts/fabric-cicd-first-deploy/index.md>): Blog post
+- [Fabric CICD - Two Different Worlds](<https://evaluationcontext.com/posts/fabric-cicd-two-worlds/index.md>): Blog post
+
+## Pages
+
+- [About](<https://evaluationcontext.com/about/index.md>): About the author
+- [Presentations](<https://evaluationcontext.com/presentations/index.md>): Talks and slides
+- [Projects](<https://evaluationcontext.com/projects/index.md>): Open-source projects

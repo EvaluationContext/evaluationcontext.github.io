@@ -24,9 +24,21 @@ body:has(.md-post--excerpt) label[for="__toc"] {
 
 /* LEFT SIDEBAR — Refined navigation */
 
+/* Tighter archive and category lists */
+.md-sidebar--primary .md-nav__list {
+  gap: 0;
+}
+
+.md-sidebar--primary .md-nav__item .md-nav__link {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+}
+
+
 /* Section headers */
 .md-sidebar--primary label.md-nav__title[for="__nav_1_2"],
-.md-sidebar--primary label.md-nav__title[for="__nav_1_3"] {
+.md-sidebar--primary label.md-nav__title[for="__nav_1_3"],
+.ec-facet-section > nav > label.md-nav__title {
   font-size: 0.72rem !important;
   font-family: var(--ec-font-body, var(--md-text-font-family)) !important;
   font-weight: 500 !important;
@@ -36,7 +48,8 @@ body:has(.md-post--excerpt) label[for="__toc"] {
 }
 
 .md-sidebar--primary label.md-nav__link[for="__nav_1_2"],
-.md-sidebar--primary label.md-nav__link[for="__nav_1_3"] {
+.md-sidebar--primary label.md-nav__link[for="__nav_1_3"],
+.ec-facet-section > label.md-nav__link {
   font-size: 0.65rem !important;
   font-family: var(--ec-font-body, var(--md-text-font-family)) !important;
   font-weight: 500 !important;
@@ -93,4 +106,58 @@ body:has(.md-post--excerpt) label[for="__toc"] {
 
 .md-sidebar--secondary .md-nav__link:hover {
   color: var(--ec-teal, var(--md-accent-fg-color)) !important;
+}
+
+
+/* Sidebar facets on the blog index */
+.md-nav__count {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 0 0.35rem;
+  border-radius: 9999px;
+  font-size: 0.55rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+  background: color-mix(in srgb, var(--md-default-fg-color) 7%, transparent);
+}
+
+.ec-facet.ec-tag-active,
+.ec-facet.ec-tag-active .md-nav__count {
+  color: var(--ec-teal) !important;
+  font-weight: 500 !important;
+}
+
+.ec-facet.ec-tag-active .md-nav__count {
+  background: var(--ec-teal-ghost);
+}
+
+.md-nav__item.ec-facet-empty > .ec-facet {
+  opacity: 0.4;
+}
+
+.ec-facet-section .md-nav__list {
+  gap: 0;
+}
+
+.ec-facet-section .md-nav__item .md-nav__link {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  background-image: none !important;
+}
+
+/* The facet lists are always open: hide the fold chevrons */
+.ec-facet-section .md-nav__icon {
+  display: none;
+}
+
+/* Facet headings: full contrast in both schemes */
+.ec-facet-section > label.md-nav__link,
+.ec-facet-section > nav > label.md-nav__title {
+  color: var(--md-default-fg-color) !important;
+}
+
+[data-md-color-scheme="slate"] .ec-facet-section > label.md-nav__link,
+[data-md-color-scheme="slate"] .ec-facet-section > nav > label.md-nav__title {
+  color: #ffffff !important;
 }

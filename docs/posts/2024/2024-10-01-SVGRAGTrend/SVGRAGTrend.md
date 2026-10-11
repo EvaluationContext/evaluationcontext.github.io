@@ -1,7 +1,7 @@
 ---
 title: Further Adventures in SVGs
 description: Creating a Trend SVG Visual in Power BI
-image: /assets/images/blog/2024/2024-10-01-SVGRAGTrend/SVGTrendSmall.png
+image: SVGTrendSmall.png
 date:
   created: 2024-10-01
   updated: 2025-10-19
@@ -9,13 +9,17 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - DAX
 links:
-  - SVG Dumbbell Chart in Power BI: https://evaluationcontext.github.io/posts/SVG-RAG-Dumbell/
+  - SVG Dumbbell Chart in Power BI: https://evaluationcontext.com/posts/SVG-RAG-Dumbell/
 slug: posts/SVG-RAG-Trend
 ---
 
-In a previous post I created a [SVG Barbell visual](https://evaluationcontext.github.io/posts/SVG-RAG-Dumbell/). 
+In a previous post I created a [SVG Barbell visual](https://evaluationcontext.com/posts/SVG-RAG-Dumbell/). 
 
 While this was a good start I wanted to expand upon this concept by adding an extra dimension of time to see trends.
 

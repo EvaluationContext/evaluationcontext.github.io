@@ -1,20 +1,24 @@
 ---
 title: SVG Rendering Cost in Power BI
 description: Investigation the factors that affect SVG rendering performance in Power BI
-image: /assets/images/blog/2026/2026-04-28-SVG-Render-Cost/test-elements.gif
+image: test-elements.gif
 date:
   created: 2026-04-28
 authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - Performance
 slug: posts/SVG-Render-Cost
 ---
 
 I recently attended [Chris Webb's](https://www.linkedin.com/in/chriswebb6/) SQLBits session, `Secrets of Power BI Performance Analyzer`. The talk focused on report page processing, from query generation to the final rendering of visuals. Depending on the visual, the process can also include extras like [geocoding](https://blog.crossjoin.co.uk/2026/01/11/measuring-geocoding-performance-in-power-bi-map-visuals-using-performance-analyzer/) and [image loading](https://blog.crossjoin.co.uk/2026/01/18/measuring-time-to-display-for-image-visuals-in-power-bi-with-performance-analyzer/).
 
-After my DAXLib session, we briefly chatted about the render performance for SVGs and I realized for my [DaxLib.SVG](https://daxlib.org/package/DaxLib.SVG/) library, my primary focus has been on optimizing the [DAX performance](https://evaluationcontext.github.io/posts/daxlibCompoundPerformance/) but I've not thought about cost of actually rendering the images. So to beat Chris to the punch with his unstoppable weekly blogging cadence I raced to see what I could discover.
+After my DAXLib session, we briefly chatted about the render performance for SVGs and I realized for my [DaxLib.SVG](https://daxlib.org/package/DaxLib.SVG/) library, my primary focus has been on optimizing the [DAX performance](https://evaluationcontext.com/posts/daxlibCompoundPerformance/) but I've not thought about cost of actually rendering the images. So to beat Chris to the punch with his unstoppable weekly blogging cadence I raced to see what I could discover.
 
 ## Test Subjects
 

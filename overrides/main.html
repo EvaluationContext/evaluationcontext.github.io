@@ -1,27 +1,39 @@
 {% extends "base.html" %}
+{%- macro hero_src(obj, image) -%}
+  {%- if image is startingwith "/" or image is startingwith "http" -%}
+    {{ image }}
+  {%- else -%}
+    {{ ((obj.edit_url | split("/docs/posts/"))[1] | split("/"))[0:2] | join("/") }}/{{ image }}
+  {%- endif -%}
+{%- endmacro -%}
 
 {% block extrahead %}
   <!-- Cache Control -->
   <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate" />
   <meta http-equiv="Expires" content="0" />
-  
-  <!-- Google Fonts preconnect -->
+
+  <!-- extra.css still imports Space Grotesk from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  {# Safely extract meta values using .get() #}
+  {# MiniJinja: no Python methods, so use attribute access and filters #}
   {% set meta = page.meta if page and page.meta else {} %}
-  {% set og_image_raw = meta.get('image', none) %}
-  {% set og_desc = meta.get('description', config.site_description) %}
+  {% set is_post = page.config and page.config.date %}
+  {% set og_desc = meta.description | default(config.site_description, true) %}
 
+  {# image may be a string or a {path, alt} mapping #}
+  {% set og_image_raw = none %}
+  {% if meta.image %}
+    {% set og_image_raw = meta.image.path if meta.image is mapping else meta.image %}
+  {% endif %}
   {% set og_image_url = none %}
   {% if og_image_raw %}
-    {% set og_image_url = config.site_url ~ og_image_raw.lstrip('/') %}
+    {% set og_image_raw = hero_src(page, og_image_raw) | trim %}
+    {% set og_image_url = config.site_url ~ (og_image_raw | trim('/')) %}
     <link rel="preload" as="image" href="{{ og_image_raw | url }}">
   {% endif %}
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="{{ 'article' if is_post else 'website' }}" />
   <meta property="og:url" content="{{ page.canonical_url }}" />
   <meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}" />
   <meta property="og:description" content="{{ og_desc }}" />
@@ -36,7 +48,7 @@
   <meta property="og:image:width" content="512" />
   <meta property="og:image:height" content="512" />
   {% endif %}
-  
+
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}" />
@@ -45,5 +57,14 @@
   <meta name="twitter:image" content="{{ og_image_url }}" />
   {% else %}
   <meta name="twitter:image" content="{{ config.site_url }}assets/images/avatar.png" />
+  {% endif %}
+
+  {% if is_post %}
+  <!-- Article meta -->
+  <meta property="article:author" content="{{ config.site_author }}" />
+  <meta property="article:published_time" content="{{ page.config.date.created }}" />
+  {% for category in page.categories %}
+  <meta property="article:tag" content="{{ category.title }}" />
+  {% endfor %}
   {% endif %}
 {% endblock %}

@@ -1,7 +1,7 @@
 ---
 title: Translytical Sudoku
 description: Sudoku in Power BI using Translytical Task Flows
-image: assets/images/blog/2025/2025-07-10-Sudoku/Sudoku.gif
+image: Sudoku.gif
 date:
   created: 2025-07-10
   updated: 2025-10-19
@@ -9,7 +9,11 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - Translytical Task Flow
+  - Fabric
+tags:
+  - Power BI
+  - Translytical Task Flows
+  - User Data Functions
 slug: posts/sudoku
 ---
 

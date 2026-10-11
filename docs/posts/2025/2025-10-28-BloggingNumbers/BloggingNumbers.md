@@ -9,6 +9,8 @@ authors:
 comments: true
 categories:
  - Blogging
+tags:
+  - Blogging
 slug: posts/blogging-numbers
 readtime: 5
 ---

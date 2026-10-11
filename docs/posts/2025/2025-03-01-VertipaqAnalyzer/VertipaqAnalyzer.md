@@ -1,7 +1,7 @@
 ---
 title: Vertipaq Analyzer, Deep Dive
 description: Exploring how Semantic Link Labs and SQLBI's Vertipaq Analyzers work
-image: /assets/images/blog/2025/2025-03-01-VertipaqAnalyzer/VertipaqAnalyzer.svg
+image: VertipaqAnalyzer.svg
 date:
   created: 2025-03-01
   updated: 2025-10-19
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - SSAS Tabular
+  - Modelling
+tags:
+  - Power BI
+  - Semantic Model
+  - Semantic Link
+  - Performance
 slug: posts/vertipaq-analyzer
 ---
 

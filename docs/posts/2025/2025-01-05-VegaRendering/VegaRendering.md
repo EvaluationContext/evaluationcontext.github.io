@@ -1,7 +1,7 @@
 ---
 title: Vega Embed
 description: Installing and using Vega Embed on my Blog
-image: /assets/images/blog/2025/2025-01-05-VegaRendering/VegaEmbed.png
+image: VegaEmbed.png
 date:
   created: 2025-01-05
   updated: 2025-10-19
@@ -9,7 +9,10 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Blogging
+tags:
   - Vega
+  - Blogging
 slug: posts/vega-rendering
 ---
  

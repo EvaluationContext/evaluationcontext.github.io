@@ -1,7 +1,7 @@
 ---
 title: DaxLib.SVG
 description: DaxLib.SVG v0.2.0-beta release
-image: /assets/images/blog/2025/2025-10-24-DaxLib-SVG-0-2-0/UDFInAction.png
+image: UDFInAction.png
 date:
   created: 2025-10-24
   updated: 2025-10-25
@@ -9,7 +9,11 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - DAX Lib
+  - DAX
+tags:
+  - DAX
+  - DaxLib
+  - SVG
 links:
   - daxlib.svg Package: https://daxlib.org/package/DaxLib.SVG
   - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/
@@ -521,7 +525,7 @@ Defs functions allow you to define reusable SVG elements that can be referenced 
 
 ??? tip "SVG Performance"
 
-    Using Defs can reduce the string length of the SVG reducing the chance of hitting memory errors in Power BI [Minimizing SVG Strings to Avoid Hitting Power BI Memory Limits](https://evaluationcontext.github.io/posts/minimizing-svg-strings/)
+    Using Defs can reduce the string length of the SVG reducing the chance of hitting memory errors in Power BI [Minimizing SVG Strings to Avoid Hitting Power BI Memory Limits](https://evaluationcontext.com/posts/minimizing-svg-strings/)
 
 === "ClipPath"
 

@@ -1,7 +1,7 @@
 ---
 title: Minimizing SVG Strings to Avoid Hitting Power BI Memory Limits
 description: Minimizing SVG Strings to Avoid Hitting Power BI Memory Limits
-image: /assets/images/blog/2025/2025-02-19-MinimizingSvgStrings/Error.png
+image: Error.png
 date:
   created: 2025-02-19
   updated: 2025-10-19
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - DAX
+  - Performance
 slug: posts/minimizing-svg-strings
 ---
 

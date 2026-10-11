@@ -1,7 +1,7 @@
 ---
 title: Solving the Islands Problem in DAX
 description: Solving the Island problem in DAX, to return a list of continuous Dates
-image: /assets/images/blog/2024/2024-05-09-IslandsAndGaps/Solution2.png
+image: Solution2.png
 date:
   created: 2024-05-09
   updated: 2025-10-19
@@ -9,6 +9,8 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - DAX
+tags:
   - DAX
 slug: posts/IslandsAndGaps
 ---

@@ -1,7 +1,7 @@
 ---
 title: TOPN vs INDEX
 description: Rewriting a DAX query that uses TOPN with INDEX to investigate ease of use and performance characteristics
-image: /assets/images/blog/2024/2024-05-01-WindowFunction/Hero.jpg
+image: Hero.jpg
 date:
   created: 2024-05-01
   updated: 2025-10-19
@@ -10,12 +10,15 @@ authors:
 comments: true
 categories:
   - DAX
+tags:
+  - DAX
+  - Performance
 links:
-    "DAX : Count number of last known state": https://dax.tips/2021/05/17/dax-count-number-of-last-known-state/
+  - "DAX : Count number of last known state": https://dax.tips/2021/05/17/dax-count-number-of-last-known-state/
 slug: posts/Window-Function
 ---
 
-Now I have [DAX Syntax Highlighting](https://evaluationcontext.github.io/posts/Syntax-Highlight-DAX/) working on my blog I wanted to revisit some exploration I did with window function when they first came out. This was based on some DAX written by [Phil Seamark](https://www.linkedin.com/in/seamark/) that [Counts numbers of last known state](https://dax.tips/2021/05/17/dax-count-number-of-last-known-state/). The measure counts, for each day, the most recent State for each TestID.
+Now I have [DAX Syntax Highlighting](https://evaluationcontext.com/posts/Syntax-Highlight-DAX/) working on my blog I wanted to revisit some exploration I did with window function when they first came out. This was based on some DAX written by [Phil Seamark](https://www.linkedin.com/in/seamark/) that [Counts numbers of last known state](https://dax.tips/2021/05/17/dax-count-number-of-last-known-state/). The measure counts, for each day, the most recent State for each TestID.
 
 ## Semantic Model
 

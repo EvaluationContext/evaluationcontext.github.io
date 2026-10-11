@@ -3,7 +3,6 @@ icon: material/presentation
 hide:
   - navigation
   - toc
-  - title
 ---
 
 # Presentations { .ec-profile__name }
@@ -19,6 +18,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### DAXLib: Zero to Community Hero { .ec-tl-entry__title }
 
@@ -39,10 +39,12 @@ hide:
 </div>
 </div>
 </div>
+</div>
 
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### [DAX] Lib - From Zero to Community Hero (with Jake Duddy) { .ec-tl-entry__title }
 
@@ -58,7 +60,13 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=6W25fR70lAk&t){ .ec-badge .ec-badge--video }
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=6W25fR70lAk){ .ec-badge .ec-badge--video target=_blank rel=noopener }
+
+</div>
+</div>
+<div class="ec-tl-entry__thumb" markdown>
+
+[![Watch on YouTube](https://i.ytimg.com/vi/6W25fR70lAk/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=6W25fR70lAk){ target=_blank rel=noopener }
 
 </div>
 </div>
@@ -67,6 +75,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Power Hour { .ec-tl-entry__title }
 
@@ -87,10 +96,12 @@ hide:
 </div>
 </div>
 </div>
+</div>
 
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### DaxLib.SVG { .ec-tl-entry__title }
 
@@ -111,10 +122,12 @@ hide:
 </div>
 </div>
 </div>
+</div>
 
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Graphs in Power BI { .ec-tl-entry__title }
 
@@ -135,10 +148,12 @@ hide:
 </div>
 </div>
 </div>
+</div>
 
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Extending DAX with User-Defined Functions (UDFs) { .ec-tl-entry__title }
 
@@ -159,6 +174,7 @@ hide:
 </div>
 </div>
 </div>
+</div>
 
 <!-- ── 2025 ── -->
 <div class="ec-timeline__year">
@@ -169,6 +185,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### SVGs in Power BI { .ec-tl-entry__title }
 
@@ -184,8 +201,14 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=Y9FUHd5NZoQ&t=2s){ .ec-badge .ec-badge--video }
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=Y9FUHd5NZoQ){ .ec-badge .ec-badge--video target=_blank rel=noopener }
 [:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-11-Devon){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+<div class="ec-tl-entry__thumb" markdown>
+
+[![Watch on YouTube](https://i.ytimg.com/vi/Y9FUHd5NZoQ/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=Y9FUHd5NZoQ){ target=_blank rel=noopener }
 
 </div>
 </div>
@@ -194,6 +217,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Fabric Fridays 102 — Fabric DAX LIB { .ec-tl-entry__title }
 
@@ -209,7 +233,13 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=eDuTGJMr6HY){ .ec-badge .ec-badge--video }
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=eDuTGJMr6HY){ .ec-badge .ec-badge--video target=_blank rel=noopener }
+
+</div>
+</div>
+<div class="ec-tl-entry__thumb" markdown>
+
+[![Watch on YouTube](https://i.ytimg.com/vi/eDuTGJMr6HY/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=eDuTGJMr6HY){ target=_blank rel=noopener }
 
 </div>
 </div>
@@ -218,6 +248,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Playing With Translytical Task Flows { .ec-tl-entry__title }
 
@@ -233,8 +264,14 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=e6MAaeVsgQU){ .ec-badge .ec-badge--video }
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=e6MAaeVsgQU){ .ec-badge .ec-badge--video target=_blank rel=noopener }
 [:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-09-Devon){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+<div class="ec-tl-entry__thumb" markdown>
+
+[![Watch on YouTube](https://i.ytimg.com/vi/e6MAaeVsgQU/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=e6MAaeVsgQU){ target=_blank rel=noopener }
 
 </div>
 </div>
@@ -243,6 +280,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Visualize Your Connections: A Practical Guide to Power BI Graphs { .ec-tl-entry__title }
 
@@ -258,8 +296,14 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=N9x9J00lyA0){ .ec-badge .ec-badge--video }
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=N9x9J00lyA0){ .ec-badge .ec-badge--video target=_blank rel=noopener }
 [:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-08-Manchester){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+<div class="ec-tl-entry__thumb" markdown>
+
+[![Watch on YouTube](https://i.ytimg.com/vi/N9x9J00lyA0/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=N9x9J00lyA0){ target=_blank rel=noopener }
 
 </div>
 </div>
@@ -268,6 +312,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Unlocking New Possibilities: Enhancing Power BI with SVGs { .ec-tl-entry__title }
 
@@ -283,8 +328,14 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=J--GG-r9-8o){ .ec-badge .ec-badge--video }
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=J--GG-r9-8o){ .ec-badge .ec-badge--video target=_blank rel=noopener }
 [:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Birmingham){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+<div class="ec-tl-entry__thumb" markdown>
+
+[![Watch on YouTube](https://i.ytimg.com/vi/J--GG-r9-8o/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=J--GG-r9-8o){ target=_blank rel=noopener }
 
 </div>
 </div>
@@ -293,6 +344,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Visualize Your Connections: A Practical Guide to Power BI Graphs { .ec-tl-entry__title }
 
@@ -313,10 +365,12 @@ hide:
 </div>
 </div>
 </div>
+</div>
 
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Power Hour { .ec-tl-entry__title }
 
@@ -337,6 +391,7 @@ hide:
 </div>
 </div>
 </div>
+</div>
 
 <!-- ── 2024 ── -->
 <div class="ec-timeline__year">
@@ -347,6 +402,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### PBIP and Fabric API Deployment { .ec-tl-entry__title }
 
@@ -362,8 +418,14 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=ue_qeFZwMW8){ .ec-badge .ec-badge--video }
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=ue_qeFZwMW8){ .ec-badge .ec-badge--video target=_blank rel=noopener }
 [:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-08-Birmingham){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+<div class="ec-tl-entry__thumb" markdown>
+
+[![Watch on YouTube](https://i.ytimg.com/vi/ue_qeFZwMW8/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=ue_qeFZwMW8){ target=_blank rel=noopener }
 
 </div>
 </div>
@@ -372,6 +434,7 @@ hide:
 <div class="ec-tl-entry" markdown>
 <div class="ec-tl-entry__node"></div>
 <div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
 
 ### Git Branching Strategies and Power BI { .ec-tl-entry__title }
 
@@ -387,8 +450,14 @@ hide:
 
 <div class="ec-tl-entry__badges" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=tDkcrC7u0hU){ .ec-badge .ec-badge--video }
+[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=tDkcrC7u0hU){ .ec-badge .ec-badge--video target=_blank rel=noopener }
 [:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-07-Devon){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+<div class="ec-tl-entry__thumb" markdown>
+
+[![Watch on YouTube](https://i.ytimg.com/vi/tDkcrC7u0hU/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=tDkcrC7u0hU){ target=_blank rel=noopener }
 
 </div>
 </div>

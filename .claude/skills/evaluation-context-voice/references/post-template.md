@@ -1,6 +1,6 @@
-# Post template and mkdocs-material conventions
+# Post template and Zensical conventions
 
-The blog is Material for MkDocs with the blog plugin. Posts live at `docs/posts/<YYYY>/<YYYY-MM-DD-ShortName>/<ShortName>.md` with images in the same folder, referenced relatively (`![Alt](image.png)`). The hero image in front matter uses the absolute path under `/assets/images/blog/...`.
+The blog is built with Zensical (the successor to Material for MkDocs) using its built-in blog, configured in `zensical.toml`. Posts live at `docs/posts/<YYYY>/<YYYY-MM-DD-ShortName>/<ShortName>.md` with images in the same folder, referenced relatively (`![Alt](image.png)`). The hero image lives in the same folder and `image:` is just its filename (`hero.png`); the templates resolve it.
 
 ## Front matter
 
@@ -10,14 +10,18 @@ Copy this block and fill it in. Field order matters only for consistency.
 ---
 title: Short Noun Phrase In Title Case
 description: One line, no full stop, says what the post does
-image: /assets/images/blog/2025/2025-02-19-ShortName/hero.png
+image: hero.png
 date:
   created: 2025-02-19
 authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - DAX
 links:
   - Title of related post: https://evaluationcontext.com/posts/related-slug/
 slug: posts/short-name
@@ -27,8 +31,9 @@ slug: posts/short-name
 Notes:
 
 - `description` is a plain noun phrase: "Using DAX to create a SVG Dumbbell chart in Power BI", "Optimizing the SVG Heatmap using the Sparkline measure pattern". It often mirrors the title. No colons, no marketing.
-- One category per post. Existing categories: SVG, DAX, DAX Lib, CICD, SSAS Tabular, Data Modelling, Administration, Graphs, Deneb, Vega, Lakehouse, PBIP, VS Code, Real-Time Intelligence, Translytical Task Flow, Logging, Fabric App, AI, Blogging, Syntax Highlighting. Reuse before inventing.
-- `links` is optional. Use it for the previous post in a series or the docs and package pages a post depends on.
+- One category per post, from the eight broad ones: CI/CD, DAX, Visuals, Modelling, Fabric, Administration, Tooling, Blogging. Categories are navigation; tags carry the detail (Deneb, KQL, DaxLib and so on). Do not invent a category.
+- `tags` are search filters, two to five per post from the existing set: Power BI, Microsoft Fabric, DAX, SVG, Vega, Deneb, DaxLib, CI/CD, fabric-cicd, Deployment Pipelines, Azure DevOps, Git, Python, KQL, Semantic Model, Data Modelling, Incremental Refresh, Semantic Link, Performance, Administration, Security, Graphs, Lakehouse, Real-Time Intelligence, Translytical Task Flows, User Data Functions, Logging, VS Code, AI, Zensical, Blogging, PBIP, Fabric App, Syntax Highlighting. Reuse before inventing.
+- `links` is optional. Use it for the previous post in a series or the docs and package pages a post depends on. Each entry must be a list item (`- Title: url`); Zensical rejects a bare mapping under `links`.
 - `date.updated` is added later when a post is revised; do not add it on first publish.
 
 ## Body skeleton
@@ -141,7 +146,7 @@ Material icons are available anywhere in the body and are fine as bullet prefixe
 [:material-package-variant: Package](https://...){ .md-button }
 ```
 
-Icon names come from the Material for MkDocs icon search (`material/`, `octicons/`, `fontawesome/`, `simple/`).
+Icon names come from the Zensical icon search (`material/`, `octicons/`, `fontawesome/`, `simple/`, `lucide/`).
 
 ### Rendered Vega
 

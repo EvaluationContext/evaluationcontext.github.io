@@ -1,7 +1,7 @@
 ---
 title: Who Actually Has Access To What In Power BI?
 description: Using Power BI Scanner and GraphFrames to figure out who can access what in Power BI tenant
-image: /assets/images/blog/2025/2025-01-20-Graphframes/graphdb.png
+image: graphdb.png
 date:
   created: 2025-01-20
   updated: 2025-10-19
@@ -10,6 +10,11 @@ authors:
 comments: true
 categories:
   - Administration
+tags:
+  - Power BI
+  - Administration
+  - Graphs
+  - Python
 slug: posts/graphframes
 ---
  

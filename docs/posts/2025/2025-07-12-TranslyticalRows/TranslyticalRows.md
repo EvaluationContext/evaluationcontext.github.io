@@ -1,7 +1,7 @@
 ---
 title: Handling Multi-Row Inputs for Translytical Task Flows
 description: Using DAX's TOJSON() function to pass multiple selected rows to UDFs when using Translytical Task Flows
-image: /assets/images/blog/2025/2025-07-12-TranslyticalRows/Solution.gif
+image: Solution.gif
 date:
   created: 2025-07-12
   updated: 2025-10-19
@@ -9,11 +9,16 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - Translytical Task Flow
+  - Fabric
+tags:
+  - Power BI
+  - Translytical Task Flows
+  - User Data Functions
+  - DAX
 slug: posts/translytical-rows
 ---
 
-In a previous post I explored using [Translytical Task Flows](https://learn.microsoft.com/en-us/power-bi/create-reports/translytical-task-flow-overview) to create [Sudoku in Power BI](https://evaluationcontext.github.io/posts/sudoku/). One potential improvement I mentioned was the ability for players to enter "pencil marks" into multiple cells simultaneously. This seemingly simple enhancement presents a technical challenge: how do we pass multiple row selections into a User-Defined Function (UDF) at the same time?
+In a previous post I explored using [Translytical Task Flows](https://learn.microsoft.com/en-us/power-bi/create-reports/translytical-task-flow-overview) to create [Sudoku in Power BI](https://evaluationcontext.com/posts/sudoku/). One potential improvement I mentioned was the ability for players to enter "pencil marks" into multiple cells simultaneously. This seemingly simple enhancement presents a technical challenge: how do we pass multiple row selections into a User-Defined Function (UDF) at the same time?
 
 This post dives into the solution, demonstrating how to leverage the seldomly used DAX function, `#!dax TOJSON()`, to achieve this multi-row input capability.
 
@@ -27,7 +32,7 @@ Before we delve into the solution, let's briefly revisit the basics of Translyti
 
     At their core, they allow buttons within your Power BI reports to trigger [Fabric User Data Functions (UDF)](https://learn.microsoft.com/en-us/fabric/data-engineering/user-data-functions/user-data-functions-overview). UDFs are python function that can perform an action such as initiate changes in a Fabric SQL database. Within the button definition you [map](https://learn.microsoft.com/en-us/power-bi/create-reports/translytical-task-flow-button#configure-inputs-for-function-parameters) a button, list, or text slicer; a data field; or measures from the report to the input parameters of the UDF.
     
-    -- <cite>[Evaluation Context - Translytical Sudoku](https://evaluationcontext.github.io/posts/sudoku/)</cite>
+    -- <cite>[Evaluation Context - Translytical Sudoku](https://evaluationcontext.com/posts/sudoku/)</cite>
 
 ## The Challenge: Handling Multiple Selections
 

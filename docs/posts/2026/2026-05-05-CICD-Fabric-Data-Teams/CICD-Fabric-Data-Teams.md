@@ -1,14 +1,17 @@
 ---
 title: CICD for Fabric Data Teams
 description: Bring software engineering rigor to modern data teams using Microsoft Fabric
-image: /assets/images/blog/2026/2026-05-05-CICD-Fabric-Data-Teams/hero.png
+image: hero.png
 date:
   created: 2026-05-05
 authors:
   - jDuddy
 comments: true
 categories:
-  - CICD
+  - CI/CD
+tags:
+  - Microsoft Fabric
+  - CI/CD
 slug: posts/CICD-Fabric-Data-Teams
 ---
 

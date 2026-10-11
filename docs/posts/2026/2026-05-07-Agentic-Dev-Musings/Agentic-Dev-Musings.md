@@ -1,13 +1,16 @@
 ---
 title: Musings on Agentic Development in Fabric
 description: Reflections from an agentic development project
-image: /assets/images/blog/2026/2026-05-07-Agentic-Dev-Musings/copilot.png
+image: copilot.png
 date:
   created: 2026-05-07
 authors:
   - jDuddy
 comments: true
 categories:
+  - Fabric
+tags:
+  - Microsoft Fabric
   - AI
 slug: posts/Agentic-Dev-Musings
 ---

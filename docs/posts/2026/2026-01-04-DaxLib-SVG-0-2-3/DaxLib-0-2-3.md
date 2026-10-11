@@ -1,14 +1,18 @@
 ---
 title: DaxLib.SVG 0.2.3
 description: DaxLib.SVG v0.2.3-beta release
-image: /assets/images/blog/2026/2026-01-04-DaxLib-SVG-0-2-3/OldVsNew.png
+image: OldVsNew.png
 date:
   created: 2026-01-04
 authors:
   - jDuddy
 comments: true
 categories:
-  - DAX Lib
+  - DAX
+tags:
+  - DAX
+  - DaxLib
+  - SVG
 links:
   - daxlib.svg Package: https://daxlib.org/package/DaxLib.SVG
   - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/
@@ -27,7 +31,7 @@ Some performance improvements have been made to `DaxLib.SVG.Compound.*`
 - Reduced data cache materialization
 - Moved duplicate calculations out of iterators
 
-To validate improvements using the [DAX Performance Testing](https://github.com/microsoft/fabric-toolbox/tree/main/tools/DAXPerformanceTesting) notebook from the Fabric Toolbox, using the methodology detailed in a previous [post](https://evaluationcontext.github.io/posts/daxlibCompoundPerformance/).
+To validate improvements using the [DAX Performance Testing](https://github.com/microsoft/fabric-toolbox/tree/main/tools/DAXPerformanceTesting) notebook from the Fabric Toolbox, using the methodology detailed in a previous [post](https://evaluationcontext.com/posts/daxlibCompoundPerformance/).
 
 - Tested using [Contoso 1 Million Row Dataset](https://github.com/sql-bi/Contoso-Data-Generator-V2-data/releases/tag/ready-to-use-data)
 - Functions tested in Table and Card context

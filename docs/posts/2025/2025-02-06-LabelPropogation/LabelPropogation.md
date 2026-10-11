@@ -1,7 +1,7 @@
 ---
 title: Label Propagation To Identify End User Persona?
 description: Using Label Propagation to attempt to obtain cluster of users that can used to define personas, to simplify granting of permissions
-image: /assets/images/blog/2025/2025-02-06-LabelPropogation/GraphAll.png
+image: GraphAll.png
 date:
   created: 2025-02-06
   updated: 2025-10-19
@@ -9,17 +9,22 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Administration
+tags:
+  - Power BI
+  - Administration
   - Graphs
+  - Python
 links:
-  - Who Actually Has Access To What In Power BI?: https://evaluationcontext.github.io/posts/graphframes/
+  - Who Actually Has Access To What In Power BI?: https://evaluationcontext.com/posts/graphframes/
 slug: posts/label-propogation
 ---
 
 Lets start with a quick recap, from the last few blog post. 
 
-- [Visualizing Power BI Permission Inheritance](https://evaluationcontext.github.io/posts/deneb-force-directed/) 
+- [Visualizing Power BI Permission Inheritance](https://evaluationcontext.com/posts/deneb-force-directed/) 
   - I pulled data from [Power BI Scanner APIs](https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview) and [Graph APIs](https://learn.microsoft.com/en-us/graph/overview?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) and used [GraphFrames](https://graphframes.github.io/graphframes/docs/_site/index.html) and [Pregel](https://graphframes.github.io/graphframes/docs/_site/api/python/graphframes.lib.html) to disseminate Access Roles from Workspaces, Reports and Semantic Models directly granted to AAD groups, to all downstream members.
--  [Visualizing Power BI Permission Inheritance](https://evaluationcontext.github.io/posts/deneb-force-directed/):
+-  [Visualizing Power BI Permission Inheritance](https://evaluationcontext.com/posts/deneb-force-directed/):
    - I used this data and [Deneb](https://deneb-viz.github.io/) to draw a Force Directed Graph. 
 
 At the end of the first post I mentioned [Label Propagation](https://graphframes.github.io/graphframes/docs/_site/user-guide.html#label-propagation-algorithm-lpa) as a potential method to group users into communities that represent personas of report consumers. So lets give that a try.
@@ -46,7 +51,7 @@ In this test I want to only consider users that access Power BI Apps, that means
 
 !!! info 
 
-    The code below uses functions and modules defined in [previous post](https://evaluationcontext.github.io/posts/graphframes/)
+    The code below uses functions and modules defined in [previous post](https://evaluationcontext.com/posts/graphframes/)
     I started by working with 10 iterations but ramped up to 100 to allow time for convergence to a static state
 
 

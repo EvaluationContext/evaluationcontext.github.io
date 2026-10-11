@@ -1,7 +1,7 @@
 ---
 title: Considering Cardinality of Column Combinations in Junk Dimension Design
 description: Evaluating the design of Junk Dimension via calculating the Cardinality of Column Combinations
-image: /assets/images/blog/2024/2024-04-27-TrashCompactor/heatplot.jpg
+image: heatplot.jpg
 date:
   created: 2024-04-27
   updated: 2025-10-19
@@ -9,7 +9,11 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Modelling
+tags:
+  - Power BI
   - Data Modelling
+  - DAX
 slug: posts/Trash-Compactor
 ---
 

@@ -1,0 +1,16 @@
+{#-
+  Tag chips on pages link to the blog index filtered by that tag
+  (the filter is applied client-side from the URL hash).
+-#}
+{% if page.meta and page.meta.hide %}
+  {% set hidden = "hidden" if "tags" in page.meta.hide %}
+{% endif %}
+{% if tags %}
+  <nav class="md-tags" {{ hidden }}>
+    {% for tag in tags %}
+      <a href="{{ base_url }}/#tags={{ tag.name | lower | replace(' ', '-') | replace('/', '') }}" class="md-tag" data-tag="{{ tag.name }}">
+        {{- tag.name -}}
+      </a>
+    {% endfor %}
+  </nav>
+{% endif %}

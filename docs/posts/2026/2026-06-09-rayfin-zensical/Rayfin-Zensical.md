@@ -1,13 +1,17 @@
 ---
 title: Fabric App Documentation Site
 description: Building a documentation site with a static site generator (Zensical), served as a Fabric App via Rayfin
-image: /assets/images/blog/2026/2026-06-09-rayfin-zensical/hero.gif
+image: hero.gif
 date:
   created: 2026-06-09
 authors:
   - jDuddy
 comments: true
 categories:
+  - Fabric
+tags:
+  - Microsoft Fabric
+  - Zensical
   - Fabric App
 slug: posts/rayfin-zensical
 ---

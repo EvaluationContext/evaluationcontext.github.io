@@ -1,14 +1,20 @@
 ---
 title: DAX Performance Tuner MCP Server
 description: Using the DAX Performance Tuner MCP Server to improve the performance of the Daxlib.SVG.Compound.Violin() function
-image: /assets/images/blog/2025/2025-12-29-daxlib-svg-performance-mcp/hero.jpg
+image: hero.jpg
 date:
   created: 2025-12-29
 authors:
   - jDuddy
 comments: true
 categories:
-  - DAX Lib
+  - DAX
+tags:
+  - DAX
+  - DaxLib
+  - SVG
+  - Performance
+  - AI
 slug: posts/daxlibCompoundDAXPerformanceTuner
 links:
   - daxlib.svg: https://daxlib.org/package/DaxLib.SVG/
@@ -17,7 +23,7 @@ links:
   - Fabric Toolbox: https://github.com/microsoft/fabric-toolbox/tree/main/tools/DAXPerformanceTunerMCPServer
 ---
 
-In my last [post](https://evaluationcontext.github.io/posts/daxlibCompoundPerformance/) I benchmarked the performance of the [daxlib.svg](https://daxlib.org/package/DaxLib.SVG/) compound functions. In this post I used DAXNoob's (aka [Justin Martin](https://www.linkedin.com/in/daxnoobjustin/)) [MCP Server: DAX Performance Tuner](https://daxnoob.blog/2025/10/21/mcp-server-dax-performance-tuner/) to see whether it could improve the performance of the library.
+In my last [post](https://evaluationcontext.com/posts/daxlibCompoundPerformance/) I benchmarked the performance of the [daxlib.svg](https://daxlib.org/package/DaxLib.SVG/) compound functions. In this post I used DAXNoob's (aka [Justin Martin](https://www.linkedin.com/in/daxnoobjustin/)) [MCP Server: DAX Performance Tuner](https://daxnoob.blog/2025/10/21/mcp-server-dax-performance-tuner/) to see whether it could improve the performance of the library.
 
 I decided to attempt to optimize the `Daxlib.SVG.Compound.Violin()` function, since this was one of the most expensive functions from the benchmarking.
 
@@ -876,7 +882,7 @@ I started with a visual review to make sure the violin plots rendered correctly.
 
 ### DAX Performance Testing
 
-To test the performance changes between these versions, I re-ran the [DAX Performance Testing](https://github.com/microsoft/fabric-toolbox/tree/main/tools/DAXPerformanceTesting) notebook from my previous [post](https://evaluationcontext.github.io/posts/daxlibCompoundPerformance/). I created a UDF per LLM version (excluding Gemini), and created Date and YearMonth measures. I tested all measures in both card and table contexts. I specified 5 runs per query, per cache type (hot/warm).
+To test the performance changes between these versions, I re-ran the [DAX Performance Testing](https://github.com/microsoft/fabric-toolbox/tree/main/tools/DAXPerformanceTesting) notebook from my previous [post](https://evaluationcontext.com/posts/daxlibCompoundPerformance/). I created a UDF per LLM version (excluding Gemini), and created Date and YearMonth measures. I tested all measures in both card and table contexts. I specified 5 runs per query, per cache type (hot/warm).
 
 We can see that the Original and Claude variants are very similar. The ChatGPT variant has similar or better performance in all permutations.
 

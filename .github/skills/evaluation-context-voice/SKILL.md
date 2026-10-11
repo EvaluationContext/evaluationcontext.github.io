@@ -14,7 +14,7 @@ The blog is written by a BI developer describing what he built. The reader is a 
 Triggered by "start a post on...", "scaffold", "outline", "set up a post", "new post about...", or a topic plus notes or code.
 
 1. Collect what exists: topic, notes, code, screenshots, related previous posts, people to credit, the category. Ask for anything missing that the template needs (at minimum a working title and the category). Do not ask for the story; that is what the author will write.
-2. Read `references/post-template.md` for the front matter block, folder layout and mkdocs-material features.
+2. Read `references/post-template.md` for the front matter block, folder layout and Zensical features.
 3. Create the post folder and file under `docs/posts/<YYYY>/<YYYY-MM-DD-ShortName>/<ShortName>.md`.
 4. Write the front matter in full.
 5. Write the headings for the shape the post will take (see "Post shape").

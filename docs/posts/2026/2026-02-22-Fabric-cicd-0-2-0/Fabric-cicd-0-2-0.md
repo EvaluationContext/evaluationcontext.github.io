@@ -1,19 +1,23 @@
 ---
 title: Fabric-CICD - It's Official
 description: Fabric-cicd hits v0.2.0 with official Microsoft support, long-term roadmap commitment, and deep Fabric platform integration
-image: /assets/images/blog/2026/2026-02-22-Fabric-cicd-0-2-0/fabric-cicd.png
+image: fabric-cicd.png
 date:
   created: 2026-02-22
 authors:
   - jDuddy
 comments: true
 categories:
-  - CICD
+  - CI/CD
+tags:
+  - Microsoft Fabric
+  - CI/CD
+  - fabric-cicd
 links:
   - fabric-cicd Docs: https://microsoft.github.io/fabric-cicd/latest/
   - Fabric Blog: https://blog.fabric.microsoft.com/en-gb/blog/announcing-official-support-for-microsoft-fabric-cicd-tool?ft=All
-  - Fabric-cicd, Kicking the tyres: https://evaluationcontext.github.io/posts/fabric-cicd/
-  - Fabric-CICD Updates - Semantic Models, Parameters and Config: https://evaluationcontext.github.io/posts/Fabric-cicd-0-1-33/
+  - Fabric-cicd, Kicking the tyres: https://evaluationcontext.com/posts/fabric-cicd/
+  - Fabric-CICD Updates - Semantic Models, Parameters and Config: https://evaluationcontext.com/posts/Fabric-cicd-0-1-33/
 slug: posts/Fabric-cicd-0-2-0
 ---
 
@@ -23,8 +27,8 @@ I've already covered the project a couple of times on my blog, so I'm not going 
 
 ??? info "Previous Blog Posts"
 
-    - [Fabric-cicd, Kicking the tyres](https://evaluationcontext.github.io/posts/fabric-cicd/)
-    - [Fabric-CICD Updates - Semantic Models, Parameters and Config](https://evaluationcontext.github.io/posts/Fabric-cicd-0-1-33/)
+    - [Fabric-cicd, Kicking the tyres](https://evaluationcontext.com/posts/fabric-cicd/)
+    - [Fabric-CICD Updates - Semantic Models, Parameters and Config](https://evaluationcontext.com/posts/Fabric-cicd-0-1-33/)
 
 ## Official Support
 

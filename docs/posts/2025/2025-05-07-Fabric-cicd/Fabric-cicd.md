@@ -1,7 +1,7 @@
 ---
 title: Fabric-cicd, Kicking the tyres
 description: Open Source Python Library for Fabric Deployments
-image: /assets/images/blog/2025/2025-05-07-Fabric-cicd/fabric-cicd.png
+image: fabric-cicd.png
 date:
   created: 2025-05-07
   updated: 2025-10-19
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - CICD
+  - CI/CD
+tags:
+  - Microsoft Fabric
+  - CI/CD
+  - fabric-cicd
+  - Python
 slug: posts/fabric-cicd
 ---
 

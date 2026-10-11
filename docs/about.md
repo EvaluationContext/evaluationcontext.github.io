@@ -1,18 +1,25 @@
 ---
+icon: material/account
 hide:
   - navigation
   - toc
-  - title
 ---
+
+<div class="ec-profile" markdown>
+
+<img src="/assets/images/avatar.png" alt="Jake Duddy" class="ec-profile__avatar off-glb">
 
 <div class="ec-profile__info" markdown>
 
 # Jake Duddy { .ec-profile__name }
 
-**Business Intelligence specialist** with a deep focus on **Power BI** and **Microsoft Fabric**. Building, sharing, and speaking — from DAX libraries to graph visualisations.
+**Power BI and Microsoft Fabric MVP.** Building, sharing and speaking, from DAX libraries to graph visualisations.
 { .ec-profile__tagline }
 
 </div>
+</div>
+
+I'm Jake a Data Platform Microsoft MVP (Fabric and Power BI). This blog is where I write up what I build: CI/CD for Fabric, DAX user-defined function libraries, SVG visuals, and whatever else interests me.
 
 <hr class="ec-section-divider">
 
@@ -33,7 +40,7 @@ Sharing experiments, deep dives, and insights on Power BI, Microsoft Fabric and 
 
 <div class="ec-role__actions" markdown>
 
-[:material-web: Read the blog](https://evaluationcontext.github.io/){ .ec-badge .ec-badge--site }
+[:material-web: Read the blog](https://evaluationcontext.com/){ .ec-badge .ec-badge--site }
 
 </div>
 
@@ -54,7 +61,7 @@ Presenting at user groups and conferences.
 
 <div class="ec-role__actions" markdown>
 
-[:material-presentation: Presentations](https://evaluationcontext.github.io/presentations/){ .ec-badge .ec-badge--site }
+[:material-presentation: Presentations](https://evaluationcontext.com/presentations/){ .ec-badge .ec-badge--site }
 
 </div>
 
@@ -70,7 +77,7 @@ Presenting at user groups and conferences.
 </div>
 </div>
 
-Recognized as a Microsoft Data Platform MVP — Power BI.
+Recognised as a Microsoft MVP for Power BI and Microsoft Fabric.
 { .ec-role__desc }
 
 <div class="ec-role__actions" markdown>
@@ -138,7 +145,7 @@ Building DAX Lib packages and tools that make Power BI development easier.
 
 <div class="ec-role__actions" markdown>
 
-[:material-web: View projects](https://evaluationcontext.github.io/projects/){ .ec-badge .ec-badge--site }
+[:material-web: View projects](https://evaluationcontext.com/projects/){ .ec-badge .ec-badge--site }
 
 </div>
 

@@ -1,14 +1,17 @@
 ---
 title: Contributing to DaxLib
 description: How to contribute a Library to DaxLib
-image: /assets/images/blog/2025/2025-10-22-DaxLibContribute/logo.png
+image: logo.png
 date:
   created: 2025-10-22
 authors:
   - jDuddy
 comments: true
 categories:
-  - DAX Lib
+  - DAX
+tags:
+  - DAX
+  - DaxLib
 links:
   - DaxLib.org: https://daxlib.org/
   - DaxLib Docs: https://docs.daxlib.org/

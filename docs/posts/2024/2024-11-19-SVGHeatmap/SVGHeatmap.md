@@ -1,7 +1,7 @@
 ---
 title: SVG Heatmap
 description: Creating a Heatmap SVG to visualize distributions
-image: /assets/images/blog/2024/2024-11-19-SVGHeatmap/SVG-Heatmap_small.png
+image: SVG-Heatmap_small.png
 date:
   created: 2024-11-19
   updated: 2025-10-19
@@ -9,9 +9,13 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - DAX
 links:
-  - SVG Heatmap Optimized: https://evaluationcontext.github.io/posts/SVG-Heatmap-Optimized/
+  - SVG Heatmap Optimized: https://evaluationcontext.com/posts/SVG-Heatmap-Optimized/
 slug: posts/SVG-Heatmap
 ---
 
@@ -19,7 +23,7 @@ I have been playing with the [Fabric Log Analytics for Analysis Services Engine 
 
 !!! tip 
 
-    The code from this post has been optimized in a another [post](https://evaluationcontext.github.io/posts/SVG-Heatmap-Optimized/)
+    The code from this post has been optimized in a another [post](https://evaluationcontext.com/posts/SVG-Heatmap-Optimized/)
 
 ## Heatmap SVG
 

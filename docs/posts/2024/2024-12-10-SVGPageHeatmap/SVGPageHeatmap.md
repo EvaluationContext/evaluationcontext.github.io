@@ -1,7 +1,7 @@
 ---
 title: Visualizing Power BI Visual Performance
 description: Using Power BI Logs, Report metadata and SVG to visual visual performance and usage with a page heatmap
-image: /assets/images/blog/2024/2024-12-10-SVGPageHeatmap/page svg.gif
+image: page-svg.gif
 date:
   created: 2024-12-10
   updated: 2025-10-19
@@ -9,7 +9,12 @@ authors:
   - jDuddy
 comments: true
 categories:
+  - Visuals
+tags:
+  - Power BI
   - SVG
+  - Administration
+  - Performance
 slug: posts/SVG-Page-Heatmap
 ---
  
@@ -37,7 +42,7 @@ I created a report page and SVG measure. I then added the SVG measure to a toolt
 
 === "Visual"
 
-    ![Page Visual SVG](page svg.gif)
+    ![Page Visual SVG](page-svg.gif)
 
 === "Code"
 

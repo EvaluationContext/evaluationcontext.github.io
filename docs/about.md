@@ -13,8 +13,16 @@ hide:
 
 # Jake Duddy { .ec-profile__name }
 
-**Power BI and Microsoft Fabric MVP.** Building, sharing and speaking, from DAX libraries to graph visualisations.
+**Power BI and Microsoft Fabric MVP.** Building, sharing and speaking.
 { .ec-profile__tagline }
+
+<div class="ec-profile__social" markdown>
+
+[:fontawesome-brands-linkedin:](https://www.linkedin.com/in/jakeduddy/){ .ec-social-link title="LinkedIn" aria-label="LinkedIn" target=_blank rel=noopener }
+[:fontawesome-brands-github:](https://github.com/EvaluationContext){ .ec-social-link title="GitHub" aria-label="GitHub" target=_blank rel=noopener }
+[:material-microsoft:](https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947){ .ec-social-link title="Fabric Community" aria-label="Fabric Community" target=_blank rel=noopener }
+
+</div>
 
 </div>
 </div>
@@ -61,7 +69,7 @@ Presenting at user groups and conferences.
 
 <div class="ec-role__actions" markdown>
 
-[:material-presentation: Presentations](https://evaluationcontext.com/presentations/){ .ec-badge .ec-badge--site }
+[:material-microphone: Speaking](https://evaluationcontext.com/speaking/){ .ec-badge .ec-badge--site }
 
 </div>
 

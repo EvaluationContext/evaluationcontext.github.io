@@ -1,0 +1,33 @@
+{#-
+  Series listing for a post. Reads `series_data` from the generated
+  partials/series-data.html (scripts/build_series.py). Lists every published
+  post in the series by created date; the current post is marked, the others
+  link. Hidden when fewer than two posts are published.
+-#}
+{% import "partials/series-data.html" as sd %}
+{% if page.meta.series and page.meta.series in sd.series_data %}
+  {% set posts = sd.series_data[page.meta.series] %}
+  {% if posts | length > 1 %}
+    {% set ns = namespace(part=0) %}
+    {% for post in posts %}
+      {% if post.url == page.url %}{% set ns.part = loop.index %}{% endif %}
+    {% endfor %}
+    <aside class="ec-series" aria-label="Posts in this series">
+      <p class="ec-series__title">
+        {% set icon = "material/book-open-page-variant-outline" %}
+        {% include ".icons/" ~ icon ~ ".svg" %}
+        <span>{{ page.meta.series }}</span>
+        {% if ns.part %}<span class="ec-series__part">Part {{ ns.part }} of {{ posts | length }}</span>{% endif %}
+      </p>
+      <ol class="ec-series__list">
+        {% for post in posts %}
+          {% if post.url == page.url %}
+            <li class="ec-series__item ec-series__item--current" aria-current="page">{{ post.title }}</li>
+          {% else %}
+            <li class="ec-series__item"><a href="{{ post.url | url }}">{{ post.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ol>
+    </aside>
+  {% endif %}
+{% endif %}

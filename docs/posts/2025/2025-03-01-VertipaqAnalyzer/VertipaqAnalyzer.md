@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - Modelling
+  - Tooling
 tags:
   - Power BI
   - Semantic Model

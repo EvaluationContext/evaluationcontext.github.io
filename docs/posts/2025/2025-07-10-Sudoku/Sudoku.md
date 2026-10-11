@@ -8,6 +8,7 @@ date:
 authors:
   - jDuddy
 comments: true
+series: Translytical Sudoku
 categories:
   - Fabric
 tags:

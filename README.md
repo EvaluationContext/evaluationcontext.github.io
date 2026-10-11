@@ -27,11 +27,11 @@ The blog covers a wide range of topics including:
 - **Microsoft Fabric**: Real-time intelligence, KQL, translytical workflows
 - **Advanced Techniques**: Graph visualizations, query plan analysis, automation
 
-### Presentations
+### Speaking
 
-Resources and recordings from presentations at various user groups and conferences:
+Slides and recordings from talks at user groups and conferences:
 
-[![View Presentations](https://img.shields.io/badge/View_Presentations-evaluationcontext.com/presentations-pink?style=for-the-badge&logo=presentation&logoColor=white)](https://evaluationcontext.com/presentations/)
+[![View Speaking](https://img.shields.io/badge/View_Speaking-evaluationcontext.com/speaking-pink?style=for-the-badge&logo=presentation&logoColor=white)](https://evaluationcontext.com/speaking/)
 
 ### Projects
 

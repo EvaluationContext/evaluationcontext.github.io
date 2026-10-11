@@ -8,6 +8,7 @@ date:
 authors:
   - jDuddy
 comments: true
+series: Power BI Permission Graphs
 categories:
   - Visuals
 tags:

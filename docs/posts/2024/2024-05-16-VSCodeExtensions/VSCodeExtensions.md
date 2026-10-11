@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - Tooling
+  - Administration
 tags:
   - Power BI
   - VS Code

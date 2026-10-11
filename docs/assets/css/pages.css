@@ -81,6 +81,49 @@
   color: var(--ec-teal-light);
 }
 
+/* --- Social icon links under the tagline --- */
+.ec-profile__social > p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0;
+}
+
+.md-typeset .ec-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: var(--md-default-fg-color--light);
+  background: color-mix(in srgb, var(--md-default-fg-color) 6%, transparent);
+  border: 1px solid var(--ec-border-subtle);
+  text-decoration: none !important;
+  background-image: none !important;
+  transition: color 0.2s ease-out,
+              border-color 0.2s ease-out,
+              transform 0.2s var(--ec-ease-spring);
+}
+
+.md-typeset .ec-social-link:hover,
+.md-typeset .ec-social-link:focus-visible {
+  color: var(--ec-teal);
+  border-color: color-mix(in srgb, var(--ec-teal) 40%, transparent);
+  transform: translateY(-2px);
+}
+
+.ec-social-link .twemoji {
+  display: inline-flex;
+  line-height: 1;
+}
+
+.ec-social-link svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+}
+
 /* --- Role cards (about page grid) --- */
 .ec-roles {
   display: grid;
@@ -761,6 +804,10 @@
 
   .ec-profile__name {
     font-size: 1.7rem;
+  }
+
+  .ec-profile__social > p {
+    justify-content: center;
   }
 
   .ec-roles {

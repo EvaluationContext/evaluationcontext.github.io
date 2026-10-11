@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - Fabric
+  - Modelling
 tags:
   - Microsoft Fabric
   - Lakehouse

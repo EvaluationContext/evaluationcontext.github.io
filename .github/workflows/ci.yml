@@ -17,7 +17,12 @@ jobs:
       - run: pip install -r requirements.txt
       # --clean: Zensical's page cache does not invalidate on theme feature
       # changes, so always render from scratch (about 35s for this site).
+      # Series listings on posts read a generated partial (see the script)
+      - run: python scripts/build_series.py
       - run: zensical build --clean
+      # The RSS plugin builds hero image URLs from the source path (/posts/<year>/...)
+      # but Zensical serves them at /<year>/..., so repoint them in the feeds.
+      - run: python scripts/fix_feed_images.py
       # Publishes site/ to the gh-pages branch, which GitHub Pages already
       # serves (replaces `mkdocs gh-deploy`). docs/CNAME is copied into site/.
       - uses: peaceiris/actions-gh-pages@v4

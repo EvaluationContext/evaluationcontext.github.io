@@ -14,7 +14,7 @@ Copyright &copy; 2024 - 2026 Jake Duddy -
 nav = [
   { Blog = ["index.md"] },
   { About = "about.md" },
-  { Presentations = "presentations.md" },
+  { Speaking = "speaking.md" },
   { Projects = "projects.md" },
 ]
 
@@ -175,7 +175,7 @@ full_output = "llms-full.txt"
 Posts = [{ "posts/*" = "Blog post" }]
 Pages = [
   { "about.md" = "About the author" },
-  { "presentations.md" = "Talks and slides" },
+  { "speaking.md" = "Talks, slides and recordings" },
   { "projects.md" = "Open-source projects" },
 ]
 
@@ -210,6 +210,7 @@ utm_campaign = "blog-syndication"
 
 # Old category URLs (before categories were consolidated on 11 Oct 2026)
 [project.plugins.redirects.redirect_maps]
+"presentations/index.md" = "https://evaluationcontext.com/speaking/"
 "category/pbip/index.md" = "https://evaluationcontext.com/category/cicd/"
 "category/dax-lib/index.md" = "https://evaluationcontext.com/category/dax/"
 "category/svg/index.md" = "https://evaluationcontext.com/category/visuals/"
@@ -224,8 +225,8 @@ utm_campaign = "blog-syndication"
 "category/translytical-task-flow/index.md" = "https://evaluationcontext.com/category/fabric/"
 "category/ai/index.md" = "https://evaluationcontext.com/category/fabric/"
 "category/graphs/index.md" = "https://evaluationcontext.com/category/administration/"
-"category/vs-code/index.md" = "https://evaluationcontext.com/category/tooling/"
-"category/syntax-highlighting/index.md" = "https://evaluationcontext.com/category/tooling/"
+"category/vs-code/index.md" = "https://evaluationcontext.com/category/administration/"
+"category/syntax-highlighting/index.md" = "https://evaluationcontext.com/category/blogging/"
 
 # ---------------------------------------------------------------------------
 # Markdown extensions

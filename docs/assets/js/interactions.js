@@ -107,7 +107,7 @@
         counts reflect the other selections, order never
         changes (years descending, names alphabetical).
         The selection lives in the URL hash:
-          #category=cicd&year=2025&tags=svg,performance
+          #category=cicd,dax&year=2025,2024&tags=svg,performance
      ------------------------------------------------ */
   var filtersBound = false;
 
@@ -121,15 +121,15 @@
 
   function readState() {
     var h = decodeURIComponent(location.hash || "").replace(/^#/, "");
-    var s = { category: null, year: null, tags: [] };
+    var s = { categories: [], years: [], tags: [] };
     var legacy = /^tag:(.+)$/.exec(h);
     if (legacy) { s.tags = legacy[1].split(",").filter(Boolean); return s; }
     h.split("&").forEach(function (kv) {
       var i = kv.indexOf("=");
       if (i < 0) return;
       var k = kv.slice(0, i), v = kv.slice(i + 1);
-      if (k === "category") s.category = v || null;
-      else if (k === "year") s.year = v || null;
+      if (k === "category") s.categories = v.split(",").filter(Boolean);
+      else if (k === "year") s.years = v.split(",").filter(Boolean);
       else if (k === "tags") s.tags = v.split(",").filter(Boolean);
     });
     return s;
@@ -137,8 +137,8 @@
 
   function writeState(s) {
     var parts = [];
-    if (s.category) parts.push("category=" + s.category);
-    if (s.year) parts.push("year=" + s.year);
+    if (s.categories.length) parts.push("category=" + s.categories.join(","));
+    if (s.years.length) parts.push("year=" + s.years.join(","));
     if (s.tags.length) parts.push("tags=" + s.tags.join(","));
     history.pushState(null, "", location.pathname + location.search + (parts.length ? "#" + parts.join("&") : ""));
     applyFilters();
@@ -160,8 +160,8 @@
   }
 
   function matches(d, s, skip) {
-    if (skip !== "category" && s.category && d.categorySlug !== s.category) return false;
-    if (skip !== "year" && s.year && d.year !== s.year) return false;
+    if (skip !== "category" && s.categories.length && s.categories.indexOf(d.categorySlug) === -1) return false;
+    if (skip !== "year" && s.years.length && s.years.indexOf(d.year) === -1) return false;
     if (skip !== "tags" && !s.tags.every(function (t) { return d.tags.indexOf(t) !== -1; })) return false;
     return true;
   }
@@ -172,7 +172,7 @@
     document.querySelectorAll(".md-sidebar--primary li.md-nav__item--section").forEach(function (li) {
       var lab = li.querySelector(":scope > label.md-nav__link .md-ellipsis, :scope > .md-nav__container .md-ellipsis");
       var t = lab ? lab.textContent.trim() : "";
-      if (t === "Archive" || t === "Categories") groups.push(li);
+      if (t === "Archive" || t === "Categories" || t === "Year") groups.push(li);
     });
     return groups;
   }
@@ -255,11 +255,11 @@
     }
     if (parent) {
       var sections = [
-        facetSection("Archive", "__facet_year", Object.keys(years).sort().reverse().map(function (y) {
-          return { label: y, value: y, count: years[y], active: s.year === y, kind: "year" };
+        facetSection("Year", "__facet_year", Object.keys(years).sort().reverse().map(function (y) {
+          return { label: y, value: y, count: years[y], active: s.years.indexOf(y) !== -1, kind: "year" };
         })),
         facetSection("Categories", "__facet_cat", Object.keys(cats).sort(function (a, b) { return catNames[a].localeCompare(catNames[b]); }).map(function (k) {
-          return { label: catNames[k], value: k, count: cats[k], active: s.category === k, kind: "category" };
+          return { label: catNames[k], value: k, count: cats[k], active: s.categories.indexOf(k) !== -1, kind: "category" };
         })),
         facetSection("Tags", "__facet_tag", Object.keys(tags).sort(function (a, b) { return tagNames[a].localeCompare(tagNames[b]); }).map(function (t) {
           return { label: tagNames[t], value: t, count: tags[t], active: s.tags.indexOf(t) !== -1, kind: "tag" };
@@ -271,14 +271,14 @@
     // Summary bar above the cards while a filter is active
     var old = document.querySelector(".ec-filter");
     if (old) old.remove();
-    if (s.category || s.year || s.tags.length) {
+    if (s.categories.length || s.years.length || s.tags.length) {
       var bar = document.createElement("div");
       bar.className = "ec-filter";
       var text = document.createElement("span");
       text.className = "ec-filter__text";
       var labels = [];
-      if (s.category) labels.push(catNames[s.category] || s.category);
-      if (s.year) labels.push(s.year);
+      s.categories.forEach(function (c) { labels.push(catNames[c] || c); });
+      s.years.forEach(function (y) { labels.push(y); });
       s.tags.forEach(function (t) { labels.push(tagNames[t] || t); });
       text.textContent = shown + (shown === 1 ? " post: " : " posts: ") + labels.join(" + ");
       bar.appendChild(text);
@@ -295,7 +295,7 @@
     document.querySelectorAll(".md-post__chips .ec-chip").forEach(function (el) {
       var isCat = el.classList.contains("ec-chip--category");
       var v = isCat ? slugify(el.textContent.trim()) : slugify(el.getAttribute("data-tag") || "");
-      el.classList.toggle("ec-tag-active", isCat ? s.category === v : s.tags.indexOf(v) !== -1);
+      el.classList.toggle("ec-tag-active", isCat ? s.categories.indexOf(v) !== -1 : s.tags.indexOf(v) !== -1);
     });
   }
 
@@ -329,10 +329,11 @@
         if (!kind) kind = t.classList.contains("ec-chip--category") ? "category" : "tag";
         var v = t.getAttribute("data-value");
         if (v === null) v = kind === "category" ? slugify(t.textContent.trim()) : slugify(t.getAttribute("data-tag") || "");
-        if (kind === "category") s.category = (v && s.category !== v) ? v : null;
-        else if (kind === "year") s.year = (v && s.year !== v) ? v : null;
-        else if (kind === "tag") { var i = s.tags.indexOf(v); if (i === -1) s.tags.push(v); else s.tags.splice(i, 1); }
-        else if (kind === "clear") { s = { category: null, year: null, tags: [] }; }
+        function toggle(list) { var i = list.indexOf(v); if (i === -1) list.push(v); else list.splice(i, 1); }
+        if (kind === "category") toggle(s.categories);
+        else if (kind === "year") toggle(s.years);
+        else if (kind === "tag") toggle(s.tags);
+        else if (kind === "clear") { s = { categories: [], years: [], tags: [] }; }
         writeState(s);
       }, true);
       window.addEventListener("popstate", applyFilters);

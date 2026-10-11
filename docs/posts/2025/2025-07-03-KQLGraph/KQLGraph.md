@@ -8,8 +8,9 @@ date:
 authors:
   - jDuddy
 comments: true
+series: Power BI Permission Graphs
 categories:
-  - Administration
+  - Fabric
 tags:
   - Power BI
   - KQL

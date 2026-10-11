@@ -9,7 +9,7 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - Administration
+  - Fabric
 tags:
   - Microsoft Fabric
   - Graphs

@@ -2,7 +2,8 @@
 title: Fabric-CICD Updates - Semantic Models, Parameters and Config
 description: A look at recent updates to fabric-cicd including semantic model binding, response collection, and YAML configuration
 image: fabric-cicd.png
-date: 2026-02-02
+date:
+  created: 2026-02-02
 authors:
   - jDuddy
 comments: true

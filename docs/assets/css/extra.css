@@ -216,8 +216,7 @@ code, pre, .md-typeset code, .md-typeset pre {
   border-bottom: 1px solid var(--ec-border-subtle);
 }
 
-/* Accent bar on h1 and h2 */
-.md-typeset h1::before,
+/* Accent bar on h2 */
 .md-typeset h2::before {
   content: '';
   display: inline-block;
@@ -229,12 +228,6 @@ code, pre, .md-typeset code, .md-typeset pre {
   vertical-align: middle;
   position: relative;
   top: -0.05em;
-}
-
-.md-typeset h1::before {
-  width: 4px;
-  height: 0.8em;
-  margin-right: 0.5rem;
 }
 
 .md-typeset h3 {
@@ -422,9 +415,9 @@ code, pre, .md-typeset code, .md-typeset pre {
 .md-nav--secondary .md-nav__link--active::before {
   content: '';
   position: absolute;
-  left: -0.5rem;
-  top: 0.15rem;
-  bottom: 0.15rem;
+  left: 0.25rem;            /* inside the link: outside it is clipped for top-level entries */
+  top: 0.45rem;
+  bottom: 0.45rem;
   width: 2px;
   background: var(--ec-teal);
   border-radius: 1px;

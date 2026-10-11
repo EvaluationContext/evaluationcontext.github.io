@@ -1,11 +1,11 @@
 ---
-icon: material/presentation
+icon: material/microphone
 hide:
   - navigation
   - toc
 ---
 
-# Presentations { .ec-profile__name }
+# Speaking { .ec-profile__name }
 
 <div class="ec-timeline" markdown>
 

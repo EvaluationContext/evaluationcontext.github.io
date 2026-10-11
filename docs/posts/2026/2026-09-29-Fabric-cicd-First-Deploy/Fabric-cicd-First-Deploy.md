@@ -8,6 +8,7 @@ date:
 authors:
   - jDuddy
 comments: true
+series: Fabric-CICD in Practice
 categories:
   - CI/CD
 tags:
@@ -47,12 +48,6 @@ I've written about fabric-cicd a few times already; the series links those posts
     - [Fabric-CICD - It's Official](https://evaluationcontext.com/posts/Fabric-cicd-0-2-0/) (February 2026)
     - [CICD for Fabric Data Teams](https://evaluationcontext.com/posts/CICD-Fabric-Data-Teams/) (May 2026)
     - [Lost Connections](https://evaluationcontext.com/posts/cicd-connections/) (August 2026)
-
-!!! tip "Series - Fabric-CICD in Practice"
-
-    1. **Groundwork**
-    2. Feature to Prod
-    3. Two Workspaces, One Deploy
 
 !!! info "fabric-cicd v1.3.0"
 

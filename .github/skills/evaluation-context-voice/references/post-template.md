@@ -16,6 +16,7 @@ date:
 authors:
   - jDuddy
 comments: true
+series: Name of the Series   # optional, only when the post is one of several
 categories:
   - Visuals
 tags:
@@ -33,6 +34,7 @@ Notes:
 - `description` is a plain noun phrase: "Using DAX to create a SVG Dumbbell chart in Power BI", "Optimizing the SVG Heatmap using the Sparkline measure pattern". It often mirrors the title. No colons, no marketing.
 - One category per post, from the eight broad ones: CI/CD, DAX, Visuals, Modelling, Fabric, Administration, Tooling, Blogging. Categories are navigation; tags carry the detail (Deneb, KQL, DaxLib and so on). Do not invent a category.
 - `tags` are search filters, two to five per post from the existing set: Power BI, Microsoft Fabric, DAX, SVG, Vega, Deneb, DaxLib, CI/CD, fabric-cicd, Deployment Pipelines, Azure DevOps, Git, Python, KQL, Semantic Model, Data Modelling, Incremental Refresh, Semantic Link, Performance, Administration, Security, Graphs, Lakehouse, Real-Time Intelligence, Translytical Task Flows, User Data Functions, Logging, VS Code, AI, Zensical, Blogging, PBIP, Fabric App, Syntax Highlighting. Reuse before inventing.
+- `series` is optional. Set it only when the post is one of a run of posts under a shared name, and use exactly the same string on every post in that run (currently `Fabric-CICD in Practice`, `Power BI Permission Graphs` and `Translytical Sudoku`). Order comes from `date.created`. Each post in the series then shows a numbered list of the series above its body, with the current post marked and the others linked. The list is built by `scripts/build_series.py` into `overrides/partials/series-data.html` (CI runs it before the build; run it locally after adding or renaming a series). Drafts are left out, and the block is hidden until two posts are published.
 - `links` is optional. Use it for the previous post in a series or the docs and package pages a post depends on. Each entry must be a list item (`- Title: url`); Zensical rejects a bare mapping under `links`.
 - `date.updated` is added later when a post is revised; do not add it on first publish.
 

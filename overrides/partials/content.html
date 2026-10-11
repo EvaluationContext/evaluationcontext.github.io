@@ -22,6 +22,9 @@
     <img src="{{ hero_src(page, image_path) | trim | url }}" alt="{{ image_alt }}" fetchpriority="high">
   </figure>
 {% endif %}
+{% if page.config and page.config.date %}
+  {% include "partials/series.html" %}
+{% endif %}
 {{ page.content }}
 {% include "partials/source-file.html" %}
 {% include "partials/feedback.html" %}

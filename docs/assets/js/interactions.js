@@ -303,8 +303,8 @@
     var cfg = document.getElementById("__config");
     var base = (cfg ? (JSON.parse(cfg.textContent).base || ".") : ".").replace(/\/$/, "");
 
-    // Chips on cards and posts point at the filtered index
-    document.querySelectorAll("a.ec-chip[data-tag], a.md-tag[data-tag]").forEach(function (a) {
+    // Tag chips on cards point at the filtered index
+    document.querySelectorAll("a.ec-chip[data-tag]").forEach(function (a) {
       a.href = base + "/#tags=" + slugify(a.getAttribute("data-tag"));
     });
 

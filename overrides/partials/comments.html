@@ -1,56 +1,61 @@
 {% if page.meta.comments %}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="evaluationcontext/evaluationcontext.github.io"
-    data-repo-id="R_kgDOLoy8kw"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOLoy8k84CfJKP"
-    data-mapping="pathname"
-    data-reactions-enabled="1"
-    data-emit-metadata="1"
-    data-theme="light"
-    data-lang="en"
-    crossorigin="anonymous"
-    async>
-  </script>
+  <div class="ec-giscus"></div>
 
-  <!-- Synchronize Giscus theme with palette -->
   <script>
-    var giscus = document.querySelector("script[src*=giscus]")
-
-    // Set palette on initial load
-    var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object") {
-      var theme = palette.color.scheme === "slate"
-        ? "transparent_dark"
-        : "light"
-
-      // Instruct Giscus to set theme
-      giscus.setAttribute("data-theme", theme) 
-    }
-
-    // Register the palette handler once; this script re-runs on every
-    // instant navigation, and the header (with the palette form) persists.
-    (function bindPalette() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      if (!ref || ref.dataset.giscusBound) return
-      ref.dataset.giscusBound = "1"
-      ref.addEventListener("change", function() {
+    (function () {
+      // Giscus theme follows the site: a stored palette choice wins, otherwise
+      // the system preference. Both are known before the Giscus script loads.
+      function giscusTheme() {
+        var dark = false
         var palette = __md_get("__palette")
-        if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate"
-            ? "transparent_dark"
-            : "light"
-
-          // Instruct Giscus to change theme
-          var frame = document.querySelector(".giscus-frame")
-          if (frame) frame.contentWindow.postMessage(
-            { giscus: { setConfig: { theme } } },
-            "https://giscus.app"
-          )
+        if (palette && palette.color && palette.color.scheme) {
+          dark = palette.color.scheme === "slate"
+        } else {
+          dark = window.matchMedia("(prefers-color-scheme: dark)").matches
         }
-      })
+        return dark ? "transparent_dark" : "light"
+      }
+
+      var host = document.querySelector(".ec-giscus")
+      var script = document.createElement("script")
+      script.src = "https://giscus.app/client.js"
+      script.async = true
+      script.crossOrigin = "anonymous"
+      var attrs = {
+        "data-repo": "evaluationcontext/evaluationcontext.github.io",
+        "data-repo-id": "R_kgDOLoy8kw",
+        "data-category": "Announcements",
+        "data-category-id": "DIC_kwDOLoy8k84CfJKP",
+        "data-mapping": "pathname",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "1",
+        "data-theme": giscusTheme(),
+        "data-lang": "en"
+      }
+      Object.keys(attrs).forEach(function (k) { script.setAttribute(k, attrs[k]) })
+      host.appendChild(script)
+
+      // Keep the comments in step with the palette toggle. The body attribute
+      // changes on every switch, so one observer covers instant navigation too.
+      if (!window.__ecGiscusObserver) {
+        window.__ecGiscusObserver = new MutationObserver(function (mutations) {
+          for (var i = 0; i < mutations.length; i++) {
+            if (mutations[i].attributeName !== "data-md-color-scheme") continue
+            var frame = document.querySelector(".giscus-frame")
+            if (!frame) return
+            var theme = document.body.getAttribute("data-md-color-scheme") === "slate"
+              ? "transparent_dark"
+              : "light"
+            frame.contentWindow.postMessage(
+              { giscus: { setConfig: { theme: theme } } },
+              "https://giscus.app"
+            )
+            return
+          }
+        })
+        window.__ecGiscusObserver.observe(document.body, { attributes: true })
+      }
     })()
   </script>
 {% endif %}

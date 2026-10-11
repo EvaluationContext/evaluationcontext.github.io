@@ -216,7 +216,8 @@ code, pre, .md-typeset code, .md-typeset pre {
   border-bottom: 1px solid var(--ec-border-subtle);
 }
 
-/* Accent bar on h2 */
+/* Accent bar on h1 and h2 */
+.md-typeset h1::before,
 .md-typeset h2::before {
   content: '';
   display: inline-block;
@@ -228,6 +229,12 @@ code, pre, .md-typeset code, .md-typeset pre {
   vertical-align: middle;
   position: relative;
   top: -0.05em;
+}
+
+.md-typeset h1::before {
+  width: 4px;
+  height: 0.8em;
+  margin-right: 0.5rem;
 }
 
 .md-typeset h3 {

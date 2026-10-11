@@ -15555,14 +15555,6 @@ I've written about fabric-cicd a few times already; the series links those posts
 > - [CICD for Fabric Data Teams](<https://evaluationcontext.com/posts/CICD-Fabric-Data-Teams/>) (May 2026)
 > - [Lost Connections](<https://evaluationcontext.com/posts/cicd-connections/>) (August 2026)
 
-> [!TIP]
->
-> **Series - Fabric-CICD in Practice**
->
-> 1. **Groundwork**
-> 2. Feature to Prod
-> 3. Two Workspaces, One Deploy
-
 > [!NOTE]
 >
 > **fabric-cicd v1.3.0**
@@ -16470,7 +16462,7 @@ I'm not asking for the low-code side to go away. I'm asking for one rule for wha
 
 # Jake Duddy
 
-**Power BI and Microsoft Fabric MVP.** Building, sharing and speaking, from DAX libraries to graph visualisations.
+**Power BI and Microsoft Fabric MVP.** Building, sharing and speaking.
 
 I'm Jake a Data Platform Microsoft MVP (Fabric and Power BI). This blog is where I write up what I build: CI/CD for Fabric, DAX user-defined function libraries, SVG visuals, and whatever else interests me.
 
@@ -16500,7 +16492,7 @@ Co-organiser of the Devon and Cornwall Microsoft Power BI User Group.
 
 Building DAX Lib packages and tools that make Power BI development easier.
 
-# Presentations
+# Speaking
 
 2026
 

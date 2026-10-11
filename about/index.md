@@ -1,6 +1,6 @@
 # Jake Duddy
 
-**Power BI and Microsoft Fabric MVP.** Building, sharing and speaking, from DAX libraries to graph visualisations.
+**Power BI and Microsoft Fabric MVP.** Building, sharing and speaking.
 
 I'm Jake a Data Platform Microsoft MVP (Fabric and Power BI). This blog is where I write up what I build: CI/CD for Fabric, DAX user-defined function libraries, SVG visuals, and whatever else interests me.
 

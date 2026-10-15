@@ -20,6 +20,32 @@ hide:
 <div class="ec-tl-entry__card" markdown>
 <div class="ec-tl-entry__body" markdown>
 
+### Fabric-CICD: From Click Ops to DevOps { .ec-tl-entry__title }
+
+<div class="ec-tl-entry__meta" markdown>
+
+:material-calendar:{ .ec-tl-icon } Oct 2026
+{ .ec-tl-entry__date }
+
+:material-map-marker:{ .ec-tl-icon } [FabFest](https://fabfestconf.com/)
+{ .ec-tl-entry__venue }
+
+</div>
+
+<div class="ec-tl-entry__badges" markdown>
+
+[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-10-FabFest){ .ec-badge .ec-badge--slides }
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="ec-tl-entry" markdown>
+<div class="ec-tl-entry__node"></div>
+<div class="ec-tl-entry__card" markdown>
+<div class="ec-tl-entry__body" markdown>
+
 ### DAXLib: Zero to Community Hero { .ec-tl-entry__title }
 
 <div class="ec-tl-entry__meta" markdown>

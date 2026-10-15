@@ -62,6 +62,7 @@ Posts on Microsoft Fabric, Power BI and DAX by Jake Duddy
 - [Fabric Deployment Plans - Swipe Left or Swipe Right](<https://evaluationcontext.com/posts/fabric-deployment-plans/index.md>): Blog post
 - [Fabric-CICD in Practice - Groundwork](<https://evaluationcontext.com/posts/fabric-cicd-first-deploy/index.md>): Blog post
 - [Fabric CICD - Two Different Worlds](<https://evaluationcontext.com/posts/fabric-cicd-two-worlds/index.md>): Blog post
+- [LogicalIds and Variable Libraries Do the Same Job](<https://evaluationcontext.com/posts/logicalid-variable-libraries/index.md>): Blog post
 
 ## Pages
 

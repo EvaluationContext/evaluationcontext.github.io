@@ -2,6 +2,12 @@
 
 2026
 
+### Fabric-CICD: From Click Ops to DevOps
+
+Oct 2026
+
+[FabFest](<https://fabfestconf.com/>)
+
 ### DAXLib: Zero to Community Hero
 
 Sep 2026

@@ -1,6 +1,6 @@
 ---
 title: LogicalIds and Variable Libraries Do the Same Job
-description: A thought from FabFest on why logicalIds and Variable Libraries exist, how they can return noise in git
+description: A thought from FabFest on why logicalIds and Variable Libraries exist, how they can reduce noise in git
 image: hero.jpg
 date:
   created: 2026-10-15

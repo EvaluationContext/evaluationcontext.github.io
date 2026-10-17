@@ -1,6 +1,6 @@
 ---
 title: Two Years of Blogging
-description: A second look back at the blog, what changed this year and how I write now
+description: A look back at another year of blogging
 image: /assets/images/social-share.png
 date:
   created: 2026-10-17

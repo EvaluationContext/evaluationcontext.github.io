@@ -30,6 +30,7 @@ extra_css = [
   "assets/css/pill.css",
   "assets/css/colorBlocks.css",
   "assets/css/pages.css",
+  "assets/css/timeline.css",
 ]
 
 extra_javascript = [
@@ -39,6 +40,7 @@ extra_javascript = [
   "assets/js/vegalite.js",
   "assets/js/lazy-images.js",
   "assets/js/interactions.js",
+  "assets/js/timeline.js",
 ]
 
 # ---------------------------------------------------------------------------
@@ -246,6 +248,7 @@ pymdownx.caret = {}
 pymdownx.details = {}
 pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
 pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.emoji.options.custom_icons = ["overrides/.icons"]
 pymdownx.highlight.anchor_linenums = true
 pymdownx.highlight.line_spans = "__span"
 pymdownx.highlight.pygments_lang_class = true
@@ -262,6 +265,8 @@ pymdownx.superfences.custom_fences = [
   { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
   # Rendered client-side by assets/js/vegalite.js (replaces mkdocs-charts-plugin)
   { name = "vegalite", class = "vegalite", format = "pymdownx.superfences.fence_div_format" },
+  # Post timeline (daily users rail, category filter, sortable post cards), rendered by assets/js/timeline.js
+  { name = "timeline", class = "ec-timeline", format = "pymdownx.superfences.fence_div_format" },
 ]
 pymdownx.tabbed.alternate_style = true
 pymdownx.tabbed.combine_header_slug = true

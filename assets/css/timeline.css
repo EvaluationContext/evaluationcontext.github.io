@@ -1,0 +1,582 @@
+/* ============================================
+   Post timeline — ```timeline fenced blocks
+   Rendered by assets/js/timeline.js: a dot-per-post
+   timeline, a toolbar of category chips and a sort
+   select, and a grid of post cards with a bar per
+   metric and the thumbnail on the right.
+   ============================================ */
+
+.ec-tl {
+  --ec-tl-c1: #ec4899;   /* brand pink */
+  --ec-tl-c2: #2a78d6;   /* blue */
+  --ec-tl-c3: #eda100;   /* amber */
+  --ec-tl-c4: #008300;   /* green */
+  --ec-tl-c5: #0d9488;   /* teal */
+  --ec-tl-ink: var(--md-default-fg-color);
+  --ec-tl-ink-2: var(--md-default-fg-color--light);
+  --ec-tl-bar: var(--md-default-fg-color);
+  --ec-tl-hair: color-mix(in srgb, var(--md-default-fg-color) 10%, transparent);
+  --ec-tl-surface: color-mix(in srgb, var(--md-default-fg-color) 1.5%, var(--md-default-bg-color));
+  position: relative;
+  margin: 1em 0 1.5em;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+[data-md-color-scheme="slate"] .ec-tl {
+  --ec-tl-c2: #3987e5;
+  --ec-tl-c3: #c98500;
+  --ec-tl-surface: var(--md-code-bg-color);
+}
+
+.ec-tl--c1 { --c: var(--ec-tl-c1); }
+.ec-tl--c2 { --c: var(--ec-tl-c2); }
+.ec-tl--c3 { --c: var(--ec-tl-c3); }
+.ec-tl--c4 { --c: var(--ec-tl-c4); }
+.ec-tl--c5 { --c: var(--ec-tl-c5); }
+
+/* ---- Totals: sums over the posts currently shown ---- */
+.ec-tl__totals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ec-tl__total {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--ec-tl-hair);
+  border-radius: 0.5rem;
+  background: var(--ec-tl-surface);
+}
+
+.ec-tl__total .ec-tl__icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.ec-tl__total-value {
+  grid-column: 2;
+  font-size: 1rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.ec-tl__total:not(:has(.ec-tl__icon)) .ec-tl__total-value {
+  grid-column: 1 / -1;
+}
+
+.ec-tl__total-label {
+  grid-column: 1 / -1;
+  font-size: 0.55rem;
+  letter-spacing: 0.02em;
+  color: var(--ec-tl-ink-2);
+}
+
+/* ---- Toolbar: category chips (also the legend) and sort ---- */
+.ec-tl__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.ec-tl__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  flex: 1 1 auto;
+}
+
+.md-typeset .ec-tl__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.1rem 0.6rem 0.1rem 0.5rem;
+  border-radius: 9999px;
+  font: inherit;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  color: var(--ec-tl-ink-2);
+  background: color-mix(in srgb, var(--md-default-fg-color) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+  cursor: pointer;
+  transition: border-color 0.2s ease-out, color 0.2s ease-out, background 0.2s ease-out;
+}
+
+.md-typeset .ec-tl__chip::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--c);
+  flex-shrink: 0;
+}
+
+.md-typeset .ec-tl__chip:hover {
+  border-color: color-mix(in srgb, var(--c) 50%, transparent);
+  color: var(--ec-tl-ink);
+}
+
+.md-typeset .ec-tl__chip[aria-pressed="true"] {
+  color: var(--ec-tl-ink);
+  border-color: var(--c);
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+}
+
+.md-typeset .ec-tl__clear {
+  padding: 0.1rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px dashed color-mix(in srgb, var(--md-default-fg-color) 25%, transparent);
+  background: none;
+  font: inherit;
+  font-size: 0.58rem;
+  color: var(--ec-tl-ink-2);
+  cursor: pointer;
+}
+
+.md-typeset .ec-tl__clear:hover {
+  color: var(--ec-tl-ink);
+  border-color: var(--ec-tl-ink-2);
+}
+
+.ec-tl__count {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.ec-tl__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: auto;
+  font-size: 0.58rem;
+  color: var(--ec-tl-ink-2);
+}
+
+.md-typeset .ec-tl__sort select {
+  font: inherit;
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--md-default-fg-color) 12%, transparent);
+  background: var(--md-default-bg-color);
+  color: var(--ec-tl-ink);
+  cursor: pointer;
+}
+
+/* ---- Rail: daily users with a dot per post ---- */
+.ec-tl__rail {
+  position: relative;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.ec-tl__popup {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  width: min(21rem, calc(100vw - 2rem));
+  min-height: 5rem;
+  overflow: hidden;
+  border: 1px solid var(--ec-tl-hair);
+  border-radius: 0.55rem;
+  background: var(--md-default-bg-color);
+  box-shadow: var(--ec-shadow-md);
+  color: var(--ec-tl-ink);
+  pointer-events: none;
+}
+
+.ec-tl__popup[hidden] {
+  display: none;
+}
+
+.ec-tl__popup.is-session {
+  width: auto;
+  max-width: min(16rem, calc(100vw - 2rem));
+  min-height: 0;
+}
+
+.ec-tl__popup-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+}
+
+.ec-tl__popup-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.ec-tl__popup-date {
+  color: var(--ec-tl-ink-2);
+  font-size: 0.58rem;
+}
+
+.ec-tl__popup-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15rem 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.ec-tl__popup-stat {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.3rem;
+  color: var(--ec-tl-ink-2);
+  font-size: 0.58rem;
+  white-space: nowrap;
+}
+
+.ec-tl__popup-value {
+  color: var(--ec-tl-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.ec-tl__popup-image {
+  flex: 0 0 5rem;
+  width: 5rem;
+  object-fit: cover;
+}
+
+.ec-tl__rail svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ec-tl__axis {
+  stroke: color-mix(in srgb, var(--md-default-fg-color) 18%, transparent);
+  stroke-width: 1;
+}
+
+.ec-tl__tick {
+  stroke: color-mix(in srgb, var(--md-default-fg-color) 18%, transparent);
+  stroke-width: 1;
+}
+
+.ec-tl__label {
+  fill: var(--ec-tl-ink-2);
+  font-family: var(--ec-font-body, sans-serif);
+  font-size: 10px;
+}
+
+.ec-tl__dot {
+  cursor: pointer;
+  outline: none;
+}
+
+.ec-tl__dot circle {
+  fill: var(--c);
+  stroke: var(--md-default-bg-color);
+  stroke-width: 2;
+  transition: r 0.15s ease-out, opacity 0.2s ease-out;
+}
+
+.ec-tl__dot .ec-tl__hit {
+  fill: transparent;
+  stroke: none;
+}
+
+.ec-tl__dot.is-dim circle:not(.ec-tl__hit) {
+  opacity: 0.18;
+}
+
+.ec-tl__dot.is-active circle:not(.ec-tl__hit),
+.ec-tl__dot:hover circle:not(.ec-tl__hit),
+.ec-tl__dot:focus-visible circle:not(.ec-tl__hit) {
+  r: 7.5;
+  opacity: 1;
+}
+
+.ec-tl__dot.is-selected circle:not(.ec-tl__hit) {
+  r: 7.5;
+  opacity: 1;
+  stroke: var(--c);
+  stroke-width: 2.5;
+  fill: var(--md-default-bg-color);
+}
+
+.ec-tl__dot:focus-visible circle:not(.ec-tl__hit) {
+  stroke: var(--c);
+  stroke-width: 3;
+}
+
+/* Sessions: hollow diamonds below the axis, no category colour */
+.ec-tl__session {
+  cursor: pointer;
+  outline: none;
+}
+
+.ec-tl__session .ec-tl__diamond {
+  fill: var(--md-default-bg-color);
+  stroke: var(--ec-tl-ink-2);
+  stroke-width: 1.5;
+  transition: opacity 0.2s ease-out;
+}
+
+.ec-tl__session .ec-tl__hit {
+  fill: transparent;
+  stroke: none;
+}
+
+.ec-tl__session:hover .ec-tl__diamond,
+.ec-tl__session:focus-visible .ec-tl__diamond {
+  fill: var(--ec-tl-ink-2);
+  stroke: var(--ec-tl-ink);
+}
+
+.ec-tl__session.is-dim .ec-tl__diamond {
+  opacity: 0.25;
+}
+
+/* the diamond key in the Sessions total keeps its outline style */
+.ec-tl__total .ec-tl__session {
+  cursor: default;
+  opacity: 1;
+  fill: none;
+}
+
+.ec-tl__total .ec-tl__session .ec-tl__diamond {
+  fill: none;
+}
+
+.ec-tl__popup-kind {
+  font-size: 0.55rem;
+  color: var(--ec-tl-ink-2);
+}
+
+/* ---- Cards ---- */
+.ec-tl__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr));
+  gap: 0.5rem;
+}
+
+.md-typeset .ec-tl a.ec-tl__card {
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+  border: 1px solid var(--ec-tl-hair);
+  border-left: 3px solid var(--c);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--ec-tl-surface);
+  /* !important: the site-wide link rule is more specific than this one */
+  color: var(--ec-tl-ink) !important;
+  text-decoration: none !important;
+  background-image: none !important;
+  box-shadow: var(--ec-shadow-sm);
+  transition: transform 0.2s var(--ec-ease-out, ease-out),
+              box-shadow 0.2s var(--ec-ease-out, ease-out),
+              border-color 0.2s ease-out;
+}
+
+.md-typeset .ec-tl a.ec-tl__card:hover,
+.md-typeset .ec-tl a.ec-tl__card:focus-visible,
+.md-typeset .ec-tl a.ec-tl__card.is-active {
+  border-color: color-mix(in srgb, var(--md-default-fg-color) 22%, transparent);
+  border-left-color: var(--c);
+  box-shadow: var(--ec-shadow-md);
+  transform: translateY(-1px);
+}
+
+.ec-tl__card[hidden] {
+  display: none !important;
+}
+
+.ec-tl__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.4rem 0.55rem 0.4rem 0.6rem;
+}
+
+.ec-tl__title {
+  font-size: 0.64rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ec-tl__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.4rem;
+  font-size: 0.55rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--ec-tl-ink-2);
+}
+
+.ec-tl__cat {
+  font-weight: 500;
+}
+
+/* Bars, one per metric in two columns, filled as a share of the best post */
+.ec-tl__bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15rem 0.4rem;
+  margin-top: auto;
+  padding-top: 0.3rem;
+}
+
+.ec-tl__row {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  min-width: 0;
+  color: var(--ec-tl-ink-2);
+}
+
+.ec-tl__icon {
+  flex-shrink: 0;
+  width: 0.6rem;
+  height: 0.6rem;
+  fill: currentColor;
+  opacity: 0.6;
+}
+
+.ec-tl__row.is-sorted {
+  color: var(--ec-tl-ink);
+}
+
+.ec-tl__row.is-sorted .ec-tl__icon {
+  opacity: 1;
+}
+
+.ec-tl__track {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 4px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--md-default-fg-color) 8%, transparent);
+  overflow: hidden;
+}
+
+.ec-tl__fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: var(--ec-tl-bar);
+  opacity: 0.55;
+  transition: width 0.35s var(--ec-ease-out, ease-out);
+}
+
+.ec-tl__row.is-sorted .ec-tl__fill {
+  opacity: 1;
+}
+
+.ec-tl__value {
+  flex-shrink: 0;
+  min-width: 5ch;
+  margin-left: 0.2rem;
+  text-align: right;
+  font-size: 0.53rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ec-tl__row.is-sorted .ec-tl__value {
+  font-weight: 600;
+}
+
+/* metric name for screen readers only */
+.ec-tl__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Thumbnail down the right edge, fading into the card */
+.ec-tl__thumb {
+  position: relative;
+  flex: 0 0 4.75rem;
+  width: 4.75rem;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--md-default-fg-color) 6%, transparent);
+}
+
+.ec-tl__thumb::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1.4rem;
+  z-index: 1;
+  background: linear-gradient(to right, var(--ec-tl-surface), transparent);
+}
+
+.md-content--post .md-content__inner.md-typeset .ec-tl__thumb img,
+.ec-tl__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 0;
+  transition: transform 0.5s var(--ec-ease-out, ease-out);
+}
+
+.md-typeset .ec-tl a.ec-tl__card:hover .ec-tl__thumb img,
+.md-typeset .ec-tl a.ec-tl__card.is-active .ec-tl__thumb img {
+  transform: scale(1.04);
+}
+
+/* ---- Empty state ---- */
+.ec-tl__empty {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.62rem;
+  color: var(--ec-tl-ink-2);
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 44.9375em) {
+  .ec-tl__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .ec-tl__sort {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ec-tl *,
+  .ec-tl *::before {
+    transition: none !important;
+  }
+}
+
+@media print {
+  .ec-tl__toolbar { display: none; }
+}

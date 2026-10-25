@@ -58,31 +58,31 @@ This included:
 
 | Item Type | Version |
 |-----------|---------|
-| Notebook | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
-| Data Pipeline | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
-| Semantic Model | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
-| Report | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
-| Environment | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
-| Lakehouse | [v0.1.6](https://microsoft.github.io/fabric-cicd/latest/changelog/#v016-february-24-2025) |
-| Mirrored Database | [v0.1.9](https://microsoft.github.io/fabric-cicd/latest/changelog/#v019-march-11-2025) |
+| :fabric-notebook-outline: Notebook | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
+| :fabric-pipeline-outline: Data Pipeline | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
+| :fabric-semantic-model-outline: Semantic Model | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
+| :fabric-report-outline: Report | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
+| :fabric-environment-outline: Environment | [v0.1.0](https://microsoft.github.io/fabric-cicd/latest/changelog/#v010-january-23-2025) |
+| :fabric-lakehouse-outline: Lakehouse | [v0.1.6](https://microsoft.github.io/fabric-cicd/latest/changelog/#v016-february-24-2025) |
+| :fabric-mirrored-database-outline: Mirrored Database | [v0.1.9](https://microsoft.github.io/fabric-cicd/latest/changelog/#v019-march-11-2025) |
 | Workspace Folders | [v0.1.13](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0113-april-07-2025) |
-| Variable Library | [v0.1.13](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0113-april-07-2025) |
-| CopyJob | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
-| Eventstream | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
-| Eventhouse / KQL Database | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
+| :fabric-variable-library-outline: Variable Library | [v0.1.13](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0113-april-07-2025) |
+| :fabric-copy-job-outline: CopyJob | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
+| :fabric-eventstream-outline: Eventstream | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
+| :fabric-eventhouse-outline: Eventhouse / KQL Database | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
 | Data Activator | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
-| KQL Queryset | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
-| SQL Database | [v0.1.19](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0119-may-21-2025) |
-| Warehouse | [v0.1.19](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0119-may-21-2025) |
+| :fabric-kql-queryset-outline: KQL Queryset | [v0.1.17](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0117-may-13-2025) |
+| :fabric-sql-database-outline: SQL Database | [v0.1.19](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0119-may-21-2025) |
+| :fabric-warehouse-outline: Warehouse | [v0.1.19](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0119-may-21-2025) |
 | KQL Dashboard | [v0.1.20](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0120-june-12-2025) |
-| Dataflow Gen2 | [v0.1.20](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0120-june-12-2025) |
+| :fabric-dataflow-gen2-outline: Dataflow Gen2 | [v0.1.20](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0120-june-12-2025) |
 | API for GraphQL | [v0.1.22](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0122-june-25-2025) |
 | Apache Airflow Job | [v0.1.29](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0129-october-01-2025) |
 | Mounted Data Factory | [v0.1.29](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0129-october-01-2025) |
 | Data Agent | [v0.1.30](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0130-october-20-2025) |
 | ML Experiment | [v0.1.31](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0131-december-01-2025) |
-| User Data Function | [v0.1.31](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0131-december-01-2025) |
-| Spark Job Definition | [v0.1.34](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0134-january-20-2026) |
+| :fabric-user-data-function-outline: User Data Function | [v0.1.31](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0131-december-01-2025) |
+| :fabric-spark-job-definition-outline: Spark Job Definition | [v0.1.34](https://microsoft.github.io/fabric-cicd/latest/changelog/#v0134-january-20-2026) |
 
 ## v0.2.0
 

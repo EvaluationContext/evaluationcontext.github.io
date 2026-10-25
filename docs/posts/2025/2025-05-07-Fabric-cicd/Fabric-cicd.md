@@ -28,14 +28,14 @@ Of note, [Kevin Chant](https://www.linkedin.com/in/kevin-chant/) has produced a 
 
 Fabric-cicd currently supports the deployment of:
 
-- DataPipeline
-- Environment
-- Notebook
-- Report
-- SemanticModel
-- Lakehouse
-- MirroredDatabase
-- VariableLibrary
+- :fabric-pipeline-outline: DataPipeline
+- :fabric-environment-outline: Environment
+- :fabric-notebook-outline: Notebook
+- :fabric-report-outline: Report
+- :fabric-semantic-model-outline: SemanticModel
+- :fabric-lakehouse-outline: Lakehouse
+- :fabric-mirrored-database-outline: MirroredDatabase
+- :fabric-variable-library-outline: VariableLibrary
 
 ### Setup
 

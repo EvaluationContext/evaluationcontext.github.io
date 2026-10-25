@@ -121,11 +121,11 @@ Item selection is the deployment tool's job, not the plan's. An item in the depl
 
 An [action](https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-actions) is a run of another item in the workspace, and nothing more. The plan starts the job, the item decides what happens. Five item types are supported, and every one of them runs as an `Execute` job, so a Dataflow Gen2 action is a refresh and nothing else:
 
-- Notebook
-- Data pipeline
-- Dataflow Gen2
-- Copy job
-- User data function
+- :fabric-notebook-outline: Notebook
+- :fabric-pipeline-outline: Data pipeline
+- :fabric-dataflow-gen2-outline: Dataflow Gen2
+- :fabric-copy-job-outline: Copy job
+- :fabric-user-data-function-outline: User data function
 
 Actions in a group are [chained](https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-actions#order-actions-within-a-deployment-group) with `dependsOn` and are only ever run one at a time. The deploying identity needs [`Item.Execute.All`](https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-automation#prerequisites) on top of the operation's own scope.
 

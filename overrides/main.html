@@ -12,10 +12,6 @@
   <meta name="google-site-verification" content="{{ config.extra.google_site_verification }}" />
   {% endif %}
 
-  <!-- Cache Control -->
-  <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate" />
-  <meta http-equiv="Expires" content="0" />
-
   <!-- extra.css still imports Space Grotesk from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -70,5 +66,22 @@
   {% for category in page.categories %}
   <meta property="article:tag" content="{{ category.title }}" />
   {% endfor %}
+
+  {# Structured data for Google; dates come as "YYYY-MM-DD HH:MM:SS+00:00", so swap the space for ISO 8601's T #}
+  {% set ld = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": page.title,
+    "description": og_desc,
+    "url": page.canonical_url,
+    "mainEntityOfPage": page.canonical_url,
+    "image": og_image_url or (config.site_url ~ "assets/images/avatar.png"),
+    "datePublished": page.config.date.created | string | replace(" ", "T"),
+    "dateModified": (page.config.date.updated or page.config.date.created) | string | replace(" ", "T"),
+    "keywords": page.categories | map(attribute="title") | list,
+    "author": {"@type": "Person", "name": config.site_author, "url": config.site_url ~ "about/"},
+    "publisher": {"@type": "Person", "name": config.site_author, "url": config.site_url}
+  } %}
+  <script type="application/ld+json">{{ ld | tojson }}</script>
   {% endif %}
 {% endblock %}

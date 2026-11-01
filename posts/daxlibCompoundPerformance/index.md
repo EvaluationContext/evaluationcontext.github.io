@@ -2,7 +2,7 @@ I recently presented the [daxlib.svg](<https://daxlib.org/package/DaxLib.SVG/>) 
 
 ## DaxLib.SVG
 
-[DaxLib.SVG](<https://evaluationcontext.github.io/daxlib.svg/>) consists of a few function categories:
+[DaxLib.SVG](<https://evaluationcontext.com/daxlib.svg/>) consists of a few function categories:
 
 | Category | Description |
 | --- | --- |
@@ -17,21 +17,21 @@ I recently presented the [daxlib.svg](<https://daxlib.org/package/DaxLib.SVG/>) 
 
 `Compounds` are the highest level abstraction, combine multiple `DaxLib.SVG.Element.*` into higher-level reusable components for the generation of chart visualizations. They are designed to be easy to use, while outputting complex visuals. They are the most complex and demanding functions in the library, and will be the functions I will be focusing on profiling.
 
-[Area](<https://evaluationcontext.github.io/daxlib.svg/compounds/Area/>)
+[Area](<https://evaluationcontext.com/daxlib.svg/compounds/Area/>)
 
-[BoxPlot](<https://evaluationcontext.github.io/daxlib.svg/compounds/Boxplot/>)
+[BoxPlot](<https://evaluationcontext.com/daxlib.svg/compounds/Boxplot/>)
 
-[Heatmap](<https://evaluationcontext.github.io/daxlib.svg/compounds/Heatmap/>)
+[Heatmap](<https://evaluationcontext.com/daxlib.svg/compounds/Heatmap/>)
 
-[Jitter](<https://evaluationcontext.github.io/daxlib.svg/compounds/Jitter/>)
+[Jitter](<https://evaluationcontext.com/daxlib.svg/compounds/Jitter/>)
 
-[Line](<https://evaluationcontext.github.io/daxlib.svg/compounds/Line/>)
+[Line](<https://evaluationcontext.com/daxlib.svg/compounds/Line/>)
 
-[Violin](<https://evaluationcontext.github.io/daxlib.svg/compounds/Violin/>)
+[Violin](<https://evaluationcontext.com/daxlib.svg/compounds/Violin/>)
 
-[Pill](<https://evaluationcontext.github.io/daxlib.svg/compounds/Pill/>)
+[Pill](<https://evaluationcontext.com/daxlib.svg/compounds/Pill/>)
 
-[Bar](<https://evaluationcontext.github.io/daxlib.svg/compounds/Bar/>)
+[Bar](<https://evaluationcontext.com/daxlib.svg/compounds/Bar/>)
 
 ## Performance Testing
 

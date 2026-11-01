@@ -33,28 +33,28 @@ My recent contribution to DAX Lib was [EvaluationContext.Colour](<https://daxlib
 >
 > **Functions**
 >
-> - [Colour Conversion](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/>)
+> - [Colour Conversion](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/>)
 >
->   - [`EvaluationContext.Colour.Int.ToHex`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.Int.ToHex/>)
->   - [`EvaluationContext.Colour.Hex.ToInt`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.Hex.ToInt/>)
->   - [`EvaluationContext.Colour.RGB.ToHex`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.RGB.ToHex/>)
->   - [`EvaluationContext.Colour.HSL.ToHex`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.HSL.ToHex/>)
-> - [Hex Colour Manipulation](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/>)
+>   - [`EvaluationContext.Colour.Int.ToHex`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.Int.ToHex/>)
+>   - [`EvaluationContext.Colour.Hex.ToInt`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.Hex.ToInt/>)
+>   - [`EvaluationContext.Colour.RGB.ToHex`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.RGB.ToHex/>)
+>   - [`EvaluationContext.Colour.HSL.ToHex`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.HSL.ToHex/>)
+> - [Hex Colour Manipulation](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/>)
 >
->   - [`EvaluationContext.Colour.HEX.Hue`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Hue/>)
->   - [`EvaluationContext.Colour.HEX.Saturation`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Saturation/>)
->   - [`EvaluationContext.Colour.HEX.Luminance`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Luminance/>)
->   - [`EvaluationContext.Colour.HEX.Alpha`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Alpha/>)
->   - [`EvaluationContext.Colour.HEX.AdjustHue`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustHue/>)
->   - [`EvaluationContext.Colour.HEX.AdjustSaturation`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustSaturation/>)
->   - [`EvaluationContext.Colour.HEX.AdjustLuminance`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustLuminance/>)
->   - [`EvaluationContext.Colour.HEX.AdjustAlpha`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustAlpha/>)
->   - [`EvaluationContext.Colour.HEX.TextColour`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.TextColour/>)
-> - [Colour Theming](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/theming/>)
+>   - [`EvaluationContext.Colour.HEX.Hue`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Hue/>)
+>   - [`EvaluationContext.Colour.HEX.Saturation`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Saturation/>)
+>   - [`EvaluationContext.Colour.HEX.Luminance`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Luminance/>)
+>   - [`EvaluationContext.Colour.HEX.Alpha`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Alpha/>)
+>   - [`EvaluationContext.Colour.HEX.AdjustHue`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustHue/>)
+>   - [`EvaluationContext.Colour.HEX.AdjustSaturation`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustSaturation/>)
+>   - [`EvaluationContext.Colour.HEX.AdjustLuminance`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustLuminance/>)
+>   - [`EvaluationContext.Colour.HEX.AdjustAlpha`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustAlpha/>)
+>   - [`EvaluationContext.Colour.HEX.TextColour`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.TextColour/>)
+> - [Colour Theming](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/theming/>)
 >
->   - [`EvaluationContext.Colour.Hex.Theme`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.Theme/>)
->   - [`EvaluationContext.Colour.HEX.LinearTheme`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.LinearTheme/>)
->   - [`EvaluationContext.Colour.Hex.Interpolate`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.Interpolate/>)
+>   - [`EvaluationContext.Colour.Hex.Theme`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.Theme/>)
+>   - [`EvaluationContext.Colour.HEX.LinearTheme`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.LinearTheme/>)
+>   - [`EvaluationContext.Colour.Hex.Interpolate`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.Interpolate/>)
 
 You can see these functions in action in Power BI:
 

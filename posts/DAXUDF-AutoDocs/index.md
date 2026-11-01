@@ -35,7 +35,7 @@ JSDoc's strength lies in its standardization—tools can parse these comments to
 
 ## EvaluationContext.Colour
 
-I have a library [EvaluationContext.Colour](<https://daxlib.org/package/EvaluationContext.Colour>) set up as a DAX Lib [Medium/Large](<https://evaluationcontext.com/posts/DaxLibContribute/#mediumlarge-library>) library, and I'm hosting the [documentation](<https://evaluationcontext.github.io/evaluationcontext.colour/>) on GitHub Pages using Material for MkDocs. The [repo](<https://github.com/EvaluationContext/evaluationcontext.colour>) has both the source functions for DAX Lib and the site definition.
+I have a library [EvaluationContext.Colour](<https://daxlib.org/package/EvaluationContext.Colour>) set up as a DAX Lib [Medium/Large](<https://evaluationcontext.com/posts/DaxLibContribute/#mediumlarge-library>) library, and I'm hosting the [documentation](<https://evaluationcontext.com/evaluationcontext.colour/>) on GitHub Pages using Material for MkDocs. The [repo](<https://github.com/EvaluationContext/evaluationcontext.colour>) has both the source functions for DAX Lib and the site definition.
 
 ### Repo Structure
 

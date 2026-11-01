@@ -8519,28 +8519,28 @@ My recent contribution to DAX Lib was [EvaluationContext.Colour](<https://daxlib
 >
 > **Functions**
 >
-> - [Colour Conversion](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/>)
+> - [Colour Conversion](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/>)
 >
->   - [`EvaluationContext.Colour.Int.ToHex`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.Int.ToHex/>)
->   - [`EvaluationContext.Colour.Hex.ToInt`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.Hex.ToInt/>)
->   - [`EvaluationContext.Colour.RGB.ToHex`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.RGB.ToHex/>)
->   - [`EvaluationContext.Colour.HSL.ToHex`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.HSL.ToHex/>)
-> - [Hex Colour Manipulation](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/>)
+>   - [`EvaluationContext.Colour.Int.ToHex`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.Int.ToHex/>)
+>   - [`EvaluationContext.Colour.Hex.ToInt`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.Hex.ToInt/>)
+>   - [`EvaluationContext.Colour.RGB.ToHex`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.RGB.ToHex/>)
+>   - [`EvaluationContext.Colour.HSL.ToHex`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/conversion/EvaluationContext.Colour.HSL.ToHex/>)
+> - [Hex Colour Manipulation](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/>)
 >
->   - [`EvaluationContext.Colour.HEX.Hue`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Hue/>)
->   - [`EvaluationContext.Colour.HEX.Saturation`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Saturation/>)
->   - [`EvaluationContext.Colour.HEX.Luminance`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Luminance/>)
->   - [`EvaluationContext.Colour.HEX.Alpha`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Alpha/>)
->   - [`EvaluationContext.Colour.HEX.AdjustHue`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustHue/>)
->   - [`EvaluationContext.Colour.HEX.AdjustSaturation`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustSaturation/>)
->   - [`EvaluationContext.Colour.HEX.AdjustLuminance`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustLuminance/>)
->   - [`EvaluationContext.Colour.HEX.AdjustAlpha`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustAlpha/>)
->   - [`EvaluationContext.Colour.HEX.TextColour`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.TextColour/>)
-> - [Colour Theming](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/theming/>)
+>   - [`EvaluationContext.Colour.HEX.Hue`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Hue/>)
+>   - [`EvaluationContext.Colour.HEX.Saturation`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Saturation/>)
+>   - [`EvaluationContext.Colour.HEX.Luminance`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Luminance/>)
+>   - [`EvaluationContext.Colour.HEX.Alpha`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.Alpha/>)
+>   - [`EvaluationContext.Colour.HEX.AdjustHue`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustHue/>)
+>   - [`EvaluationContext.Colour.HEX.AdjustSaturation`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustSaturation/>)
+>   - [`EvaluationContext.Colour.HEX.AdjustLuminance`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustLuminance/>)
+>   - [`EvaluationContext.Colour.HEX.AdjustAlpha`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.AdjustAlpha/>)
+>   - [`EvaluationContext.Colour.HEX.TextColour`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/hex-manipulation/EvaluationContext.Colour.Hex.TextColour/>)
+> - [Colour Theming](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/theming/>)
 >
->   - [`EvaluationContext.Colour.Hex.Theme`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.Theme/>)
->   - [`EvaluationContext.Colour.HEX.LinearTheme`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.LinearTheme/>)
->   - [`EvaluationContext.Colour.Hex.Interpolate`](<https://evaluationcontext.github.io/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.Interpolate/>)
+>   - [`EvaluationContext.Colour.Hex.Theme`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.Theme/>)
+>   - [`EvaluationContext.Colour.HEX.LinearTheme`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.LinearTheme/>)
+>   - [`EvaluationContext.Colour.Hex.Interpolate`](<https://evaluationcontext.com/evaluationcontext.colour/docs/functions/theming/EvaluationContext.Colour.Hex.Interpolate/>)
 
 You can see these functions in action in Power BI:
 
@@ -8902,42 +8902,42 @@ For example you can define a simple circle like this:
 
 DaxLib.SVG has the following function categories:
 
-- [**SVG Wrapper**](<https://evaluationcontext.github.io/daxlib.svg/svg/>)
+- [**SVG Wrapper**](<https://evaluationcontext.com/daxlib.svg/svg/>)
 
   ---
 
   Wraps one or more `Elements`, `Defs`, `Compounds`, applying required metadata and `<SVG>` tags
-- [**Elements**](<https://evaluationcontext.github.io/daxlib.svg/elements/>)
+- [**Elements**](<https://evaluationcontext.com/daxlib.svg/elements/>)
 
   ---
 
   SVG primitives (i.e. `<Rect>`, `<Circle>`, `<line>`)
-- [**Compounds**](<https://evaluationcontext.github.io/daxlib.svg/compounds/>)
+- [**Compounds**](<https://evaluationcontext.com/daxlib.svg/compounds/>)
 
   ---
 
   Complex `Compound` components (i.e. boxplot, violin) made from `Elements`
-- [**Defs**](<https://evaluationcontext.github.io/daxlib.svg/defs/>)
+- [**Defs**](<https://evaluationcontext.com/daxlib.svg/defs/>)
 
   ---
 
   Define reusable SVG elements (i.e. `<linearGradient>`, `<clipPath>`, and shapes).
-- [**Attr**](<https://evaluationcontext.github.io/daxlib.svg/attributes/>)
+- [**Attr**](<https://evaluationcontext.com/daxlib.svg/attributes/>)
 
   ---
 
   Create Attributes (i.e.fill, stroke, opacity) string that can applied to `Elements` and `Defs`
-- [**Transforms**](<https://evaluationcontext.github.io/daxlib.svg/transforms/>)
+- [**Transforms**](<https://evaluationcontext.com/daxlib.svg/transforms/>)
 
   ---
 
   Create Transform strings
-- [**Scales**](<https://evaluationcontext.github.io/daxlib.svg/scales/>)
+- [**Scales**](<https://evaluationcontext.com/daxlib.svg/scales/>)
 
   ---
 
   Mapping values between scales
-- [**Colors**](<https://evaluationcontext.github.io/daxlib.svg/colors/>)
+- [**Colors**](<https://evaluationcontext.com/daxlib.svg/colors/>)
 
   ---
 
@@ -8945,7 +8945,7 @@ DaxLib.SVG has the following function categories:
 
 ## How do I use DaxLib.SVG?
 
-For detailed examples and complete API reference, check out the [documentation site](<https://evaluationcontext.github.io/daxlib.svg/>) or download the [example PBIP file](<https://github.com/daxlib/dev-daxlib-svg/tree/main/samples/pbip/svg>). But lets have a quick tour of what DaxLib.SVG offers.
+For detailed examples and complete API reference, check out the [documentation site](<https://evaluationcontext.com/daxlib.svg/>) or download the [example PBIP file](<https://github.com/daxlib/dev-daxlib-svg/tree/main/samples/pbip/svg>). But lets have a quick tour of what DaxLib.SVG offers.
 
 > [!TIP]
 >
@@ -9878,7 +9878,7 @@ JSDoc's strength lies in its standardization—tools can parse these comments to
 
 ## EvaluationContext.Colour
 
-I have a library [EvaluationContext.Colour](<https://daxlib.org/package/EvaluationContext.Colour>) set up as a DAX Lib [Medium/Large](<https://evaluationcontext.com/posts/DaxLibContribute/#mediumlarge-library>) library, and I'm hosting the [documentation](<https://evaluationcontext.github.io/evaluationcontext.colour/>) on GitHub Pages using Material for MkDocs. The [repo](<https://github.com/EvaluationContext/evaluationcontext.colour>) has both the source functions for DAX Lib and the site definition.
+I have a library [EvaluationContext.Colour](<https://daxlib.org/package/EvaluationContext.Colour>) set up as a DAX Lib [Medium/Large](<https://evaluationcontext.com/posts/DaxLibContribute/#mediumlarge-library>) library, and I'm hosting the [documentation](<https://evaluationcontext.com/evaluationcontext.colour/>) on GitHub Pages using Material for MkDocs. The [repo](<https://github.com/EvaluationContext/evaluationcontext.colour>) has both the source functions for DAX Lib and the site definition.
 
 ### Repo Structure
 
@@ -11749,7 +11749,7 @@ I recently presented the [daxlib.svg](<https://daxlib.org/package/DaxLib.SVG/>) 
 
 ## DaxLib.SVG
 
-[DaxLib.SVG](<https://evaluationcontext.github.io/daxlib.svg/>) consists of a few function categories:
+[DaxLib.SVG](<https://evaluationcontext.com/daxlib.svg/>) consists of a few function categories:
 
 | Category | Description |
 | --- | --- |
@@ -11764,21 +11764,21 @@ I recently presented the [daxlib.svg](<https://daxlib.org/package/DaxLib.SVG/>) 
 
 `Compounds` are the highest level abstraction, combine multiple `DaxLib.SVG.Element.*` into higher-level reusable components for the generation of chart visualizations. They are designed to be easy to use, while outputting complex visuals. They are the most complex and demanding functions in the library, and will be the functions I will be focusing on profiling.
 
-[Area](<https://evaluationcontext.github.io/daxlib.svg/compounds/Area/>)
+[Area](<https://evaluationcontext.com/daxlib.svg/compounds/Area/>)
 
-[BoxPlot](<https://evaluationcontext.github.io/daxlib.svg/compounds/Boxplot/>)
+[BoxPlot](<https://evaluationcontext.com/daxlib.svg/compounds/Boxplot/>)
 
-[Heatmap](<https://evaluationcontext.github.io/daxlib.svg/compounds/Heatmap/>)
+[Heatmap](<https://evaluationcontext.com/daxlib.svg/compounds/Heatmap/>)
 
-[Jitter](<https://evaluationcontext.github.io/daxlib.svg/compounds/Jitter/>)
+[Jitter](<https://evaluationcontext.com/daxlib.svg/compounds/Jitter/>)
 
-[Line](<https://evaluationcontext.github.io/daxlib.svg/compounds/Line/>)
+[Line](<https://evaluationcontext.com/daxlib.svg/compounds/Line/>)
 
-[Violin](<https://evaluationcontext.github.io/daxlib.svg/compounds/Violin/>)
+[Violin](<https://evaluationcontext.com/daxlib.svg/compounds/Violin/>)
 
-[Pill](<https://evaluationcontext.github.io/daxlib.svg/compounds/Pill/>)
+[Pill](<https://evaluationcontext.com/daxlib.svg/compounds/Pill/>)
 
-[Bar](<https://evaluationcontext.github.io/daxlib.svg/compounds/Bar/>)
+[Bar](<https://evaluationcontext.com/daxlib.svg/compounds/Bar/>)
 
 ## Performance Testing
 
@@ -15127,7 +15127,7 @@ DaxLib.SVG.Viz.Bars(
 
 ### API Reordering (Breaking)
 
-To take advantage of optional parameters, they must trail all required parameters. As a result the parameter order has changed for `DaxLib.SVG.Compound.*` and `DaxLib.SVG.Axes.Layout()`. If you are upgrading from `v1.x` and were passing positional arguments beyond the required set, you will need to review your calls against the [updated docs](<https://evaluationcontext.github.io/daxlib.svg/>).
+To take advantage of optional parameters, they must trail all required parameters. As a result the parameter order has changed for `DaxLib.SVG.Compound.*` and `DaxLib.SVG.Axes.Layout()`. If you are upgrading from `v1.x` and were passing positional arguments beyond the required set, you will need to review your calls against the [updated docs](<https://evaluationcontext.com/daxlib.svg/>).
 
 ### Bars Aligned With Native Power BI
 

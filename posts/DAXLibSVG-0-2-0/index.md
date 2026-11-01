@@ -22,42 +22,42 @@ For example you can define a simple circle like this:
 
 DaxLib.SVG has the following function categories:
 
-- [**SVG Wrapper**](<https://evaluationcontext.github.io/daxlib.svg/svg/>)
+- [**SVG Wrapper**](<https://evaluationcontext.com/daxlib.svg/svg/>)
 
   ---
 
   Wraps one or more `Elements`, `Defs`, `Compounds`, applying required metadata and `<SVG>` tags
-- [**Elements**](<https://evaluationcontext.github.io/daxlib.svg/elements/>)
+- [**Elements**](<https://evaluationcontext.com/daxlib.svg/elements/>)
 
   ---
 
   SVG primitives (i.e. `<Rect>`, `<Circle>`, `<line>`)
-- [**Compounds**](<https://evaluationcontext.github.io/daxlib.svg/compounds/>)
+- [**Compounds**](<https://evaluationcontext.com/daxlib.svg/compounds/>)
 
   ---
 
   Complex `Compound` components (i.e. boxplot, violin) made from `Elements`
-- [**Defs**](<https://evaluationcontext.github.io/daxlib.svg/defs/>)
+- [**Defs**](<https://evaluationcontext.com/daxlib.svg/defs/>)
 
   ---
 
   Define reusable SVG elements (i.e. `<linearGradient>`, `<clipPath>`, and shapes).
-- [**Attr**](<https://evaluationcontext.github.io/daxlib.svg/attributes/>)
+- [**Attr**](<https://evaluationcontext.com/daxlib.svg/attributes/>)
 
   ---
 
   Create Attributes (i.e.fill, stroke, opacity) string that can applied to `Elements` and `Defs`
-- [**Transforms**](<https://evaluationcontext.github.io/daxlib.svg/transforms/>)
+- [**Transforms**](<https://evaluationcontext.com/daxlib.svg/transforms/>)
 
   ---
 
   Create Transform strings
-- [**Scales**](<https://evaluationcontext.github.io/daxlib.svg/scales/>)
+- [**Scales**](<https://evaluationcontext.com/daxlib.svg/scales/>)
 
   ---
 
   Mapping values between scales
-- [**Colors**](<https://evaluationcontext.github.io/daxlib.svg/colors/>)
+- [**Colors**](<https://evaluationcontext.com/daxlib.svg/colors/>)
 
   ---
 
@@ -65,7 +65,7 @@ DaxLib.SVG has the following function categories:
 
 ## How do I use DaxLib.SVG?
 
-For detailed examples and complete API reference, check out the [documentation site](<https://evaluationcontext.github.io/daxlib.svg/>) or download the [example PBIP file](<https://github.com/daxlib/dev-daxlib-svg/tree/main/samples/pbip/svg>). But lets have a quick tour of what DaxLib.SVG offers.
+For detailed examples and complete API reference, check out the [documentation site](<https://evaluationcontext.com/daxlib.svg/>) or download the [example PBIP file](<https://github.com/daxlib/dev-daxlib-svg/tree/main/samples/pbip/svg>). But lets have a quick tour of what DaxLib.SVG offers.
 
 > [!TIP]
 >

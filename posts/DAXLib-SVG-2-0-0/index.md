@@ -44,7 +44,7 @@ DaxLib.SVG.Viz.Bars(
 
 ### API Reordering (Breaking)
 
-To take advantage of optional parameters, they must trail all required parameters. As a result the parameter order has changed for `DaxLib.SVG.Compound.*` and `DaxLib.SVG.Axes.Layout()`. If you are upgrading from `v1.x` and were passing positional arguments beyond the required set, you will need to review your calls against the [updated docs](<https://evaluationcontext.github.io/daxlib.svg/>).
+To take advantage of optional parameters, they must trail all required parameters. As a result the parameter order has changed for `DaxLib.SVG.Compound.*` and `DaxLib.SVG.Axes.Layout()`. If you are upgrading from `v1.x` and were passing positional arguments beyond the required set, you will need to review your calls against the [updated docs](<https://evaluationcontext.com/daxlib.svg/>).
 
 ### Bars Aligned With Native Power BI
 

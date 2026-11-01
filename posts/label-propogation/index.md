@@ -125,7 +125,7 @@ In order to use the new new `srcLabel` and `dstLable` fields we need to update t
 ```json
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "By Jake Duddy: https://evaluationcontext.github.io/post/label-propogation/ based off Force Directed example by David Bacci:https://github.com/PBI-David/Deneb-Showcase/blob/main/Force%20Directed%20Graph/Spec.json",
+  "description": "By Jake Duddy: https://evaluationcontext.com/posts/label-propogation/ based off Force Directed example by David Bacci:https://github.com/PBI-David/Deneb-Showcase/blob/main/Force%20Directed%20Graph/Spec.json",
   "padding": {
     "left": 0,
     "right": 0,

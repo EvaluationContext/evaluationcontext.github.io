@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://evaluationcontext.com/sitemap.xml
+Sitemap: https://evaluationcontext.com/allez/sitemap.xml
+Sitemap: https://evaluationcontext.com/Power-BI-Nexus/sitemap.xml
+Sitemap: https://evaluationcontext.com/daxlib.svg/sitemap.xml
+Sitemap: https://evaluationcontext.com/evaluationcontext.colour/sitemap.xml

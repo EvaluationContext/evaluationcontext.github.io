@@ -8,6 +8,10 @@
 {%- endmacro -%}
 
 {% block extrahead %}
+  {% if config.extra.google_site_verification %}
+  <meta name="google-site-verification" content="{{ config.extra.google_site_verification }}" />
+  {% endif %}
+
   <!-- Cache Control -->
   <meta http-equiv="Cache-Control" content="max-age=300, must-revalidate" />
   <meta http-equiv="Expires" content="0" />

@@ -18,7 +18,7 @@ tags:
 slug: posts/daxlibCompoundDAXPerformanceTuner
 links:
   - daxlib.svg: https://daxlib.org/package/DaxLib.SVG/
-  - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/
+  - daxlib.svg Docs: https://evaluationcontext.com/daxlib.svg/
   - MCP Server DAX Performance Tuner: https://daxnoob.blog/2025/10/21/mcp-server-dax-performance-tuner/
   - Fabric Toolbox: https://github.com/microsoft/fabric-toolbox/tree/main/tools/DAXPerformanceTunerMCPServer
 ---

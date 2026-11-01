@@ -20,7 +20,7 @@ links:
   - daxlib Repo: https://github.com/daxlib/daxlib
   - lib-quickstart-template Repo: https://github.com/daxlib/lib-quickstart-template
   - evaluationcontext.colour Repo: https://github.com/EvaluationContext/evaluationcontext.colour
-  - evaluationcontext.colour Docs Site: https://evaluationcontext.github.io/evaluationcontext.colour/
+  - evaluationcontext.colour Docs Site: https://evaluationcontext.com/evaluationcontext.colour/
 slug: posts/DaxLibContribute
 ---
 

@@ -15,13 +15,13 @@ tags:
   - SVG
 links:
   - daxlib.svg Package: https://daxlib.org/package/DaxLib.SVG
-  - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/
+  - daxlib.svg Docs: https://evaluationcontext.com/daxlib.svg/
 slug: posts/DAXLibSVG-1-0-1
 ---
 
 I am happy to announce the release of `DaxLib.SVG v1.0.1`. `DaxLib.SVG` is a DAX UDF library designed to help make creating SVGs in Power BI easier for everyone. The bump to `v1.x` is due to API changes to `DaxLib.SVG.Compound.*` functions. This update brings axes and min/max markers to some `DaxLib.SVG.Compound.*`. Not to mention and a new `DaxLib.SVG.Viz.*` layer on top of `DaxLib.SVG.Compound.*` to make the library even easier to use.
 
-[:material-book-open: Docs](https://evaluationcontext.github.io/daxlib.svg/){ .md-button }
+[:material-book-open: Docs](https://evaluationcontext.com/daxlib.svg/){ .md-button }
 [:material-package-variant: Package](https://daxlib.org/package/daxlib.svg/){ .md-button }
 
 ## Changes

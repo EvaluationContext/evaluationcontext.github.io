@@ -16,13 +16,13 @@ tags:
   - SVG
 links:
   - daxlib.svg Package: https://daxlib.org/package/DaxLib.SVG
-  - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/
+  - daxlib.svg Docs: https://evaluationcontext.com/daxlib.svg/
 slug: posts/DAXLibSVG-0-2-0
 ---
 
 I am happy to announce the release of `DaxLib.SVG v0.2.0-beta`, designed to help make creating SVGs in Power BI easier for everyone.
 
-[:material-book-open: Docs](https://evaluationcontext.github.io/daxlib.svg/){ .md-button }
+[:material-book-open: Docs](https://evaluationcontext.com/daxlib.svg/){ .md-button }
 [:material-package-variant: Package](https://daxlib.org/package/daxlib.svg/){ .md-button }
 
 ![DaxLib.SVG](UDFInAction.png)
@@ -51,49 +51,49 @@ DaxLib.SVG has the following function categories:
 
 <div class="grid cards" markdown>
 
-- :material-svg: [__SVG Wrapper__ ](https://evaluationcontext.github.io/daxlib.svg/svg/)
+- :material-svg: [__SVG Wrapper__ ](https://evaluationcontext.com/daxlib.svg/svg/)
 
     ---
 
     Wraps one or more `Elements`, `Defs`, `Compounds`, applying required metadata and `#!xml <SVG>` tags
 
-- :material-shape-outline: [__Elements__](https://evaluationcontext.github.io/daxlib.svg/elements/)
+- :material-shape-outline: [__Elements__](https://evaluationcontext.com/daxlib.svg/elements/)
 
     ---
 
     SVG primitives (i.e. `#!xml <Rect>`, `#!xml <Circle>`, `#!xml <line>`)
 
-- :octicons-graph-24: [__Compounds__ ](https://evaluationcontext.github.io/daxlib.svg/compounds/)
+- :octicons-graph-24: [__Compounds__ ](https://evaluationcontext.com/daxlib.svg/compounds/)
 
     --- 
 
     Complex `Compound` components (i.e. boxplot, violin) made from `Elements`
 
-- :material-replay: [__Defs__](https://evaluationcontext.github.io/daxlib.svg/defs/)
+- :material-replay: [__Defs__](https://evaluationcontext.com/daxlib.svg/defs/)
 
     ---
 
     Define reusable SVG elements (i.e. `#!xml <linearGradient>`, `#!xml <clipPath>`, and shapes). 
 
-- :material-format-color-fill: [__Attr__](https://evaluationcontext.github.io/daxlib.svg/attributes/)
+- :material-format-color-fill: [__Attr__](https://evaluationcontext.com/daxlib.svg/attributes/)
 
     ---
     
     Create Attributes (i.e.fill, stroke, opacity) string that can applied to `Elements` and `Defs`
 
-- :material-format-rotate-90: [__Transforms__](https://evaluationcontext.github.io/daxlib.svg/transforms/)
+- :material-format-rotate-90: [__Transforms__](https://evaluationcontext.com/daxlib.svg/transforms/)
 
     ---
     
     Create Transform strings
 
-- :material-resize: [__Scales__](https://evaluationcontext.github.io/daxlib.svg/scales/)
+- :material-resize: [__Scales__](https://evaluationcontext.com/daxlib.svg/scales/)
 
     ---
 
     Mapping values between scales
 
-- :material-palette-swatch-outline: [__Colors__ ](https://evaluationcontext.github.io/daxlib.svg/colors/)
+- :material-palette-swatch-outline: [__Colors__ ](https://evaluationcontext.com/daxlib.svg/colors/)
 
     ---
 
@@ -103,7 +103,7 @@ DaxLib.SVG has the following function categories:
 
 ## How do I use DaxLib.SVG?
 
-For detailed examples and complete API reference, check out the [documentation site](https://evaluationcontext.github.io/daxlib.svg/) or download the [example PBIP file](https://github.com/daxlib/dev-daxlib-svg/tree/main/samples/pbip/svg). But lets have a quick tour of what DaxLib.SVG offers.
+For detailed examples and complete API reference, check out the [documentation site](https://evaluationcontext.com/daxlib.svg/) or download the [example PBIP file](https://github.com/daxlib/dev-daxlib-svg/tree/main/samples/pbip/svg). But lets have a quick tour of what DaxLib.SVG offers.
 
 !!! Tip "Data Category"
 

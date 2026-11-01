@@ -21,7 +21,7 @@ Open-source tools for the **Fabric** community.
 <div class="ec-project" markdown>
 <div class="ec-project__screenshot" markdown>
 
-[![Power BI Nexus screenshot](assets/images/projects/power-bi-nexus.png){ .off-glb loading=lazy }](https://evaluationcontext.github.io/Power-BI-Nexus/){ target=_blank rel=noopener }
+[![Power BI Nexus screenshot](assets/images/projects/power-bi-nexus.png){ .off-glb loading=lazy }](https://evaluationcontext.com/Power-BI-Nexus/){ target=_blank rel=noopener }
 
 </div>
 <div class="ec-project__body" markdown>
@@ -40,7 +40,7 @@ Stop searching in silos. Contribute, learn, and stay current with Power BI — a
 </div>
 <div class="ec-project__actions" markdown>
 
-[:material-web: Site](https://evaluationcontext.github.io/Power-BI-Nexus/){ .ec-badge .ec-badge--site }
+[:material-web: Site](https://evaluationcontext.com/Power-BI-Nexus/){ .ec-badge .ec-badge--site }
 [:fontawesome-brands-github: Repo](https://github.com/EvaluationContext/Power-BI-Nexus){ .ec-badge .ec-badge--repo }
 
 </div>
@@ -50,7 +50,7 @@ Stop searching in silos. Contribute, learn, and stay current with Power BI — a
 <div class="ec-project" markdown>
 <div class="ec-project__screenshot" markdown>
 
-[![EvaluationContext.Colour documentation](assets/images/projects/evaluationcontext-color-docs.png){ .off-glb loading=lazy }](https://evaluationcontext.github.io/evaluationcontext.colour/){ target=_blank rel=noopener }
+[![EvaluationContext.Colour documentation](assets/images/projects/evaluationcontext-color-docs.png){ .off-glb loading=lazy }](https://evaluationcontext.com/evaluationcontext.colour/){ target=_blank rel=noopener }
 
 </div>
 <div class="ec-project__body" markdown>
@@ -69,7 +69,7 @@ A [DAX Lib](https://daxlib.org/) UDF library for manipulation of hex colours in 
 </div>
 <div class="ec-project__actions" markdown>
 
-[:material-book-open-variant: Docs](https://evaluationcontext.github.io/evaluationcontext.colour/){ .ec-badge .ec-badge--docs }
+[:material-book-open-variant: Docs](https://evaluationcontext.com/evaluationcontext.colour/){ .ec-badge .ec-badge--docs }
 [:material-package-variant: Package](https://daxlib.org/package/EvaluationContext.Colour/){ .ec-badge .ec-badge--package }
 
 </div>
@@ -79,7 +79,7 @@ A [DAX Lib](https://daxlib.org/) UDF library for manipulation of hex colours in 
 <div class="ec-project" markdown>
 <div class="ec-project__screenshot" markdown>
 
-[![DaxLib.SVG documentation](assets/images/projects/daxlib-svg-docs.png){ .off-glb loading=lazy }](https://evaluationcontext.github.io/daxlib.svg/){ target=_blank rel=noopener }
+[![DaxLib.SVG documentation](assets/images/projects/daxlib-svg-docs.png){ .off-glb loading=lazy }](https://evaluationcontext.com/daxlib.svg/){ target=_blank rel=noopener }
 
 </div>
 <div class="ec-project__body" markdown>
@@ -98,7 +98,7 @@ A [DAX Lib](https://daxlib.org/) library designed to make creating SVG visuals i
 </div>
 <div class="ec-project__actions" markdown>
 
-[:material-book-open-variant: Docs](https://evaluationcontext.github.io/daxlib.svg/){ .ec-badge .ec-badge--docs }
+[:material-book-open-variant: Docs](https://evaluationcontext.com/daxlib.svg/){ .ec-badge .ec-badge--docs }
 [:material-package-variant: Package](https://daxlib.org/package/daxlib.svg/){ .ec-badge .ec-badge--package }
 
 </div>

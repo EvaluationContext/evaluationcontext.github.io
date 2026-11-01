@@ -15,13 +15,13 @@ tags:
   - SVG
 links:
   - daxlib.svg Package: https://daxlib.org/package/DaxLib.SVG
-  - daxlib.svg Docs: https://evaluationcontext.github.io/daxlib.svg/
+  - daxlib.svg Docs: https://evaluationcontext.com/daxlib.svg/
 slug: posts/DAXLib-SVG-2-0-0
 ---
 
 DAX UDFs are [Generally Available](https://community.fabric.microsoft.com/t5/Power-BI-Updates-Blog/DAX-User-Defined-Functions-Generally-Available/ba-p/5185738), and they bring optional parameters with the release. DAXLib.SVG `v2.0.0` brings the  [DAX UDF optional parameters](https://www.sqlbi.com/articles/optional-parameters-in-dax-user-defined-functions/) to the library, so you no longer need to pad function calls with `#!dax BLANK()`. Optional parameters let you skip anything you don't care about and fall back on sensible defaults, making function calls far less verbose.
 
-[:material-book-open: Docs](https://evaluationcontext.github.io/daxlib.svg/){ .md-button }
+[:material-book-open: Docs](https://evaluationcontext.com/daxlib.svg/){ .md-button }
 [:material-package-variant: Package](https://daxlib.org/package/daxlib.svg/){ .md-button }
 
 ## Changes
@@ -64,7 +64,7 @@ DaxLib.SVG.Viz.Bars(
 
 ### API Reordering (Breaking)
 
-To take advantage of optional parameters, they must trail all required parameters. As a result the parameter order has changed for `#!dax DaxLib.SVG.Compound.*` and `#!dax DaxLib.SVG.Axes.Layout()`. If you are upgrading from `v1.x` and were passing positional arguments beyond the required set, you will need to review your calls against the [updated docs](https://evaluationcontext.github.io/daxlib.svg/).
+To take advantage of optional parameters, they must trail all required parameters. As a result the parameter order has changed for `#!dax DaxLib.SVG.Compound.*` and `#!dax DaxLib.SVG.Axes.Layout()`. If you are upgrading from `v1.x` and were passing positional arguments beyond the required set, you will need to review your calls against the [updated docs](https://evaluationcontext.com/daxlib.svg/).
 
 ### Bars Aligned With Native Power BI
 

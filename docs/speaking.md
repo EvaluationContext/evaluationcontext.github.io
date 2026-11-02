@@ -1,5 +1,4 @@
 ---
-icon: material/microphone
 hide:
   - navigation
   - toc
@@ -29,10 +28,10 @@ head:
 :material-map-marker:{ .ec-icon } [FabFest](https://fabfestconf.com/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-10-FabFest){ .ec-gcmd }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-10-FabFest){ .ec-tile }
 </div>
 </article>
 </div>
@@ -50,10 +49,10 @@ head:
 :material-map-marker:{ .ec-icon } [Power BI Next Step](https://powerbinextstep.com/breakout-sessions/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-08-PBINextSteps){ .ec-gcmd }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-08-PBINextSteps){ .ec-tile }
 </div>
 </article>
 </div>
@@ -71,10 +70,10 @@ head:
 :material-map-marker:{ .ec-icon } [Havens Consulting](https://www.youtube.com/@HavensConsulting)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=6W25fR70lAk){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
+<div class="ec-tiles" markdown>
+[:fontawesome-brands-youtube: recording](https://www.youtube.com/watch?v=6W25fR70lAk){ .ec-tile target=_blank rel=noopener }
 </div>
 <div class="ec-gcard__vid" markdown>
 
@@ -97,10 +96,10 @@ head:
 :material-map-marker:{ .ec-icon } [SQLBits](https://sqlbits.com/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-SQL Bits){ .ec-gcmd }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-SQL Bits){ .ec-tile }
 </div>
 </article>
 </div>
@@ -118,10 +117,10 @@ head:
 :material-map-marker:{ .ec-icon } [SQLBits](https://sqlbits.com/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-SQL Bits){ .ec-gcmd }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-SQL Bits){ .ec-tile }
 </div>
 </article>
 </div>
@@ -139,10 +138,10 @@ head:
 :material-map-marker:{ .ec-icon } [Power BI and Fabric Summit](https://globalpowerbisummit.com/#home)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-PowerBIFabricSummit){ .ec-gcmd }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-PowerBIFabricSummit){ .ec-tile }
 </div>
 </article>
 </div>
@@ -160,10 +159,10 @@ head:
 :material-map-marker:{ .ec-icon } [Microsoft Data Platform Group - Birmingham](https://www.meetup.com/microsoftdataplatformbirmingham/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-Birmingham){ .ec-gcmd }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-Birmingham){ .ec-tile }
 </div>
 </article>
 </div>
@@ -184,11 +183,11 @@ head:
 :material-map-marker:{ .ec-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-11-Devon){ .ec-gcmd }
-[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=Y9FUHd5NZoQ){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-11-Devon){ .ec-tile }
+[:fontawesome-brands-youtube: recording](https://www.youtube.com/watch?v=Y9FUHd5NZoQ){ .ec-tile target=_blank rel=noopener }
 </div>
 <div class="ec-gcard__vid" markdown>
 
@@ -211,10 +210,10 @@ head:
 :material-map-marker:{ .ec-icon } [KratosBI](https://www.youtube.com/@ChrisWagnerDatagod/streams)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=eDuTGJMr6HY){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
+<div class="ec-tiles" markdown>
+[:fontawesome-brands-youtube: recording](https://www.youtube.com/watch?v=eDuTGJMr6HY){ .ec-tile target=_blank rel=noopener }
 </div>
 <div class="ec-gcard__vid" markdown>
 
@@ -237,11 +236,11 @@ head:
 :material-map-marker:{ .ec-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-09-Devon){ .ec-gcmd }
-[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=e6MAaeVsgQU){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-09-Devon){ .ec-tile }
+[:fontawesome-brands-youtube: recording](https://www.youtube.com/watch?v=e6MAaeVsgQU){ .ec-tile target=_blank rel=noopener }
 </div>
 <div class="ec-gcard__vid" markdown>
 
@@ -264,11 +263,11 @@ head:
 :material-map-marker:{ .ec-icon } [Power BI and Fabric Manchester User Group](https://www.meetup.com/pbimcr/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-08-Manchester){ .ec-gcmd }
-[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=N9x9J00lyA0){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-08-Manchester){ .ec-tile }
+[:fontawesome-brands-youtube: recording](https://www.youtube.com/watch?v=N9x9J00lyA0){ .ec-tile target=_blank rel=noopener }
 </div>
 <div class="ec-gcard__vid" markdown>
 
@@ -291,11 +290,11 @@ head:
 :material-map-marker:{ .ec-icon } [Birmingham Power BI Meetup Group](https://www.meetup.com/birmingham-power-bi-meet-up-group/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Birmingham){ .ec-gcmd }
-[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=J--GG-r9-8o){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Birmingham){ .ec-tile }
+[:fontawesome-brands-youtube: recording](https://www.youtube.com/watch?v=J--GG-r9-8o){ .ec-tile target=_blank rel=noopener }
 </div>
 <div class="ec-gcard__vid" markdown>
 
@@ -318,10 +317,10 @@ head:
 :material-map-marker:{ .ec-icon } Bristol User Group
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Bristol){ .ec-gcmd }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Bristol){ .ec-tile }
 </div>
 </article>
 </div>
@@ -339,10 +338,10 @@ head:
 :material-map-marker:{ .ec-icon } [SQLBits](https://sqlbits.com/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-06-SQL%20Bits){ .ec-gcmd }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-06-SQL%20Bits){ .ec-tile }
 </div>
 </article>
 </div>
@@ -363,11 +362,11 @@ head:
 :material-map-marker:{ .ec-icon } [Birmingham Power BI Meetup Group](https://www.meetup.com/birmingham-power-bi-meet-up-group/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-08-Birmingham){ .ec-gcmd }
-[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=ue_qeFZwMW8){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-08-Birmingham){ .ec-tile }
+[:fontawesome-brands-youtube: recording](https://www.youtube.com/watch?v=ue_qeFZwMW8){ .ec-tile target=_blank rel=noopener }
 </div>
 <div class="ec-gcard__vid" markdown>
 
@@ -390,11 +389,11 @@ head:
 :material-map-marker:{ .ec-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
 { .ec-gcard__venue }
 
-<div class="ec-gcard__acts" markdown>
-[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-07-Devon){ .ec-gcmd }
-[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=tDkcrC7u0hU){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
+<div class="ec-tiles" markdown>
+[:material-book-open-variant: slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-07-Devon){ .ec-tile }
+[:fontawesome-brands-youtube: recording](https://www.youtube.com/watch?v=tDkcrC7u0hU){ .ec-tile target=_blank rel=noopener }
 </div>
 <div class="ec-gcard__vid" markdown>
 

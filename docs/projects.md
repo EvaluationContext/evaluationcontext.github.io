@@ -1,5 +1,4 @@
 ---
-icon: material/github
 hide:
   - navigation
   - toc
@@ -14,6 +13,7 @@ head:
 <div class="ec-pgrid" markdown>
 
 <article class="ec-gcard ec-project" markdown>
+<div class="ec-project__text" markdown>
 
 <span class="ec-pno"></span> <i>· Community site</i>
 { .ec-gn }
@@ -28,6 +28,7 @@ Stop searching in silos. Contribute, learn, and stay current with Power BI — a
 [:fontawesome-brands-github: github](https://github.com/EvaluationContext/Power-BI-Nexus){ .ec-tile }
 </div>
 
+</div>
 <div class="ec-project__shot" markdown>
 
 [![Power BI Nexus screenshot](assets/images/projects/power-bi-nexus.png){ .off-glb loading=lazy }](https://evaluationcontext.com/Power-BI-Nexus/){ target=_blank rel=noopener }
@@ -36,6 +37,7 @@ Stop searching in silos. Contribute, learn, and stay current with Power BI — a
 </article>
 
 <article class="ec-gcard ec-project" markdown>
+<div class="ec-project__text" markdown>
 
 <span class="ec-pno"></span> <i>· DAX Lib · UDF library</i>
 { .ec-gn }
@@ -47,9 +49,10 @@ A [DAX Lib](https://daxlib.org/) UDF library for manipulation of hex colours in 
 
 <div class="ec-tiles" markdown>
 [:material-book-open-variant: docs](https://evaluationcontext.com/evaluationcontext.colour/){ .ec-tile .ec-tile--hot }
-[:material-package-variant: daxlib](https://daxlib.org/package/EvaluationContext.Colour/){ .ec-tile }
+[:daxlib-logo: daxlib](https://daxlib.org/package/EvaluationContext.Colour/){ .ec-tile }
 </div>
 
+</div>
 <div class="ec-project__shot" markdown>
 
 [![EvaluationContext.Colour documentation](assets/images/projects/evaluationcontext-color-docs.png){ .off-glb loading=lazy }](https://evaluationcontext.com/evaluationcontext.colour/){ target=_blank rel=noopener }
@@ -58,6 +61,7 @@ A [DAX Lib](https://daxlib.org/) UDF library for manipulation of hex colours in 
 </article>
 
 <article class="ec-gcard ec-project" markdown>
+<div class="ec-project__text" markdown>
 
 <span class="ec-pno"></span> <i>· DAX Lib · UDF library</i>
 { .ec-gn }
@@ -69,9 +73,10 @@ A [DAX Lib](https://daxlib.org/) library designed to make creating SVG visuals i
 
 <div class="ec-tiles" markdown>
 [:material-book-open-variant: docs](https://evaluationcontext.com/daxlib.svg/){ .ec-tile .ec-tile--hot }
-[:material-package-variant: daxlib](https://daxlib.org/package/daxlib.svg/){ .ec-tile }
+[:daxlib-logo: daxlib](https://daxlib.org/package/daxlib.svg/){ .ec-tile }
 </div>
 
+</div>
 <div class="ec-project__shot" markdown>
 
 [![DaxLib.SVG documentation](assets/images/projects/daxlib-svg-docs.png){ .off-glb loading=lazy }](https://evaluationcontext.com/daxlib.svg/){ target=_blank rel=noopener }

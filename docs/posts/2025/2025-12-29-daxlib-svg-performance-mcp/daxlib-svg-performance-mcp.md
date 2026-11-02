@@ -6,8 +6,8 @@ date:
   created: 2025-12-29
 authors:
   - jDuddy
-comments: true
-series: DaxLib.SVG
+comments: true
+series: DaxLib
 categories:
   - DAX
 tags:

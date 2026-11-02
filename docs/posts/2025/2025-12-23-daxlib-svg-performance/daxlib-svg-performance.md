@@ -7,8 +7,8 @@ date:
   updated: 2026-01-01
 authors:
   - jDuddy
-comments: true
-series: DaxLib.SVG
+comments: true
+series: DaxLib
 categories:
   - DAX
 tags:

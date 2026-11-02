@@ -396,3 +396,13 @@ p.md-post-header__description,
     display: none;
   }
 }
+
+/* Token comparison table (allez post): long mono tokens, so tighter cells */
+.md-typeset .ec-tokens table th,
+.md-typeset .ec-tokens table td {
+  padding: 0.6em 0.6em;
+}
+
+.md-typeset .ec-tokens table td code {
+  font-size: 0.72em;
+}

@@ -7,8 +7,8 @@ date:
   updated: 2025-10-25
 authors:
   - jDuddy
-comments: true
-series: DaxLib.SVG
+comments: true
+series: DaxLib
 categories:
   - DAX
 tags:
@@ -23,7 +23,7 @@ slug: posts/DAXLibSVG-0-2-0
 I am happy to announce the release of `DaxLib.SVG v0.2.0-beta`, designed to help make creating SVGs in Power BI easier for everyone.
 
 [:material-book-open: Docs](https://evaluationcontext.com/daxlib.svg/){ .md-button }
-[:material-package-variant: Package](https://daxlib.org/package/daxlib.svg/){ .md-button }
+[:daxlib-logo: DAX Lib](https://daxlib.org/package/daxlib.svg/){ .md-button }
 
 ![DaxLib.SVG](UDFInAction.png)
 

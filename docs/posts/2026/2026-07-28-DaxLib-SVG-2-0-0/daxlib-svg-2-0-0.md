@@ -6,8 +6,8 @@ date:
   created: 2026-07-28
 authors:
   - jDuddy
-comments: true
-series: DaxLib.SVG
+comments: true
+series: DaxLib
 categories:
   - DAX
 tags:
@@ -22,7 +22,7 @@ slug: posts/DAXLib-SVG-2-0-0
 DAX UDFs are [Generally Available](https://community.fabric.microsoft.com/t5/Power-BI-Updates-Blog/DAX-User-Defined-Functions-Generally-Available/ba-p/5185738), and they bring optional parameters with the release. DAXLib.SVG `v2.0.0` brings the  [DAX UDF optional parameters](https://www.sqlbi.com/articles/optional-parameters-in-dax-user-defined-functions/) to the library, so you no longer need to pad function calls with `#!dax BLANK()`. Optional parameters let you skip anything you don't care about and fall back on sensible defaults, making function calls far less verbose.
 
 [:material-book-open: Docs](https://evaluationcontext.com/daxlib.svg/){ .md-button }
-[:material-package-variant: Package](https://daxlib.org/package/daxlib.svg/){ .md-button }
+[:daxlib-logo: DAX Lib](https://daxlib.org/package/daxlib.svg/){ .md-button }
 
 ## Changes
 

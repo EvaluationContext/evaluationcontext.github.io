@@ -1,103 +1,101 @@
-# Speaking
+**2026**
 
-2026
+*· Oct 2026*
 
 ### Fabric-CICD: From Click Ops to DevOps
 
-Oct 2026
-
 [FabFest](<https://fabfestconf.com/>)
+
+*· Sep 2026*
 
 ### DAXLib: Zero to Community Hero
 
-Sep 2026
-
 [Power BI Next Step](<https://powerbinextstep.com/breakout-sessions/>)
+
+*· Jun 2026*
 
 ### \[DAX\] Lib - From Zero to Community Hero (with Jake Duddy)
 
-Jun 2026
-
 [Havens Consulting](<https://www.youtube.com/@HavensConsulting>)
+
+*· Apr 2026*
 
 ### Power Hour
 
-Apr 2026
-
 [SQLBits](<https://sqlbits.com/>)
+
+*· Apr 2026*
 
 ### DaxLib.SVG
 
-Apr 2026
-
 [SQLBits](<https://sqlbits.com/>)
+
+*· Feb 2026*
 
 ### Graphs in Power BI
 
-Feb 2026
-
 [Power BI and Fabric Summit](<https://globalpowerbisummit.com/#home>)
+
+*· Feb 2026*
 
 ### Extending DAX with User-Defined Functions (UDFs)
 
-Feb 2026
-
 [Microsoft Data Platform Group - Birmingham](<https://www.meetup.com/microsoftdataplatformbirmingham/>)
 
-2025
+**2025**
+
+*· Nov 2025*
 
 ### SVGs in Power BI
 
-Nov 2025
-
 [Devon and Cornwall User Group](<https://www.meetup.com/d-c_powerbi/>)
+
+*· Nov 2025*
 
 ### Fabric Fridays 102 — Fabric DAX LIB
 
-Nov 2025
-
 [KratosBI](<https://www.youtube.com/@ChrisWagnerDatagod/streams>)
+
+*· Sep 2025*
 
 ### Playing With Translytical Task Flows
 
-Sep 2025
-
 [Devon and Cornwall User Group](<https://www.meetup.com/d-c_powerbi/>)
 
-### Visualize Your Connections: A Practical Guide to Power BI Graphs
+*· Aug 2025*
 
-Aug 2025
+### Visualize Your Connections: A Practical Guide to Power BI Graphs
 
 [Power BI and Fabric Manchester User Group](<https://www.meetup.com/pbimcr/>)
 
+*· Jul 2025*
+
 ### Unlocking New Possibilities: Enhancing Power BI with SVGs
 
-Jul 2025
-
 [Birmingham Power BI Meetup Group](<https://www.meetup.com/birmingham-power-bi-meet-up-group/>)
+
+*· Jul 2025*
 
 ### Visualize Your Connections: A Practical Guide to Power BI Graphs
 
-Jul 2025
-
 Bristol User Group
+
+*· Jun 2025*
 
 ### Power Hour
 
-Jun 2025
-
 [SQLBits](<https://sqlbits.com/>)
 
-2024
+**2024**
+
+*· Aug 2024*
 
 ### PBIP and Fabric API Deployment
 
-Aug 2024
-
 [Birmingham Power BI Meetup Group](<https://www.meetup.com/birmingham-power-bi-meet-up-group/>)
 
-### Git Branching Strategies and Power BI
+*· Jul 2024*
 
-Jul 2024
+### Git Branching Strategies and Power BI
 
 [Devon and Cornwall User Group](<https://www.meetup.com/d-c_powerbi/>)

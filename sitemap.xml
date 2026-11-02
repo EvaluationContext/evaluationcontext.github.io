@@ -4,9 +4,6 @@
         <loc>https://evaluationcontext.com/</loc>
       </url>
       <url>
-        <loc>https://evaluationcontext.com/about/</loc>
-      </url>
-      <url>
         <loc>https://evaluationcontext.com/archive/2024/</loc>
       </url>
       <url>
@@ -28,13 +25,16 @@
         <loc>https://evaluationcontext.com/category/dax/</loc>
       </url>
       <url>
+        <loc>https://evaluationcontext.com/category/fabric-app/</loc>
+      </url>
+      <url>
         <loc>https://evaluationcontext.com/category/fabric/</loc>
       </url>
       <url>
         <loc>https://evaluationcontext.com/category/modelling/</loc>
       </url>
       <url>
-        <loc>https://evaluationcontext.com/category/tooling/</loc>
+        <loc>https://evaluationcontext.com/category/rayfin/</loc>
       </url>
       <url>
         <loc>https://evaluationcontext.com/category/visuals/</loc>

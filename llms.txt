@@ -67,6 +67,5 @@ Posts on Microsoft Fabric, Power BI and DAX by Jake Duddy
 
 ## Pages
 
-- [About](<https://evaluationcontext.com/about/index.md>): About the author
 - [Speaking](<https://evaluationcontext.com/speaking/index.md>): Talks, slides and recordings
 - [Projects](<https://evaluationcontext.com/projects/index.md>): Open-source projects

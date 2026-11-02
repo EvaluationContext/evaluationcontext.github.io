@@ -219,6 +219,22 @@ code, pre, .md-typeset code, .md-typeset pre {
   font-size: 0.82rem;
 }
 
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  padding: 0.7em 0.9em;
+}
+
+.md-typeset table:not([class]) th code {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* A command or file name in a cell never breaks mid-word */
+.md-typeset table:not([class]) td code {
+  white-space: nowrap;
+  font-size: 0.8em;
+}
+
 /* ---------- Footer refinement ---------- */
 .md-footer {
   border-top: 1px solid var(--ec-border-subtle);

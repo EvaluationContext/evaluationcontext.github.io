@@ -1,61 +1,56 @@
-:root {
-  --button-color: #ec4899;
-  --youtube-red: #FF0000;
+/* ============================================
+   Buttons in posts (.md-button) look like the link tiles on the
+   projects and speaking pages: an icon and a mono label in a hairline
+   box, a pink border on hover, and a pink ring for the primary one.
+   ============================================ */
+
+.md-typeset .md-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.1rem 0.25rem 0.1rem 0;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--ec-line) !important;
+  border-radius: 0.45rem !important;
+  background: var(--md-default-bg-color) !important;
+  background-image: none !important;
+  font-family: var(--ec-font-mono);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: lowercase;
+  color: var(--md-default-fg-color) !important;
+  box-shadow: none;
+  transform: none;
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
-.md-button {
-  border-radius: 0.5em !important;
-  background-color: color-mix(in srgb, var(--button-color) 8%, transparent) !important;
-  color: var(--button-color) !important;
-  border: 1.5px solid color-mix(in srgb, var(--button-color) 40%, transparent) !important;
-  stroke: var(--button-color);
-  opacity: 1;
-  font-size: 0.78em;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  padding: 0.3em 1em;
-  transition: all 0.3s var(--ec-ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1));
-  position: relative;
-  overflow: hidden;
+.md-typeset .md-button .twemoji {
+  display: inline-flex;
+  line-height: 1;
 }
 
-.md-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 40%, color-mix(in srgb, var(--button-color) 6%, transparent));
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
+.md-typeset .md-button svg {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: var(--md-default-fg-color--light);
 }
 
-.md-button:hover,
-.md-button:focus {
-  background-color: color-mix(in srgb, var(--button-color) 15%, transparent) !important;
-  border-color: var(--button-color) !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--button-color) 20%, transparent);
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus-visible {
+  border-color: var(--ec-teal) !important;
+  background: var(--md-default-bg-color) !important;
+  transform: none;
+  box-shadow: none;
 }
 
-.md-button:hover::before {
-  opacity: 1;
+/* The one to press first: the same ring as a lit tile */
+.md-typeset .md-button--primary {
+  border-color: var(--ec-teal) !important;
+  box-shadow: 0 0 0 3px var(--ec-teal-ghost);
 }
 
-/* YouTube */
-a[href*="youtube.com"].md-button,
-a[href*="youtu.be"].md-button {
-  --btn-c: var(--youtube-red);
-  background-color: color-mix(in srgb, var(--btn-c) 8%, transparent) !important;
-  color: var(--btn-c) !important;
-  border: 1.5px solid color-mix(in srgb, var(--btn-c) 40%, transparent) !important;
-  stroke: var(--btn-c);
-}
-
-a[href*="youtube.com"].md-button:hover,
-a[href*="youtube.com"].md-button:focus,
-a[href*="youtu.be"].md-button:hover,
-a[href*="youtu.be"].md-button:focus {
-  background-color: color-mix(in srgb, var(--youtube-red) 30%, transparent) !important;
-  border-color: var(--btn-c) !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px color-mix(in srgb, var(--btn-c) 20%, transparent);
+.md-typeset .md-button--primary svg {
+  fill: var(--ec-teal);
 }

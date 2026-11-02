@@ -12,7 +12,6 @@ categories:
 tags:
   - Power BI
   - Semantic Model
-  - Security
   - DAX
 slug: posts/data-masking
 ---

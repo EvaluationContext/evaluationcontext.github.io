@@ -13,7 +13,6 @@ categories:
 tags:
   - Power BI
   - Microsoft Fabric
-  - Administration
 slug: posts/AdminMonitoring
 ---
 

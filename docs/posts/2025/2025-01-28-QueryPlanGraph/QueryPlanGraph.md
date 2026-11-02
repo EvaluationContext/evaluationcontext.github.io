@@ -11,7 +11,6 @@ comments: true
 categories:
   - DAX
 tags:
-  - DAX
   - Vega
   - Graphs
   - Performance

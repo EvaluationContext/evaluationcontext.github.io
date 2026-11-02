@@ -13,7 +13,6 @@ Copyright &copy; 2024 - 2026 Jake Duddy -
 
 nav = [
   { Blog = ["index.md"] },
-  { About = "about.md" },
   { Speaking = "speaking.md" },
   { Projects = "projects.md" },
 ]
@@ -52,12 +51,11 @@ variant = "modern"
 custom_dir = "overrides"
 language = "en"
 favicon = "assets/images/favicon.ico"
-logo = "assets/images/avatar.png"
 features = [
   # "announce.dismiss",
   # "content.action.edit",
   # "content.action.view",
-  "content.action.copy",  # "Copy as Markdown" button, fed by the llmstxt plugin
+  # "content.action.copy",  # "Copy as Markdown" button, fed by the llmstxt plugin
   "content.code.annotate",
   "content.code.copy",
   "content.code.select",
@@ -93,6 +91,7 @@ code = "JetBrains Mono"
 
 [project.theme.icon]
 repo = "fontawesome/brands/github"
+logo = "ec/logo"   # overrides/.icons/ec/logo.svg, currentColor so it follows the scheme
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"
@@ -176,7 +175,6 @@ full_output = "llms-full.txt"
 [project.plugins.llmstxt.sections]
 Posts = [{ "posts/*" = "Blog post" }]
 Pages = [
-  { "about.md" = "About the author" },
   { "speaking.md" = "Talks, slides and recordings" },
   { "projects.md" = "Open-source projects" },
 ]
@@ -223,7 +221,6 @@ utm_campaign = "blog-syndication"
 "category/real-time-intelligence/index.md" = "https://evaluationcontext.com/category/fabric/"
 "category/lakehouse/index.md" = "https://evaluationcontext.com/category/fabric/"
 "category/logging/index.md" = "https://evaluationcontext.com/category/fabric/"
-"category/fabric-app/index.md" = "https://evaluationcontext.com/category/fabric/"
 "category/translytical-task-flow/index.md" = "https://evaluationcontext.com/category/fabric/"
 "category/ai/index.md" = "https://evaluationcontext.com/category/fabric/"
 "category/graphs/index.md" = "https://evaluationcontext.com/category/administration/"

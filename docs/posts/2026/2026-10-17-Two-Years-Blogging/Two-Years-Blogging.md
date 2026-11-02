@@ -9,8 +9,6 @@ authors:
 comments: true
 categories:
   - Blogging
-tags:
-  - Blogging
 links:
   - Blogging in Numbers: https://evaluationcontext.com/posts/blogging-numbers/
 slug: posts/two-years-blogging

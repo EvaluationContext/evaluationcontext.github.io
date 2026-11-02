@@ -48,14 +48,24 @@
   --ec-shadow-glow: 0 0 30px rgba(236, 72, 153, 0.15);
 }
 
-/* Light mode: secondary text was too faint; bring it closer to body text */
+/* Light mode: secondary text was too faint; bring it closer to body text.
+   The hairline, panel and trunk tokens are the allez home page's
+   (.ah-line, .ah-panel, .ah-panel2, .ah-trunk) in each scheme. */
 [data-md-color-scheme="default"] {
-  --md-default-fg-color--light: rgba(0, 0, 0, 0.72);
+  --md-default-fg-color--light: rgba(0, 0, 0, 0.78);
   --md-default-fg-color--lighter: rgba(0, 0, 0, 0.5);
+  --ec-line: rgba(0, 0, 0, 0.09);
+  --ec-panel: #f7f7f5;
+  --ec-panel-2: #efefec;
+  --ec-trunk: #c9c9c4;
 }
 
 /* Dark mode tokens */
 [data-md-color-scheme="slate"] {
+  --ec-line: rgba(255, 255, 255, 0.1);
+  --ec-panel: rgba(255, 255, 255, 0.035);
+  --ec-panel-2: rgba(255, 255, 255, 0.07);
+  --ec-trunk: #3a3f46;
   --ec-surface-glass: rgba(15, 23, 42, 0.65);
   --ec-border-subtle: rgba(255, 255, 255, 0.06);
   --ec-shadow-sm:  0 1px 3px rgba(0,0,0,0.25);
@@ -74,119 +84,7 @@ code, pre, .md-typeset code, .md-typeset pre {
   font-family: var(--ec-font-mono);
 }
 
-/* ---------- Header refinement ---------- */
-.md-header {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background: var(--ec-surface-glass) !important;
-  border-bottom: 1px solid var(--ec-border-subtle);
-  transition: background var(--ec-duration) var(--ec-ease-out),
-              box-shadow var(--ec-duration) var(--ec-ease-out);
-}
-
-[data-md-color-scheme="default"] .md-header {
-  background: rgba(255, 255, 255, 0.65) !important;
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-}
-
-[data-md-color-scheme="default"] .md-header .md-header__title,
-[data-md-color-scheme="default"] .md-header .md-header__topic,
-[data-md-color-scheme="default"] .md-header .md-header__title .md-ellipsis {
-  color: #1a1a2e !important;
-}
-
-[data-md-color-scheme="default"] .md-header .md-header__button,
-[data-md-color-scheme="default"] .md-header .md-search__icon {
-  color: #1a1a2e !important;
-}
-
-[data-md-color-scheme="default"] .md-header .md-source,
-[data-md-color-scheme="default"] .md-header .md-source__icon svg,
-[data-md-color-scheme="default"] .md-header .md-source__repository {
-  color: #1a1a2e !important;
-  fill: currentColor;
-}
-
-[data-md-color-scheme="default"] .md-header .md-header__button:hover {
-  opacity: 0.7;
-}
-
-[data-md-color-scheme="slate"] .md-header {
-  background: rgba(0, 0, 0, 0.65) !important;
-}
-
-.md-header[data-md-state="shadow"] {
-  box-shadow: var(--ec-shadow-md);
-}
-
-/* Header title — match nav tab style */
-.md-header__title {
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-}
-
-/* Header logo — circular avatar */
-.md-header .md-logo img {
-  border-radius: 50% !important;
-}
-
-/* Navigation tabs — one indicator: the pink animated underline below the
-   text. The modern theme also draws a solid line on the divider for the
-   active tab, which is suppressed here. */
-.md-tabs {
-  border-bottom: 1px solid var(--ec-border-subtle);
-}
-
-.md-tabs__item--active {
-  border-bottom-color: transparent !important;
-}
-
-.md-tabs__link {
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  opacity: 0.7;
-  transition: opacity var(--ec-duration) var(--ec-ease-out),
-              color var(--ec-duration) var(--ec-ease-out);
-  position: relative;
-}
-
-.md-tabs__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--ec-teal);
-  transition: width var(--ec-duration) var(--ec-ease-spring),
-              left var(--ec-duration) var(--ec-ease-spring);
-  border-radius: 1px;
-}
-
-.md-tabs__link:hover,
-.md-tabs__item--active .md-tabs__link {
-  opacity: 1;
-}
-
-.md-tabs__link:hover::after,
-.md-tabs__item--active .md-tabs__link::after {
-  width: 100%;
-  left: 0;
-}
-
-/* Light mode — ensure tab and header text is dark */
-[data-md-color-scheme="default"] .md-tabs {
-  background: rgba(255, 255, 255, 1);
-}
-
-[data-md-color-scheme="default"] .md-tabs__link {
-  color: #1a1a2e !important;
-}
+/* Header and navigation tabs: the theme's own look, as on the allez docs */
 
 /* ---------- Content area refinements ---------- */
 
@@ -208,26 +106,27 @@ code, pre, .md-typeset code, .md-typeset pre {
   line-height: 1.15;
 }
 
+/* Sections open with a hairline, as on the allez home page, and a short
+   pink vertical bar before the heading draws the eye down the page */
 .md-typeset h2 {
   font-weight: 500;
   letter-spacing: -0.015em;
-  margin-top: 2.5rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--ec-border-subtle);
+  margin-top: 2.2rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--ec-line);
 }
 
-/* Accent bar on h2 */
 .md-typeset h2::before {
   content: '';
   display: inline-block;
   width: 3px;
   height: 0.85em;
-  background: var(--ec-teal);
-  border-radius: 2px;
   margin-right: 0.6rem;
   vertical-align: middle;
   position: relative;
   top: -0.05em;
+  background: var(--ec-teal);
+  border-radius: 2px;
 }
 
 .md-typeset h3 {
@@ -269,6 +168,15 @@ code, pre, .md-typeset code, .md-typeset pre {
   padding: 0.15em 0.4em;
 }
 
+/* Inline code: a hairline box in the text colour, as on the allez pages */
+.md-typeset :not(pre) > code {
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--ec-line);
+  border-radius: 5px;
+  background: var(--ec-panel-2);
+  color: var(--md-default-fg-color);
+}
+
 /* ---------- Admonitions - refined ---------- */
 .md-typeset .admonition,
 .md-typeset details {
@@ -292,17 +200,19 @@ code, pre, .md-typeset code, .md-typeset pre {
 
 /* ---------- Tables ---------- */
 .md-typeset table:not([class]) {
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   overflow: hidden;
-  box-shadow: var(--ec-shadow-sm);
-  border: 1px solid var(--ec-border-subtle);
+  border: 1px solid var(--ec-line);
 }
 
 .md-typeset table:not([class]) th {
-  font-weight: 600;
-  font-size: 0.82rem;
+  font-family: var(--ec-font-mono);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: var(--md-default-fg-color--light);
+  background: var(--ec-panel);
 }
 
 .md-typeset table:not([class]) td {

@@ -13,8 +13,6 @@ categories:
 tags:
   - Power BI
   - Git
-  - CI/CD
-  - PBIP
 slug: posts/Git-Submodule-Report-Theme
 ---
 

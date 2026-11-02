@@ -11,9 +11,7 @@ categories:
   - CI/CD
 tags:
   - Microsoft Fabric
-  - CI/CD
-  - fabric-cicd
-  - Deployment Pipelines
+  - Git
 links:
   - fabric-cicd Docs: https://microsoft.github.io/fabric-cicd/1.3.0/
   - Community Blog - New CI/CD resources for Microsoft Fabric: https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/new-cicd-resources-for-microsoft-fabric-from-concepts-to-end-to-end-automation/5358502

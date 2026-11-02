@@ -12,7 +12,6 @@ categories:
   - Visuals
 tags:
   - Power BI
-  - Deneb
   - Vega
 slug: posts/Deneb-Gantt
 ---

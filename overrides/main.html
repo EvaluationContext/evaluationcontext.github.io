@@ -79,9 +79,36 @@
     "datePublished": page.config.date.created | string | replace(" ", "T"),
     "dateModified": (page.config.date.updated or page.config.date.created) | string | replace(" ", "T"),
     "keywords": page.categories | map(attribute="title") | list,
-    "author": {"@type": "Person", "name": config.site_author, "url": config.site_url ~ "about/"},
+    "author": {"@type": "Person", "name": config.site_author, "url": config.site_url},
     "publisher": {"@type": "Person", "name": config.site_author, "url": config.site_url}
   } %}
   <script type="application/ld+json">{{ ld | tojson }}</script>
+  {% endif %}
+{% endblock %}
+
+{#-
+  Page head (blog index, speaking, projects): a gloss line, a title with one
+  pink word, and a lede, from the page's `head:` front matter.
+  It sits below the tabs and above the content grid, so the blog index's
+  facets start below it. Styles: assets/css/pages.css; styles in assets/css/pages.css.
+-#}
+{% block tabs %}
+  {{ super() }}
+  {% if page and page.meta and page.meta.head %}
+    {% set h = page.meta.head %}
+    <section class="ec-hero">
+      <div class="ec-head md-typeset">
+        <p class="ec-gloss"><b>{{ h.word }}</b><i>/{{ h.pos }}/</i><span>{{ h.gloss }}</span></p>
+        <h1 class="ec-head__title">{{ h.title | safe }}</h1>
+        {% if h.lede %}<p class="ec-head__lede">{{ h.lede | safe }}</p>{% endif %}
+        {% if h.social %}
+        <div class="ec-head__social">
+          <a class="ec-social-link" href="https://www.linkedin.com/in/jakeduddy/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">{% include ".icons/fontawesome/brands/linkedin.svg" %}</a>
+          <a class="ec-social-link" href="https://github.com/EvaluationContext" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener">{% include ".icons/fontawesome/brands/github.svg" %}</a>
+          <a class="ec-social-link" href="https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947" title="Fabric Community" aria-label="Fabric Community" target="_blank" rel="noopener">{% include ".icons/material/microsoft.svg" %}</a>
+        </div>
+        {% endif %}
+      </div>
+    </section>
   {% endif %}
 {% endblock %}

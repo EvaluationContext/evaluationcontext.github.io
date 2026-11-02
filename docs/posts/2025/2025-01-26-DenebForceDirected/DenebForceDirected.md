@@ -13,7 +13,6 @@ categories:
   - Visuals
 tags:
   - Power BI
-  - Deneb
   - Vega
   - Graphs
   - Administration

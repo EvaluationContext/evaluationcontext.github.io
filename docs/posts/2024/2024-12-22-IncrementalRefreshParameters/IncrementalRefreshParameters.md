@@ -13,7 +13,6 @@ categories:
 tags:
   - Power BI
   - Semantic Model
-  - Incremental Refresh
 slug: posts/IncrementalRefersh-Parameters
 ---
  

@@ -13,8 +13,6 @@ categories:
 tags:
   - Power BI
   - Semantic Model
-  - Incremental Refresh
-  - Data Modelling
 slug: posts/slowly-changing-dimensions
 ---
 

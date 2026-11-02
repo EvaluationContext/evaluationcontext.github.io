@@ -9,10 +9,10 @@ authors:
 comments: true
 categories:
   - Fabric
+  - Rayfin
+  - Fabric App
 tags:
   - Microsoft Fabric
-  - Zensical
-  - Fabric App
 slug: posts/rayfin-zensical
 ---
 

@@ -7,12 +7,12 @@ date:
   updated: 2025-10-19
 authors:
   - jDuddy
-comments: true
+comments: true
+series: fabric-cicd
 categories:
   - CI/CD
 tags:
   - Microsoft Fabric
-  - CI/CD
   - fabric-cicd
   - Python
 slug: posts/fabric-cicd

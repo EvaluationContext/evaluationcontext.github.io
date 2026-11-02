@@ -1,7 +1,8 @@
 /* ============================================
-   Post hero — contained banner under the title.
-   Sits inside the article column, so it never
-   collides with the header, tabs or sidebars.
+   Post hero — contained banner under the post head.
+   Flat with a hairline, as the panels on the allez
+   home page; it sits inside the article column, so it
+   never collides with the header, tabs or sidebars.
    ============================================ */
 
 .md-typeset figure.post-hero,
@@ -12,9 +13,10 @@
   margin: 0 0 1.5rem;
   aspect-ratio: 21 / 9;
   max-height: 420px;
-  border-radius: 0.75rem;
+  border: 1px solid var(--ec-line);
+  border-radius: 0.6rem;
   overflow: hidden;
-  box-shadow: var(--ec-shadow-md);
+  background: #141719;
 }
 
 .md-typeset .post-hero img,
@@ -25,23 +27,11 @@
   max-width: none;
   object-fit: cover;
   margin: 0 !important;
+  border: 0 !important;
   border-radius: 0 !important;
   transform: none !important;
   cursor: default !important;
   box-shadow: none !important;
-}
-
-/* Soft fade into the page background along the bottom edge */
-.post-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    transparent 60%,
-    color-mix(in srgb, var(--md-default-bg-color) 55%, transparent) 100%
-  );
 }
 
 @media screen and (max-width: 44.9375em) {
@@ -50,8 +40,4 @@
     border-radius: 0.5rem;
     margin-bottom: 1rem;
   }
-}
-
-@media print {
-  .post-hero { box-shadow: none; }
 }

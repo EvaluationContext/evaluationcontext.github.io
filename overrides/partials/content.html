@@ -6,23 +6,41 @@
   {%- endif -%}
 {%- endmacro -%}
 {#-
-  Content override: tags, title, description header, then a contained hero
-  image for posts that have one. Everything else is Zensical's.
+  Content override. Posts open with a mono label line (category, series
+  and part), the title, the description, the tag chips and a contained
+  hero image. Everything else is Zensical's.
 -#}
-{% include "partials/tags.html" %}
+{% set is_post = page.config and page.config.date %}
 {% include "partials/actions.html" %}
-{% if "<h1" not in page.content %}
+{% if is_post %}
+  {% import "partials/series-data.html" as sd %}
+  {% set series = page.meta.series %}
+  {% set ns = namespace(part=0, total=0) %}
+  {% if series and series in sd.series_data %}
+    {% set sposts = sd.series_data[series] %}
+    {% set ns.total = sposts | length %}
+    {% for sp in sposts %}{% if sp.url == page.url %}{% set ns.part = loop.index %}{% endif %}{% endfor %}
+  {% endif %}
+  <p class="ec-post__kind">
+    {%- for category in page.categories -%}
+      <a href="{{ category.url | url }}">{{ category.title }}</a>{% if not loop.last %}, {% endif %}
+    {%- endfor -%}
+    {% if ns.part %}<i> · {{ series }} · part {{ ns.part }} of {{ ns.total }}</i>{% endif %}
+  </p>
+{% endif %}
+{% if "<h1" not in page.content and not (page.meta and page.meta.head) %}
   <h1>{{ page.title | d(config.site_name, true)}}</h1>
 {% endif %}
 {% include "partials/post-header.html" %}
-{% if page.config and page.config.date and page.meta.image %}
+{% include "partials/tags.html" %}
+{% if is_post and page.meta.image %}
   {% set image_path = page.meta.image.path if page.meta.image is mapping else page.meta.image %}
   {% set image_alt = page.meta.image.alt if page.meta.image is mapping else "" %}
   <figure class="post-hero">
     <img src="{{ hero_src(page, image_path) | trim | url }}" alt="{{ image_alt }}" fetchpriority="high">
   </figure>
 {% endif %}
-{% if page.config and page.config.date %}
+{% if is_post %}
   {% include "partials/series.html" %}
 {% endif %}
 {{ page.content }}

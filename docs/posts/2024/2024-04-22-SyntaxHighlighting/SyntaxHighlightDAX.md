@@ -12,8 +12,6 @@ categories:
   - Blogging
 tags:
   - DAX
-  - Blogging
-  - Syntax Highlighting
 slug: posts/Syntax-Highlight-DAX
 ---
 

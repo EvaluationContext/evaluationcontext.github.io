@@ -13,7 +13,6 @@ categories:
   - Administration
 tags:
   - Power BI
-  - Administration
   - Graphs
   - Python
 slug: posts/graphframes

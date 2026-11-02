@@ -11,7 +11,6 @@ comments: true
 categories:
   - DAX
 tags:
-  - DAX
   - DaxLib
 links:
   - EvaluationContext.Colour Docs: https://evaluationcontext.com/evaluationcontext.colour/

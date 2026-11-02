@@ -12,9 +12,7 @@ categories:
   - CI/CD
 tags:
   - Microsoft Fabric
-  - CI/CD
-  - fabric-cicd
-  - Deployment Pipelines
+  - Git
 slug: posts/cicd-connections
 ---
 

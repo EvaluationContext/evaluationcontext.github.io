@@ -1,17 +1,16 @@
-/* Blog Index, Archive and Category Pages Styling */
-
-/* Optimize image rendering on blog index */
-.md-post--excerpt img {
-  content-visibility: auto;
-  will-change: auto;
-}
+/* ============================================
+   Blog index, archive and category pages
+   The filters are a command bar above the cards (built by
+   assets/js/interactions.js): "$ posts", the active selections as
+   removable tokens, a dropdown per facet, and the count.
+   ============================================ */
 
 /* Hide titles on pages that have blog post listings */
 .md-content__inner > header.md-typeset > h1 {
   display: none !important;
 }
 
-/* Hide TOC on blog index, archive and category pages */
+/* No table of contents on listing pages */
 body:has(.md-post--excerpt) .md-sidebar--secondary,
 body:has(.md-content__inner > header.md-typeset) .md-sidebar--secondary[data-md-type="toc"] {
   display: none !important;
@@ -22,9 +21,194 @@ body:has(.md-post--excerpt) label[for="__toc"] {
   display: none !important;
 }
 
-/* LEFT SIDEBAR — Refined navigation */
+/* The facets used to live in the left sidebar; with them in the command
+   bar the sidebar has nothing left to say on desktop, so the cards take
+   the page head's width. The phone drawer keeps the site navigation. */
+@media screen and (min-width: 76.25em) {
+  body:has(.md-post--excerpt) .md-sidebar--primary {
+    display: none;
+  }
+}
 
-/* Tighter archive and category lists */
+body:has(.md-post--excerpt) .md-content__inner {
+  max-width: 61rem;
+}
+
+/* ---- Command bar ---- */
+.ec-cmd {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0.2rem 0 0.9rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--ec-line);
+  border-radius: 0.6rem;
+  background: var(--ec-panel);
+  font-family: var(--ec-font-mono);
+  font-size: 0.62rem;
+  line-height: 1.5;
+}
+
+.ec-cmd__ps {
+  margin-right: 0.15rem;
+  font-weight: 500;
+  color: var(--ec-teal-dark);
+}
+
+[data-md-color-scheme="slate"] .ec-cmd__ps {
+  color: var(--ec-teal-light);
+}
+
+.ec-cmd button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* An active selection: --year 2026 ×, click to remove */
+.ec-cmd__tok,
+.ec-cmd__dd,
+.ec-cmd__clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 1.4rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--ec-line);
+  border-radius: 0.4rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color--light);
+  white-space: nowrap;
+  transition: border-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+.ec-cmd__tok {
+  border-color: var(--ec-teal);
+  color: var(--ec-teal-dark);
+}
+
+[data-md-color-scheme="slate"] .ec-cmd__tok {
+  color: var(--ec-teal-light);
+}
+
+.ec-cmd__tok svg,
+.ec-cmd__dd svg,
+.ec-cmd__clear svg {
+  width: 0.6rem;
+  height: 0.6rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0.7;
+}
+
+.ec-cmd__tok:hover,
+.ec-cmd__dd:hover,
+.ec-cmd__clear:hover,
+.ec-cmd__dd[aria-expanded="true"] {
+  border-color: var(--md-default-fg-color);
+  color: var(--md-default-fg-color);
+}
+
+.ec-cmd__tok:hover {
+  border-color: var(--ec-teal);
+  color: var(--ec-teal);
+}
+
+.ec-cmd__clear {
+  border-style: dashed;
+  background: transparent;
+}
+
+.ec-cmd__n {
+  margin-left: auto;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Dropdown */
+.ec-cmd__group {
+  position: relative;
+}
+
+.ec-cmd__menu {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.3rem);
+  left: 0;
+  min-width: 12rem;
+  max-height: 18rem;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.3rem;
+  list-style: none;
+  border: 1px solid var(--ec-line);
+  border-radius: 0.6rem;
+  background: var(--md-default-bg-color);
+  box-shadow: var(--ec-shadow-md);
+}
+
+.ec-cmd__menu[hidden] {
+  display: none;
+}
+
+.ec-cmd__menu li {
+  margin: 0;
+}
+
+.ec-cmd__opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: none;
+  font-family: var(--ec-font-body);
+  font-size: 0.66rem;
+  color: var(--md-default-fg-color);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ec-cmd__opt:hover {
+  background: var(--ec-panel-2);
+}
+
+.ec-cmd__opt[aria-pressed="true"] {
+  color: var(--ec-teal-dark);
+  font-weight: 500;
+}
+
+[data-md-color-scheme="slate"] .ec-cmd__opt[aria-pressed="true"] {
+  color: var(--ec-teal-light);
+}
+
+.ec-cmd__opt small {
+  font-family: var(--ec-font-mono);
+  font-size: 0.55rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.ec-cmd__opt.is-empty {
+  opacity: 0.4;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .ec-cmd {
+    padding: 0.4rem 0.5rem;
+  }
+  .ec-cmd__n {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* ---- Left sidebar on the pages that still show it ---- */
 .md-sidebar--primary .md-nav__list {
   gap: 0;
 }
@@ -34,31 +218,6 @@ body:has(.md-post--excerpt) label[for="__toc"] {
   padding-bottom: 0.15rem;
 }
 
-
-/* Section headers */
-.md-sidebar--primary label.md-nav__title[for="__nav_1_2"],
-.md-sidebar--primary label.md-nav__title[for="__nav_1_3"],
-.ec-facet-section > nav > label.md-nav__title {
-  font-size: 0.72rem !important;
-  font-family: var(--ec-font-body, var(--md-text-font-family)) !important;
-  font-weight: 500 !important;
-  color: var(--md-default-fg-color) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.md-sidebar--primary label.md-nav__link[for="__nav_1_2"],
-.md-sidebar--primary label.md-nav__link[for="__nav_1_3"],
-.ec-facet-section > label.md-nav__link {
-  font-size: 0.65rem !important;
-  font-family: var(--ec-font-body, var(--md-text-font-family)) !important;
-  font-weight: 500 !important;
-  color: var(--md-default-fg-color) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* Navigation items */
 .md-sidebar--primary .md-nav__list .md-nav__link,
 .md-sidebar--primary .md-nav__item .md-nav__link {
   font-size: var(--post-sidebar-item-font-size) !important;
@@ -68,13 +227,11 @@ body:has(.md-post--excerpt) label[for="__toc"] {
   transition: color 0.2s var(--ec-ease-out, ease-out);
 }
 
-/* Hover */
 .md-sidebar--primary .md-nav__link:hover,
 .md-sidebar--primary a.md-nav__link:hover {
   color: var(--ec-teal, var(--md-accent-fg-color)) !important;
 }
 
-/* Active */
 .md-sidebar--primary .md-nav__link--active,
 .md-sidebar--primary a.md-nav__link--active,
 .md-sidebar--primary .md-nav__item--active > .md-nav__link {
@@ -88,7 +245,7 @@ body:has(.md-post--excerpt) label[for="__toc"] {
   color: var(--ec-teal, var(--md-accent-fg-color)) !important;
 }
 
-/* RIGHT SIDEBAR */
+/* Right sidebar titles and links (posts) */
 .md-sidebar--secondary .md-nav__title {
   font-size: 0.72rem !important;
   font-weight: 500 !important;
@@ -106,58 +263,4 @@ body:has(.md-post--excerpt) label[for="__toc"] {
 
 .md-sidebar--secondary .md-nav__link:hover {
   color: var(--ec-teal, var(--md-accent-fg-color)) !important;
-}
-
-
-/* Sidebar facets on the blog index */
-.md-nav__count {
-  margin-left: auto;
-  flex-shrink: 0;
-  padding: 0 0.35rem;
-  border-radius: 9999px;
-  font-size: 0.55rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--md-default-fg-color--light);
-  background: color-mix(in srgb, var(--md-default-fg-color) 7%, transparent);
-}
-
-.ec-facet.ec-tag-active,
-.ec-facet.ec-tag-active .md-nav__count {
-  color: var(--ec-teal) !important;
-  font-weight: 500 !important;
-}
-
-.ec-facet.ec-tag-active .md-nav__count {
-  background: var(--ec-teal-ghost);
-}
-
-.md-nav__item.ec-facet-empty > .ec-facet {
-  opacity: 0.4;
-}
-
-.ec-facet-section .md-nav__list {
-  gap: 0;
-}
-
-.ec-facet-section .md-nav__item .md-nav__link {
-  padding-top: 0.15rem;
-  padding-bottom: 0.15rem;
-  background-image: none !important;
-}
-
-/* The facet lists are always open: hide the fold chevrons */
-.ec-facet-section .md-nav__icon {
-  display: none;
-}
-
-/* Facet headings: full contrast in both schemes */
-.ec-facet-section > label.md-nav__link,
-.ec-facet-section > nav > label.md-nav__title {
-  color: var(--md-default-fg-color) !important;
-}
-
-[data-md-color-scheme="slate"] .ec-facet-section > label.md-nav__link,
-[data-md-color-scheme="slate"] .ec-facet-section > nav > label.md-nav__title {
-  color: #ffffff !important;
 }

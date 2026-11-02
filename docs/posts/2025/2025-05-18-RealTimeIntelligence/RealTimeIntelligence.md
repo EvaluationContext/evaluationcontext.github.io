@@ -12,7 +12,6 @@ categories:
   - Fabric
 tags:
   - Microsoft Fabric
-  - Real-Time Intelligence
   - KQL
 slug: posts/RealTime-Intelligence
 ---

@@ -11,7 +11,6 @@ comments: true
 categories:
   - DAX
 tags:
-  - DAX
   - DaxLib
   - Python
 slug: posts/DAXUDF-AutoDocs

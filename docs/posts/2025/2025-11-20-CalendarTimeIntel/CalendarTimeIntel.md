@@ -13,7 +13,6 @@ categories:
 tags:
   - Power BI
   - DAX
-  - Data Modelling
   - Semantic Model
 slug: posts/CalendarTimeIntel
 links:

@@ -13,7 +13,6 @@ categories:
 tags:
   - Microsoft Fabric
   - User Data Functions
-  - Logging
   - Python
 slug: posts/UDF-Logs
 ---

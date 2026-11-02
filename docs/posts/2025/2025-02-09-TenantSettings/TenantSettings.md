@@ -12,7 +12,6 @@ categories:
   - Administration
 tags:
   - Power BI
-  - Administration
   - Python
 slug: posts/TenantSettings
 ---

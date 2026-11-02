@@ -11,9 +11,7 @@ categories:
   - CI/CD
 tags:
   - Microsoft Fabric
-  - CI/CD
   - Git
-  - fabric-cicd
 links:
   - Fabric CICD - Two Different Worlds: https://evaluationcontext.com/posts/fabric-cicd-two-worlds/
   - MS Docs - Git source code format: https://learn.microsoft.com/en-us/fabric/cicd/git-integration/source-code-format

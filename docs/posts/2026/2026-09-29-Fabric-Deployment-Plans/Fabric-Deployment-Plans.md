@@ -12,8 +12,7 @@ categories:
   - CI/CD
 tags:
   - Microsoft Fabric
-  - CI/CD
-  - Deployment Pipelines
+  - Deployment Plans
 links:
   - Deployment plan overview: https://learn.microsoft.com/en-us/fabric/cicd/deployment-plan/deployment-plan-overview
   - Lost Connections: https://evaluationcontext.com/posts/cicd-connections/

@@ -11,7 +11,6 @@ comments: true
 categories:
   - Modelling
 tags:
-  - Microsoft Fabric
   - Lakehouse
 slug: posts/DeltaParquet
 ---

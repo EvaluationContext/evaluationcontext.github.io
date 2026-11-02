@@ -11,7 +11,6 @@ categories:
   - CI/CD
 tags:
   - Microsoft Fabric
-  - CI/CD
 slug: posts/CICD-Fabric-Data-Teams
 ---
 

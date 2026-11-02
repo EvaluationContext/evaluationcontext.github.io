@@ -9,11 +9,10 @@ authors:
   - jDuddy
 comments: true
 categories:
-  - Tooling
+  - Modelling
 tags:
   - Power BI
   - Semantic Model
-  - Semantic Link
   - Performance
 slug: posts/vertipaq-analyzer
 ---

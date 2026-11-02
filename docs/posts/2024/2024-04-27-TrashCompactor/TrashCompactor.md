@@ -12,7 +12,6 @@ categories:
   - Modelling
 tags:
   - Power BI
-  - Data Modelling
   - DAX
 slug: posts/Trash-Compactor
 ---

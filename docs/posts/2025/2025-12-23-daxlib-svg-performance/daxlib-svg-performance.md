@@ -7,11 +7,11 @@ date:
   updated: 2026-01-01
 authors:
   - jDuddy
-comments: true
+comments: true
+series: DaxLib.SVG
 categories:
   - DAX
 tags:
-  - DAX
   - DaxLib
   - SVG
   - Performance

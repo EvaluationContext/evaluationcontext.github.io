@@ -12,7 +12,6 @@ categories:
   - Blogging
 tags:
   - Vega
-  - Blogging
 slug: posts/vega-rendering
 ---
  

@@ -3,490 +3,405 @@ icon: material/microphone
 hide:
   - navigation
   - toc
+head:
+  word: speaking
+  pos: verb
+  gloss: saying it out loud at user groups and conferences
+  title: Talks, slides and <em>recordings.</em>
+  lede: Sessions at conferences and user groups. Slides live in the repo; recordings on YouTube where the host published one.
 ---
 
-# Speaking { .ec-profile__name }
-
-<div class="ec-timeline" markdown>
+<div class="ec-route" markdown>
 
 <!-- ── 2026 ── -->
-<div class="ec-timeline__year">
-<div class="ec-timeline__year-dot"></div>
-<span class="ec-timeline__year-label">2026</span>
+<div class="ec-route__year"><b>2026</b></div>
+
+<div class="ec-step ec-step--lit" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard ec-gcard--solo" markdown>
+<div class="ec-gcard__text" markdown>
+
+<span class="ec-step__no"></span> <i>· Oct 2026</i>
+{ .ec-gn }
+
+### Fabric-CICD: From Click Ops to DevOps { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [FabFest](https://fabfestconf.com/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-10-FabFest){ .ec-gcmd }
 </div>
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### Fabric-CICD: From Click Ops to DevOps { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Oct 2026
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [FabFest](https://fabfestconf.com/)
-{ .ec-tl-entry__venue }
-
+</div>
+</article>
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard ec-gcard--solo" markdown>
+<div class="ec-gcard__text" markdown>
 
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-10-FabFest){ .ec-badge .ec-badge--slides }
+<span class="ec-step__no"></span> <i>· Sep 2026</i>
+{ .ec-gn }
 
-</div>
-</div>
-</div>
-</div>
+### DAXLib: Zero to Community Hero { .ec-gcard__title }
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
+:material-map-marker:{ .ec-icon } [Power BI Next Step](https://powerbinextstep.com/breakout-sessions/)
+{ .ec-gcard__venue }
 
-### DAXLib: Zero to Community Hero { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Sep 2026
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [Power BI Next Step](https://powerbinextstep.com/breakout-sessions/)
-{ .ec-tl-entry__venue }
-
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-08-PBINextSteps){ .ec-gcmd }
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
-
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-08-PBINextSteps){ .ec-badge .ec-badge--slides }
-
 </div>
-</div>
-</div>
+</article>
 </div>
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard" markdown>
+<div class="ec-gcard__text" markdown>
 
-### [DAX] Lib - From Zero to Community Hero (with Jake Duddy) { .ec-tl-entry__title }
+<span class="ec-step__no"></span> <i>· Jun 2026</i>
+{ .ec-gn }
 
-<div class="ec-tl-entry__meta" markdown>
+### [DAX] Lib - From Zero to Community Hero (with Jake Duddy) { .ec-gcard__title }
 
-:material-calendar:{ .ec-tl-icon } Jun 2026
-{ .ec-tl-entry__date }
+:material-map-marker:{ .ec-icon } [Havens Consulting](https://www.youtube.com/@HavensConsulting)
+{ .ec-gcard__venue }
 
-:material-map-marker:{ .ec-tl-icon } [Havens Consulting](https://www.youtube.com/@HavensConsulting)
-{ .ec-tl-entry__venue }
-
+<div class="ec-gcard__acts" markdown>
+[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=6W25fR70lAk){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
-
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=6W25fR70lAk){ .ec-badge .ec-badge--video target=_blank rel=noopener }
-
 </div>
-</div>
-<div class="ec-tl-entry__thumb" markdown>
+<div class="ec-gcard__vid" markdown>
 
 [![Watch on YouTube](https://i.ytimg.com/vi/6W25fR70lAk/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=6W25fR70lAk){ target=_blank rel=noopener }
 
 </div>
-</div>
-</div>
-
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### Power Hour { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Apr 2026
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [SQLBits](https://sqlbits.com/)
-{ .ec-tl-entry__venue }
-
+</article>
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard ec-gcard--solo" markdown>
+<div class="ec-gcard__text" markdown>
 
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-SQL Bits){ .ec-badge .ec-badge--slides }
+<span class="ec-step__no"></span> <i>· Apr 2026</i>
+{ .ec-gn }
 
-</div>
-</div>
-</div>
-</div>
+### Power Hour { .ec-gcard__title }
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
+:material-map-marker:{ .ec-icon } [SQLBits](https://sqlbits.com/)
+{ .ec-gcard__venue }
 
-### DaxLib.SVG { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Apr 2026
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [SQLBits](https://sqlbits.com/)
-{ .ec-tl-entry__venue }
-
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-SQL Bits){ .ec-gcmd }
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
-
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-SQL Bits){ .ec-badge .ec-badge--slides }
-
 </div>
-</div>
-</div>
+</article>
 </div>
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard ec-gcard--solo" markdown>
+<div class="ec-gcard__text" markdown>
 
-### Graphs in Power BI { .ec-tl-entry__title }
+<span class="ec-step__no"></span> <i>· Apr 2026</i>
+{ .ec-gn }
 
-<div class="ec-tl-entry__meta" markdown>
+### DaxLib.SVG { .ec-gcard__title }
 
-:material-calendar:{ .ec-tl-icon } Feb 2026
-{ .ec-tl-entry__date }
+:material-map-marker:{ .ec-icon } [SQLBits](https://sqlbits.com/)
+{ .ec-gcard__venue }
 
-:material-map-marker:{ .ec-tl-icon } [Power BI and Fabric Summit](https://globalpowerbisummit.com/#home)
-{ .ec-tl-entry__venue }
-
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-04-SQL Bits){ .ec-gcmd }
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
-
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-PowerBIFabricSummit){ .ec-badge .ec-badge--slides }
-
 </div>
-</div>
-</div>
+</article>
 </div>
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard ec-gcard--solo" markdown>
+<div class="ec-gcard__text" markdown>
 
-### Extending DAX with User-Defined Functions (UDFs) { .ec-tl-entry__title }
+<span class="ec-step__no"></span> <i>· Feb 2026</i>
+{ .ec-gn }
 
-<div class="ec-tl-entry__meta" markdown>
+### Graphs in Power BI { .ec-gcard__title }
 
-:material-calendar:{ .ec-tl-icon } Feb 2026
-{ .ec-tl-entry__date }
+:material-map-marker:{ .ec-icon } [Power BI and Fabric Summit](https://globalpowerbisummit.com/#home)
+{ .ec-gcard__venue }
 
-:material-map-marker:{ .ec-tl-icon } [Microsoft Data Platform Group - Birmingham](https://www.meetup.com/microsoftdataplatformbirmingham/)
-{ .ec-tl-entry__venue }
-
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-PowerBIFabricSummit){ .ec-gcmd }
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+</div>
+</article>
+</div>
 
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-Birmingham){ .ec-badge .ec-badge--slides }
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard ec-gcard--solo" markdown>
+<div class="ec-gcard__text" markdown>
+
+<span class="ec-step__no"></span> <i>· Feb 2026</i>
+{ .ec-gn }
+
+### Extending DAX with User-Defined Functions (UDFs) { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [Microsoft Data Platform Group - Birmingham](https://www.meetup.com/microsoftdataplatformbirmingham/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/26-02-Birmingham){ .ec-gcmd }
+</div>
 
 </div>
-</div>
-</div>
+</article>
 </div>
 
 <!-- ── 2025 ── -->
-<div class="ec-timeline__year">
-<div class="ec-timeline__year-dot"></div>
-<span class="ec-timeline__year-label">2025</span>
+<div class="ec-route__year"><b>2025</b></div>
+
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard" markdown>
+<div class="ec-gcard__text" markdown>
+
+<span class="ec-step__no"></span> <i>· Nov 2025</i>
+{ .ec-gn }
+
+### SVGs in Power BI { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-11-Devon){ .ec-gcmd }
+[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=Y9FUHd5NZoQ){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### SVGs in Power BI { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Nov 2025
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
-{ .ec-tl-entry__venue }
-
 </div>
-
-<div class="ec-tl-entry__badges" markdown>
-
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=Y9FUHd5NZoQ){ .ec-badge .ec-badge--video target=_blank rel=noopener }
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-11-Devon){ .ec-badge .ec-badge--slides }
-
-</div>
-</div>
-<div class="ec-tl-entry__thumb" markdown>
+<div class="ec-gcard__vid" markdown>
 
 [![Watch on YouTube](https://i.ytimg.com/vi/Y9FUHd5NZoQ/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=Y9FUHd5NZoQ){ target=_blank rel=noopener }
 
 </div>
-</div>
-</div>
-
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### Fabric Fridays 102 — Fabric DAX LIB { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Nov 2025
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [KratosBI](https://www.youtube.com/@ChrisWagnerDatagod/streams)
-{ .ec-tl-entry__venue }
-
+</article>
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard" markdown>
+<div class="ec-gcard__text" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=eDuTGJMr6HY){ .ec-badge .ec-badge--video target=_blank rel=noopener }
+<span class="ec-step__no"></span> <i>· Nov 2025</i>
+{ .ec-gn }
+
+### Fabric Fridays 102 — Fabric DAX LIB { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [KratosBI](https://www.youtube.com/@ChrisWagnerDatagod/streams)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=eDuTGJMr6HY){ .ec-gcmd target=_blank rel=noopener }
+</div>
 
 </div>
-</div>
-<div class="ec-tl-entry__thumb" markdown>
+<div class="ec-gcard__vid" markdown>
 
 [![Watch on YouTube](https://i.ytimg.com/vi/eDuTGJMr6HY/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=eDuTGJMr6HY){ target=_blank rel=noopener }
 
 </div>
-</div>
-</div>
-
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### Playing With Translytical Task Flows { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Sep 2025
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
-{ .ec-tl-entry__venue }
-
+</article>
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard" markdown>
+<div class="ec-gcard__text" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=e6MAaeVsgQU){ .ec-badge .ec-badge--video target=_blank rel=noopener }
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-09-Devon){ .ec-badge .ec-badge--slides }
+<span class="ec-step__no"></span> <i>· Sep 2025</i>
+{ .ec-gn }
+
+### Playing With Translytical Task Flows { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-09-Devon){ .ec-gcmd }
+[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=e6MAaeVsgQU){ .ec-gcmd target=_blank rel=noopener }
+</div>
 
 </div>
-</div>
-<div class="ec-tl-entry__thumb" markdown>
+<div class="ec-gcard__vid" markdown>
 
 [![Watch on YouTube](https://i.ytimg.com/vi/e6MAaeVsgQU/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=e6MAaeVsgQU){ target=_blank rel=noopener }
 
 </div>
-</div>
-</div>
-
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### Visualize Your Connections: A Practical Guide to Power BI Graphs { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Aug 2025
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [Power BI and Fabric Manchester User Group](https://www.meetup.com/pbimcr/)
-{ .ec-tl-entry__venue }
-
+</article>
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard" markdown>
+<div class="ec-gcard__text" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=N9x9J00lyA0){ .ec-badge .ec-badge--video target=_blank rel=noopener }
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-08-Manchester){ .ec-badge .ec-badge--slides }
+<span class="ec-step__no"></span> <i>· Aug 2025</i>
+{ .ec-gn }
+
+### Visualize Your Connections: A Practical Guide to Power BI Graphs { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [Power BI and Fabric Manchester User Group](https://www.meetup.com/pbimcr/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-08-Manchester){ .ec-gcmd }
+[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=N9x9J00lyA0){ .ec-gcmd target=_blank rel=noopener }
+</div>
 
 </div>
-</div>
-<div class="ec-tl-entry__thumb" markdown>
+<div class="ec-gcard__vid" markdown>
 
 [![Watch on YouTube](https://i.ytimg.com/vi/N9x9J00lyA0/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=N9x9J00lyA0){ target=_blank rel=noopener }
 
 </div>
-</div>
-</div>
-
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### Unlocking New Possibilities: Enhancing Power BI with SVGs { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Jul 2025
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [Birmingham Power BI Meetup Group](https://www.meetup.com/birmingham-power-bi-meet-up-group/)
-{ .ec-tl-entry__venue }
-
+</article>
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard" markdown>
+<div class="ec-gcard__text" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=J--GG-r9-8o){ .ec-badge .ec-badge--video target=_blank rel=noopener }
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Birmingham){ .ec-badge .ec-badge--slides }
+<span class="ec-step__no"></span> <i>· Jul 2025</i>
+{ .ec-gn }
+
+### Unlocking New Possibilities: Enhancing Power BI with SVGs { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [Birmingham Power BI Meetup Group](https://www.meetup.com/birmingham-power-bi-meet-up-group/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Birmingham){ .ec-gcmd }
+[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=J--GG-r9-8o){ .ec-gcmd target=_blank rel=noopener }
+</div>
 
 </div>
-</div>
-<div class="ec-tl-entry__thumb" markdown>
+<div class="ec-gcard__vid" markdown>
 
 [![Watch on YouTube](https://i.ytimg.com/vi/J--GG-r9-8o/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=J--GG-r9-8o){ target=_blank rel=noopener }
 
 </div>
-</div>
-</div>
-
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### Visualize Your Connections: A Practical Guide to Power BI Graphs { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Jul 2025
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } Bristol User Group
-{ .ec-tl-entry__venue }
-
+</article>
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard ec-gcard--solo" markdown>
+<div class="ec-gcard__text" markdown>
 
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Bristol){ .ec-badge .ec-badge--slides }
+<span class="ec-step__no"></span> <i>· Jul 2025</i>
+{ .ec-gn }
 
-</div>
-</div>
-</div>
-</div>
+### Visualize Your Connections: A Practical Guide to Power BI Graphs { .ec-gcard__title }
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
+:material-map-marker:{ .ec-icon } Bristol User Group
+{ .ec-gcard__venue }
 
-### Power Hour { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Jun 2025
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [SQLBits](https://sqlbits.com/)
-{ .ec-tl-entry__venue }
-
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-07-Bristol){ .ec-gcmd }
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+</div>
+</article>
+</div>
 
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-06-SQL%20Bits){ .ec-badge .ec-badge--slides }
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard ec-gcard--solo" markdown>
+<div class="ec-gcard__text" markdown>
+
+<span class="ec-step__no"></span> <i>· Jun 2025</i>
+{ .ec-gn }
+
+### Power Hour { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [SQLBits](https://sqlbits.com/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/25-06-SQL%20Bits){ .ec-gcmd }
+</div>
 
 </div>
-</div>
-</div>
+</article>
 </div>
 
 <!-- ── 2024 ── -->
-<div class="ec-timeline__year">
-<div class="ec-timeline__year-dot"></div>
-<span class="ec-timeline__year-label">2024</span>
+<div class="ec-route__year"><b>2024</b></div>
+
+<div class="ec-step" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard" markdown>
+<div class="ec-gcard__text" markdown>
+
+<span class="ec-step__no"></span> <i>· Aug 2024</i>
+{ .ec-gn }
+
+### PBIP and Fabric API Deployment { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [Birmingham Power BI Meetup Group](https://www.meetup.com/birmingham-power-bi-meet-up-group/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-08-Birmingham){ .ec-gcmd }
+[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=ue_qeFZwMW8){ .ec-gcmd target=_blank rel=noopener }
 </div>
 
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### PBIP and Fabric API Deployment { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Aug 2024
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [Birmingham Power BI Meetup Group](https://www.meetup.com/birmingham-power-bi-meet-up-group/)
-{ .ec-tl-entry__venue }
-
 </div>
-
-<div class="ec-tl-entry__badges" markdown>
-
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=ue_qeFZwMW8){ .ec-badge .ec-badge--video target=_blank rel=noopener }
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-08-Birmingham){ .ec-badge .ec-badge--slides }
-
-</div>
-</div>
-<div class="ec-tl-entry__thumb" markdown>
+<div class="ec-gcard__vid" markdown>
 
 [![Watch on YouTube](https://i.ytimg.com/vi/ue_qeFZwMW8/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=ue_qeFZwMW8){ target=_blank rel=noopener }
 
 </div>
-</div>
-</div>
-
-<div class="ec-tl-entry" markdown>
-<div class="ec-tl-entry__node"></div>
-<div class="ec-tl-entry__card" markdown>
-<div class="ec-tl-entry__body" markdown>
-
-### Git Branching Strategies and Power BI { .ec-tl-entry__title }
-
-<div class="ec-tl-entry__meta" markdown>
-
-:material-calendar:{ .ec-tl-icon } Jul 2024
-{ .ec-tl-entry__date }
-
-:material-map-marker:{ .ec-tl-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
-{ .ec-tl-entry__venue }
-
+</article>
 </div>
 
-<div class="ec-tl-entry__badges" markdown>
+<div class="ec-step ec-step--last" markdown>
+<span class="ec-step__dot"></span>
+<article class="ec-gcard" markdown>
+<div class="ec-gcard__text" markdown>
 
-[:fontawesome-brands-youtube: Video](https://www.youtube.com/watch?v=tDkcrC7u0hU){ .ec-badge .ec-badge--video target=_blank rel=noopener }
-[:material-book-open-page-variant: Slides](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-07-Devon){ .ec-badge .ec-badge--slides }
+<span class="ec-step__no"></span> <i>· Jul 2024</i>
+{ .ec-gn }
+
+### Git Branching Strategies and Power BI { .ec-gcard__title }
+
+:material-map-marker:{ .ec-icon } [Devon and Cornwall User Group](https://www.meetup.com/d-c_powerbi/)
+{ .ec-gcard__venue }
+
+<div class="ec-gcard__acts" markdown>
+[open slides :material-arrow-top-right:](https://github.com/EvaluationContext/evaluationcontext.github.io/tree/master/Resources/presentations/24-07-Devon){ .ec-gcmd }
+[watch recording :material-arrow-top-right:](https://www.youtube.com/watch?v=tDkcrC7u0hU){ .ec-gcmd target=_blank rel=noopener }
+</div>
 
 </div>
-</div>
-<div class="ec-tl-entry__thumb" markdown>
+<div class="ec-gcard__vid" markdown>
 
 [![Watch on YouTube](https://i.ytimg.com/vi/tDkcrC7u0hU/hqdefault.jpg){ .off-glb loading=lazy }](https://www.youtube.com/watch?v=tDkcrC7u0hU){ target=_blank rel=noopener }
 
 </div>
-</div>
+</article>
 </div>
 
 </div>

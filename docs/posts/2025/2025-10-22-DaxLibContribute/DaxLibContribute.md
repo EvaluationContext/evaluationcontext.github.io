@@ -10,7 +10,6 @@ comments: true
 categories:
   - DAX
 tags:
-  - DAX
   - DaxLib
 links:
   - DaxLib.org: https://daxlib.org/

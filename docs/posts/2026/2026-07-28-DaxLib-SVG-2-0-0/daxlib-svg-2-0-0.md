@@ -6,11 +6,11 @@ date:
   created: 2026-07-28
 authors:
   - jDuddy
-comments: true
+comments: true
+series: DaxLib.SVG
 categories:
   - DAX
 tags:
-  - DAX
   - DaxLib
   - SVG
 links:

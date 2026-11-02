@@ -7,11 +7,11 @@ date:
 authors:
   - jDuddy
 comments: true
+series: fabric-cicd
 categories:
   - CI/CD
 tags:
   - Microsoft Fabric
-  - CI/CD
   - fabric-cicd
 links:
   - fabric-cicd Docs: https://microsoft.github.io/fabric-cicd/latest/

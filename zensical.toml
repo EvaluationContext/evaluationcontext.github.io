@@ -2,7 +2,7 @@
 site_name = "Evaluation Context"
 site_url = "https://evaluationcontext.com/"
 site_author = "Jake Duddy"
-site_description = "A blog about the Microsoft BI stack (Microsoft Fabric, Power BI, SQL, SSAS, DAX)"
+site_description = "Posts by Jake Duddy, Data Platform Microsoft MVP, on Microsoft Fabric, Power BI, DAX, SVG visuals and CI/CD for data teams."
 repo_url = "https://github.com/EvaluationContext/evaluationcontext.github.io"
 repo_name = "EvaluationContext"
 copyright = """
@@ -169,7 +169,7 @@ minify_inline_css = true
 
 # Writes llms.txt, llms-full.txt and a Markdown copy of every page next to its HTML
 [project.plugins.llmstxt]
-markdown_description = "Posts on Microsoft Fabric, Power BI and DAX by Jake Duddy"
+markdown_description = "Each link below is a Markdown copy of the page. llms-full.txt has every post in one file."
 full_output = "llms-full.txt"
 
 [project.plugins.llmstxt.sections]

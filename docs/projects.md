@@ -1,4 +1,5 @@
 ---
+description: "Open-source tools for Power BI and Microsoft Fabric by Jake Duddy: the DaxLib.SVG and EvaluationContext.Colour DAX libraries and the Power BI Nexus community hub."
 hide:
   - navigation
   - toc

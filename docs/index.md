@@ -1,4 +1,6 @@
 ---
+seo_title: "Evaluation Context"
+description: "Posts by Jake Duddy, Data Platform Microsoft MVP, on Microsoft Fabric and Power BI"
 hide:
     - toc
 head:

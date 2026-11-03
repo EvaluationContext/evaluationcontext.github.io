@@ -5,8 +5,10 @@ series listing on each post (overrides/partials/series.html) reads a template
 variable that this script writes out: every published post with a `series:`
 key, grouped by series name and ordered by date.created.
 
-The generated file is committed so local builds work without running this,
-but CI regenerates it on every deploy so it never goes stale.
+The generated file is gitignored: CI regenerates it on every deploy, and
+locally you run this once before `zensical serve` / `zensical build` (and
+again after adding a post to a series). The templates import it, so the
+build fails without it.
 """
 
 import json

@@ -7,6 +7,54 @@
   {%- endif -%}
 {%- endmacro -%}
 
+{#- Meta description: front matter first, then generated blog pages (category,
+    archive) get one naming their topic, then the site description. -#}
+{%- macro page_description(page, config) -%}
+  {%- if page.meta and page.meta.description -%}
+    {{ page.meta.description }}
+  {%- elif page.url is startingwith "category/" -%}
+    {{ page.title | striptags }} posts by {{ config.site_author }}, Data Platform Microsoft MVP, on Evaluation Context: a blog about Microsoft Fabric, Power BI and DAX.
+  {%- elif page.url is startingwith "archive/" -%}
+    Posts published in {{ page.title | striptags }} on Evaluation Context, {{ config.site_author }}'s blog about Microsoft Fabric, Power BI and DAX.
+  {%- else -%}
+    {{ config.site_description }}
+  {%- endif -%}
+{%- endmacro -%}
+
+{#- Same as the theme's site_meta, but the description comes from page_description -#}
+{% block site_meta %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{ page_description(page, config) | trim }}">
+  {% if page.meta and page.meta.author %}
+    <meta name="author" content="{{ page.meta.author }}">
+  {% elif config.site_author %}
+    <meta name="author" content="{{ config.site_author }}">
+  {% endif %}
+  {% if page.canonical_url %}
+    <link rel="canonical" href="{{ page.canonical_url }}">
+  {% endif %}
+  {% if page.previous_page %}
+    <link rel="prev" href="{{ page.previous_page.url | url }}">
+  {% endif %}
+  {% if page.next_page %}
+    <link rel="next" href="{{ page.next_page.url | url }}">
+  {% endif %}
+  {% set href = config.theme.favicon | d("assets/images/favicon.png") %}
+  <link rel="icon" href="{{ href | url }}">
+  <meta name="generator" content="{{ generator }}">
+{% endblock %}
+
+{#- `seo_title` front matter sets the whole <title> (the blog index would
+    otherwise be "Index - Evaluation Context") -#}
+{% block htmltitle %}
+  {% if page.meta and page.meta.seo_title %}
+    <title>{{ page.meta.seo_title }}</title>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}
+
 {% block extrahead %}
   {% if config.extra.google_site_verification %}
   <meta name="google-site-verification" content="{{ config.extra.google_site_verification }}" />
@@ -18,7 +66,8 @@
   {# MiniJinja: no Python methods, so use attribute access and filters #}
   {% set meta = page.meta if page and page.meta else {} %}
   {% set is_post = page.config and page.config.date %}
-  {% set og_desc = meta.description | default(config.site_description, true) %}
+  {% set og_desc = page_description(page, config) | trim %}
+  {% set og_title = meta.seo_title or ((page.title ~ " - " ~ config.site_name) if page.title else config.site_name) %}
 
   {# image may be a string or a {path, alt} mapping #}
   {% set og_image_raw = none %}
@@ -35,7 +84,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="{{ 'article' if is_post else 'website' }}" />
   <meta property="og:url" content="{{ page.canonical_url }}" />
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} - {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}" />
+  <meta property="og:title" content="{{ og_title }}" />
   <meta property="og:description" content="{{ og_desc }}" />
   <meta property="og:site_name" content="{{ config.site_name }}" />
   {% if og_image_url %}
@@ -51,12 +100,48 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}" />
+  <meta name="twitter:title" content="{{ og_title }}" />
   <meta name="twitter:description" content="{{ og_desc }}" />
   {% if og_image_url %}
   <meta name="twitter:image" content="{{ og_image_url }}" />
   {% else %}
   <meta name="twitter:image" content="{{ config.site_url }}assets/images/avatar.png" />
+  {% endif %}
+
+  {# One Person entity for the author: the home page declares it, posts reuse it by @id #}
+  {% set person_id = config.site_url ~ "#person" %}
+  {% set person = {
+    "@type": "Person",
+    "@id": person_id,
+    "name": config.site_author,
+    "url": config.site_url,
+    "image": config.site_url ~ "assets/images/avatar.png",
+    "jobTitle": "Data Platform Microsoft MVP",
+    "sameAs": [
+      "https://www.linkedin.com/in/jakeduddy/",
+      "https://github.com/EvaluationContext",
+      "https://community.fabric.microsoft.com/t5/user/viewprofilepage/user-id/1231947"
+    ]
+  } %}
+
+  {% if page.canonical_url == config.site_url %}
+  {% set ld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": config.site_url ~ "#website",
+        "name": config.site_name,
+        "url": config.site_url,
+        "description": config.site_description,
+        "inLanguage": "en",
+        "author": {"@id": person_id},
+        "publisher": {"@id": person_id}
+      },
+      person
+    ]
+  } %}
+  <script type="application/ld+json">{{ ld | tojson }}</script>
   {% endif %}
 
   {% if is_post %}
@@ -79,8 +164,10 @@
     "datePublished": page.config.date.created | string | replace(" ", "T"),
     "dateModified": (page.config.date.updated or page.config.date.created) | string | replace(" ", "T"),
     "keywords": page.categories | map(attribute="title") | list,
-    "author": {"@type": "Person", "name": config.site_author, "url": config.site_url},
-    "publisher": {"@type": "Person", "name": config.site_author, "url": config.site_url}
+    "inLanguage": "en",
+    "isPartOf": {"@type": "WebSite", "@id": config.site_url ~ "#website", "name": config.site_name, "url": config.site_url},
+    "author": person,
+    "publisher": {"@id": person_id}
   } %}
   <script type="application/ld+json">{{ ld | tojson }}</script>
   {% endif %}

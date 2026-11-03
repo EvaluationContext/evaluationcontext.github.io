@@ -4,28 +4,42 @@ on:
     branches:
       - master
       - main
+  workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+# One deploy at a time; a newer push waits rather than cancelling a live deploy
+concurrency:
+  group: pages
+  cancel-in-progress: false
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
         with:
           python-version: 3.x
       - run: pip install -r requirements.txt
-      # --clean: Zensical's page cache does not invalidate on theme feature
-      # changes, so always render from scratch (about 35s for this site).
       # Series listings on posts read a generated partial (see the script)
       - run: python scripts/build_series.py
-      - run: zensical build --clean
+      # --clean: Zensical's page cache does not invalidate on theme feature
+      # changes, so always render from scratch (about 35s for this site).
+      # --strict: fail on warnings such as broken links or missing anchors.
+      - run: zensical build --clean --strict
       # The RSS plugin builds hero image URLs from the source path (/posts/<year>/...)
       # but Zensical serves them at /<year>/..., so repoint them in the feeds.
       - run: python scripts/fix_feed_images.py
-      # Publishes site/ to the gh-pages branch, which GitHub Pages already
-      # serves (replaces `mkdocs gh-deploy`). docs/CNAME is copied into site/.
-      - uses: peaceiris/actions-gh-pages@v4
+      # Per-post descriptions in llms.txt and <lastmod> in sitemap.xml
+      - run: python scripts/enrich_llms_sitemap.py
+      # Deploys site/ straight to GitHub Pages (Settings > Pages > Source must be
+      # "GitHub Actions"). The custom domain is set there; docs/CNAME is ignored.
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          path: site/
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

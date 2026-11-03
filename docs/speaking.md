@@ -1,4 +1,5 @@
 ---
+description: "Talks by Jake Duddy on Microsoft Fabric, Power BI and DAX at SQLBits and UK user groups, with slides and recordings."
 hide:
   - navigation
   - toc

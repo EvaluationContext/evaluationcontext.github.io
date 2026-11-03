@@ -91,4 +91,4 @@ If you have questions about this privacy policy, you can reach us through:
 
 ## Cookie Settings
 
-You can change your cookie preferences at any time: [Change cookie settings](#__consent)
+You can change your cookie preferences at any time: [Change cookie settings](/privacy/#__consent)

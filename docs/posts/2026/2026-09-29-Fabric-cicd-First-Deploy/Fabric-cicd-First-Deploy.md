@@ -4,7 +4,7 @@ description: Setting up Fabric CI/CD, laying the groundwork of branching strateg
 image: hero.jpg
 date:
   created: 2026-09-29
-  updated: 2026-09-30
+  updated: 2026-11-07
 authors:
   - jDuddy
 comments: true
@@ -29,6 +29,10 @@ links:
   - Lost Connections: https://evaluationcontext.com/posts/cicd-connections/
 slug: posts/fabric-cicd-first-deploy
 ---
+
+??? note "Edited 7 November 2026"
+
+    The [Service connection Contributor role](#service-principals) tip said to remove the SPN's role assignment on the subscription altogether. That breaks the login step. After logging in, `AzureCLI@2` runs `az account set` on the connection's subscription, and a service principal only sees a subscription it holds a role on, so with no role the login fails with `The subscription of '<subscription id>' doesn't exist in cloud 'AzureCloud'`. The SPN needs a role, but not Contributor: **Reader** on the subscription is enough. The tip now says so.
 
 ??? note "Edited 30 September 2026"
 
@@ -57,11 +61,11 @@ I've written about fabric-cicd a few times already; the series links those posts
 
     | Term | What it means here |
     | ---- | ------------------ |
-    | :material-folder-outline: Workspace | A Fabric workspace. One per environment per solution, named `<solution>-<env>`, so `foo-dev` |
+    | :fabric-workspace-outline: Workspace | A Fabric workspace. One per environment per solution, named `<solution>-<env>`, so `foo-dev` |
     | :material-git: Repo | The Azure Repos git repository holding the solution: one folder per workspace under `fabric/`, plus the pipelines |
     | :material-source-branch: Branch | `main`, `release/*` or `feature/*`. Each maps to a workspace; the [Branching Strategy](#branching-strategy) table says how |
     | :material-lan-connect: Connection | A Fabric connection to a data source, with its own owner and credential. Not part of any item definition |
-    | :material-pipe: [Azure Pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) | The CI/CD runner in Azure DevOps. A pipeline is a YAML file in the repo made of stages, jobs and steps, triggered by a branch. Each job runs on an agent; this series uses Microsoft-hosted agents, a fresh Azure VM per job, discarded when it ends |
+    | :azure-pipelines: [Azure Pipelines](https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) | The CI/CD runner in Azure DevOps. A pipeline is a YAML file in the repo made of stages, jobs and steps, triggered by a branch. Each job runs on an agent; this series uses Microsoft-hosted agents, a fresh Azure VM per job, discarded when it ends |
     | :material-shield-check-outline: [Environment](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/environments?view=azure-devops) | An Azure DevOps object that a deployment job targets. Approvals and locks are attached to the environment, to guard deployment into it |
     | :material-connection: [Service connection](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops) | The Azure DevOps object that points at the identity a pipeline authenticates as (a service principal or managed identity) and says how. We will use workload identity federation, so there is no secret to store or rotate |
     | :material-robot-outline: [Service principal (SPN)](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser) | The Entra identity the pipeline runs as. It needs a role on every workspace it deploys to and access to every connection the items use |
@@ -179,12 +183,12 @@ gitGraph
 
 Each branch maps to a workspace, and each workspace is there for a reason. The reason is what decides what gets deployed to it, by whom, and when; without it we'd just be following a paradigm.
 
-| :material-folder-outline: Workspace | :material-source-branch: Branch | Why it exists | Deployed by | Git connected |
+| :fabric-workspace-outline: Workspace | :material-source-branch: Branch | Why it exists | Deployed by | Git connected |
 | --------- | ------ | ------------- | ----------- | ------------- |
-| :material-folder-outline: `feature` | :material-source-branch: `feature/*` | A branch's sandbox, so a developer can change anything without touching anyone else's work. Disposable; torn down when the branch merges | Git sync | To the feature branch, commits out only |
-| :material-folder-outline: `dev` | :material-source-branch: `main` | Proves that what has merged to `main` works together. Nothing lands here except by pipeline, so if dev is broken, `main` is broken | fabric-cicd, on every merge | No |
-| :material-folder-outline: `test` | :material-source-branch: `release/*` | Proves the prod deployment will land. It gets the exact commit prod gets, and it's where user acceptance happens, which may mean prod-shaped data | fabric-cicd, on every push to the release branch | No |
-| :material-folder-outline: `prod` | :material-source-branch: `release/*` | The users' workspace. Nobody deploys here except the release pipeline, after an approval | fabric-cicd, after the approval | No |
+| :fabric-workspace-outline: `feature` | :material-source-branch: `feature/*` | A branch's sandbox, so a developer can change anything without touching anyone else's work. Disposable; torn down when the branch merges | Git sync | To the feature branch, commits out only |
+| :fabric-workspace-outline: `dev` | :material-source-branch: `main` | Proves that what has merged to `main` works together. Nothing lands here except by pipeline, so if dev is broken, `main` is broken | fabric-cicd, on every merge | No |
+| :fabric-workspace-outline: `test` | :material-source-branch: `release/*` | Proves the prod deployment will land. It gets the exact commit prod gets, and it's where user acceptance happens, which may mean prod-shaped data | fabric-cicd, on every push to the release branch | No |
+| :fabric-workspace-outline: `prod` | :material-source-branch: `release/*` | The users' workspace. Nobody deploys here except the release pipeline, after an approval | fabric-cicd, after the approval | No |
 
 ```mermaid
 flowchart LR
@@ -208,9 +212,9 @@ flowchart LR
     R -- "fab deploy, after approval" --> P
 ```
 
-I want a :material-folder-outline: feature workspace to be provisioned by a pipeline when the branch is created, filled by a deployment to resolve item dependencies, then attach git integration, with a git sync from workspace :material-arrow-right: branch, and torn down when the branch merges. The git integration sync is only applied one way, workspace :material-arrow-right: branch: a developer commits from the workspace to the repo, and nothing is pulled from git into the workspace. Definitions edited in VS Code or by an agent go the other way, one item at a time, with `fab import` followed by a read-back, the pattern Microsoft's [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) uses. One item, one call, one error that names the item, and no "try again" commits on the branch, just to facilitate the use of git sync.
+I want a :fabric-workspace-outline: feature workspace to be provisioned by a pipeline when the branch is created, filled by a deployment to resolve item dependencies, then attach git integration, with a git sync from workspace :material-arrow-right: branch, and torn down when the branch merges. The git integration sync is only applied one way, workspace :material-arrow-right: branch: a developer commits from the workspace to the repo, and nothing is pulled from git into the workspace. Definitions edited in VS Code or by an agent go the other way, one item at a time, with `fab import` followed by a read-back, the pattern Microsoft's [skills-for-fabric](https://github.com/microsoft/skills-for-fabric) uses. One item, one call, one error that names the item, and no "try again" commits on the branch, just to facilitate the use of git sync.
 
-:material-folder-outline: Dev, :material-folder-outline: test and :material-folder-outline: prod are never git-connected. The pipeline is the only thing that publishes them, and there is nothing a git connection would add except a source control panel showing drift after every deploy, because `parameter.yml` rewrote ids on the way in.
+:fabric-workspace-outline: Dev, :fabric-workspace-outline: test and :fabric-workspace-outline: prod are never git-connected. The pipeline is the only thing that publishes them, and there is nothing a git connection would add except a source control panel showing drift after every deploy, because `parameter.yml` rewrote ids on the way in.
 
 ### Repo Structure
 
@@ -238,11 +242,11 @@ The repo will be structured as follows. A single workspace `foo` with five items
 ```
 
 1. :material-connection: **Service connection names** - the only values to edit to run the pipelines
-2. :material-pipe: **main to dev** - every merge to :material-source-branch: `main` publishes the dev workspace
-3. :material-pipe: **release/\* to test to prod** - test on every push, a manual approval, then prod
-4. :material-pipe: **Setup steps** - install the Fabric CLI and log in as the SPN with workload identity federation
-5. :material-pipe: **Deploy steps** - `fab deploy` one environment and publish the log as a build artifact
-6. :material-folder-outline: **fabric-cicd `repository_directory`** - one folder per workspace
+2. :azure-pipelines: **main to dev** - every merge to :material-source-branch: `main` publishes the dev workspace
+3. :azure-pipelines: **release/\* to test to prod** - test on every push, a manual approval, then prod
+4. :azure-pipelines: **Setup steps** - install the Fabric CLI and log in as the SPN with workload identity federation
+5. :azure-pipelines: **Deploy steps** - `fab deploy` one environment and publish the log as a build artifact
+6. :fabric-workspace-outline: **fabric-cicd `repository_directory`** - one folder per workspace
 7. **Data pipeline** - copies `sales.csv` from an external source over a connection, then runs the notebook. Holds the notebook's logical id, a zero workspace id and a connection id
 8. **Notebook** - writes the `sales` table. Holds the default lakehouse's logical id and a zero workspace id
 9. **Semantic model** - Direct Lake on the lakehouse's SQL analytics endpoint. Holds the endpoint host and id as literals
@@ -266,10 +270,10 @@ Most of what follows is done once for the tenant and the Azure DevOps project, a
 | :material-account-group-outline: [Security groups](#security-groups) `sg-fabric-deploy-*` | :material-check: | |
 | :material-shield-lock-outline: [Tenant settings](#tenant-settings) scoped to those groups | :material-check: | |
 | :material-shield-check-outline: [Azure DevOps environments](#environments-and-approvals) `fabric-dev`, `fabric-test`, `fabric-prod` and the approval on prod | :material-check: | |
-| :material-git: [The repo](#repo-init), [`config.yml`](#configyml), [`parameter.yml`](#parameteryml) and the :material-pipe: [two pipeline files](#two-pipelines) | | :material-check: |
-| :material-folder-outline: [Workspaces](#workspaces) `foo-dev`, `foo-test`, `foo-prod` on a capacity, with the SPNs as [Contributor](#permissions) | | :material-check: |
+| :material-git: [The repo](#repo-init), [`config.yml`](#configyml), [`parameter.yml`](#parameteryml) and the :azure-pipelines: [two pipeline files](#two-pipelines) | | :material-check: |
+| :fabric-workspace-outline: [Workspaces](#workspaces) `foo-dev`, `foo-test`, `foo-prod` on a capacity, with the SPNs as [Contributor](#permissions) | | :material-check: |
 | :material-lan-connect: [Connections](#connections) the items use, shared with both SPNs | | :material-check: |
-| :material-pipe: [Registering the two pipelines](#two-pipelines) and authorising them on the service connections | | :material-check: |
+| :azure-pipelines: [Registering the two pipelines](#two-pipelines) and authorising them on the service connections | | :material-check: |
 
 ## Service Principals
 
@@ -277,7 +281,7 @@ Lets start with the service principals: the Entra identities that run the pipeli
 
 To help protect against an accidental deploy to production, we will use two identities, one for non-prod and one for prod environments.
 
-| :material-robot-outline: SPN | :material-account-group-outline: Security group | :material-connection: Service connection | :material-pipe: Used by | :material-folder-outline: `dev` | :material-folder-outline: `test` | :material-folder-outline: `prod` |
+| :material-robot-outline: SPN | :material-account-group-outline: Security group | :material-connection: Service connection | :azure-pipelines: Used by | :fabric-workspace-outline: `dev` | :fabric-workspace-outline: `test` | :fabric-workspace-outline: `prod` |
 | --- | -------------- | ------------------ | ------- | ----- | ------ | ------ |
 | :material-robot-outline: `sp-fabric-deploy-nonprod` | :material-account-group-outline: `sg-fabric-deploy-nonprod` | :material-connection: `sc-fabric-deploy-nonprod` | `deploy-main.yml`, and the Test stage of `deploy-release.yml` | Contributor | Contributor | |
 | :material-robot-outline: `sp-fabric-deploy-prod` | :material-account-group-outline: `sg-fabric-deploy-prod` | :material-connection: `sc-fabric-deploy-prod` | The Prod stage of `deploy-release.yml` only | | | Contributor |
@@ -331,7 +335,22 @@ In Entra ID :material-arrow-right: **App registrations**, find the app Azure Dev
 
 ??? tip "Service connection Contributor role"
 
-    Azure DevOps also gave the new SPN **Contributor on the scope**, because that's what an Azure Resource Manager connection is for. Fabric doesn't need it. Remove the role assignment, or pick an empty resource group rather than the subscription as the scope when creating the connection.
+    Azure DevOps also gave the new SPN **Contributor on the scope**, because that's what an Azure Resource Manager connection is for. Fabric doesn't need it, but the login does need some role. After logging in, `AzureCLI@2` runs `az account set` on the connection's subscription, and a service principal only sees a subscription it holds a role on. With no role the login step fails:
+
+    ```text
+    ERROR: The subscription of '<subscription id>' doesn't exist in cloud 'AzureCloud'.
+    ```
+
+    So swap Contributor for **Reader**, which is enough for `az account set`:
+
+    ```bash
+    az role assignment create \
+      --assignee <service connection's app registration client id> \
+      --role Reader \
+      --scope /subscriptions/<subscription id>
+    ```
+
+    **Updated November 2026:** this tip originally said to remove the role assignment altogether. That breaks the login step, as above.
 
 With that in place a pipeline can authenticate without a secret: `AzureCLI@2` with the service connection and `addSpnToEnvironment: true`, which puts the SPN's client id, the federated token and the tenant id into the step's environment, and `fab auth login` consumes them. No secret is read from anywhere, because there isn't one.
 
@@ -390,11 +409,11 @@ Apply them from **Tenant settings** in the Fabric admin portal.
 
 Now we can create the workspaces for the three environments, on a capacity, under exactly the names `config.yml` will use.
 
-| Environment | :material-folder-outline: Workspace | Contents |
+| Environment | :fabric-workspace-outline: Workspace | Contents |
 | ----------- | --------- | -------- |
-| Dev | :material-folder-outline: `foo-dev` | The five items, because that's where they were committed from |
-| Test | :material-folder-outline: `foo-test` | Empty |
-| Prod | :material-folder-outline: `foo-prod` | Empty |
+| Dev | :fabric-workspace-outline: `foo-dev` | The five items, because that's where they were committed from |
+| Test | :fabric-workspace-outline: `foo-test` | Empty |
+| Prod | :fabric-workspace-outline: `foo-prod` | Empty |
 
 !!! note "Git Integration"
 
@@ -404,11 +423,11 @@ Now we can create the workspaces for the three environments, on a capacity, unde
 
 The SPNs need the **Contributor** role on the workspaces to deploy into them.
 
-| :material-folder-outline: Workspace | :material-robot-outline: `sp-fabric-deploy-nonprod` | :material-robot-outline: `sp-fabric-deploy-prod` |
+| :fabric-workspace-outline: Workspace | :material-robot-outline: `sp-fabric-deploy-nonprod` | :material-robot-outline: `sp-fabric-deploy-prod` |
 | --------- | ------------ | -------- |
-| :material-folder-outline: `foo-dev` | Contributor | |
-| :material-folder-outline: `foo-test` | Contributor | |
-| :material-folder-outline: `foo-prod` | | Contributor |
+| :fabric-workspace-outline: `foo-dev` | Contributor | |
+| :fabric-workspace-outline: `foo-test` | Contributor | |
+| :fabric-workspace-outline: `foo-prod` | | Contributor |
 
 ### Connections
 
@@ -538,11 +557,11 @@ Select **Create environment**, name it, and repeat until there are three: :mater
 
 ![The fabric-prod environment with a manual approval check](environment-approval.png)
 
-That approval is the only human step in the flow. This means after creating a :material-source-branch: `release/*` branch, the :material-pipe: `deploy-release.yml` pipeline will run, deploying to Test, but it will pause for the manual approval from :material-account-group-outline: `sg-fabric-approve-prod` before deploying to the :material-shield-check-outline: `fabric-prod` environment.
+That approval is the only human step in the flow. This means after creating a :material-source-branch: `release/*` branch, the :azure-pipelines: `deploy-release.yml` pipeline will run, deploying to Test, but it will pause for the manual approval from :material-account-group-outline: `sg-fabric-approve-prod` before deploying to the :material-shield-check-outline: `fabric-prod` environment.
 
 ### Two Pipelines
 
-We will have two pipelines: `deploy-main.yml` for deploying changes to the main branch (dev) and :material-pipe: `deploy-release.yml` for deploying release branches (test and prod). :material-pipe: `deploy-main.yml` triggers when changes in `fabric/` are detected on :material-source-branch: `main`. :material-pipe: `deploy-release.yml` triggers on any branch matching :material-source-branch: `release/*`.
+We will have two pipelines: `deploy-main.yml` for deploying changes to the main branch (dev) and :azure-pipelines: `deploy-release.yml` for deploying release branches (test and prod). :azure-pipelines: `deploy-main.yml` triggers when changes in `fabric/` are detected on :material-source-branch: `main`. :azure-pipelines: `deploy-release.yml` triggers on any branch matching :material-source-branch: `release/*`.
 
 Each of these pipelines references the two shared templates: `fab-setup-steps.yml` (install `fab`, the encryption fallback, the federated login) and `fab-deploy-steps.yml` (`fab deploy`). `variables.yml` holds the two service connection names and nothing else.
 
@@ -793,7 +812,7 @@ Each of these pipelines references the two shared templates: `fab-setup-steps.ym
 
     In a real scenario, you would have a repo for the templates (`fab-deploy-steps.yml` and `fab-setup-steps.yml`), where you would pin a version of Fabric-CLI, and tag the template repository. This allows you to set up thin pipeline definitions in your Fabric Items repos that would reference the tagged version of the templates rather than the latest commit. This allows you to centralize reused code and control when updates to the templates are adopted, rather than automatically getting the latest changes.
 
-Once the pipelines are committed to Azure DevOps, they will not run until they are registered. Go to **Pipelines** :material-arrow-right: **Create pipeline** :material-arrow-right: **Azure Repos Git** :material-arrow-right: select the repo :material-arrow-right: **Existing Azure Pipelines YAML file**, once each for :material-pipe: `deploy-main.yml` and :material-pipe: `deploy-release.yml`, **Save** and name them :material-pipe: `deploy-main` and :material-pipe: `deploy-release`.
+Once the pipelines are committed to Azure DevOps, they will not run until they are registered. Go to **Pipelines** :material-arrow-right: **Create pipeline** :material-arrow-right: **Azure Repos Git** :material-arrow-right: select the repo :material-arrow-right: **Existing Azure Pipelines YAML file**, once each for :azure-pipelines: `deploy-main.yml` and :azure-pipelines: `deploy-release.yml`, **Save** and name them :azure-pipelines: `deploy-main` and :azure-pipelines: `deploy-release`.
 
 ![The two pipelines in Azure DevOps, pointing at deploy-main.yml and deploy-release.yml](pipelines.png)
 
@@ -801,25 +820,25 @@ Now that the pipelines exist, go back to each service connection and select **Se
 
 ![service connection security](service-connection-security.png)
 
-Select **Pipeline permissions**, and authorise them: `deploy-main` and :material-pipe: `deploy-release` on :material-connection: `sc-fabric-deploy-nonprod`, :material-pipe: `deploy-release` alone on :material-connection: `sc-fabric-deploy-prod`. Nothing else can use them, and the first run of each pipeline will prompt for exactly this if you forget.
+Select **Pipeline permissions**, and authorise them: `deploy-main` and :azure-pipelines: `deploy-release` on :material-connection: `sc-fabric-deploy-nonprod`, :azure-pipelines: `deploy-release` alone on :material-connection: `sc-fabric-deploy-prod`. Nothing else can use them, and the first run of each pipeline will prompt for exactly this if you forget.
 
 ![Pipeline permissions on sc-fabric-deploy-prod, deploy-release only](service-connection-permissions.png)
 
 ## Testing the Deployment
 
-:material-folder-outline: `foo-dev` already holds the five items, because that's where they were committed from, so a merge to :material-source-branch: `main` proves the pipeline rather than the deploy: `deploy-main` runs, logs in as :material-robot-outline: `sp-fabric-deploy-nonprod`, and republishes five items over themselves. Green, and nothing visibly changes.
+:fabric-workspace-outline: `foo-dev` already holds the five items, because that's where they were committed from, so a merge to :material-source-branch: `main` proves the pipeline rather than the deploy: `deploy-main` runs, logs in as :material-robot-outline: `sp-fabric-deploy-nonprod`, and republishes five items over themselves. Green, and nothing visibly changes.
 
 ![deploy-main run, Dev stage green](deploy-dev-green.png)
 
-The real test is the release pipeline, into an empty workspace. Cut :material-source-branch: `release/2026.10` from :material-source-branch: `main`. :material-pipe: `deploy-release` is triggered and deploys test, and five items appear in an empty :material-folder-outline: `foo-test`. 
+The real test is the release pipeline, into an empty workspace. Cut :material-source-branch: `release/2026.10` from :material-source-branch: `main`. :azure-pipelines: `deploy-release` is triggered and deploys test, and five items appear in an empty :fabric-workspace-outline: `foo-test`. 
 
 ![deploy-release run, Test green, approval pending on Prod](deploy-release-approval.png)
 
-The run stops at the approval on :material-shield-check-outline: `fabric-prod`; only a member of :material-account-group-outline: `sg-fabric-approve-prod` can let it through. Approve, and :material-folder-outline: `foo-prod` fills the same way.
+The run stops at the approval on :material-shield-check-outline: `fabric-prod`; only a member of :material-account-group-outline: `sg-fabric-approve-prod` can let it through. Approve, and :fabric-workspace-outline: `foo-prod` fills the same way.
 
 ![Approve on Prod](prod-approval.png)
 
-The workspace lineage view confirms that the items in :material-folder-outline: `foo-prod` are bound to each other, not to dev.
+The workspace lineage view confirms that the items in :fabric-workspace-outline: `foo-prod` are bound to each other, not to dev.
 
 ![Workspace lineage showing items bound to the correct environment](workspace-lineage.png)
 

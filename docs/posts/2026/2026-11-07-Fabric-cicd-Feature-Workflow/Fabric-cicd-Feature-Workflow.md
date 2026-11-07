@@ -39,7 +39,7 @@ In the last post in the series ([Groundwork](https://evaluationcontext.com/posts
 
 !!! example "Sample Repo"
 
-    The code for this post is the :material-tag: [`post-2`](https://github.com/EvaluationContext/fabric-cicd-example/releases/tag/post-2) tag of :material-git: [EvaluationContext/fabric-cicd-example](https://github.com/EvaluationContext/fabric-cicd-example), building on [`post-1`](https://github.com/EvaluationContext/fabric-cicd-example/tree/post-1).
+    The code for this post is the :material-tag: [`post-2`](https://github.com/EvaluationContext/fabric-cicd-example/tree/post-2) tag of :material-git: [EvaluationContext/fabric-cicd-example](https://github.com/EvaluationContext/fabric-cicd-example), building on [`post-1`](https://github.com/EvaluationContext/fabric-cicd-example/tree/post-1).
 
 ??? info "Starting Point"
 

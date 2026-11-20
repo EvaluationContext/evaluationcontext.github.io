@@ -423,3 +423,38 @@ code, pre, .md-typeset code, .md-typeset pre {
     display: none !important;
   }
 }
+
+/* ---------- Scrolling card gallery (posts) ---------- */
+.md-typeset .ec-gallery {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.2rem 0.2rem 0.8rem;
+  margin: 1em 0;
+}
+
+.md-typeset .ec-gallery figure {
+  flex: 0 0 13rem;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  margin: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.4rem;
+  background: var(--md-default-bg-color);
+}
+
+.md-typeset .ec-gallery figure img {
+  width: 100%;
+  height: 5rem;
+  object-fit: contain;
+}
+
+.md-typeset .ec-gallery figcaption {
+  max-width: none;
+  margin: 0.6rem 0 0;
+  font-style: normal;
+  text-align: left;
+}

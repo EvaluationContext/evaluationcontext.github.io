@@ -92,6 +92,7 @@ code = "JetBrains Mono"
 [project.theme.icon]
 repo = "fontawesome/brands/github"
 logo = "ec/logo"   # overrides/.icons/ec/logo.svg, currentColor so it follows the scheme
+admonition.prompt = "lucide/bot-message-square"   # custom `!!! prompt` admonition, drawn as a chat window in assets/css/extra.css
 
 [[project.theme.palette]]
 media = "(prefers-color-scheme: light)"

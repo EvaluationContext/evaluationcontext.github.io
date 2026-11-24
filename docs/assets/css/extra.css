@@ -458,3 +458,162 @@ code, pre, .md-typeset code, .md-typeset pre {
   font-style: normal;
   text-align: left;
 }
+
+/* Prompt: `!!! prompt` or `??? prompt` for text given to an agent, drawn as a
+   chat window. The title is the window's header, each block inside is a message
+   you sent, a blockquote is the agent's reply, and a reply box closes it. The
+   icon is set in zensical.toml
+   (theme.icon.admonition.prompt). */
+.md-typeset .admonition.prompt,
+.md-typeset details.prompt {
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--ec-panel);
+  border: 1px solid var(--ec-line);
+  border-radius: 0.6rem;
+}
+
+.md-typeset .prompt > .admonition-title,
+.md-typeset .prompt > summary {
+  margin: 0;
+  padding: 0.55rem 2.2rem 0.55rem 2.2rem;
+  background-color: var(--ec-teal-ghost);
+  border-bottom: 1px solid var(--ec-line);
+}
+
+.md-typeset details.prompt:not([open]) > summary {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.md-typeset .prompt > .admonition-title::before,
+.md-typeset .prompt > summary::before {
+  top: 0.6rem;
+  left: 0.8rem;
+  background-color: var(--ec-teal);
+  -webkit-mask-image: var(--md-admonition-icon--prompt);
+          mask-image: var(--md-admonition-icon--prompt);
+}
+
+.md-typeset .prompt > summary::after {
+  top: 0.6rem;
+  right: 0.8rem;
+}
+
+/* Messages: bubbles sized to their text, each under a small label. What you
+   sent sits on the right; a blockquote is the agent's reply, on the left. */
+.md-typeset .prompt > :not(.admonition-title):not(summary) {
+  position: relative;
+  width: fit-content;
+  max-width: 85%;
+  margin: 1.5rem 0.8rem 0.5rem auto;
+  padding: 0.6rem 0.8rem;
+  overflow: visible;   /* keeps the label, which sits outside the bubble */
+  background-color: color-mix(in srgb, var(--ec-teal) 16%, var(--md-default-bg-color));
+  border-radius: 0.8rem 0.8rem 0.2rem 0.8rem;
+}
+
+.md-typeset .prompt > :not(.admonition-title):not(summary):last-child {
+  margin-bottom: 0.9rem;
+}
+
+.md-typeset .prompt > :not(.admonition-title):not(summary)::before {
+  content: "You";
+  position: absolute;
+  right: 0.2rem;
+  bottom: calc(100% + 0.15rem);
+  font-family: var(--ec-font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--ec-teal);
+}
+
+.md-typeset .admonition.prompt > blockquote,
+.md-typeset details.prompt > blockquote {
+  margin-right: auto;
+  margin-left: 0.8rem;
+  color: var(--md-default-fg-color);
+  background-color: var(--md-default-bg-color);
+  border: 1px solid var(--ec-line);
+  border-radius: 0.8rem 0.8rem 0.8rem 0.2rem;
+}
+
+.md-typeset .admonition.prompt > blockquote::before,
+.md-typeset details.prompt > blockquote::before {
+  content: "Agent";
+  right: auto;
+  left: 0.2rem;
+  color: var(--md-default-fg-color--lighter);
+}
+
+.md-typeset .prompt > blockquote > :first-child {
+  margin-top: 0;
+}
+
+.md-typeset .prompt > blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* Messages in a row from the same side share one label */
+.md-typeset .prompt > :not(.admonition-title):not(summary):not(blockquote) + :not(blockquote),
+.md-typeset .admonition.prompt > blockquote + blockquote,
+.md-typeset details.prompt > blockquote + blockquote {
+  margin-top: 0;
+}
+
+.md-typeset .prompt > :not(.admonition-title):not(summary):not(blockquote) + :not(blockquote)::before,
+.md-typeset .admonition.prompt > blockquote + blockquote::before,
+.md-typeset details.prompt > blockquote + blockquote::before {
+  content: none;
+}
+
+.md-typeset .prompt > .highlight pre,
+.md-typeset .prompt > .highlight code {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.md-typeset .prompt > .highlight code {
+  white-space: pre-wrap;
+}
+
+/* A long prompt grows its bubble: codeblock.css caps .highlight at 500px, and
+   the bubble can't scroll because its label needs overflow: visible */
+.md-typeset .prompt > .highlight {
+  max-height: none;
+}
+
+.md-typeset .prompt .md-code__nav {
+  display: none;
+}
+
+/* A plain text prompt reads as a chat message, not code
+   (a `plaintext` fence gets the class language-text) */
+.md-typeset .prompt > :is(.language-text, .language-plaintext),
+.md-typeset .prompt > :is(.language-text, .language-plaintext) pre,
+.md-typeset .prompt > :is(.language-text, .language-plaintext) code {
+  font-family: var(--ec-font-body);
+  font-size: var(--post-content-font-size, inherit);   /* the size posts.css gives paragraphs */
+  color: var(--md-default-fg-color);
+}
+
+/* Reply box with a send button */
+.md-typeset .admonition.prompt::after,
+.md-typeset details.prompt[open]::after {
+  content: "Reply to the agent";
+  display: block;
+  margin: 0 0.8rem 0.8rem;
+  padding: 0.45rem 2.4rem 0.45rem 0.9rem;
+  color: var(--md-default-fg-color--lighter);
+  background: var(--md-default-bg-color) no-repeat right 0.4rem center / 1.2rem
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23ec4899'/%3E%3Cpath d='m7 12 5-5 5 5M12 17V7' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  border: 1px solid var(--ec-line);
+  border-radius: 999px;
+}

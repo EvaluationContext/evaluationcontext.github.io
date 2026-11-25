@@ -1,5 +1,5 @@
 ---
-title: Fabric Apps from Power BI Desktop
+title: Power BI Desktop for Apps
 description: Building a Fabric App on an existing semantic model with Power BI Desktop for Apps
 image: hero.png
 date:
@@ -20,7 +20,7 @@ links:
 slug: posts/Power-BI-Desktop-For-Apps
 ---
 
-Rayfin is now in Power BI Desktop. It was announced at [Ignite](https://community.fabric.microsoft.com/blog/fbc_pbiupdatesblog/power-bi-at-ignite-building-on-the-momentum/5422974#community-5422974-toc-hId--2073616009). Since it is one of the biggest changes in Power BI, I thought I should check it out. 
+Power BI Desktop for Apps is now in preview. It was announced at [Ignite](https://community.fabric.microsoft.com/blog/fbc_pbiupdatesblog/power-bi-at-ignite-building-on-the-momentum/5422974#community-5422974-toc-hId--2073616009). I thought I should check it out.
 
 ## Power BI Desktop for Apps
 

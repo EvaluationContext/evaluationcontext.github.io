@@ -461,7 +461,8 @@ code, pre, .md-typeset code, .md-typeset pre {
 
 /* Prompt: `!!! prompt` or `??? prompt` for text given to an agent, drawn as a
    chat window. The title is the window's header, each block inside is a message
-   you sent, a blockquote is the agent's reply, and a reply box closes it. The
+   you sent, a blockquote is the agent's reply (a task list in it is a question
+   with the option you selected), and a reply box closes it. The
    icon is set in zensical.toml
    (theme.icon.admonition.prompt). */
 .md-typeset .admonition.prompt,
@@ -558,7 +559,62 @@ code, pre, .md-typeset code, .md-typeset pre {
   margin-bottom: 0;
 }
 
-/* Messages in a row from the same side share one label */
+/* Question: a task list in the agent's reply is a question with options to
+   pick from. `- [x]` is the option you selected, `- [ ]` the ones you didn't.
+   Anything the agent says after the options is ruled off below them. */
+.md-typeset .prompt > blockquote .task-list {
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .prompt > blockquote .task-list-item {
+  position: relative;
+  margin: 0.35rem 0 0;
+  padding: 0.4rem 0.7rem 0.4rem 2rem;
+  color: var(--md-default-fg-color--light);
+  border: 1px solid var(--ec-line);
+  border-radius: 0.5rem;
+}
+
+/* The theme's checkbox is swapped for a radio button drawn on the option */
+.md-typeset .prompt > blockquote .task-list-control {
+  display: none;
+}
+
+.md-typeset .prompt > blockquote .task-list-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.7rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.md-typeset .prompt > blockquote .task-list-item:has(input:checked) {
+  color: var(--md-default-fg-color);
+  background-color: color-mix(in srgb, var(--ec-teal) 16%, var(--md-default-bg-color));
+  border-color: var(--ec-teal);
+}
+
+.md-typeset .prompt > blockquote .task-list-item:has(input:checked)::before {
+  background-color: var(--ec-teal);
+  border-color: var(--ec-teal);
+  box-shadow: inset 0 0 0 0.15rem var(--md-default-bg-color);
+}
+
+.md-typeset .prompt > blockquote .task-list + * {
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--ec-line);
+}
+
+/* Messages in a row from the same side share one label. Markdown merges
+   blockquotes separated only by a blank line, so put an HTML comment
+   (`<!-- new bubble -->`) between two agent replies to keep them apart. */
 .md-typeset .prompt > :not(.admonition-title):not(summary):not(blockquote) + :not(blockquote),
 .md-typeset .admonition.prompt > blockquote + blockquote,
 .md-typeset details.prompt > blockquote + blockquote {

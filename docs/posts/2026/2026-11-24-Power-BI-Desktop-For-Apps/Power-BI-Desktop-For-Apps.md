@@ -40,7 +40,7 @@ Power BI Desktop for Apps uses Rayfin as the backend, but offers a simplified ex
     - :material-shield-account: **Tenant Settings:** *Users can use Power BI Desktop for Apps* and *Fabric Apps* enabled
     - :material-database: **Semantic Model:** Build permission on each model, hosted in the Power BI service
     - :material-flask-outline: **Preview Feature:** Settings > Preview features > Power BI Desktop for Apps
-    - :material-server: **Fabric Capacity:** a workspace on Fabric capacity, to publish to
+    - :material-server: **Fabric Capacity:** a workspace on Fabric capacity, to publish to (publishing to Pro workspaces is coming soon)
 
         !!! warning "Regional Availability"
 
@@ -87,6 +87,10 @@ Model selection is auto or manual, where you can pick from many models (Claude, 
     ![Manual Model Selection](model-manual.png)
 
 All of these models are served through GitHub Copilot, which is the only provider you can use in the app.
+
+!!! warning "Security and Data Collection"
+
+    You bring your own AI, so what happens to your data depends on your GitHub Copilot plan and settings. While building, the agent runs DAX queries against the semantic model to review the data, and the results are sent to the model you picked. Check what your plan collects and retains, and what your organisation allows, before attaching a semantic model with private data.
 
 ## Building the App
 
@@ -148,7 +152,33 @@ The result is a responsive app, where the visuals size to the screen, with a lig
 
 The app has tooltips, but no cross filtering, so it didn't use all of the [template capabilities](https://learn.microsoft.com/en-us/fabric/apps/data-apps-template). The `AGENTS.md` and the `visual-interactivity` skill in the project both tell the agent that components on a page interact by default, but the generated dashboard doesn't wire them up. The agent did say at the end of its reply that it had skipped the interaction wiring, and offered to add it. I was doing a quick test so I didn't notice. You need to manually verify the app before publishing.
 
-The token cost was very low for the one pager.
+The token cost was very low for the one pager. Tokens aren't the only cost though, the DAX queries are charged as semantic model consumption CUs on the capacity.
+
+### Interactions
+
+I went back and asked for the interactions, plus a filter side bar and an AI chat window.
+
+!!! prompt "Adding Interactions"
+
+    add cross-filter or cross-highlight. Add a pop-in side bar for filters. Add a AI chat window so users can talk with their data
+
+    > Which backend should power the AI chat for your data?
+    >
+    > - [x] Fabric IQ for the Power BI semantic model (recommended)
+    > - [ ] An existing Fabric Data Agent
+    > - [ ] Enter a custom answer
+    >
+    > The dashboard already uses a semantic-model connector. Fabric IQ's package and guide are not installed, so I'll proceed with the dashboard interactions while checking what can be completed without inventing a chat backend.
+
+    <!-- new bubble -->
+
+    > AI chat is not yet available: the required Fabric IQ package and its version-matched guide are missing. They're needed to implement the chat; Fabric IQ requests are also not supported in the current Desktop local Preview.
+
+The agent can stop and ask a question, with options to pick from or a box for your own answer. I picked the recommended Fabric IQ option, but the AI chat didn't get built. The Fabric IQ package and guide aren't part of the project, and Fabric IQ requests aren't supported in the local preview yet.
+
+The cross-highlighting and the filter side bar both worked.
+
+![Cross-Highlighting and Filter Side Bar](interactivity.png)
 
 ### Edit Mode
 
@@ -266,7 +296,7 @@ connectors:
 
 ## Publishing
 
-Publishing was like publishing with Power BI, select Publish and pick a workspace. It published the app, plus a child user data function.
+Publishing was like publishing with Power BI, select Publish and pick a workspace. For now the workspace has to be on Fabric capacity, but the docs say publishing to Pro workspaces is coming soon. It published the app, plus a child user data function.
 
 ![App and User Data Function in the Workspace](workspace.png)
 
